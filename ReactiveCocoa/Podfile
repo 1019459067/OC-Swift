@@ -1,0 +1,6 @@
+use_frameworks!
+
+platform :ios, “8.0”  
+target "ReactiveCocoa" do
+pod 'ReactiveCocoa', '~> 4.2.1'
+end
