@@ -11,6 +11,7 @@
 		C99075A11D2AB61100304220 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C99075A01D2AB61100304220 /* AppDelegate.m */; };
 		C99075A71D2AB61100304220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99075A51D2AB61100304220 /* Main.storyboard */; };
 		C99075A91D2AB61100304220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99075A81D2AB61100304220 /* Assets.xcassets */; };
+		C99075B61D2D645800304220 /* WHTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C99075B51D2D645800304220 /* WHTabBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,8 @@
 		C99075A61D2AB61100304220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C99075A81D2AB61100304220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C99075AD1D2AB61100304220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C99075B41D2D645800304220 /* WHTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHTabBarViewController.h; sourceTree = "<group>"; };
+		C99075B51D2D645800304220 /* WHTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHTabBarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,8 @@
 			children = (
 				C990759F1D2AB61100304220 /* AppDelegate.h */,
 				C99075A01D2AB61100304220 /* AppDelegate.m */,
+				C99075B41D2D645800304220 /* WHTabBarViewController.h */,
+				C99075B51D2D645800304220 /* WHTabBarViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 			files = (
 				C99075A11D2AB61100304220 /* AppDelegate.m in Sources */,
 				C990759E1D2AB61100304220 /* main.m in Sources */,
+				C99075B61D2D645800304220 /* WHTabBarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
