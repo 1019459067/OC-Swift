@@ -1,0 +1,28 @@
+//
+//  PrefixHeader.pch
+//  百思不得姐
+//
+//  Created by 肖伟华 on 16/7/9.
+//  Copyright © 2016年 XWH. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+
+/** 日志 */
+#ifdef DEBUG
+#define WHLog(...) NSLog(__VA_ARGS__)
+#else
+#define WHLog(...)
+#endif
+
+/** 颜色相关 */
+#define WHColorA(r,g,b,a) [UIColor colorWithRed:(r)/225.0 green:(g)/225.0 blue:(b)/225.0 alpha:(a)/225.0]
+#define WHColor(r,g,b) WHColorA(r,g,b,255)
+#define WHRandomColor  WHColorA(arc4random_uniform(255),arc4random_uniform(255),arc4random_uniform(255),255)
+
+#endif
+
+#endif /* PrefixHeader_pch */

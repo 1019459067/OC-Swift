@@ -38,18 +38,15 @@
 }
 - (void)setupChildOneVC:(UIViewController *)vc title:(NSString *)title image:(NSString *)strImg selectedImage:(NSString *)selectedImg
 {
-    vc.view.backgroundColor = [self arc4randomColor];
+    vc.view.backgroundColor = WHRandomColor;
     vc.tabBarItem.title = title;
     vc.tabBarItem.image = [UIImage imageNamed:strImg];
     vc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImg]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     [self addChildViewController:vc];
+    WHLog(@"%@",@"234");
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (UIColor *)arc4randomColor
-{
-    return [UIColor colorWithRed:(arc4random()%255/255.0) green:(arc4random()%255/255.0) blue:(arc4random()%255/255.0) alpha:1];
 }
 @end
