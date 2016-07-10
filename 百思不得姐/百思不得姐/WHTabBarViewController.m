@@ -7,25 +7,14 @@
 //
 
 #import "WHTabBarViewController.h"
+#import "WHTabBar.h"
 
 @interface WHTabBarViewController ()
-@property (strong, nonatomic) UIButton *btnPublish;
+
 @end
 
 @implementation WHTabBarViewController
-- (UIButton *)btnPublish
-{
-    if (!_btnPublish) {
-        _btnPublish = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_btnPublish setImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
-        [_btnPublish setImage:[UIImage imageNamed:@"tabBar_publish_click_icon"] forState:UIControlStateSelected];
-        _btnPublish.frame = CGRectMake(0, 0, self.tabBar.frame.size.width / 5.0, self.tabBar.frame.size.height);
-        [_btnPublish addTarget:self action:@selector(onActionPublish) forControlEvents:UIControlEventTouchUpInside];
-        _btnPublish.center = CGPointMake(self.tabBar.frame.size.width * 0.5, self.tabBar.frame.size.height * 0.5);
 
-    }
-    return _btnPublish;
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -43,20 +32,15 @@
 
     [self setupChildOneVC:[[UIViewController alloc]init] title:@"新帖" image:@"tabBar_new_icon" selectedImage:@"tabBar_new_click_icon"];
 
-    [self setupChildOneVC:[[UIViewController alloc]init] title:nil image:@"" selectedImage:nil];
 
     [self setupChildOneVC:[[UIViewController alloc]init] title:@"关注" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
 
     [self setupChildOneVC:[[UIViewController alloc]init] title:@"我" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
 
+    //change tabbar
+    [self setValue:[[WHTabBar alloc]init] forKey:@"tabBar"];
 }
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    /** add button **/
-    [self.tabBar addSubview:self.btnPublish];
 
-}
 - (void)setupChildOneVC:(UIViewController *)vc title:(NSString *)title image:(NSString *)strImg selectedImage:(NSString *)selectedImg
 {
     vc.view.backgroundColor = WHRandomColor;
@@ -66,10 +50,6 @@
         vc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImg]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     }
     [self addChildViewController:vc];
-}
-- (void)onActionPublish
-{
-    WHLogFunc;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
