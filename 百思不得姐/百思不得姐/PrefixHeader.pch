@@ -18,6 +18,7 @@
 #define WHLog(...)
 #endif
 
+#define WHLogFunc WHLog(@"__%s__",__func__)
 /** 颜色相关 */
 #define WHColorA(r,g,b,a) [UIColor colorWithRed:(r)/225.0 green:(g)/225.0 blue:(b)/225.0 alpha:(a)/225.0]
 #define WHColor(r,g,b) WHColorA(r,g,b,255)
