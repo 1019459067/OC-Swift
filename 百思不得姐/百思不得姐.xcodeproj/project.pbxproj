@@ -13,6 +13,7 @@
 		C99075A91D2AB61100304220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99075A81D2AB61100304220 /* Assets.xcassets */; };
 		C99075B61D2D645800304220 /* WHTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C99075B51D2D645800304220 /* WHTabBarViewController.m */; };
 		C99075DD1D324A6900304220 /* WHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C99075DC1D324A6900304220 /* WHTabBar.m */; };
+		C99075E01D32575300304220 /* UIView+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C99075DF1D32575300304220 /* UIView+WHExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,8 @@
 		C99075B71D30065000304220 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		C99075DB1D324A6900304220 /* WHTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHTabBar.h; sourceTree = "<group>"; };
 		C99075DC1D324A6900304220 /* WHTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHTabBar.m; sourceTree = "<group>"; };
+		C99075DE1D32575300304220 /* UIView+WHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WHExtension.h"; sourceTree = "<group>"; };
+		C99075DF1D32575300304220 /* UIView+WHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WHExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 				C99075B51D2D645800304220 /* WHTabBarViewController.m */,
 				C99075DB1D324A6900304220 /* WHTabBar.h */,
 				C99075DC1D324A6900304220 /* WHTabBar.m */,
+				C99075DE1D32575300304220 /* UIView+WHExtension.h */,
+				C99075DF1D32575300304220 /* UIView+WHExtension.m */,
 				C99075B71D30065000304220 /* PrefixHeader.pch */,
 			);
 			name = Classes;
@@ -162,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C99075DD1D324A6900304220 /* WHTabBar.m in Sources */,
+				C99075E01D32575300304220 /* UIView+WHExtension.m in Sources */,
 				C99075A11D2AB61100304220 /* AppDelegate.m in Sources */,
 				C990759E1D2AB61100304220 /* main.m in Sources */,
 				C99075B61D2D645800304220 /* WHTabBarViewController.m in Sources */,

@@ -33,8 +33,8 @@
     
     CGFloat fBtnX = 0;
     CGFloat fBtnY = 0;
-    CGFloat fBtnW = self.frame.size.width / 5.;
-    CGFloat fBtnH = self.frame.size.height ;
+    CGFloat fBtnW = self.wh_width / 5.;
+    CGFloat fBtnH = self.wh_height ;
     
     NSInteger indexBtn = 0;
     
@@ -49,8 +49,11 @@
         indexBtn ++ ;
     }
     // add button
-    self.btnPublish.frame = CGRectMake(0, 0, fBtnW, fBtnH);
-    self.btnPublish.center = CGPointMake(self.frame.size.width * 0.5, self.frame.size.height * 0.5);
+    self.btnPublish.wh_width = fBtnW;
+    self.btnPublish.wh_height = fBtnH;
+    self.btnPublish.wh_centerX = self.wh_width * 0.5;
+    self.btnPublish.wh_centerY = self.wh_height * 0.5;
+
     WHLogFunc
 }
 
