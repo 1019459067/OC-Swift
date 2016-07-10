@@ -21,4 +21,5 @@
 @property (assign, nonatomic) CGFloat wh_right;
 @property (assign, nonatomic) CGFloat wh_bottom;
 
+@property (assign, nonatomic) CGSize wh_size;
 @end

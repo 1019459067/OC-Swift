@@ -9,6 +9,18 @@
 #import "UIView+WHExtension.h"
 
 @implementation UIView (WHExtension)
+- (CGSize)wh_size
+{
+    return self.frame.size;
+}
+- (void)setWh_size:(CGSize)wh_size
+{
+    CGRect frame = self.frame;
+    frame.size = wh_size;
+    self.frame = frame;
+}
+
+
 - (CGFloat)wh_width
 {
     return self.frame.size.width;
