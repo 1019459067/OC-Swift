@@ -7,30 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C990759E1D2AB61100304220 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C990759D1D2AB61100304220 /* main.m */; };
-		C99075A11D2AB61100304220 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C99075A01D2AB61100304220 /* AppDelegate.m */; };
 		C99075A71D2AB61100304220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99075A51D2AB61100304220 /* Main.storyboard */; };
 		C99075A91D2AB61100304220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99075A81D2AB61100304220 /* Assets.xcassets */; };
-		C99075B61D2D645800304220 /* WHTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C99075B51D2D645800304220 /* WHTabBarViewController.m */; };
-		C99075DD1D324A6900304220 /* WHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C99075DC1D324A6900304220 /* WHTabBar.m */; };
-		C99075E01D32575300304220 /* UIView+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C99075DF1D32575300304220 /* UIView+WHExtension.m */; };
+		C9DDCAEA1D328F4400004080 /* WHEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAC61D328F4400004080 /* WHEssenceViewController.m */; };
+		C9DDCAEB1D328F4400004080 /* WHFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCACC1D328F4400004080 /* WHFollowViewController.m */; };
+		C9DDCAEC1D328F4400004080 /* WHMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAD21D328F4400004080 /* WHMeViewController.m */; };
+		C9DDCAED1D328F4400004080 /* WHNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAD81D328F4400004080 /* WHNewViewController.m */; };
+		C9DDCAEE1D328F4400004080 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCADD1D328F4400004080 /* AppDelegate.m */; };
+		C9DDCAEF1D328F4400004080 /* UIView+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAE01D328F4400004080 /* UIView+WHExtension.m */; };
+		C9DDCAF01D328F4400004080 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAE21D328F4400004080 /* main.m */; };
+		C9DDCAF11D328F4400004080 /* WHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAE71D328F4400004080 /* WHTabBar.m */; };
+		C9DDCAF21D328F4400004080 /* WHTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAE91D328F4400004080 /* WHTabBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C99075991D2AB61100304220 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C990759D1D2AB61100304220 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C990759F1D2AB61100304220 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C99075A01D2AB61100304220 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C99075A61D2AB61100304220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C99075A81D2AB61100304220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C99075AD1D2AB61100304220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C99075B41D2D645800304220 /* WHTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHTabBarViewController.h; sourceTree = "<group>"; };
-		C99075B51D2D645800304220 /* WHTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHTabBarViewController.m; sourceTree = "<group>"; };
-		C99075B71D30065000304220 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		C99075DB1D324A6900304220 /* WHTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHTabBar.h; sourceTree = "<group>"; };
-		C99075DC1D324A6900304220 /* WHTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHTabBar.m; sourceTree = "<group>"; };
-		C99075DE1D32575300304220 /* UIView+WHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WHExtension.h"; sourceTree = "<group>"; };
-		C99075DF1D32575300304220 /* UIView+WHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WHExtension.m"; sourceTree = "<group>"; };
+		C9DDCAC51D328F4400004080 /* WHEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHEssenceViewController.h; sourceTree = "<group>"; };
+		C9DDCAC61D328F4400004080 /* WHEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHEssenceViewController.m; sourceTree = "<group>"; };
+		C9DDCACB1D328F4400004080 /* WHFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHFollowViewController.h; sourceTree = "<group>"; };
+		C9DDCACC1D328F4400004080 /* WHFollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHFollowViewController.m; sourceTree = "<group>"; };
+		C9DDCAD11D328F4400004080 /* WHMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHMeViewController.h; sourceTree = "<group>"; };
+		C9DDCAD21D328F4400004080 /* WHMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHMeViewController.m; sourceTree = "<group>"; };
+		C9DDCAD71D328F4400004080 /* WHNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHNewViewController.h; sourceTree = "<group>"; };
+		C9DDCAD81D328F4400004080 /* WHNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHNewViewController.m; sourceTree = "<group>"; };
+		C9DDCADC1D328F4400004080 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C9DDCADD1D328F4400004080 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C9DDCADF1D328F4400004080 /* UIView+WHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WHExtension.h"; sourceTree = "<group>"; };
+		C9DDCAE01D328F4400004080 /* UIView+WHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WHExtension.m"; sourceTree = "<group>"; };
+		C9DDCAE21D328F4400004080 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C9DDCAE41D328F4400004080 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		C9DDCAE61D328F4400004080 /* WHTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHTabBar.h; sourceTree = "<group>"; };
+		C9DDCAE71D328F4400004080 /* WHTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHTabBar.m; sourceTree = "<group>"; };
+		C9DDCAE81D328F4400004080 /* WHTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHTabBarViewController.h; sourceTree = "<group>"; };
+		C9DDCAE91D328F4400004080 /* WHTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHTabBarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +75,7 @@
 		C990759B1D2AB61100304220 /* 百思不得姐 */ = {
 			isa = PBXGroup;
 			children = (
-				C99075B31D2ABACF00304220 /* Classes */,
+				C9DDCAC21D328F4400004080 /* Classes */,
 				C990759C1D2AB61100304220 /* Supporting Files */,
 			);
 			path = "百思不得姐";
@@ -75,25 +87,201 @@
 				C99075A51D2AB61100304220 /* Main.storyboard */,
 				C99075A81D2AB61100304220 /* Assets.xcassets */,
 				C99075AD1D2AB61100304220 /* Info.plist */,
-				C990759D1D2AB61100304220 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C99075B31D2ABACF00304220 /* Classes */ = {
+		C9DDCAC21D328F4400004080 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C990759F1D2AB61100304220 /* AppDelegate.h */,
-				C99075A01D2AB61100304220 /* AppDelegate.m */,
-				C99075B41D2D645800304220 /* WHTabBarViewController.h */,
-				C99075B51D2D645800304220 /* WHTabBarViewController.m */,
-				C99075DB1D324A6900304220 /* WHTabBar.h */,
-				C99075DC1D324A6900304220 /* WHTabBar.m */,
-				C99075DE1D32575300304220 /* UIView+WHExtension.h */,
-				C99075DF1D32575300304220 /* UIView+WHExtension.m */,
-				C99075B71D30065000304220 /* PrefixHeader.pch */,
+				C9DDCAC31D328F4400004080 /* Essence */,
+				C9DDCAD51D328F4400004080 /* New */,
+				C9DDCAC91D328F4400004080 /* Follow */,
+				C9DDCACF1D328F4400004080 /* Me */,
+				C9DDCADB1D328F4400004080 /* Other */,
 			);
-			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C9DDCAC31D328F4400004080 /* Essence */ = {
+			isa = PBXGroup;
+			children = (
+				C9DDCAC41D328F4400004080 /* Controller */,
+				C9DDCAC71D328F4400004080 /* Model */,
+				C9DDCAC81D328F4400004080 /* View */,
+			);
+			path = Essence;
+			sourceTree = "<group>";
+		};
+		C9DDCAC41D328F4400004080 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C9DDCAC51D328F4400004080 /* WHEssenceViewController.h */,
+				C9DDCAC61D328F4400004080 /* WHEssenceViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C9DDCAC71D328F4400004080 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C9DDCAC81D328F4400004080 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C9DDCAC91D328F4400004080 /* Follow */ = {
+			isa = PBXGroup;
+			children = (
+				C9DDCACA1D328F4400004080 /* Controller */,
+				C9DDCACD1D328F4400004080 /* Model */,
+				C9DDCACE1D328F4400004080 /* View */,
+			);
+			path = Follow;
+			sourceTree = "<group>";
+		};
+		C9DDCACA1D328F4400004080 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C9DDCACB1D328F4400004080 /* WHFollowViewController.h */,
+				C9DDCACC1D328F4400004080 /* WHFollowViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C9DDCACD1D328F4400004080 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C9DDCACE1D328F4400004080 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C9DDCACF1D328F4400004080 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				C9DDCAD01D328F4400004080 /* Controller */,
+				C9DDCAD31D328F4400004080 /* Model */,
+				C9DDCAD41D328F4400004080 /* View */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		C9DDCAD01D328F4400004080 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C9DDCAD11D328F4400004080 /* WHMeViewController.h */,
+				C9DDCAD21D328F4400004080 /* WHMeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C9DDCAD31D328F4400004080 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C9DDCAD41D328F4400004080 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C9DDCAD51D328F4400004080 /* New */ = {
+			isa = PBXGroup;
+			children = (
+				C9DDCAD61D328F4400004080 /* Controller */,
+				C9DDCAD91D328F4400004080 /* Model */,
+				C9DDCADA1D328F4400004080 /* View */,
+			);
+			path = New;
+			sourceTree = "<group>";
+		};
+		C9DDCAD61D328F4400004080 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C9DDCAD71D328F4400004080 /* WHNewViewController.h */,
+				C9DDCAD81D328F4400004080 /* WHNewViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C9DDCAD91D328F4400004080 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C9DDCADA1D328F4400004080 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C9DDCADB1D328F4400004080 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				C9DDCADC1D328F4400004080 /* AppDelegate.h */,
+				C9DDCADD1D328F4400004080 /* AppDelegate.m */,
+				C9DDCADE1D328F4400004080 /* Category */,
+				C9DDCAE11D328F4400004080 /* Controller */,
+				C9DDCAE21D328F4400004080 /* main.m */,
+				C9DDCAE31D328F4400004080 /* Model */,
+				C9DDCAE41D328F4400004080 /* PrefixHeader.pch */,
+				C9DDCAE51D328F4400004080 /* View */,
+				C9DDCAE61D328F4400004080 /* WHTabBar.h */,
+				C9DDCAE71D328F4400004080 /* WHTabBar.m */,
+				C9DDCAE81D328F4400004080 /* WHTabBarViewController.h */,
+				C9DDCAE91D328F4400004080 /* WHTabBarViewController.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		C9DDCADE1D328F4400004080 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				C9DDCADF1D328F4400004080 /* UIView+WHExtension.h */,
+				C9DDCAE01D328F4400004080 /* UIView+WHExtension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		C9DDCAE11D328F4400004080 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C9DDCAE31D328F4400004080 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C9DDCAE51D328F4400004080 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,11 +354,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C99075DD1D324A6900304220 /* WHTabBar.m in Sources */,
-				C99075E01D32575300304220 /* UIView+WHExtension.m in Sources */,
-				C99075A11D2AB61100304220 /* AppDelegate.m in Sources */,
-				C990759E1D2AB61100304220 /* main.m in Sources */,
-				C99075B61D2D645800304220 /* WHTabBarViewController.m in Sources */,
+				C9DDCAF11D328F4400004080 /* WHTabBar.m in Sources */,
+				C9DDCAED1D328F4400004080 /* WHNewViewController.m in Sources */,
+				C9DDCAEB1D328F4400004080 /* WHFollowViewController.m in Sources */,
+				C9DDCAEA1D328F4400004080 /* WHEssenceViewController.m in Sources */,
+				C9DDCAEF1D328F4400004080 /* UIView+WHExtension.m in Sources */,
+				C9DDCAEC1D328F4400004080 /* WHMeViewController.m in Sources */,
+				C9DDCAF01D328F4400004080 /* main.m in Sources */,
+				C9DDCAEE1D328F4400004080 /* AppDelegate.m in Sources */,
+				C9DDCAF21D328F4400004080 /* WHTabBarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +469,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				GCC_PREFIX_HEADER = "../百思不得姐/百思不得姐/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "../百思不得姐/百思不得姐/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -292,7 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				GCC_PREFIX_HEADER = "../百思不得姐/百思不得姐/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "../百思不得姐/百思不得姐/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -321,6 +513,7 @@
 				C99075B21D2AB61100304220 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

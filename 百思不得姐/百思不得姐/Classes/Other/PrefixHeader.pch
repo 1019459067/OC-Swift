@@ -25,6 +25,8 @@
 #define WHColorA(r,g,b,a) [UIColor colorWithRed:(r)/225.0 green:(g)/225.0 blue:(b)/225.0 alpha:(a)/225.0]
 #define WHColor(r,g,b) WHColorA(r,g,b,255)
 #define WHRandomColor  WHColorA(arc4random_uniform(255),arc4random_uniform(255),arc4random_uniform(255),255)
+#define WHGrayColor(v) WHColorA((v),(v),(v),255)
+#define WHColorCommonBg WHGrayColor(206)
 
 #endif
 

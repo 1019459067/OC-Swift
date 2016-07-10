@@ -8,6 +8,10 @@
 
 #import "WHTabBarViewController.h"
 #import "WHTabBar.h"
+#import "WHEssenceViewController.h"
+#import "WHNewViewController.h"
+#import "WHFollowViewController.h"
+#import "WHMeViewController.h"
 
 @interface WHTabBarViewController ()
 
@@ -28,14 +32,14 @@
     [item setTitleTextAttributes:selectedAttr forState:UIControlStateSelected];
     
     
-    [self setupChildOneVC:[[UITableViewController alloc]init] title:@"精华" image:@"tabBar_essence_icon" selectedImage:@"tabBar_essence_click_icon"];
+    [self setupChildOneVC:[[WHEssenceViewController alloc]init] title:@"精华" image:@"tabBar_essence_icon" selectedImage:@"tabBar_essence_click_icon"];
 
-    [self setupChildOneVC:[[UIViewController alloc]init] title:@"新帖" image:@"tabBar_new_icon" selectedImage:@"tabBar_new_click_icon"];
+    [self setupChildOneVC:[[WHNewViewController alloc]init] title:@"新帖" image:@"tabBar_new_icon" selectedImage:@"tabBar_new_click_icon"];
 
 
-    [self setupChildOneVC:[[UIViewController alloc]init] title:@"关注" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
+    [self setupChildOneVC:[[WHFollowViewController alloc]init] title:@"关注" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
 
-    [self setupChildOneVC:[[UIViewController alloc]init] title:@"我" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
+    [self setupChildOneVC:[[WHMeViewController alloc]init] title:@"我" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
 
     //change tabbar
     [self setValue:[[WHTabBar alloc]init] forKey:@"tabBar"];
@@ -43,7 +47,6 @@
 
 - (void)setupChildOneVC:(UIViewController *)vc title:(NSString *)title image:(NSString *)strImg selectedImage:(NSString *)selectedImg
 {
-    vc.view.backgroundColor = WHRandomColor;
     vc.tabBarItem.title = title;
     if (strImg.length) {
         vc.tabBarItem.image = [UIImage imageNamed:strImg];
