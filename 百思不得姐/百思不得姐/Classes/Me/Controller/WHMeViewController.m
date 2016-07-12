@@ -20,22 +20,13 @@
     WHLogFunc
     self.navigationItem.title = @"我的";
     WHLogFunc
-    UIButton *buttonSetting = [UIButton buttonWithType:UIButtonTypeCustom];
-    [buttonSetting setImage:[UIImage imageNamed:@"mine-setting-icon"] forState:UIControlStateNormal];
-    [buttonSetting setImage:[UIImage imageNamed:@"mine-setting-icon-click"] forState:UIControlStateHighlighted];
-    [buttonSetting sizeToFit];
-    [buttonSetting addTarget:self action:@selector(onActionSettingClick) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *itemSetting = [[UIBarButtonItem alloc]initWithCustomView:buttonSetting];
+    UIBarButtonItem *itemSetting = [UIBarButtonItem itemWithImage:@"mine-setting-icon" hightImag:@"mine-setting-icon-click" action:@selector(onActionSettingClick) addTarget:self];
     
-    UIButton *buttonMoon = [UIButton buttonWithType:UIButtonTypeCustom];
-    [buttonMoon setImage:[UIImage imageNamed:@"mine-moon-icon"] forState:UIControlStateNormal];
-    [buttonMoon setImage:[UIImage imageNamed:@"mine-moon-icon-click"] forState:UIControlStateHighlighted];
-    [buttonMoon sizeToFit];
-    [buttonMoon addTarget:self action:@selector(onActionMoonClick) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *itemMoon = [[UIBarButtonItem alloc]initWithCustomView:buttonMoon];
+    UIBarButtonItem *itemMoon = [UIBarButtonItem itemWithImage:@"mine-moon-icon" hightImag:@"mine-moon-icon-click" action:@selector(onActionMoonClick) addTarget:self];
     
     self.navigationItem.rightBarButtonItems = @[itemSetting,itemMoon];
 }
+ 
 - (void)onActionSettingClick
 {
     WHLogFunc

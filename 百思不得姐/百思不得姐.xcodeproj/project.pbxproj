@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C921F3471D35356900BAFB3C /* WHItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F3461D35356900BAFB3C /* WHItemManager.m */; };
+		C921F34A1D35401600BAFB3C /* UIBarButtonItem+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F3491D35401600BAFB3C /* UIBarButtonItem+WHExtension.m */; };
 		C99075A71D2AB61100304220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99075A51D2AB61100304220 /* Main.storyboard */; };
 		C99075A91D2AB61100304220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99075A81D2AB61100304220 /* Assets.xcassets */; };
 		C9DDCAEA1D328F4400004080 /* WHEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAC61D328F4400004080 /* WHEssenceViewController.m */; };
@@ -21,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C921F3451D35356900BAFB3C /* WHItemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHItemManager.h; sourceTree = "<group>"; };
+		C921F3461D35356900BAFB3C /* WHItemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHItemManager.m; sourceTree = "<group>"; };
+		C921F3481D35401600BAFB3C /* UIBarButtonItem+WHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+WHExtension.h"; sourceTree = "<group>"; };
+		C921F3491D35401600BAFB3C /* UIBarButtonItem+WHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+WHExtension.m"; sourceTree = "<group>"; };
 		C99075991D2AB61100304220 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99075A61D2AB61100304220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C99075A81D2AB61100304220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -250,6 +256,8 @@
 				C9DDCAE71D328F4400004080 /* WHTabBar.m */,
 				C9DDCAE81D328F4400004080 /* WHTabBarViewController.h */,
 				C9DDCAE91D328F4400004080 /* WHTabBarViewController.m */,
+				C921F3451D35356900BAFB3C /* WHItemManager.h */,
+				C921F3461D35356900BAFB3C /* WHItemManager.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -259,6 +267,8 @@
 			children = (
 				C9DDCADF1D328F4400004080 /* UIView+WHExtension.h */,
 				C9DDCAE01D328F4400004080 /* UIView+WHExtension.m */,
+				C921F3481D35401600BAFB3C /* UIBarButtonItem+WHExtension.h */,
+				C921F3491D35401600BAFB3C /* UIBarButtonItem+WHExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -356,7 +366,9 @@
 			files = (
 				C9DDCAF11D328F4400004080 /* WHTabBar.m in Sources */,
 				C9DDCAED1D328F4400004080 /* WHNewViewController.m in Sources */,
+				C921F34A1D35401600BAFB3C /* UIBarButtonItem+WHExtension.m in Sources */,
 				C9DDCAEB1D328F4400004080 /* WHFollowViewController.m in Sources */,
+				C921F3471D35356900BAFB3C /* WHItemManager.m in Sources */,
 				C9DDCAEA1D328F4400004080 /* WHEssenceViewController.m in Sources */,
 				C9DDCAEF1D328F4400004080 /* UIView+WHExtension.m in Sources */,
 				C9DDCAEC1D328F4400004080 /* WHMeViewController.m in Sources */,

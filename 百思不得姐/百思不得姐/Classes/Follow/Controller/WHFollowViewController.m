@@ -19,12 +19,7 @@
     self.view.backgroundColor = WHColorCommonBg;
     self.navigationItem.title = @"我的关注";
     WHLogFunc
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setImage:[UIImage imageNamed:@"friendsRecommentIcon"] forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:@"friendsRecommentIcon-click"] forState:UIControlStateHighlighted];
-    [button sizeToFit];
-    [button addTarget:self action:@selector(onActionFriendClick) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"friendsRecommentIcon" hightImag:@"friendsRecommentIcon-click" action:@selector(onActionFriendClick) addTarget:self];
 }
 - (void)onActionFriendClick
 {

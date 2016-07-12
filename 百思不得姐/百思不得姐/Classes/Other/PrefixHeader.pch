@@ -12,7 +12,8 @@
 #ifdef __OBJC__
 
 #import "UIView+WHExtension.h"
- 
+#import "UIBarButtonItem+WHExtension.h"
+
 /** 日志 */
 #ifdef DEBUG
 #define WHLog(...) NSLog(__VA_ARGS__)
