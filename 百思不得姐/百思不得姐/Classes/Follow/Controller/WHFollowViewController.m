@@ -7,6 +7,7 @@
 //
 
 #import "WHFollowViewController.h"
+#import "WHRecommendFollowViewController.h"
 
 @interface WHFollowViewController ()
 
@@ -23,7 +24,9 @@
 }
 - (void)onActionFriendClick
 {
-    WHLogFunc
+    WHRecommendFollowViewController *vc = [[WHRecommendFollowViewController alloc]init];
+    vc.view.backgroundColor = WHRandomColor;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

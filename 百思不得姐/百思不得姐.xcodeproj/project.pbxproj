@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		C921F3471D35356900BAFB3C /* WHItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F3461D35356900BAFB3C /* WHItemManager.m */; };
 		C921F34A1D35401600BAFB3C /* UIBarButtonItem+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F3491D35401600BAFB3C /* UIBarButtonItem+WHExtension.m */; };
+		C921F34D1D35431100BAFB3C /* WHRecommendFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F34C1D35431100BAFB3C /* WHRecommendFollowViewController.m */; };
+		C921F3501D3547D500BAFB3C /* WHSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F34F1D3547D500BAFB3C /* WHSettingViewController.m */; };
+		C921F3551D35A07900BAFB3C /* WHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F3521D35A07900BAFB3C /* WHTabBar.m */; };
+		C921F3561D35A07900BAFB3C /* WHTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F3541D35A07900BAFB3C /* WHTabBarViewController.m */; };
+		C921F3591D35A09600BAFB3C /* WHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F3581D35A09600BAFB3C /* WHNavigationController.m */; };
 		C99075A71D2AB61100304220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99075A51D2AB61100304220 /* Main.storyboard */; };
 		C99075A91D2AB61100304220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99075A81D2AB61100304220 /* Assets.xcassets */; };
 		C9DDCAEA1D328F4400004080 /* WHEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAC61D328F4400004080 /* WHEssenceViewController.m */; };
@@ -18,8 +23,6 @@
 		C9DDCAEE1D328F4400004080 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCADD1D328F4400004080 /* AppDelegate.m */; };
 		C9DDCAEF1D328F4400004080 /* UIView+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAE01D328F4400004080 /* UIView+WHExtension.m */; };
 		C9DDCAF01D328F4400004080 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAE21D328F4400004080 /* main.m */; };
-		C9DDCAF11D328F4400004080 /* WHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAE71D328F4400004080 /* WHTabBar.m */; };
-		C9DDCAF21D328F4400004080 /* WHTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAE91D328F4400004080 /* WHTabBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,16 @@
 		C921F3461D35356900BAFB3C /* WHItemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHItemManager.m; sourceTree = "<group>"; };
 		C921F3481D35401600BAFB3C /* UIBarButtonItem+WHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+WHExtension.h"; sourceTree = "<group>"; };
 		C921F3491D35401600BAFB3C /* UIBarButtonItem+WHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+WHExtension.m"; sourceTree = "<group>"; };
+		C921F34B1D35431100BAFB3C /* WHRecommendFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHRecommendFollowViewController.h; sourceTree = "<group>"; };
+		C921F34C1D35431100BAFB3C /* WHRecommendFollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHRecommendFollowViewController.m; sourceTree = "<group>"; };
+		C921F34E1D3547D500BAFB3C /* WHSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHSettingViewController.h; sourceTree = "<group>"; };
+		C921F34F1D3547D500BAFB3C /* WHSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHSettingViewController.m; sourceTree = "<group>"; };
+		C921F3511D35A07900BAFB3C /* WHTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHTabBar.h; sourceTree = "<group>"; };
+		C921F3521D35A07900BAFB3C /* WHTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHTabBar.m; sourceTree = "<group>"; };
+		C921F3531D35A07900BAFB3C /* WHTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHTabBarViewController.h; sourceTree = "<group>"; };
+		C921F3541D35A07900BAFB3C /* WHTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHTabBarViewController.m; sourceTree = "<group>"; };
+		C921F3571D35A09600BAFB3C /* WHNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHNavigationController.h; sourceTree = "<group>"; };
+		C921F3581D35A09600BAFB3C /* WHNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHNavigationController.m; sourceTree = "<group>"; };
 		C99075991D2AB61100304220 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99075A61D2AB61100304220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C99075A81D2AB61100304220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,10 +58,6 @@
 		C9DDCAE01D328F4400004080 /* UIView+WHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WHExtension.m"; sourceTree = "<group>"; };
 		C9DDCAE21D328F4400004080 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C9DDCAE41D328F4400004080 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		C9DDCAE61D328F4400004080 /* WHTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHTabBar.h; sourceTree = "<group>"; };
-		C9DDCAE71D328F4400004080 /* WHTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHTabBar.m; sourceTree = "<group>"; };
-		C9DDCAE81D328F4400004080 /* WHTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHTabBarViewController.h; sourceTree = "<group>"; };
-		C9DDCAE91D328F4400004080 /* WHTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHTabBarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +166,8 @@
 			children = (
 				C9DDCACB1D328F4400004080 /* WHFollowViewController.h */,
 				C9DDCACC1D328F4400004080 /* WHFollowViewController.m */,
+				C921F34B1D35431100BAFB3C /* WHRecommendFollowViewController.h */,
+				C921F34C1D35431100BAFB3C /* WHRecommendFollowViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -190,6 +201,8 @@
 			children = (
 				C9DDCAD11D328F4400004080 /* WHMeViewController.h */,
 				C9DDCAD21D328F4400004080 /* WHMeViewController.m */,
+				C921F34E1D3547D500BAFB3C /* WHSettingViewController.h */,
+				C921F34F1D3547D500BAFB3C /* WHSettingViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -252,10 +265,6 @@
 				C9DDCAE21D328F4400004080 /* main.m */,
 				C9DDCAE41D328F4400004080 /* PrefixHeader.pch */,
 				C9DDCAE51D328F4400004080 /* View */,
-				C9DDCAE61D328F4400004080 /* WHTabBar.h */,
-				C9DDCAE71D328F4400004080 /* WHTabBar.m */,
-				C9DDCAE81D328F4400004080 /* WHTabBarViewController.h */,
-				C9DDCAE91D328F4400004080 /* WHTabBarViewController.m */,
 				C921F3451D35356900BAFB3C /* WHItemManager.h */,
 				C921F3461D35356900BAFB3C /* WHItemManager.m */,
 			);
@@ -276,6 +285,12 @@
 		C9DDCAE11D328F4400004080 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C921F3511D35A07900BAFB3C /* WHTabBar.h */,
+				C921F3521D35A07900BAFB3C /* WHTabBar.m */,
+				C921F3531D35A07900BAFB3C /* WHTabBarViewController.h */,
+				C921F3541D35A07900BAFB3C /* WHTabBarViewController.m */,
+				C921F3571D35A09600BAFB3C /* WHNavigationController.h */,
+				C921F3581D35A09600BAFB3C /* WHNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -364,17 +379,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9DDCAF11D328F4400004080 /* WHTabBar.m in Sources */,
+				C921F3591D35A09600BAFB3C /* WHNavigationController.m in Sources */,
 				C9DDCAED1D328F4400004080 /* WHNewViewController.m in Sources */,
 				C921F34A1D35401600BAFB3C /* UIBarButtonItem+WHExtension.m in Sources */,
 				C9DDCAEB1D328F4400004080 /* WHFollowViewController.m in Sources */,
 				C921F3471D35356900BAFB3C /* WHItemManager.m in Sources */,
+				C921F34D1D35431100BAFB3C /* WHRecommendFollowViewController.m in Sources */,
 				C9DDCAEA1D328F4400004080 /* WHEssenceViewController.m in Sources */,
 				C9DDCAEF1D328F4400004080 /* UIView+WHExtension.m in Sources */,
+				C921F3561D35A07900BAFB3C /* WHTabBarViewController.m in Sources */,
+				C921F3551D35A07900BAFB3C /* WHTabBar.m in Sources */,
 				C9DDCAEC1D328F4400004080 /* WHMeViewController.m in Sources */,
 				C9DDCAF01D328F4400004080 /* main.m in Sources */,
 				C9DDCAEE1D328F4400004080 /* AppDelegate.m in Sources */,
-				C9DDCAF21D328F4400004080 /* WHTabBarViewController.m in Sources */,
+				C921F3501D3547D500BAFB3C /* WHSettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

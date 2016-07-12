@@ -13,6 +13,7 @@
 
 #import "UIView+WHExtension.h"
 #import "UIBarButtonItem+WHExtension.h"
+#import "WHNavigationController.h"
 
 /** 日志 */
 #ifdef DEBUG

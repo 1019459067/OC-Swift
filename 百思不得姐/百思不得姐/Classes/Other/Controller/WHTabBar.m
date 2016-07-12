@@ -53,8 +53,6 @@
     self.btnPublish.wh_height = fBtnH;
     self.btnPublish.wh_centerX = self.wh_width * 0.5;
     self.btnPublish.wh_centerY = self.wh_height * 0.5;
-
-    WHLogFunc
 }
 
 

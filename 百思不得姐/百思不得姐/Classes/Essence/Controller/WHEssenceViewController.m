@@ -17,7 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = WHColorCommonBg;
-    WHLogFunc
     
     self.navigationItem.titleView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"MainTitle"]];
     
@@ -26,6 +25,9 @@
 - (void)onActionTagClick
 {
     WHLogFunc
+    UIViewController *vc = [[UIViewController alloc]init];
+    vc.view.backgroundColor = WHRandomColor;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

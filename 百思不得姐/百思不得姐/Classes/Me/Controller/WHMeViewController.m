@@ -7,6 +7,7 @@
 //
 
 #import "WHMeViewController.h"
+#import "WHSettingViewController.h"
 
 @interface WHMeViewController ()
 
@@ -17,7 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = WHColorCommonBg;
-    WHLogFunc
     self.navigationItem.title = @"我的";
     WHLogFunc
     UIBarButtonItem *itemSetting = [UIBarButtonItem itemWithImage:@"mine-setting-icon" hightImag:@"mine-setting-icon-click" action:@selector(onActionSettingClick) addTarget:self];
@@ -29,7 +29,9 @@
  
 - (void)onActionSettingClick
 {
-    WHLogFunc
+    WHSettingViewController *vc = [[WHSettingViewController alloc]init];
+    vc.view.backgroundColor = WHRandomColor;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)onActionMoonClick
