@@ -30,7 +30,6 @@
 - (void)onActionSettingClick
 {
     WHSettingViewController *vc = [[WHSettingViewController alloc]init];
-    vc.view.backgroundColor = WHRandomColor;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

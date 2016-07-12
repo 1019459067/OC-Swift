@@ -8,7 +8,7 @@
 
 #import "WHNavigationController.h"
 
-@interface WHNavigationController ()
+@interface WHNavigationController ()<UIGestureRecognizerDelegate>
 
 @end
 
@@ -16,13 +16,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.interactivePopGestureRecognizer.delegate = self;
 }
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    WHLog(@"%ld",self.childViewControllers.count);
     if (self.childViewControllers.count >= 1)
     {
+        WHLogFunc
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setImage:[UIImage imageNamed:@"navigationButtonReturn"] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"navigationButtonReturnClick"] forState:UIControlStateHighlighted];
@@ -41,6 +42,14 @@
 - (void)back
 {
     [self popViewControllerAnimated:YES];
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    WHLog(@"%ld",self.childViewControllers.count);
+    return self.childViewControllers.count > 1;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
