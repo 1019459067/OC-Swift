@@ -14,7 +14,7 @@
 #import "ReaderViewController.h"
 #import "ScienceViewController.h"
 
-#define KSreenW [UIScreen mainScreen].bounds.size.width
+#define KScreenW [UIScreen mainScreen].bounds.size.width
 
 static CGFloat const radio = 1.3;
 static CGFloat const labelW = 100;
@@ -43,10 +43,10 @@ static CGFloat const labelW = 100;
 }
 - (void)setUpTitleCenter:(UILabel *)labelCenter
 {
-    CGFloat offSetX = labelCenter.center.x - KSreenW * 0.5;
+    CGFloat offSetX = labelCenter.center.x - KScreenW * 0.5;
    
     if (offSetX < 0) offSetX = 0;
-    CGFloat offSetXMax = self.scrollViewTitle.contentSize.width - KSreenW;
+    CGFloat offSetXMax = self.scrollViewTitle.contentSize.width - KScreenW;
     if (offSetX > offSetXMax) offSetX = offSetXMax;
     
     [self.scrollViewTitle setContentOffset:CGPointMake(offSetX, 0) animated:YES];
@@ -54,7 +54,7 @@ static CGFloat const labelW = 100;
 #pragma mark - 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CGFloat iPageCur = self.scrollViewContent.contentOffset.x / KSreenW;;
+    CGFloat iPageCur = self.scrollViewContent.contentOffset.x / KScreenW;;
     //左边角标
     NSInteger indexLeft = iPageCur;
     NSInteger indexRight = indexLeft + 1;
@@ -77,7 +77,7 @@ static CGFloat const labelW = 100;
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    NSInteger iPage = self.scrollViewContent.contentOffset.x / KSreenW;
+    NSInteger iPage = self.scrollViewContent.contentOffset.x / KScreenW;
     
     [self showVC:iPage];
     //
@@ -93,7 +93,7 @@ static CGFloat const labelW = 100;
     self.scrollViewTitle.showsHorizontalScrollIndicator = NO;
     self.scrollViewTitle.bounces = YES;
 
-    self.scrollViewContent.contentSize = CGSizeMake(KSreenW * iCount, 0);
+    self.scrollViewContent.contentSize = CGSizeMake(KScreenW * iCount, 0);
     self.scrollViewContent.showsHorizontalScrollIndicator = NO;
     self.scrollViewContent.bounces = NO;
     self.scrollViewContent.pagingEnabled = YES;
@@ -133,7 +133,7 @@ static CGFloat const labelW = 100;
     [self selectedLabel:labelSel];
     
     NSInteger index = labelSel.tag;
-    CGFloat fOffSetX = index * KSreenW;
+    CGFloat fOffSetX = index * KScreenW;
     self.scrollViewContent.contentOffset = CGPointMake(fOffSetX, 0);
     
     [self showVC:index];
@@ -142,7 +142,7 @@ static CGFloat const labelW = 100;
 }
 - (void)showVC:(NSInteger)index
 {
-    CGFloat fOffSetX = index * KSreenW;
+    CGFloat fOffSetX = index * KScreenW;
     UIViewController *vc = self.childViewControllers[index];
 //    if (vc.isViewLoaded) {
 //        return;
