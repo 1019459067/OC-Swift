@@ -9,6 +9,7 @@
 #import "WHLoginRegisterViewController.h"
 
 @interface WHLoginRegisterViewController ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *marginLeft;
 
 @end
 
@@ -22,7 +23,21 @@
 {
     return UIStatusBarStyleLightContent;
 }
-- (IBAction)onActionRegister:(UIButton *)sender {
+- (IBAction)onActionRegister:(UIButton *)sender
+{
+    [self.view endEditing:YES];
+    if (self.marginLeft.constant)
+    {
+        [sender setTitle:@"注册账号" forState:UIControlStateNormal];
+        self.marginLeft.constant = 0;
+    }else
+    {
+        [sender setTitle:@"已有账号?" forState:UIControlStateNormal];
+        self.marginLeft.constant = - self.view.wh_width;
+    }
+    [UIView animateWithDuration:0.25 animations:^{
+        [self.view layoutIfNeeded];
+    }];
 }
 - (IBAction)onActionBack:(UIButton *)sender
 {
@@ -34,6 +49,6 @@
 }
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.view endEditing:YES];
 }
 @end
