@@ -31,6 +31,9 @@
     selectedAttr[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
     [item setTitleTextAttributes:selectedAttr forState:UIControlStateSelected];
     
+    [self setupChildOneVC:
+     [[WHNavigationController alloc]initWithRootViewController:[[WHFollowViewController alloc]init]]
+                    title:@"关注" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
     
     
     [self setupChildOneVC:
@@ -42,9 +45,6 @@
                     title:@"新帖" image:@"tabBar_new_icon" selectedImage:@"tabBar_new_click_icon"];
 
 
-    [self setupChildOneVC:
-     [[WHNavigationController alloc]initWithRootViewController:[[WHFollowViewController alloc]init]]
-                    title:@"关注" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
 
     [self setupChildOneVC:
      [[WHNavigationController alloc]initWithRootViewController:[[WHMeViewController alloc]init]]

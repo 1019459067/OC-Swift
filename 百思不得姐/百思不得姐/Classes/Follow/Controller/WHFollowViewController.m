@@ -8,6 +8,7 @@
 
 #import "WHFollowViewController.h"
 #import "WHRecommendFollowViewController.h"
+#import "WHLoginRegisterViewController.h"
 
 @interface WHFollowViewController ()
 
@@ -19,8 +20,14 @@
     [super viewDidLoad];
     self.view.backgroundColor = WHColorCommonBg;
     self.navigationItem.title = @"我的关注";
-    WHLogFunc
+
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"friendsRecommentIcon" hightImag:@"friendsRecommentIcon-click" action:@selector(onActionFriendClick) addTarget:self];
+}
+- (IBAction)onActionLogin:(UIButton *)sender
+{
+    WHLoginRegisterViewController *vc = [[WHLoginRegisterViewController alloc]init];
+    
+    [self presentViewController:vc animated:YES completion:nil];
 }
 - (void)onActionFriendClick
 {
