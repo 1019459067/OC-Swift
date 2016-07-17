@@ -18,6 +18,7 @@
 		C921F3651D3A180800BAFB3C /* WHLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C921F3631D3A180800BAFB3C /* WHLoginRegisterViewController.xib */; };
 		C921F3681D3A181600BAFB3C /* WHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F3671D3A181600BAFB3C /* WHTabBar.m */; };
 		C921F36B1D3A185200BAFB3C /* WHQuickLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F36A1D3A185200BAFB3C /* WHQuickLoginButton.m */; };
+		C921F36E1D3B733900BAFB3C /* WHLoginRegisterTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F36D1D3B733900BAFB3C /* WHLoginRegisterTextField.m */; };
 		C99075A71D2AB61100304220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99075A51D2AB61100304220 /* Main.storyboard */; };
 		C99075A91D2AB61100304220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99075A81D2AB61100304220 /* Assets.xcassets */; };
 		C9DDCAEA1D328F4400004080 /* WHEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAC61D328F4400004080 /* WHEssenceViewController.m */; };
@@ -50,6 +51,8 @@
 		C921F3671D3A181600BAFB3C /* WHTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHTabBar.m; sourceTree = "<group>"; };
 		C921F3691D3A185200BAFB3C /* WHQuickLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHQuickLoginButton.h; sourceTree = "<group>"; };
 		C921F36A1D3A185200BAFB3C /* WHQuickLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHQuickLoginButton.m; sourceTree = "<group>"; };
+		C921F36C1D3B733900BAFB3C /* WHLoginRegisterTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHLoginRegisterTextField.h; sourceTree = "<group>"; };
+		C921F36D1D3B733900BAFB3C /* WHLoginRegisterTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHLoginRegisterTextField.m; sourceTree = "<group>"; };
 		C99075991D2AB61100304220 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99075A61D2AB61100304220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C99075A81D2AB61100304220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -321,6 +324,8 @@
 				C921F3671D3A181600BAFB3C /* WHTabBar.m */,
 				C921F3691D3A185200BAFB3C /* WHQuickLoginButton.h */,
 				C921F36A1D3A185200BAFB3C /* WHQuickLoginButton.m */,
+				C921F36C1D3B733900BAFB3C /* WHLoginRegisterTextField.h */,
+				C921F36D1D3B733900BAFB3C /* WHLoginRegisterTextField.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 				C921F3681D3A181600BAFB3C /* WHTabBar.m in Sources */,
 				C9DDCAEE1D328F4400004080 /* AppDelegate.m in Sources */,
 				C921F3501D3547D500BAFB3C /* WHSettingViewController.m in Sources */,
+				C921F36E1D3B733900BAFB3C /* WHLoginRegisterTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
