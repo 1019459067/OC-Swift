@@ -29,8 +29,9 @@ static  NSString * const WHPlaceHolderString = @"placeholderLabel.textColor";
     //设置默认的占位 颜色
     [self setValue:[UIColor grayColor] forKeyPath:WHPlaceHolderString];
 
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(editingDidBegin:) name:UITextFieldTextDidBeginEditingNotification object:self];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(editingDidEnd:) name:UITextFieldTextDidEndEditingNotification object:self];
+    //通知
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(editingDidBegin:) name:UITextFieldTextDidBeginEditingNotification object:self];
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(editingDidEnd:) name:UITextFieldTextDidEndEditingNotification object:self];
     //代理
 //    [self addTarget:self action:@selector(editingDidBegin) forControlEvents:UIControlEventEditingDidBegin];
 //    [self addTarget:self action:@selector(editingDidEnd) forControlEvents:UIControlEventEditingDidEnd];
@@ -39,18 +40,28 @@ static  NSString * const WHPlaceHolderString = @"placeholderLabel.textColor";
 //    attributes[NSForegroundColorAttributeName] = [UIColor redColor];
 //    self.attributedPlaceholder = [[NSAttributedString alloc]initWithString:self.placeholder attributes:attributes];
 }
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
-}
-- (void)editingDidBegin:(NSNotification *)noti
+- (BOOL)becomeFirstResponder
 {
     [self setValue:[UIColor whiteColor] forKeyPath:WHPlaceHolderString];
+    return [super becomeFirstResponder];
 }
-- (void)editingDidEnd:(NSNotification *)noti
+- (BOOL)resignFirstResponder
 {
     [self setValue:[UIColor darkGrayColor] forKeyPath:WHPlaceHolderString];
+    return [super resignFirstResponder];
 }
+//- (void)dealloc
+//{
+//    [[NSNotificationCenter defaultCenter]removeObserver:self];
+//}
+//- (void)editingDidBegin:(NSNotification *)noti
+//{
+//    [self setValue:[UIColor whiteColor] forKeyPath:WHPlaceHolderString];
+//}
+//- (void)editingDidEnd:(NSNotification *)noti
+//{
+//    [self setValue:[UIColor darkGrayColor] forKeyPath:WHPlaceHolderString];
+//}
 
 #pragma mark 重写
 //- (CGRect)placeholderRectForBounds:(CGRect)bounds
