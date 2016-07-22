@@ -9,7 +9,6 @@
 #import "WHLoginRegisterTextField.h"
 #import <objc/runtime.h>
 
-static  NSString * const WHPlaceHolderString = @"placeholderLabel.textColor";
 @implementation WHLoginRegisterTextField
 
 - (void)awakeFromNib
@@ -27,7 +26,7 @@ static  NSString * const WHPlaceHolderString = @"placeholderLabel.textColor";
 //    }
 //    free(ivarList);
     //设置默认的占位 颜色
-    [self setValue:[UIColor grayColor] forKeyPath:WHPlaceHolderString];
+    self.placeholderColor = [UIColor grayColor];
 
     //通知
 //    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(editingDidBegin:) name:UITextFieldTextDidBeginEditingNotification object:self];
@@ -42,12 +41,12 @@ static  NSString * const WHPlaceHolderString = @"placeholderLabel.textColor";
 }
 - (BOOL)becomeFirstResponder
 {
-    [self setValue:[UIColor whiteColor] forKeyPath:WHPlaceHolderString];
+    self.placeholderColor = [UIColor whiteColor];
     return [super becomeFirstResponder];
 }
 - (BOOL)resignFirstResponder
 {
-    [self setValue:[UIColor darkGrayColor] forKeyPath:WHPlaceHolderString];
+    self.placeholderColor = [UIColor grayColor];
     return [super resignFirstResponder];
 }
 //- (void)dealloc

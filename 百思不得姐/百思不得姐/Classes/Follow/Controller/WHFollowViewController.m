@@ -22,6 +22,15 @@
     self.navigationItem.title = @"我的关注";
 
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"friendsRecommentIcon" hightImag:@"friendsRecommentIcon-click" action:@selector(onActionFriendClick) addTarget:self];
+    
+    UITextField *tf = [[UITextField alloc]initWithFrame:CGRectMake(100, 100, 100, 40)];
+    tf.borderStyle = UITextBorderStyleLine;
+//    tf.placeholderColor = [UIColor redColor];
+    tf.placeholder = @"xxxxxx";
+    [self.view addSubview:tf];
+    
+    NSLog(@"%@",tf.placeholderColor);
+
 }
 - (IBAction)onActionLogin:(UIButton *)sender
 {
