@@ -32,6 +32,11 @@
     [item setTitleTextAttributes:selectedAttr forState:UIControlStateSelected];
     
     [self setupChildOneVC:
+     [[WHNavigationController alloc]initWithRootViewController:[[WHMeViewController alloc]init]]
+                    title:@"我" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
+
+    
+    [self setupChildOneVC:
      [[WHNavigationController alloc]initWithRootViewController:[[WHFollowViewController alloc]init]]
                     title:@"关注" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
     
@@ -46,9 +51,6 @@
 
 
 
-    [self setupChildOneVC:
-     [[WHNavigationController alloc]initWithRootViewController:[[WHMeViewController alloc]init]]
-                    title:@"我" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
 
     //change tabbar
     [self setValue:[[WHTabBar alloc]init] forKey:@"tabBar"];

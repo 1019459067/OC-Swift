@@ -8,6 +8,7 @@
 
 #import "WHMeViewController.h"
 #import "WHSettingViewController.h"
+#import "WHMeCell.h"
 
 @interface WHMeViewController ()
 
@@ -15,18 +16,39 @@
 
 @implementation WHMeViewController
 
+- (instancetype)init
+{
+    return [self initWithStyle:UITableViewStyleGrouped];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = WHColorCommonBg;
+    
+    [self setupTableView];
+    
+    [self setupNav];
+}
+- (void)setupTableView
+{
+    self.tableView.sectionHeaderHeight = 0;
+    self.tableView.sectionFooterHeight = WHMargin;
+    self.tableView.contentInset = UIEdgeInsetsMake(WHMargin-35, 0, 0, 0);
+    self.tableView.backgroundColor = WHColorCommonBg;
+    
+    UIView *viewFoot = [[UIView alloc]init];
+    viewFoot.wh_height = 200;
+    viewFoot.backgroundColor = [UIColor redColor];
+    self.tableView.tableFooterView = viewFoot;
+}
+- (void)setupNav
+{
     self.navigationItem.title = @"我的";
-    WHLogFunc
+    
     UIBarButtonItem *itemSetting = [UIBarButtonItem itemWithImage:@"mine-setting-icon" hightImag:@"mine-setting-icon-click" action:@selector(onActionSettingClick) addTarget:self];
     
     UIBarButtonItem *itemMoon = [UIBarButtonItem itemWithImage:@"mine-moon-icon" hightImag:@"mine-moon-icon-click" action:@selector(onActionMoonClick) addTarget:self];
     
     self.navigationItem.rightBarButtonItems = @[itemSetting,itemMoon];
 }
- 
 - (void)onActionSettingClick
 {
     WHSettingViewController *vc = [[WHSettingViewController alloc]init];
@@ -38,6 +60,53 @@
     WHLogFunc
 }
 
+#pragma mark - UITableViewData
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *identify = @"WHMeViewControllercell";
+    WHMeCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
+    if (!cell) {
+        cell = [[WHMeCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
+    }
+    if (indexPath.section == 0) {
+        cell.textLabel.text = @"登录/注册";
+        cell.imageView.image = [UIImage imageNamed:@"setup-head-default"];
+    }else
+    {
+        cell.textLabel.text = @"离线下载";
+        cell.imageView.image = nil;
+    }
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 2)return 200;
+    return 44;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    
+//}
+//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+//{
+//    
+//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

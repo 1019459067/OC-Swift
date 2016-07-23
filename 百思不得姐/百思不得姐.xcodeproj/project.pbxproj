@@ -19,6 +19,8 @@
 		C921F3681D3A181600BAFB3C /* WHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F3671D3A181600BAFB3C /* WHTabBar.m */; };
 		C921F36B1D3A185200BAFB3C /* WHQuickLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F36A1D3A185200BAFB3C /* WHQuickLoginButton.m */; };
 		C921F36E1D3B733900BAFB3C /* WHLoginRegisterTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F36D1D3B733900BAFB3C /* WHLoginRegisterTextField.m */; };
+		C9254C221D43274A0047D8AE /* WHMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9254C211D43274A0047D8AE /* WHMeCell.m */; };
+		C9254C251D4328020047D8AE /* WHConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C9254C241D4328020047D8AE /* WHConst.m */; };
 		C99075A71D2AB61100304220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99075A51D2AB61100304220 /* Main.storyboard */; };
 		C99075A91D2AB61100304220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99075A81D2AB61100304220 /* Assets.xcassets */; };
 		C9DDCAEA1D328F4400004080 /* WHEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAC61D328F4400004080 /* WHEssenceViewController.m */; };
@@ -53,6 +55,10 @@
 		C921F36A1D3A185200BAFB3C /* WHQuickLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHQuickLoginButton.m; sourceTree = "<group>"; };
 		C921F36C1D3B733900BAFB3C /* WHLoginRegisterTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHLoginRegisterTextField.h; sourceTree = "<group>"; };
 		C921F36D1D3B733900BAFB3C /* WHLoginRegisterTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHLoginRegisterTextField.m; sourceTree = "<group>"; };
+		C9254C201D43274A0047D8AE /* WHMeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHMeCell.h; sourceTree = "<group>"; };
+		C9254C211D43274A0047D8AE /* WHMeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHMeCell.m; sourceTree = "<group>"; };
+		C9254C231D4328020047D8AE /* WHConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHConst.h; sourceTree = "<group>"; };
+		C9254C241D4328020047D8AE /* WHConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHConst.m; sourceTree = "<group>"; };
 		C99075991D2AB61100304220 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99075A61D2AB61100304220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C99075A81D2AB61100304220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -231,6 +237,8 @@
 		C9DDCAD41D328F4400004080 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C9254C201D43274A0047D8AE /* WHMeCell.h */,
+				C9254C211D43274A0047D8AE /* WHMeCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -274,11 +282,13 @@
 				C9DDCAE31D328F4400004080 /* Model */,
 				C9DDCAE11D328F4400004080 /* Controller */,
 				C9DDCADE1D328F4400004080 /* Category */,
+				C9DDCAE51D328F4400004080 /* View */,
 				C9DDCADC1D328F4400004080 /* AppDelegate.h */,
 				C9DDCADD1D328F4400004080 /* AppDelegate.m */,
 				C9DDCAE21D328F4400004080 /* main.m */,
 				C9DDCAE41D328F4400004080 /* PrefixHeader.pch */,
-				C9DDCAE51D328F4400004080 /* View */,
+				C9254C231D4328020047D8AE /* WHConst.h */,
+				C9254C241D4328020047D8AE /* WHConst.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -402,12 +412,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9254C251D4328020047D8AE /* WHConst.m in Sources */,
 				305713A71D421E64000ECA6B /* UITextField+WHExtension.m in Sources */,
 				C921F36B1D3A185200BAFB3C /* WHQuickLoginButton.m in Sources */,
 				C921F3591D35A09600BAFB3C /* WHNavigationController.m in Sources */,
 				C9DDCAED1D328F4400004080 /* WHNewViewController.m in Sources */,
 				C921F34A1D35401600BAFB3C /* UIBarButtonItem+WHExtension.m in Sources */,
 				C9DDCAEB1D328F4400004080 /* WHFollowViewController.m in Sources */,
+				C9254C221D43274A0047D8AE /* WHMeCell.m in Sources */,
 				C921F3641D3A180800BAFB3C /* WHLoginRegisterViewController.m in Sources */,
 				C921F34D1D35431100BAFB3C /* WHRecommendFollowViewController.m in Sources */,
 				C9DDCAEA1D328F4400004080 /* WHEssenceViewController.m in Sources */,
