@@ -24,14 +24,19 @@
         
         //禁止点击
         self.userInteractionEnabled = NO;
+        
+        __weak typeof(self) weakSelf = self;
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             
-            [NSThread sleepForTimeInterval:3];
+//            [NSThread sleepForTimeInterval:3];
             
             unsigned long long size = WHCustomCacheFile.fileSize;
             size += [SDImageCache sharedImageCache].getSize;
             //    NSString *cachesPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
             //    NSString *directPath = [cachesPath stringByAppendingPathComponent:@"default"];
+
+            //若cell销毁,则直接返回
+            if (weakSelf == nil) return ;
 
             NSString *sizeText = nil;
             if (size >= pow(10, 9)) { // size >= 1GB
@@ -44,17 +49,21 @@
                 sizeText = [NSString stringWithFormat:@"%zdB", size];
             }
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.textLabel.text = [NSString stringWithFormat:@"清除缓存(%@)",sizeText];
-                self.accessoryView = nil;
-                self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                weakSelf.textLabel.text = [NSString stringWithFormat:@"清除缓存(%@)",sizeText];
+                weakSelf.accessoryView = nil;
+                weakSelf.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 
-                [self addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clearCache)]];
-                self.userInteractionEnabled = YES;
+                [weakSelf addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:weakSelf action:@selector(clearCache)]];
+                weakSelf.userInteractionEnabled = YES;
             });
         });
         
     }
     return self;
+}
+- (void)dealloc
+{
+    WHLogFunc
 }
 /**清除缓存*/
 - (void)clearCache
@@ -70,7 +79,7 @@
             [mgr removeItemAtPath:WHCustomCacheFile error:nil];
             [mgr createDirectoryAtPath:WHCustomCacheFile withIntermediateDirectories:YES attributes:nil error:nil];
 
-            [NSThread sleepForTimeInterval:3];
+//            [NSThread sleepForTimeInterval:3];
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [SVProgressHUD dismiss];
