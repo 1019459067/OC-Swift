@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WHWebViewController">
+            <connections>
+                <outlet property="itemForward" destination="xAV-80-7xs" id="GUr-2A-lpQ"/>
+                <outlet property="itemRewind" destination="bU7-Ua-2E0" id="b7V-B5-icn"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="nZb-Vn-7VB" id="f2R-N7-hXk"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22s-0M-49g">
+                    <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                    <items>
+                        <barButtonItem enabled="NO" systemItem="rewind" id="bU7-Ua-2E0">
+                            <connections>
+                                <action selector="onActionBack:" destination="-1" id="Mpa-1c-tLh"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem enabled="NO" systemItem="fastForward" id="xAV-80-7xs">
+                            <connections>
+                                <action selector="onActionForWard:" destination="-1" id="mMm-xy-Mo7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Oww-Cl-3v4"/>
+                        <barButtonItem systemItem="refresh" id="Zaq-yN-dbw">
+                            <connections>
+                                <action selector="onActionRefresh:" destination="-1" id="riB-29-sBM"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZb-Vn-7VB">
+                    <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="VTl-Aa-G91"/>
+                    </connections>
+                </webView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="22s-0M-49g" secondAttribute="bottom" id="4bI-w6-47M"/>
+                <constraint firstAttribute="trailing" secondItem="22s-0M-49g" secondAttribute="trailing" id="6yx-q9-36N"/>
+                <constraint firstItem="22s-0M-49g" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Fe2-uJ-l0Q"/>
+                <constraint firstItem="nZb-Vn-7VB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GtN-aO-5cV"/>
+                <constraint firstItem="nZb-Vn-7VB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="boC-jQ-7ZO"/>
+                <constraint firstItem="22s-0M-49g" firstAttribute="top" secondItem="nZb-Vn-7VB" secondAttribute="bottom" id="fXI-6I-ZFT"/>
+                <constraint firstAttribute="trailing" secondItem="nZb-Vn-7VB" secondAttribute="trailing" id="j3N-Fy-chO"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

@@ -39,7 +39,9 @@
 
 - (void)setSquare:(WHMeSquare *)square
 {
+    _square = square;
     [self setTitle:square.name forState:UIControlStateNormal];
     [self sd_setImageWithURL:[NSURL URLWithString:square.icon] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"setup-head-default"]];
 }
+
 @end

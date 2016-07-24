@@ -59,6 +59,8 @@
 		C9D847C61D44637700FFBCBC /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D847BA1D44637700FFBCBC /* NSObject+MJProperty.m */; };
 		C9D847C71D44637700FFBCBC /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D847BC1D44637700FFBCBC /* NSString+MJExtension.m */; };
 		C9D847CA1D447E5A00FFBCBC /* WHMeSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D847C91D447E5A00FFBCBC /* WHMeSquareButton.m */; };
+		C9D847D11D448ED100FFBCBC /* WHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D847CF1D448ED100FFBCBC /* WHWebViewController.m */; };
+		C9D847D21D448ED100FFBCBC /* WHWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D847D01D448ED100FFBCBC /* WHWebViewController.xib */; };
 		C9DDCAEA1D328F4400004080 /* WHEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAC61D328F4400004080 /* WHEssenceViewController.m */; };
 		C9DDCAEB1D328F4400004080 /* WHFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCACC1D328F4400004080 /* WHFollowViewController.m */; };
 		C9DDCAEC1D328F4400004080 /* WHMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAD21D328F4400004080 /* WHMeViewController.m */; };
@@ -173,6 +175,9 @@
 		C9D847BC1D44637700FFBCBC /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		C9D847C81D447E5A00FFBCBC /* WHMeSquareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHMeSquareButton.h; sourceTree = "<group>"; };
 		C9D847C91D447E5A00FFBCBC /* WHMeSquareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHMeSquareButton.m; sourceTree = "<group>"; };
+		C9D847CE1D448ED100FFBCBC /* WHWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHWebViewController.h; sourceTree = "<group>"; };
+		C9D847CF1D448ED100FFBCBC /* WHWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHWebViewController.m; sourceTree = "<group>"; };
+		C9D847D01D448ED100FFBCBC /* WHWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WHWebViewController.xib; sourceTree = "<group>"; };
 		C9DDCAC51D328F4400004080 /* WHEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHEssenceViewController.h; sourceTree = "<group>"; };
 		C9DDCAC61D328F4400004080 /* WHEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHEssenceViewController.m; sourceTree = "<group>"; };
 		C9DDCACB1D328F4400004080 /* WHFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHFollowViewController.h; sourceTree = "<group>"; };
@@ -433,6 +438,9 @@
 				C9DDCAD21D328F4400004080 /* WHMeViewController.m */,
 				C921F34E1D3547D500BAFB3C /* WHSettingViewController.h */,
 				C921F34F1D3547D500BAFB3C /* WHSettingViewController.m */,
+				C9D847CE1D448ED100FFBCBC /* WHWebViewController.h */,
+				C9D847CF1D448ED100FFBCBC /* WHWebViewController.m */,
+				C9D847D01D448ED100FFBCBC /* WHWebViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -618,6 +626,7 @@
 				C99075A91D2AB61100304220 /* Assets.xcassets in Resources */,
 				C921F3651D3A180800BAFB3C /* WHLoginRegisterViewController.xib in Resources */,
 				C9D847BD1D44637700FFBCBC /* Info.plist in Resources */,
+				C9D847D21D448ED100FFBCBC /* WHWebViewController.xib in Resources */,
 				C99075A71D2AB61100304220 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -673,6 +682,7 @@
 				C9D8476E1D43D18000FFBCBC /* AFURLRequestSerialization.m in Sources */,
 				C921F3561D35A07900BAFB3C /* WHTabBarViewController.m in Sources */,
 				C9D8479D1D43D21100FFBCBC /* UIImage+GIF.m in Sources */,
+				C9D847D11D448ED100FFBCBC /* WHWebViewController.m in Sources */,
 				C9D847C61D44637700FFBCBC /* NSObject+MJProperty.m in Sources */,
 				C9D847981D43D21100FFBCBC /* SDWebImageDownloader.m in Sources */,
 				C9DDCAEC1D328F4400004080 /* WHMeViewController.m in Sources */,

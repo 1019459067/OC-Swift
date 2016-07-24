@@ -11,18 +11,14 @@
 #import "WHMeSquareButton.h"
 #import "MJExtension.h"
 #import "WHMeSquare.h"
+#import "WHWebViewController.h"
 
 @interface WHMeFootView ()
-//@property (strong, nonatomic) NSMutableDictionary<NSString *,WHMeSquare *> *allSquares;
+
 @end
+
 @implementation WHMeFootView
-//- (NSMutableDictionary<NSString *,WHMeSquare *> *)allSquares
-//{
-//    if (!_allSquares) {
-//        _allSquares = [NSMutableDictionary dictionary];
-//    }
-//    return _allSquares;
-//}
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
@@ -48,10 +44,8 @@
     CGFloat btnW = self.wh_width/iMaxCowsCount;
     CGFloat btnH = btnW;
     
-    for (int i = 0; i < squares.count; i++) {
-        WHMeSquare *square = squares[i];
-//        self.allSquares[square.name] = square;
-        
+    for (int i = 0; i < squares.count; i++)
+    {
         // create Btn
         WHMeSquareButton *btn = [WHMeSquareButton buttonWithType:UIButtonTypeCustom];
         [btn addTarget:self action:@selector(onActionClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -61,8 +55,8 @@
         btn.wh_y = i / iMaxCowsCount * btnH;
         btn.wh_height = btnH;
         btn.wh_width = btnW;
-        btn.square = square;
-
+        
+        btn.square = squares[i];
     }
     // set footer view max height
     self.wh_height = self.subviews.lastObject.wh_bottom;
@@ -74,18 +68,24 @@
 }
 - (void)onActionClicked:(WHMeSquareButton *)sender
 {
-    WHMeSquare *square = sender.square;//self.allSquares[sender.currentTitle];
-    if ([square.url hasPrefix:@"http://"])//use web url load
+    NSString *url = sender.square.url;
+    if ([url hasPrefix:@"http://"])//use web url load
     {
-        
+        WHWebViewController *vc = [[WHWebViewController alloc]init];
+        vc.url = url;
+        vc.navigationItem.title = sender.currentTitle;
+        //get navigation
+        UITabBarController *tabVC = (UITabBarController*)self.window.rootViewController;
+        UINavigationController *nav = tabVC.selectedViewController;
+        [nav pushViewController:vc animated:YES];
     }
-    else if([square.url hasPrefix:@"mod://"])
+    else if([url hasPrefix:@"mod://"])
     {
         WHLog(@"跳转 mod://");
     }else
     {
         WHLog(@"跳转 其他");
     }
-    NSLog(@"== %@",square.url);
+    NSLog(@"== %@",url);
 }
 @end
