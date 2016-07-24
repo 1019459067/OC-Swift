@@ -7,12 +7,16 @@
 //
 
 #import "WHSettingViewController.h"
+#import "WHClearCacheCell.h"
 
 @interface WHSettingViewController ()
 
 @end
 
+
 @implementation WHSettingViewController
+
+static NSString * const WHClearCacheCellID = @"WHClearCacheCell";
 
 - (instancetype)init
 {
@@ -23,6 +27,9 @@
     [super viewDidLoad];
     self.navigationItem.title = @"设置";
     self.view.backgroundColor = WHColorCommonBg;
+    
+    //
+    [self.tableView registerClass:[WHClearCacheCell class] forCellReuseIdentifier:WHClearCacheCellID];
 }
 
 #pragma mark - UITableViewData
@@ -37,16 +44,14 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *identify = @"WHSettingViewControllercell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
-    }
-    cell.textLabel.text = @"清除缓冲";
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    WHClearCacheCell *cell = [tableView dequeueReusableCellWithIdentifier:WHClearCacheCellID];
     return cell;
 }
-
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

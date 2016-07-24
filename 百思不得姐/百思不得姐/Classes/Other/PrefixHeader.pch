@@ -16,6 +16,7 @@
 #import "WHNavigationController.h"
 #import "UITextField+WHExtension.h"
 #import "WHConst.h"
+#import "NSString+WHExtension.h"
 
 /** 日志 */
 #ifdef DEBUG
