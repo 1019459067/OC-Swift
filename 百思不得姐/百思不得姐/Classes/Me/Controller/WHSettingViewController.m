@@ -8,6 +8,7 @@
 
 #import "WHSettingViewController.h"
 #import "WHClearCacheCell.h"
+#import "WHSettingCell.h"
 
 @interface WHSettingViewController ()
 
@@ -17,6 +18,7 @@
 @implementation WHSettingViewController
 
 static NSString * const WHClearCacheCellID = @"WHClearCacheCell";
+static NSString * const WHSettingCellID = @"WHSettingCell";
 
 - (instancetype)init
 {
@@ -30,6 +32,8 @@ static NSString * const WHClearCacheCellID = @"WHClearCacheCell";
     
     //
     [self.tableView registerClass:[WHClearCacheCell class] forCellReuseIdentifier:WHClearCacheCellID];
+    [self.tableView registerClass:[WHSettingCell class] forCellReuseIdentifier:WHSettingCellID];
+
 }
 
 #pragma mark - UITableViewData
@@ -40,12 +44,29 @@ static NSString * const WHClearCacheCellID = @"WHClearCacheCell";
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 5;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WHClearCacheCell *cell = [tableView dequeueReusableCellWithIdentifier:WHClearCacheCellID];
-    return cell;
+    if (indexPath.row == 0)
+    {
+        return [tableView dequeueReusableCellWithIdentifier:WHClearCacheCellID];
+    }
+    else
+    {
+        WHSettingCell *cell = [tableView dequeueReusableCellWithIdentifier:WHSettingCellID];
+        if (indexPath.row == 1) {
+            cell.textLabel.text = @"检查更新";
+        }else if (indexPath.row == 2)
+        {
+            cell.textLabel.text = @"给我们评分";
+        }else if (indexPath.row == 3){
+            cell.textLabel.text = @"推送设置";
+        }else if (indexPath.row == 4){
+            cell.textLabel.text = @"关于我们";
+        }
+        return cell;
+    }
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

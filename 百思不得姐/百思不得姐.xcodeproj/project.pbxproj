@@ -68,6 +68,7 @@
 		C9D847E61D44CD0000FFBCBC /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C9D847DF1D44CD0000FFBCBC /* SVProgressHUD.bundle */; };
 		C9D847E71D44CD0000FFBCBC /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D847E11D44CD0000FFBCBC /* SVProgressHUD.m */; };
 		C9D847E81D44CD0000FFBCBC /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D847E31D44CD0000FFBCBC /* SVRadialGradientLayer.m */; };
+		C9D847EB1D44D6F900FFBCBC /* WHSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D847EA1D44D6F900FFBCBC /* WHSettingCell.m */; };
 		C9DDCAEA1D328F4400004080 /* WHEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAC61D328F4400004080 /* WHEssenceViewController.m */; };
 		C9DDCAEB1D328F4400004080 /* WHFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCACC1D328F4400004080 /* WHFollowViewController.m */; };
 		C9DDCAEC1D328F4400004080 /* WHMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAD21D328F4400004080 /* WHMeViewController.m */; };
@@ -199,6 +200,8 @@
 		C9D847E11D44CD0000FFBCBC /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		C9D847E21D44CD0000FFBCBC /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
 		C9D847E31D44CD0000FFBCBC /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		C9D847E91D44D6F900FFBCBC /* WHSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHSettingCell.h; sourceTree = "<group>"; };
+		C9D847EA1D44D6F900FFBCBC /* WHSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHSettingCell.m; sourceTree = "<group>"; };
 		C9DDCAC51D328F4400004080 /* WHEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHEssenceViewController.h; sourceTree = "<group>"; };
 		C9DDCAC61D328F4400004080 /* WHEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHEssenceViewController.m; sourceTree = "<group>"; };
 		C9DDCACB1D328F4400004080 /* WHFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHFollowViewController.h; sourceTree = "<group>"; };
@@ -504,6 +507,8 @@
 				C9D847C91D447E5A00FFBCBC /* WHMeSquareButton.m */,
 				C9D847D61D44AE9F00FFBCBC /* WHClearCacheCell.h */,
 				C9D847D71D44AE9F00FFBCBC /* WHClearCacheCell.m */,
+				C9D847E91D44D6F900FFBCBC /* WHSettingCell.h */,
+				C9D847EA1D44D6F900FFBCBC /* WHSettingCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -723,6 +728,7 @@
 				C9D8476F1D43D18000FFBCBC /* AFURLResponseSerialization.m in Sources */,
 				C9D8479E1D43D21100FFBCBC /* UIImage+MultiFormat.m in Sources */,
 				C9DDCAEF1D328F4400004080 /* UIView+WHExtension.m in Sources */,
+				C9D847EB1D44D6F900FFBCBC /* WHSettingCell.m in Sources */,
 				C9D847931D43D21100FFBCBC /* MKAnnotationView+WebCache.m in Sources */,
 				C9D847941D43D21100FFBCBC /* NSData+ImageContentType.m in Sources */,
 				C9D847E41D44CD0000FFBCBC /* SVIndefiniteAnimatedView.m in Sources */,
