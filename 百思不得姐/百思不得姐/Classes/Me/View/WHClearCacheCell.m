@@ -22,6 +22,8 @@
         self.accessoryView = loadView;
         self.textLabel.text = @"清除缓存(正在计算大小)";
         
+        //禁止点击
+        self.userInteractionEnabled = NO;
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             
             [NSThread sleepForTimeInterval:3];
@@ -45,10 +47,12 @@
                 self.textLabel.text = [NSString stringWithFormat:@"清除缓存(%@)",sizeText];
                 self.accessoryView = nil;
                 self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                
+                [self addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clearCache)]];
+                self.userInteractionEnabled = YES;
             });
         });
         
-        [self addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clearCache)]];
     }
     return self;
 }
@@ -74,11 +78,6 @@
             });
         });
     }];
-    
-    
-    
-    self.textLabel.text = @"清除缓存";
-
 }
 - (void)awakeFromNib {
     [super awakeFromNib];

@@ -50,7 +50,7 @@ static NSString * const WHClearCacheCellID = @"WHClearCacheCell";
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    WHLogFunc
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
