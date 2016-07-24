@@ -28,7 +28,7 @@
         __weak typeof(self) weakSelf = self;
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             
-//            [NSThread sleepForTimeInterval:3];
+            [NSThread sleepForTimeInterval:5.0];
             
             unsigned long long size = WHCustomCacheFile.fileSize;
             size += [SDImageCache sharedImageCache].getSize;
@@ -87,6 +87,13 @@
             });
         });
     }];
+}
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    //cell 重用时,开始动画
+    UIActivityIndicatorView *loadView = (UIActivityIndicatorView *)self.accessoryView;
+    [loadView startAnimating];
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
