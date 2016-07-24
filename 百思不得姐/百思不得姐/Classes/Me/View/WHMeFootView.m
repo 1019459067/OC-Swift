@@ -59,7 +59,9 @@
     self.wh_height = self.subviews.lastObject.wh_bottom;
     //
     UITableView *tableView = (UITableView *)self.superview;
-    tableView.contentSize = CGSizeMake(0, self.wh_bottom);
+//    tableView.contentSize = CGSizeMake(0, self.wh_bottom);//is exist bug
+    tableView.tableFooterView = self;
+    [tableView reloadData];
 }
 - (void)onActionClicked:(WHMeSquareButton *)sender
 {

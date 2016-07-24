@@ -35,9 +35,8 @@
     self.tableView.contentInset = UIEdgeInsetsMake(WHMargin-35, 0, 0, 0);
     self.tableView.backgroundColor = WHColorCommonBg;
     
-    WHMeFootView *viewFoot = [[WHMeFootView alloc]init];
-    viewFoot.wh_height = 200;
-    self.tableView.tableFooterView = viewFoot;
+//    WHMeFootView *viewFoot = [[WHMeFootView alloc]init];
+    self.tableView.tableFooterView = [[WHMeFootView alloc]init];
 }
 - (void)setupNav
 {
