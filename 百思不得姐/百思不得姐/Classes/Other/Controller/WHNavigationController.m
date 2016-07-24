@@ -50,7 +50,7 @@
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
-    WHLog(@"%ld",self.childViewControllers.count);
+    WHLog(@"%ld",(unsigned long)self.childViewControllers.count);
     return self.childViewControllers.count > 1;
 }
 - (void)didReceiveMemoryWarning {

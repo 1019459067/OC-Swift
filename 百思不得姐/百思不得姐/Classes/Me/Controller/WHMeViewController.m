@@ -9,6 +9,7 @@
 #import "WHMeViewController.h"
 #import "WHSettingViewController.h"
 #import "WHMeCell.h"
+#import "WHMeFootView.h"
 
 @interface WHMeViewController ()
 
@@ -34,9 +35,8 @@
     self.tableView.contentInset = UIEdgeInsetsMake(WHMargin-35, 0, 0, 0);
     self.tableView.backgroundColor = WHColorCommonBg;
     
-    UIView *viewFoot = [[UIView alloc]init];
+    WHMeFootView *viewFoot = [[WHMeFootView alloc]init];
     viewFoot.wh_height = 200;
-    viewFoot.backgroundColor = [UIColor redColor];
     self.tableView.tableFooterView = viewFoot;
 }
 - (void)setupNav
