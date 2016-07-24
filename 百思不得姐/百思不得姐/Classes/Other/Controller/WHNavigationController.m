@@ -25,7 +25,6 @@
 {
     if (self.childViewControllers.count >= 1)
     {
-        WHLogFunc
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setImage:[UIImage imageNamed:@"navigationButtonReturn"] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"navigationButtonReturnClick"] forState:UIControlStateHighlighted];
@@ -50,7 +49,6 @@
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
-    WHLog(@"%ld",(unsigned long)self.childViewControllers.count);
     return self.childViewControllers.count > 1;
 }
 - (void)didReceiveMemoryWarning {

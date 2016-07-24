@@ -12,6 +12,7 @@
 #import "MJExtension.h"
 #import "WHMeSquare.h"
 #import "WHWebViewController.h"
+#import <SafariServices/SafariServices.h>
 
 @interface WHMeFootView ()
 
