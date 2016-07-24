@@ -7,6 +7,8 @@
 //
 
 #import "WHMeSquareButton.h"
+#import "UIButton+WebCache.h"
+#import "WHMeSquare.h"
 
 @implementation WHMeSquareButton
 
@@ -33,5 +35,11 @@
     self.titleLabel.wh_y = self.imageView.wh_bottom;
     self.titleLabel.wh_width = self.wh_width;
     self.titleLabel.wh_height = self.wh_height-self.imageView.wh_height;
+}
+
+- (void)setSquare:(WHMeSquare *)square
+{
+    [self setTitle:square.name forState:UIControlStateNormal];
+    [self sd_setImageWithURL:[NSURL URLWithString:square.icon] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"setup-head-default"]];
 }
 @end

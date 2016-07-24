@@ -8,13 +8,21 @@
 
 #import "WHMeFootView.h"
 #import "AFNetworking.h"
-#import "WHMeSquare.h"
-#import "MJExtension.h"
-#import "UIButton+WebCache.h"
 #import "WHMeSquareButton.h"
+#import "MJExtension.h"
+#import "WHMeSquare.h"
 
+@interface WHMeFootView ()
+//@property (strong, nonatomic) NSMutableDictionary<NSString *,WHMeSquare *> *allSquares;
+@end
 @implementation WHMeFootView
-
+//- (NSMutableDictionary<NSString *,WHMeSquare *> *)allSquares
+//{
+//    if (!_allSquares) {
+//        _allSquares = [NSMutableDictionary dictionary];
+//    }
+//    return _allSquares;
+//}
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
@@ -42,6 +50,8 @@
     
     for (int i = 0; i < squares.count; i++) {
         WHMeSquare *square = squares[i];
+//        self.allSquares[square.name] = square;
+        
         // create Btn
         WHMeSquareButton *btn = [WHMeSquareButton buttonWithType:UIButtonTypeCustom];
         [btn addTarget:self action:@selector(onActionClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -51,9 +61,8 @@
         btn.wh_y = i / iMaxCowsCount * btnH;
         btn.wh_height = btnH;
         btn.wh_width = btnW;
-        
-        [btn setTitle:square.name forState:UIControlStateNormal];
-        [btn sd_setImageWithURL:[NSURL URLWithString:square.icon] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"setup-head-default"]];
+        btn.square = square;
+
     }
     // set footer view max height
     self.wh_height = self.subviews.lastObject.wh_bottom;
@@ -65,6 +74,18 @@
 }
 - (void)onActionClicked:(WHMeSquareButton *)sender
 {
-    WHLogFunc
+    WHMeSquare *square = sender.square;//self.allSquares[sender.currentTitle];
+    if ([square.url hasPrefix:@"http://"])//use web url load
+    {
+        
+    }
+    else if([square.url hasPrefix:@"mod://"])
+    {
+        WHLog(@"跳转 mod://");
+    }else
+    {
+        WHLog(@"跳转 其他");
+    }
+    NSLog(@"== %@",square.url);
 }
 @end

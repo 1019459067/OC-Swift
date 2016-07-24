@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class WHMeSquare;
 @interface WHMeSquareButton : UIButton
+
+/** 方块模型 */
+@property (strong, nonatomic) WHMeSquare *square;
 
 @end
