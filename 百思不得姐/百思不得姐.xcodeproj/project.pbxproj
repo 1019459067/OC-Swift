@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		303B9BE51D45FC9200A235DC /* WHAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303B9BE41D45FC9200A235DC /* WHAllViewController.m */; };
+		303B9BE81D45FCA400A235DC /* WHVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303B9BE71D45FCA400A235DC /* WHVideoViewController.m */; };
+		303B9BEB1D45FCBF00A235DC /* WHVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303B9BEA1D45FCBF00A235DC /* WHVoiceViewController.m */; };
+		303B9BEE1D45FCD200A235DC /* WHPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303B9BED1D45FCD200A235DC /* WHPictureViewController.m */; };
+		303B9BF11D45FCDD00A235DC /* WHWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303B9BF01D45FCDD00A235DC /* WHWordViewController.m */; };
 		305713A71D421E64000ECA6B /* UITextField+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 305713A61D421E64000ECA6B /* UITextField+WHExtension.m */; };
 		C921F34A1D35401600BAFB3C /* UIBarButtonItem+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F3491D35401600BAFB3C /* UIBarButtonItem+WHExtension.m */; };
 		C921F34D1D35431100BAFB3C /* WHRecommendFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F34C1D35431100BAFB3C /* WHRecommendFollowViewController.m */; };
@@ -80,6 +85,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		303B9BE31D45FC9200A235DC /* WHAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHAllViewController.h; sourceTree = "<group>"; };
+		303B9BE41D45FC9200A235DC /* WHAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHAllViewController.m; sourceTree = "<group>"; };
+		303B9BE61D45FCA400A235DC /* WHVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHVideoViewController.h; sourceTree = "<group>"; };
+		303B9BE71D45FCA400A235DC /* WHVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHVideoViewController.m; sourceTree = "<group>"; };
+		303B9BE91D45FCBF00A235DC /* WHVoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHVoiceViewController.h; sourceTree = "<group>"; };
+		303B9BEA1D45FCBF00A235DC /* WHVoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHVoiceViewController.m; sourceTree = "<group>"; };
+		303B9BEC1D45FCD200A235DC /* WHPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPictureViewController.h; sourceTree = "<group>"; };
+		303B9BED1D45FCD200A235DC /* WHPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPictureViewController.m; sourceTree = "<group>"; };
+		303B9BEF1D45FCDD00A235DC /* WHWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHWordViewController.h; sourceTree = "<group>"; };
+		303B9BF01D45FCDD00A235DC /* WHWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHWordViewController.m; sourceTree = "<group>"; };
 		305713A51D421E64000ECA6B /* UITextField+WHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+WHExtension.h"; sourceTree = "<group>"; };
 		305713A61D421E64000ECA6B /* UITextField+WHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+WHExtension.m"; sourceTree = "<group>"; };
 		C921F3481D35401600BAFB3C /* UIBarButtonItem+WHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+WHExtension.h"; sourceTree = "<group>"; };
@@ -412,6 +427,16 @@
 			children = (
 				C9DDCAC51D328F4400004080 /* WHEssenceViewController.h */,
 				C9DDCAC61D328F4400004080 /* WHEssenceViewController.m */,
+				303B9BE31D45FC9200A235DC /* WHAllViewController.h */,
+				303B9BE41D45FC9200A235DC /* WHAllViewController.m */,
+				303B9BE61D45FCA400A235DC /* WHVideoViewController.h */,
+				303B9BE71D45FCA400A235DC /* WHVideoViewController.m */,
+				303B9BE91D45FCBF00A235DC /* WHVoiceViewController.h */,
+				303B9BEA1D45FCBF00A235DC /* WHVoiceViewController.m */,
+				303B9BEC1D45FCD200A235DC /* WHPictureViewController.h */,
+				303B9BED1D45FCD200A235DC /* WHPictureViewController.m */,
+				303B9BEF1D45FCDD00A235DC /* WHWordViewController.h */,
+				303B9BF01D45FCDD00A235DC /* WHWordViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -695,6 +720,7 @@
 				C9D847D51D44A60300FFBCBC /* NSString+WHExtension.m in Sources */,
 				C9D847BE1D44637700FFBCBC /* MJExtensionConst.m in Sources */,
 				C9D847991D43D21100FFBCBC /* SDWebImageDownloaderOperation.m in Sources */,
+				303B9BEE1D45FCD200A235DC /* WHPictureViewController.m in Sources */,
 				C9D8479F1D43D21100FFBCBC /* UIImage+WebP.m in Sources */,
 				C9D847BF1D44637700FFBCBC /* MJFoundation.m in Sources */,
 				C9D847E81D44CD0000FFBCBC /* SVRadialGradientLayer.m in Sources */,
@@ -702,8 +728,10 @@
 				C9254C251D4328020047D8AE /* WHConst.m in Sources */,
 				C9D847951D43D21100FFBCBC /* SDImageCache.m in Sources */,
 				C9D847C51D44637700FFBCBC /* NSObject+MJKeyValue.m in Sources */,
+				303B9BF11D45FCDD00A235DC /* WHWordViewController.m in Sources */,
 				C9D847C11D44637700FFBCBC /* MJPropertyKey.m in Sources */,
 				C9D8479A1D43D21100FFBCBC /* SDWebImageManager.m in Sources */,
+				303B9BEB1D45FCBF00A235DC /* WHVoiceViewController.m in Sources */,
 				C9D847C21D44637700FFBCBC /* MJPropertyType.m in Sources */,
 				C9254C281D43CC8D0047D8AE /* WHMeFootView.m in Sources */,
 				C9D8476D1D43D18000FFBCBC /* AFSecurityPolicy.m in Sources */,
@@ -731,6 +759,8 @@
 				C9D847EE1D451ABB00FFBCBC /* WHTitleButton.m in Sources */,
 				C9DDCAEA1D328F4400004080 /* WHEssenceViewController.m in Sources */,
 				C9D8476B1D43D18000FFBCBC /* AFHTTPSessionManager.m in Sources */,
+				303B9BE81D45FCA400A235DC /* WHVideoViewController.m in Sources */,
+				303B9BE51D45FC9200A235DC /* WHAllViewController.m in Sources */,
 				C9D8476F1D43D18000FFBCBC /* AFURLResponseSerialization.m in Sources */,
 				C9D8479E1D43D21100FFBCBC /* UIImage+MultiFormat.m in Sources */,
 				C9DDCAEF1D328F4400004080 /* UIView+WHExtension.m in Sources */,
