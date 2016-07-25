@@ -12,6 +12,7 @@
 		303B9BEB1D45FCBF00A235DC /* WHVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303B9BEA1D45FCBF00A235DC /* WHVoiceViewController.m */; };
 		303B9BEE1D45FCD200A235DC /* WHPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303B9BED1D45FCD200A235DC /* WHPictureViewController.m */; };
 		303B9BF11D45FCDD00A235DC /* WHWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303B9BF01D45FCDD00A235DC /* WHWordViewController.m */; };
+		303B9BF41D461D5F00A235DC /* WHTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 303B9BF31D461D5F00A235DC /* WHTopic.m */; };
 		305713A71D421E64000ECA6B /* UITextField+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 305713A61D421E64000ECA6B /* UITextField+WHExtension.m */; };
 		C921F34A1D35401600BAFB3C /* UIBarButtonItem+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F3491D35401600BAFB3C /* UIBarButtonItem+WHExtension.m */; };
 		C921F34D1D35431100BAFB3C /* WHRecommendFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F34C1D35431100BAFB3C /* WHRecommendFollowViewController.m */; };
@@ -95,6 +96,8 @@
 		303B9BED1D45FCD200A235DC /* WHPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPictureViewController.m; sourceTree = "<group>"; };
 		303B9BEF1D45FCDD00A235DC /* WHWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHWordViewController.h; sourceTree = "<group>"; };
 		303B9BF01D45FCDD00A235DC /* WHWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHWordViewController.m; sourceTree = "<group>"; };
+		303B9BF21D461D5F00A235DC /* WHTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHTopic.h; path = "百思不得姐/Classes/Essence/Controller/WHTopic.h"; sourceTree = SOURCE_ROOT; };
+		303B9BF31D461D5F00A235DC /* WHTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHTopic.m; path = "百思不得姐/Classes/Essence/Controller/WHTopic.m"; sourceTree = SOURCE_ROOT; };
 		305713A51D421E64000ECA6B /* UITextField+WHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+WHExtension.h"; sourceTree = "<group>"; };
 		305713A61D421E64000ECA6B /* UITextField+WHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+WHExtension.m"; sourceTree = "<group>"; };
 		C921F3481D35401600BAFB3C /* UIBarButtonItem+WHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+WHExtension.h"; sourceTree = "<group>"; };
@@ -444,6 +447,8 @@
 		C9DDCAC71D328F4400004080 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				303B9BF21D461D5F00A235DC /* WHTopic.h */,
+				303B9BF31D461D5F00A235DC /* WHTopic.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -766,6 +771,7 @@
 				C9DDCAEF1D328F4400004080 /* UIView+WHExtension.m in Sources */,
 				C9D847EB1D44D6F900FFBCBC /* WHSettingCell.m in Sources */,
 				C9D847931D43D21100FFBCBC /* MKAnnotationView+WebCache.m in Sources */,
+				303B9BF41D461D5F00A235DC /* WHTopic.m in Sources */,
 				C9D847941D43D21100FFBCBC /* NSData+ImageContentType.m in Sources */,
 				C9D847E41D44CD0000FFBCBC /* SVIndefiniteAnimatedView.m in Sources */,
 				C9D8479C1D43D21100FFBCBC /* UIButton+WebCache.m in Sources */,
