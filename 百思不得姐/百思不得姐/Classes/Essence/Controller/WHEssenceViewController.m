@@ -128,6 +128,7 @@
     NSInteger index = self.scrollView.contentOffset.x / self.scrollView.wh_width;
     // add VC
     UIViewController *vc = self.childViewControllers[index];
+    if (vc.isViewLoaded) return;
     vc.view.frame = self.scrollView.bounds;
     [self.scrollView addSubview:vc.view];
 }
