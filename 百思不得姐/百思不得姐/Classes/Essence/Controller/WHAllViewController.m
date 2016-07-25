@@ -12,7 +12,7 @@
 #import "MJExtension.h"
 #import "UIImageView+WebCache.h"
 #import "WHRefreshHeader.h"
-#import "MJRefresh.h"
+#import "WHRefreshFooter.h"
 
 @interface WHAllViewController ()
 @property (strong, nonatomic) NSMutableArray *topics;
@@ -39,7 +39,7 @@
     self.tableView.mj_header = [WHRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
     [self.tableView.mj_header beginRefreshing];
     
-    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
+    self.tableView.mj_footer = [WHRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
 }
 #pragma mark - 数据加载
 - (void)loadMoreTopics
