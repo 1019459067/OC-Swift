@@ -16,12 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    WHLogFunc
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.tableView.contentInset = UIEdgeInsetsMake(64+35, 0, 49, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,7 +44,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@-%ld",[self class],indexPath.row];
     return cell;
 }
 @end

@@ -14,9 +14,11 @@
 #import "WHPictureViewController.h"
 #import "WHWordViewController.h"
 
-@interface WHEssenceViewController ()
+@interface WHEssenceViewController ()<UIScrollViewDelegate>
 @property (weak, nonatomic) WHTitleButton *selectedBtn;
 @property (strong, nonatomic) UIView *indicatorView;
+@property (weak, nonatomic) UIScrollView *scrollView;
+@property (weak, nonatomic) UIView *viewTitles;
 @end
 
 @implementation WHEssenceViewController
@@ -28,6 +30,8 @@
     [self setupNav];
     [self setupScrollView];
     [self setupTitlesView];
+    
+    [self addChildVCView];
 }
 - (void)setupChildVCs
 {
@@ -52,6 +56,7 @@
     viewTitles.frame = CGRectMake(0, 64, self.view.wh_width, 35);
     viewTitles.backgroundColor = [[UIColor whiteColor]colorWithAlphaComponent:0.5];
     [self.view addSubview:viewTitles];
+    self.viewTitles =viewTitles;
     
     //set titles
     NSArray *arrTitle = @[@"全部",@"视频",@"声音",@"图片",@"段子"];
@@ -62,7 +67,7 @@
         WHTitleButton *btn = [WHTitleButton buttonWithType:UIButtonTypeCustom];
         [btn addTarget:self action:@selector(onActionTitleButton:) forControlEvents:UIControlEventTouchUpInside];
         [viewTitles addSubview:btn];
-        
+        btn.tag = i;
         CGFloat btnX = i * btnW;
         btn.frame = CGRectMake(btnX, btnY, btnW, btnH);
         
@@ -96,6 +101,10 @@
         self.indicatorView.wh_width = sender.titleLabel.wh_width;
         self.indicatorView.wh_centerX = sender.wh_centerX;
     }];
+    // scrollView 滚动对应位置
+    CGPoint offSet = self.scrollView.contentOffset;
+    offSet.x = self.scrollView.wh_width * sender.tag;
+    [self.scrollView setContentOffset:offSet animated:YES];
 }
 - (void)setupScrollView
 {
@@ -104,25 +113,38 @@
     UIScrollView *scrollView = [[UIScrollView alloc]init];
     scrollView.frame = self.view.bounds;
     scrollView.pagingEnabled = YES;
+    scrollView.delegate = self;
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.backgroundColor = WHRandomColor;
     [self.view addSubview:scrollView];
+    self.scrollView = scrollView;
     
-    //
-    for (int i = 0 ; i < self.childViewControllers.count; i++)
-    {
-        UITableView *childView = (UITableView*)self.childViewControllers[i].view;
-        childView.wh_x = scrollView.wh_width*i;
-        childView.wh_y = 0;
-        childView.wh_height = scrollView.wh_height;
-        childView.backgroundColor = WHRandomColor;
-        childView.contentInset = UIEdgeInsetsMake(64+35, 0, 49, 0);
-        childView.scrollIndicatorInsets = childView.contentInset;
-        [scrollView addSubview:childView];
-    }
     scrollView.contentSize = CGSizeMake(self.childViewControllers.count * scrollView.wh_width, 0);
     
+}
+- (void)addChildVCView
+{
+    NSInteger index = self.scrollView.contentOffset.x / self.scrollView.wh_width;
+    // add VC
+    UIViewController *vc = self.childViewControllers[index];
+    vc.view.frame = self.scrollView.bounds;
+    [self.scrollView addSubview:vc.view];
+}
+#pragma mark UIScrollViewDelegate
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    [self addChildVCView];
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    //selected title
+    NSInteger index = scrollView.contentOffset.x / scrollView.wh_width;
+    WHTitleButton *btnTitle = self.viewTitles.subviews[index];
+    [self onActionTitleButton:btnTitle];
+    
+    // add VC
+    [self addChildVCView];
 }
 - (void)setupNav
 {
