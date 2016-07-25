@@ -98,6 +98,7 @@
 		C9D848311D46349500FFBCBC /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D8481D1D46349500FFBCBC /* UIView+MJExtension.m */; };
 		C9D848371D463EBF00FFBCBC /* WHRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D848361D463EBF00FFBCBC /* WHRefreshHeader.m */; };
 		C9D848401D46687000FFBCBC /* WHRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D8483F1D46687000FFBCBC /* WHRefreshFooter.m */; };
+		C9D848431D46747600FFBCBC /* WHHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D848421D46747600FFBCBC /* WHHTTPSessionManager.m */; };
 		C9DDCAEA1D328F4400004080 /* WHEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAC61D328F4400004080 /* WHEssenceViewController.m */; };
 		C9DDCAEB1D328F4400004080 /* WHFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCACC1D328F4400004080 /* WHFollowViewController.m */; };
 		C9DDCAEC1D328F4400004080 /* WHMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAD21D328F4400004080 /* WHMeViewController.m */; };
@@ -289,6 +290,8 @@
 		C9D848361D463EBF00FFBCBC /* WHRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHRefreshHeader.m; sourceTree = "<group>"; };
 		C9D8483E1D46687000FFBCBC /* WHRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHRefreshFooter.h; sourceTree = "<group>"; };
 		C9D8483F1D46687000FFBCBC /* WHRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHRefreshFooter.m; sourceTree = "<group>"; };
+		C9D848411D46747600FFBCBC /* WHHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHHTTPSessionManager.h; sourceTree = "<group>"; };
+		C9D848421D46747600FFBCBC /* WHHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHHTTPSessionManager.m; sourceTree = "<group>"; };
 		C9DDCAC51D328F4400004080 /* WHEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHEssenceViewController.h; sourceTree = "<group>"; };
 		C9DDCAC61D328F4400004080 /* WHEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHEssenceViewController.m; sourceTree = "<group>"; };
 		C9DDCACB1D328F4400004080 /* WHFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHFollowViewController.h; sourceTree = "<group>"; };
@@ -756,6 +759,8 @@
 				C9DDCAE41D328F4400004080 /* PrefixHeader.pch */,
 				C9254C231D4328020047D8AE /* WHConst.h */,
 				C9254C241D4328020047D8AE /* WHConst.m */,
+				C9D848411D46747600FFBCBC /* WHHTTPSessionManager.h */,
+				C9D848421D46747600FFBCBC /* WHHTTPSessionManager.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -921,6 +926,7 @@
 				C9D847C41D44637700FFBCBC /* NSObject+MJCoding.m in Sources */,
 				C9D847E71D44CD0000FFBCBC /* SVProgressHUD.m in Sources */,
 				C921F36B1D3A185200BAFB3C /* WHQuickLoginButton.m in Sources */,
+				C9D848431D46747600FFBCBC /* WHHTTPSessionManager.m in Sources */,
 				C9D848311D46349500FFBCBC /* UIView+MJExtension.m in Sources */,
 				C9D847A21D43D21100FFBCBC /* UIView+WebCacheOperation.m in Sources */,
 				C921F3591D35A09600BAFB3C /* WHNavigationController.m in Sources */,

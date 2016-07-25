@@ -7,7 +7,7 @@
 //
 
 #import "WHAllViewController.h"
-#import "AFNetworking.h"
+#import "WHHTTPSessionManager.h"
 #import "WHTopic.h"
 #import "MJExtension.h"
 #import "UIImageView+WebCache.h"
@@ -18,11 +18,17 @@
 @property (strong, nonatomic) NSMutableArray *topics;
 /** 用来加载下一页数据 */
 @property (copy, nonatomic) NSString *maxtime;
-
+@property (strong, nonatomic) WHHTTPSessionManager *mgr;
 @end
 
 @implementation WHAllViewController
-
+- (AFHTTPSessionManager *)mgr
+{
+    if (!_mgr) {
+        _mgr = [WHHTTPSessionManager manager];
+    }
+    return _mgr;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     WHLogFunc
@@ -44,13 +50,14 @@
 #pragma mark - 数据加载
 - (void)loadMoreTopics
 {
+    [self.mgr.tasks makeObjectsPerformSelector:@selector(cancel)];
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"a"] = @"list";
     param[@"c"] = @"data";
     param[@"maxtime"] = self.maxtime;
 
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-    [mgr GET:@"http://api.budejie.com/api/api_open.php" parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
+
+    [self.mgr GET:@"http://api.budejie.com/api/api_open.php" parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.maxtime = responseObject[@"info"][@"maxtime"];
@@ -65,12 +72,13 @@
 }
 - (void)loadNewTopics
 {
+    [self.mgr.tasks makeObjectsPerformSelector:@selector(cancel)];
+
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"a"] = @"list";
     param[@"c"] = @"data";
 
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-    [mgr GET:@"http://api.budejie.com/api/api_open.php" parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
+    [self.mgr GET:@"http://api.budejie.com/api/api_open.php" parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         //

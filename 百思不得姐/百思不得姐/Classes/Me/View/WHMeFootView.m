@@ -7,7 +7,7 @@
 //
 
 #import "WHMeFootView.h"
-#import "AFNetworking.h"
+#import "WHHTTPSessionManager.h"
 #import "WHMeSquareButton.h"
 #import "MJExtension.h"
 #import "WHMeSquare.h"
@@ -26,9 +26,8 @@
         NSMutableDictionary *param = [NSMutableDictionary dictionary];
         param[@"a"] = @"square";
         param[@"c"] = @"topic";
-        
-        AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-        [mgr GET:@"http://api.budejie.com/api/api_open.php" parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
+    
+        [[WHHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NSArray *squares = [WHMeSquare mj_objectArrayWithKeyValuesArray:responseObject[@"square_list"]];
