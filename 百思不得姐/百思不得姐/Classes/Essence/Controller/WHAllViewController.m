@@ -11,6 +11,7 @@
 #import "WHTopic.h"
 #import "MJExtension.h"
 #import "UIImageView+WebCache.h"
+#import "WHRefreshHeader.h"
 
 @interface WHAllViewController ()
 @property (strong, nonatomic) NSArray *topics;
@@ -18,13 +19,6 @@
 
 @implementation WHAllViewController
 
-- (NSArray *)topics
-{
-    if (!_topics) {
-        _topics = [NSArray array];
-    }
-    return _topics;
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     WHLogFunc
@@ -33,7 +27,13 @@
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     
     //
-    [self loadNewTopics];
+    [self setupRefresh];
+//    [self loadNewTopics];
+}
+- (void)setupRefresh
+{
+    self.tableView.mj_header = [WHRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
+    [self.tableView.mj_header beginRefreshing];
 }
 #pragma mark - 数据加载
 - (void)loadNewTopics
@@ -49,8 +49,10 @@
         self.topics = [WHTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
 //        [self createSquare:squares];
         [self.tableView reloadData];
+        [self.tableView.mj_header endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         WHLogFunc
+        [self.tableView.mj_header endRefreshing];
     }];
 }
 - (void)didReceiveMemoryWarning {

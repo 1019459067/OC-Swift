@@ -96,6 +96,7 @@
 		C9D8482F1D46349500FFBCBC /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D848191D46349500FFBCBC /* UIScrollView+MJExtension.m */; };
 		C9D848301D46349500FFBCBC /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D8481B1D46349500FFBCBC /* UIScrollView+MJRefresh.m */; };
 		C9D848311D46349500FFBCBC /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D8481D1D46349500FFBCBC /* UIView+MJExtension.m */; };
+		C9D848371D463EBF00FFBCBC /* WHRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D848361D463EBF00FFBCBC /* WHRefreshHeader.m */; };
 		C9DDCAEA1D328F4400004080 /* WHEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAC61D328F4400004080 /* WHEssenceViewController.m */; };
 		C9DDCAEB1D328F4400004080 /* WHFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCACC1D328F4400004080 /* WHFollowViewController.m */; };
 		C9DDCAEC1D328F4400004080 /* WHMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DDCAD21D328F4400004080 /* WHMeViewController.m */; };
@@ -283,6 +284,8 @@
 		C9D8481B1D46349500FFBCBC /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		C9D8481C1D46349500FFBCBC /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		C9D8481D1D46349500FFBCBC /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		C9D848351D463EBF00FFBCBC /* WHRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHRefreshHeader.h; sourceTree = "<group>"; };
+		C9D848361D463EBF00FFBCBC /* WHRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHRefreshHeader.m; sourceTree = "<group>"; };
 		C9DDCAC51D328F4400004080 /* WHEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHEssenceViewController.h; sourceTree = "<group>"; };
 		C9DDCAC61D328F4400004080 /* WHEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHEssenceViewController.m; sourceTree = "<group>"; };
 		C9DDCACB1D328F4400004080 /* WHFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHFollowViewController.h; sourceTree = "<group>"; };
@@ -799,6 +802,8 @@
 				C921F36A1D3A185200BAFB3C /* WHQuickLoginButton.m */,
 				C921F36C1D3B733900BAFB3C /* WHLoginRegisterTextField.h */,
 				C921F36D1D3B733900BAFB3C /* WHLoginRegisterTextField.m */,
+				C9D848351D463EBF00FFBCBC /* WHRefreshHeader.h */,
+				C9D848361D463EBF00FFBCBC /* WHRefreshHeader.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -925,6 +930,7 @@
 				C921F3641D3A180800BAFB3C /* WHLoginRegisterViewController.m in Sources */,
 				C9D847A01D43D21100FFBCBC /* UIImageView+HighlightedWebCache.m in Sources */,
 				C9D847D81D44AE9F00FFBCBC /* WHClearCacheCell.m in Sources */,
+				C9D848371D463EBF00FFBCBC /* WHRefreshHeader.m in Sources */,
 				C9D847701D43D18000FFBCBC /* AFURLSessionManager.m in Sources */,
 				C921F34D1D35431100BAFB3C /* WHRecommendFollowViewController.m in Sources */,
 				C9D847C71D44637700FFBCBC /* NSString+MJExtension.m in Sources */,
