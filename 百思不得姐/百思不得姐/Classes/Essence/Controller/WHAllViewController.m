@@ -12,9 +12,13 @@
 #import "MJExtension.h"
 #import "UIImageView+WebCache.h"
 #import "WHRefreshHeader.h"
+#import "MJRefresh.h"
 
 @interface WHAllViewController ()
-@property (strong, nonatomic) NSArray *topics;
+@property (strong, nonatomic) NSMutableArray *topics;
+/** 用来加载下一页数据 */
+@property (copy, nonatomic) NSString *maxtime;
+
 @end
 
 @implementation WHAllViewController
@@ -34,8 +38,31 @@
 {
     self.tableView.mj_header = [WHRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
     [self.tableView.mj_header beginRefreshing];
+    
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
 }
 #pragma mark - 数据加载
+- (void)loadMoreTopics
+{
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"a"] = @"list";
+    param[@"c"] = @"data";
+    param[@"maxtime"] = self.maxtime;
+
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    [mgr GET:@"http://api.budejie.com/api/api_open.php" parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.maxtime = responseObject[@"info"][@"maxtime"];
+        [self.topics addObjectsFromArray:[WHTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]]];
+        [self.tableView reloadData];
+        [self.tableView.mj_footer endRefreshing];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        WHLogFunc
+        [self.tableView.mj_footer endRefreshing];
+    }];
+
+}
 - (void)loadNewTopics
 {
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
@@ -46,8 +73,10 @@
     [mgr GET:@"http://api.budejie.com/api/api_open.php" parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //
+        self.maxtime = responseObject[@"info"][@"maxtime"];
+        
         self.topics = [WHTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-//        [self createSquare:squares];
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
