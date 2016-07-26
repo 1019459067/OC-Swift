@@ -12,3 +12,6 @@
 UIKIT_EXTERN CGFloat const WHMargin;
 
 UIKIT_EXTERN CGFloat const WHSmallMargin;
+
+/** 公共的 URL */
+UIKIT_EXTERN NSString * const WHCommonURL;

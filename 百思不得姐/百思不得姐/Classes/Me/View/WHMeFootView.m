@@ -27,7 +27,7 @@
         param[@"a"] = @"square";
         param[@"c"] = @"topic";
     
-        [[WHHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
+        [[WHHTTPSessionManager manager] GET:WHCommonURL parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NSArray *squares = [WHMeSquare mj_objectArrayWithKeyValuesArray:responseObject[@"square_list"]];

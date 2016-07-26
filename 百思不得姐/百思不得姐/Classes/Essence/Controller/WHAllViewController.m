@@ -35,7 +35,7 @@
     
     self.tableView.contentInset = UIEdgeInsetsMake(64+35, 0, 49, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    
+    self.tableView.backgroundColor = WHColorCommonBg;
     //
     [self setupRefresh];
 //    [self loadNewTopics];
@@ -57,7 +57,7 @@
     param[@"maxtime"] = self.maxtime;
 
 
-    [self.mgr GET:@"http://api.budejie.com/api/api_open.php" parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
+    [self.mgr GET:WHCommonURL parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.maxtime = responseObject[@"info"][@"maxtime"];
@@ -78,7 +78,7 @@
     param[@"a"] = @"list";
     param[@"c"] = @"data";
 
-    [self.mgr GET:@"http://api.budejie.com/api/api_open.php" parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
+    [self.mgr GET:WHCommonURL parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         //

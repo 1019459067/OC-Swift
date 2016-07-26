@@ -12,3 +12,6 @@
 CGFloat const WHMargin = 10;
 
 CGFloat const WHSmallMargin = WHMargin * 0.5;
+
+/** 公共的 URL */
+NSString * const WHCommonURL = @"http://api.budejie.com/api/api_open.php";
