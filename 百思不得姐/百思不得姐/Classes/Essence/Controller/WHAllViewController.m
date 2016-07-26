@@ -13,6 +13,7 @@
 #import "UIImageView+WebCache.h"
 #import "WHRefreshHeader.h"
 #import "WHRefreshFooter.h"
+#import "WHVideoCell.h"
 
 @interface WHAllViewController ()
 @property (strong, nonatomic) NSMutableArray *topics;
@@ -39,6 +40,8 @@
     //
     [self setupRefresh];
 //    [self loadNewTopics];
+    
+    WHVideoCell *cell = [[WHVideoCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
 }
 - (void)setupRefresh
 {
