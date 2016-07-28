@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface WHTopic : NSObject
+
 @property (copy, nonatomic) NSString *name;
 @property (copy, nonatomic) NSString *profile_image;
 @property (copy, nonatomic) NSString *text;
@@ -17,4 +18,5 @@
 @property (assign, nonatomic) NSInteger cai;
 @property (assign, nonatomic) NSInteger repost;
 @property (assign, nonatomic) NSInteger comment;
+
 @end

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class WHTopic;
 @interface WHTopicCell : UITableViewCell
+/** 贴子模型 */
+@property (strong, nonatomic) WHTopic *topic;
 
 @end

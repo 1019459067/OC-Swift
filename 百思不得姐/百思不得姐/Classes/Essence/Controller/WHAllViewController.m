@@ -13,7 +13,9 @@
 #import "UIImageView+WebCache.h"
 #import "WHRefreshHeader.h"
 #import "WHRefreshFooter.h"
-#import "WHVideoCell.h"
+#import "WHTopicCell.h"
+
+static NSString * const WHTopicCellID = @"WHTopicCell";
 
 @interface WHAllViewController ()
 @property (strong, nonatomic) NSMutableArray *topics;
@@ -32,16 +34,19 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    WHLogFunc
     
+    [self setupTableView];
+    [self setupRefresh];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([WHTopicCell class]) bundle:nil] forCellReuseIdentifier:WHTopicCellID];
+}
+- (void)setupTableView
+{
     self.tableView.contentInset = UIEdgeInsetsMake(64+35, 0, 49, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.backgroundColor = WHColorCommonBg;
-    //
-    [self setupRefresh];
-//    [self loadNewTopics];
-    
-    WHVideoCell *cell = [[WHVideoCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.rowHeight = 250;
 }
 - (void)setupRefresh
 {
@@ -112,14 +117,14 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *identify = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
-    }
-    WHTopic *topic = self.topics[indexPath.row];
-    cell.textLabel.text = topic.name;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    WHTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:WHTopicCellID];
+    cell.topic = self.topics[indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    WHTopicCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    cell.wh_height -= 10;
 }
 @end
