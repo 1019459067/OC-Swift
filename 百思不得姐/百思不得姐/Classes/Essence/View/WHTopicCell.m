@@ -39,9 +39,11 @@
     _topic = topic;
     [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     self.nameLabel.text = topic.name;
+    
     self.createdAtLabel.text = topic.created_at;
     self.text_label.text = topic.text;
     
+
     // 设置底部工具条的数字
     [self setupButtonTitle:self.dingButton number:topic.ding placeholder:@"顶"];
     [self setupButtonTitle:self.caiButton number:topic.cai placeholder:@"踩"];

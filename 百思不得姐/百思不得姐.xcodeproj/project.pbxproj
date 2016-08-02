@@ -32,6 +32,8 @@
 		C9254C281D43CC8D0047D8AE /* WHMeFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9254C271D43CC8D0047D8AE /* WHMeFootView.m */; };
 		C99075A71D2AB61100304220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99075A51D2AB61100304220 /* Main.storyboard */; };
 		C99075A91D2AB61100304220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99075A81D2AB61100304220 /* Assets.xcassets */; };
+		C9AB38E51D50435500837A79 /* NSDate+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AB38E41D50435500837A79 /* NSDate+WHExtension.m */; };
+		C9AB38E81D5044F700837A79 /* NSCalendar+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AB38E71D5044F700837A79 /* NSCalendar+WHExtension.m */; };
 		C9D8476B1D43D18000FFBCBC /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D8475F1D43D18000FFBCBC /* AFHTTPSessionManager.m */; };
 		C9D8476C1D43D18000FFBCBC /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D847621D43D18000FFBCBC /* AFNetworkReachabilityManager.m */; };
 		C9D8476D1D43D18000FFBCBC /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D847641D43D18000FFBCBC /* AFSecurityPolicy.m */; };
@@ -158,6 +160,10 @@
 		C99075A61D2AB61100304220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C99075A81D2AB61100304220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C99075AD1D2AB61100304220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9AB38E31D50435500837A79 /* NSDate+WHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WHExtension.h"; sourceTree = "<group>"; };
+		C9AB38E41D50435500837A79 /* NSDate+WHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WHExtension.m"; sourceTree = "<group>"; };
+		C9AB38E61D5044F700837A79 /* NSCalendar+WHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+WHExtension.h"; sourceTree = "<group>"; };
+		C9AB38E71D5044F700837A79 /* NSCalendar+WHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+WHExtension.m"; sourceTree = "<group>"; };
 		C9D8475E1D43D18000FFBCBC /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		C9D8475F1D43D18000FFBCBC /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		C9D847601D43D18000FFBCBC /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -784,6 +790,10 @@
 				305713A61D421E64000ECA6B /* UITextField+WHExtension.m */,
 				C9D847D31D44A60300FFBCBC /* NSString+WHExtension.h */,
 				C9D847D41D44A60300FFBCBC /* NSString+WHExtension.m */,
+				C9AB38E31D50435500837A79 /* NSDate+WHExtension.h */,
+				C9AB38E41D50435500837A79 /* NSDate+WHExtension.m */,
+				C9AB38E61D5044F700837A79 /* NSCalendar+WHExtension.h */,
+				C9AB38E71D5044F700837A79 /* NSCalendar+WHExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -946,6 +956,7 @@
 				C9D847971D43D21100FFBCBC /* SDWebImageDecoder.m in Sources */,
 				C9DDCAEB1D328F4400004080 /* WHFollowViewController.m in Sources */,
 				303B9BF71D474D8100A235DC /* WHTopicCell.m in Sources */,
+				C9AB38E81D5044F700837A79 /* NSCalendar+WHExtension.m in Sources */,
 				C9D848201D46349500FFBCBC /* MJRefreshComponent.m in Sources */,
 				C9D847A51D4462D800FFBCBC /* WHMeSquare.m in Sources */,
 				C9254C221D43274A0047D8AE /* WHMeCell.m in Sources */,
@@ -983,6 +994,7 @@
 				C9D847D11D448ED100FFBCBC /* WHWebViewController.m in Sources */,
 				C9D847C61D44637700FFBCBC /* NSObject+MJProperty.m in Sources */,
 				C9D847981D43D21100FFBCBC /* SDWebImageDownloader.m in Sources */,
+				C9AB38E51D50435500837A79 /* NSDate+WHExtension.m in Sources */,
 				C9DDCAEC1D328F4400004080 /* WHMeViewController.m in Sources */,
 				C9DDCAF01D328F4400004080 /* main.m in Sources */,
 				C921F3681D3A181600BAFB3C /* WHTabBar.m in Sources */,

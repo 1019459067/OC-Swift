@@ -17,6 +17,7 @@
 #import "UITextField+WHExtension.h"
 #import "WHConst.h"
 #import "NSString+WHExtension.h"
+#import "NSCalendar+WHExtension.h"
 
 /** 日志 */
 #ifdef DEBUG
@@ -24,6 +25,9 @@
 #else
 #define WHLog(...)
 #endif
+
+/** 当前设备系统的 判断 */
+#define iOS(version) ([UIDevice currentDevice].systemVersion.doubleValue >= (version))
 
 #define WHLogFunc WHLog(@"__%s__",__func__);
 /** 颜色相关 */
