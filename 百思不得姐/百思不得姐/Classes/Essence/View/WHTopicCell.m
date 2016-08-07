@@ -52,12 +52,17 @@
     [self setupButtonTitle:self.repostButton number:topic.repost placeholder:@"分享"];
     [self setupButtonTitle:self.commentButton number:topic.comment placeholder:@"评论"];
     
+//    WHLog(@"ID = %@",topic.ID);
+//    if ([topic.ID isEqualToString:@"19721017"])
+//    {
+//        WHLog(@"name = %@",topic.name);
+//    }
     //最热评论
     if (topic.top_cmt)
     {
         NSString *username = topic.top_cmt.user.username;
         NSString *content = topic.top_cmt.content;
-        self.topCmtLabel.text = [NSString stringWithFormat:@"%@:%@",username,content];
+        self.topCmtLabel.text = [NSString stringWithFormat:@"%@ : %@",username,content];
 
         self.topCmtView.hidden = NO;
     }else

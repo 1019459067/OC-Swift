@@ -46,7 +46,6 @@ static NSString * const WHTopicCellID = @"WHTopicCell";
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.backgroundColor = WHColorCommonBg;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    self.tableView.rowHeight = 250;
 }
 - (void)setupRefresh
 {
@@ -126,8 +125,7 @@ static NSString * const WHTopicCellID = @"WHTopicCell";
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    return 250;
+    return self.topics[indexPath.row].cellHeight;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

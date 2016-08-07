@@ -25,7 +25,7 @@ typedef NS_ENUM(NSInteger,WHTopicType) {
 @interface WHComent : NSObject
 
 /** id */
-@property (nonatomic, copy) NSString *ID;
+//@property (nonatomic, copy) NSString *ID;
 
 /** 文字内容 */
 @property (nonatomic, copy) NSString *content;

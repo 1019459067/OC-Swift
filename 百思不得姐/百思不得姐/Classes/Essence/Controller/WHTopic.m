@@ -10,6 +10,7 @@
 #import "NSDate+WHExtension.h"
 #import "MJExtension.h"
 #import "WHComent.h"
+#import "WHUser.h"
 
 static const NSDateFormatter *fmt_;
 
@@ -60,5 +61,39 @@ static const NSDateFormatter *fmt_;
     } else { // 非今年
         return _created_at;
     }
+}
+
+
+- (CGFloat)cellHeight
+{
+    WHLog(@"cellHeight = %f",_cellHeight);
+    if (_cellHeight) return _cellHeight;
+    //头像
+    _cellHeight =  55;
+    
+     //文字
+    CGFloat textMaxW = [UIScreen mainScreen].bounds.size.width-2*WHMargin;
+    CGSize textMaxSize = CGSizeMake(textMaxW, MAXFLOAT);
+    CGSize textSize = [self.text boundingRectWithSize:textMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil].size;
+    _cellHeight += textSize.height+WHMargin;
+
+    //中间的内容
+    if (self.type != WHTopicTypeWord)
+    {
+        CGFloat contentH = textMaxW * self.height/self.width;
+        _cellHeight += contentH+WHMargin;
+    }
+    // 最热评论
+    if (self.top_cmt)
+    {
+        _cellHeight += 20;// 标题
+        NSString *topCmtContent = [NSString stringWithFormat:@"%@ : %@",self.top_cmt.user.username,self.top_cmt.content];
+        CGSize topCmtContentSize = [topCmtContent boundingRectWithSize:textMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size;
+        _cellHeight += topCmtContentSize.height+WHMargin;
+    }
+    //工具条
+    _cellHeight += 35+WHMargin;
+    
+    return _cellHeight;
 }
 @end

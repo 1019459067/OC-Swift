@@ -31,10 +31,10 @@
 //    [WHTopic mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
 //        return @{@"ID":@"id"};
 //    }];
-    
-    [WHComent mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-        return @{@"ID":@"id"};
-    }];
+//    
+//    [WHComent mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+//        return @{@"ID":@"id"};
+//    }];
 }
 //+ (NSDictionary *)mj_objectClassInArray
 //{
