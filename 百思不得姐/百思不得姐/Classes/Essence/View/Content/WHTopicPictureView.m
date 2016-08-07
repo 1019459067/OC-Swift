@@ -9,6 +9,7 @@
 #import "WHTopicPictureView.h"
 #import "WHTopic.h"
 #import "UIImageView+WebCache.h"
+#import "AFNetworking.h"
 //#import <DALabeledCircularProgressView.h>
 
 @interface WHTopicPictureView()
@@ -32,9 +33,42 @@
 
 - (void)setTopic:(WHTopic *)topic
 {
-//    [super setTopic:topic];
-    
+    _topic = topic;
     // 下载图片
+    if ([[UIDevice currentDevice].name isEqualToString:@"iPhone Simulator"])
+    {
+        [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image]];
+    }else
+    {
+        AFNetworkReachabilityStatus status =[AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
+        switch (status) {
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image]];
+                break;
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.small_image]];
+                break;
+            default:
+                self.imageView.image = nil;
+                break;
+        }
+    }
+    
+    self.gifView.hidden = !topic.is_gif;
+    
+    if (topic.isBigPicture)
+    {
+        self.seeBigPictureButton.hidden = NO;
+        self.imageView.contentMode = UIViewContentModeTop;
+        self.imageView.clipsToBounds = YES;
+    }else
+    {
+        self.seeBigPictureButton.hidden = YES;
+        self.imageView.clipsToBounds = NO;
+        self.imageView.contentMode = UIViewContentModeScaleToFill;
+    }
+    
+    
 //    WHWeakSelf;
 //    [_imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
 //        // 每下载一点图片数据，就会调用一次这个block

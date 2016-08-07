@@ -37,6 +37,10 @@
 #define WHGrayColor(v) WHColorA((v),(v),(v),255)
 #define WHColorCommonBg WHGrayColor(206)
 
+// 屏幕尺寸
+#define WH_ScreenH [UIScreen mainScreen].bounds.size.height
+#define WH_ScreenW [UIScreen mainScreen].bounds.size.width
+
 #endif
 
 #endif /* PrefixHeader_pch */

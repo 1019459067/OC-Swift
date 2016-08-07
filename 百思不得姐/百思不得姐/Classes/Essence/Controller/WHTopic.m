@@ -66,24 +66,31 @@ static const NSDateFormatter *fmt_;
 
 - (CGFloat)cellHeight
 {
-    WHLog(@"cellHeight = %f",_cellHeight);
     if (_cellHeight) return _cellHeight;
     //头像
     _cellHeight =  55;
     
      //文字
-    CGFloat textMaxW = [UIScreen mainScreen].bounds.size.width-2*WHMargin;
+    CGFloat textMaxW = WH_ScreenW-2*WHMargin;
     CGSize textMaxSize = CGSizeMake(textMaxW, MAXFLOAT);
     CGSize textSize = [self.text boundingRectWithSize:textMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil].size;
     _cellHeight += textSize.height+WHMargin;
 
-    //中间的内容
-    if (self.type != WHTopicTypeWord)
-    {
-        CGFloat contentH = textMaxW * self.height/self.width;
-        self.contentF = CGRectMake(WHMargin, _cellHeight, textMaxW, contentH);
-//        WHLog(@"%@",NSStringFromCGRect(self.contentF));
-        _cellHeight += contentH+WHMargin;
+    // 中间内容的高度
+    if (self.type != WHTopicTypeWord) {
+        CGFloat contentW = textMaxW;
+        // 图片的高度 * 内容的宽度 / 图片的宽度
+        CGFloat contentH = self.height * contentW / self.width;
+        if (contentH >= WH_ScreenH) { // 一旦图片的显示高度超过一个屏幕，就让图片高度为200
+            contentH = 200;
+            self.bigPicture = YES;
+        }
+        
+        CGFloat contentX = WHMargin;
+        CGFloat contentY = _cellHeight;
+        self.contentF = CGRectMake(contentX, contentY, contentW, contentH);
+        
+        _cellHeight += contentH + WHMargin;
     }
     // 最热评论
     if (self.top_cmt)

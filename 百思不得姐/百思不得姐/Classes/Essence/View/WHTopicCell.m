@@ -111,7 +111,7 @@
         self.voiceView.hidden = YES;
         self.pictureView.hidden = NO;
         self.pictureView.frame = topic.contentF;
-//        self.pictureView.topic = topic;
+        self.pictureView.topic = topic;
 //        [self.contentView addSubview:self.pictureView];
     } else if (topic.type == WHTopicTypeVoice) { // 声音
         self.pictureView.hidden = YES;

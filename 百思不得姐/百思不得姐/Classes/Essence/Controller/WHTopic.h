@@ -31,6 +31,8 @@
 @property (nonatomic, copy) NSString *large_image; // image1
 /** 中图 */
 @property (nonatomic, copy) NSString *middle_image; // image2
+/** 是否为动态图 */
+@property (nonatomic, assign) BOOL is_gif;
 
 //@property (strong, nonatomic) NSArray<WHComent *> *top_cmt;
 /** 最热评论 */
@@ -44,5 +46,6 @@
 @property (assign, nonatomic) CGFloat cellHeight;
 /** 中间内容的 frame */
 @property (assign, nonatomic) CGRect contentF;
-
+/** 判断大图 */
+@property (assign,nonatomic,getter=isBigPicture) BOOL bigPicture;
 @end
