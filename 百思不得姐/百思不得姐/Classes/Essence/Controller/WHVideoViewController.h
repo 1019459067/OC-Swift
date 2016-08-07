@@ -6,8 +6,8 @@
 //  Copyright © 2016年 XWH. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "WHTopicViewController.h"
 
-@interface WHVideoViewController : UITableViewController
+@interface WHVideoViewController : WHTopicViewController
 
 @end

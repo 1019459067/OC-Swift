@@ -25,6 +25,7 @@
 		C91EC4A71D573339009A63A6 /* WHTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C91EC4A61D573339009A63A6 /* WHTopicCell.xib */; };
 		C91EC4AD1D5742AD009A63A6 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = C91EC4AA1D5742AD009A63A6 /* DACircularProgressView.m */; };
 		C91EC4AE1D5742AD009A63A6 /* DALabeledCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = C91EC4AC1D5742AD009A63A6 /* DALabeledCircularProgressView.m */; };
+		C91EC4B11D574AFC009A63A6 /* WHTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C91EC4B01D574AFC009A63A6 /* WHTopicViewController.m */; };
 		C921F34A1D35401600BAFB3C /* UIBarButtonItem+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F3491D35401600BAFB3C /* UIBarButtonItem+WHExtension.m */; };
 		C921F34D1D35431100BAFB3C /* WHRecommendFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F34C1D35431100BAFB3C /* WHRecommendFollowViewController.m */; };
 		C921F3501D3547D500BAFB3C /* WHSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F34F1D3547D500BAFB3C /* WHSettingViewController.m */; };
@@ -156,6 +157,8 @@
 		C91EC4AA1D5742AD009A63A6 /* DACircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACircularProgressView.m; sourceTree = "<group>"; };
 		C91EC4AB1D5742AD009A63A6 /* DALabeledCircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DALabeledCircularProgressView.h; sourceTree = "<group>"; };
 		C91EC4AC1D5742AD009A63A6 /* DALabeledCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DALabeledCircularProgressView.m; sourceTree = "<group>"; };
+		C91EC4AF1D574AFC009A63A6 /* WHTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHTopicViewController.h; sourceTree = "<group>"; };
+		C91EC4B01D574AFC009A63A6 /* WHTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHTopicViewController.m; sourceTree = "<group>"; };
 		C921F3481D35401600BAFB3C /* UIBarButtonItem+WHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+WHExtension.h"; sourceTree = "<group>"; };
 		C921F3491D35401600BAFB3C /* UIBarButtonItem+WHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+WHExtension.m"; sourceTree = "<group>"; };
 		C921F34B1D35431100BAFB3C /* WHRecommendFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHRecommendFollowViewController.h; sourceTree = "<group>"; };
@@ -662,6 +665,8 @@
 		C9DDCAC41D328F4400004080 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C91EC4AF1D574AFC009A63A6 /* WHTopicViewController.h */,
+				C91EC4B01D574AFC009A63A6 /* WHTopicViewController.m */,
 				C9DDCAC51D328F4400004080 /* WHEssenceViewController.h */,
 				C9DDCAC61D328F4400004080 /* WHEssenceViewController.m */,
 				303B9BE31D45FC9200A235DC /* WHAllViewController.h */,
@@ -986,6 +991,7 @@
 				C9D847BE1D44637700FFBCBC /* MJExtensionConst.m in Sources */,
 				C9D847991D43D21100FFBCBC /* SDWebImageDownloaderOperation.m in Sources */,
 				303B9BEE1D45FCD200A235DC /* WHPictureViewController.m in Sources */,
+				C91EC4B11D574AFC009A63A6 /* WHTopicViewController.m in Sources */,
 				C9D8479F1D43D21100FFBCBC /* UIImage+WebP.m in Sources */,
 				C91EC4AD1D5742AD009A63A6 /* DACircularProgressView.m in Sources */,
 				C9D8481F1D46349500FFBCBC /* MJRefreshBackFooter.m in Sources */,
