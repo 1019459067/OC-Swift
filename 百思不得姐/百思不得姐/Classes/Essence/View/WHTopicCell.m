@@ -22,11 +22,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *repostButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 ///** 图片 */
-//@property (nonatomic, weak) XMGTopicPictureView *pictureView;
+//@property (nonatomic, weak) WHTopicPictureView *pictureView;
 ///** 视频 */
-//@property (nonatomic, weak) XMGTopicVideoView *videoView;
+//@property (nonatomic, weak) WHTopicVideoView *videoView;
 ///** 声音 */
-//@property (nonatomic, weak) XMGTopicVoiceView *voiceView;
+//@property (nonatomic, weak) WHTopicVoiceView *voiceView;
 
 /** 最热评论-整体 */
 @property (weak, nonatomic) IBOutlet UIView *topCmtView;
@@ -64,6 +64,33 @@
     {
         self.topCmtView.hidden = YES;
     }
+    
+    //处理中间内容
+    // 根据帖子的类型决定中间的内容
+    if (topic.type == WHTopicTypePicture) { // 图片
+//        self.videoView.hidden = YES;
+//        self.voiceView.hidden = YES;
+//        self.pictureView.hidden = NO;
+//        self.pictureView.frame = topic.contentFrame;
+//        self.pictureView.topic = topic;
+    } else if (topic.type == WHTopicTypeVoice) { // 声音
+//        self.pictureView.hidden = YES;
+//        self.videoView.hidden = YES;
+//        self.voiceView.hidden = NO;
+//        self.voiceView.frame = topic.contentFrame;
+//        self.voiceView.topic = topic;
+    } else if (topic.type == WHTopicTypeVideo) { // 视频
+//        self.pictureView.hidden = YES;
+//        self.voiceView.hidden = YES;
+//        self.videoView.hidden = NO;
+//        self.videoView.frame = topic.contentFrame;
+//        self.videoView.topic = topic;
+    } else if (topic.type == WHTopicTypeWord) { // 文字
+//        self.pictureView.hidden = YES;
+//        self.videoView.hidden = YES;
+//        self.voiceView.hidden = YES;
+    }
+
 }
 - (IBAction)onActionMore:(UIButton *)sender
 {

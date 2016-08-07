@@ -46,7 +46,7 @@ static NSString * const WHTopicCellID = @"WHTopicCell";
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.backgroundColor = WHColorCommonBg;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.rowHeight = 250;
+//    self.tableView.rowHeight = 250;
 }
 - (void)setupRefresh
 {
@@ -62,6 +62,7 @@ static NSString * const WHTopicCellID = @"WHTopicCell";
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"a"] = @"list";
     param[@"c"] = @"data";
+    param[@"type"] = @"1";
     param[@"maxtime"] = self.maxtime;
 
 
@@ -85,6 +86,7 @@ static NSString * const WHTopicCellID = @"WHTopicCell";
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"a"] = @"list";
     param[@"c"] = @"data";
+    param[@"type"] = @"1";
 
     [self.mgr GET:WHCommonURL parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
         
@@ -122,7 +124,11 @@ static NSString * const WHTopicCellID = @"WHTopicCell";
     cell.topic = self.topics[indexPath.row];
     return cell;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    return 250;
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 //    WHTopicCell *cell = [tableView cellForRowAtIndexPath:indexPath];
