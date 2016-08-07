@@ -105,29 +105,24 @@
     }
     
     //处理中间内容
-    // 根据帖子的类型决定中间的内容
     if (topic.type == WHTopicTypePicture) { // 图片
         self.videoView.hidden = YES;
         self.voiceView.hidden = YES;
         self.pictureView.hidden = NO;
         self.pictureView.frame = topic.contentF;
         self.pictureView.topic = topic;
-//        [self.contentView addSubview:self.pictureView];
     } else if (topic.type == WHTopicTypeVoice) { // 声音
         self.pictureView.hidden = YES;
         self.videoView.hidden = YES;
         self.voiceView.hidden = NO;
         self.voiceView.frame = topic.contentF;
-//        self.voiceView.topic = topic;
-//        [self.contentView addSubview:self.voiceView];
+        self.voiceView.topic = topic;
     } else if (topic.type == WHTopicTypeVideo) { // 视频
         self.pictureView.hidden = YES;
         self.voiceView.hidden = YES;
         self.videoView.hidden = NO;
         self.videoView.frame = topic.contentF;
-        WHLog(@"%@",NSStringFromCGRect(topic.contentF));
-//        self.videoView.topic = topic;
-//        [self.contentView addSubview:self.videoView];
+        self.videoView.topic = topic;
     } else if (topic.type == WHTopicTypeWord) { // 文字
         self.pictureView.hidden = YES;
         self.videoView.hidden = YES;

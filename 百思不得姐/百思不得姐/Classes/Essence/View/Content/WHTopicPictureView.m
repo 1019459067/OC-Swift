@@ -10,34 +10,41 @@
 #import "WHTopic.h"
 #import "UIImageView+WebCache.h"
 #import "AFNetworking.h"
-//#import <DALabeledCircularProgressView.h>
+#import "DALabeledCircularProgressView.h"
 
 @interface WHTopicPictureView()
 @property (weak, nonatomic) IBOutlet UIImageView *gifView;
 @property (weak, nonatomic) IBOutlet UIButton *seeBigPictureButton;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
-//@property (weak, nonatomic) IBOutlet DALabeledCircularProgressView *progressView;
+@property (weak, nonatomic) IBOutlet DALabeledCircularProgressView *progressView;
 @end
 
 @implementation WHTopicPictureView
 
 - (void)awakeFromNib
 {
-//    [super awakeFromNib];
+    [super awakeFromNib];
     
     self.autoresizingMask = UIViewAutoresizingNone;
-//    self.progressView.roundedCorners = 5;
-//    self.progressView.progressLabel.textColor = [UIColor whiteColor];
+    self.progressView.roundedCorners = 5;
+    self.progressView.progressLabel.textColor = [UIColor whiteColor];
 }
 
 - (void)setTopic:(WHTopic *)topic
 {
     _topic = topic;
     // 下载图片
+//    WHWeakSelf;
     if ([[UIDevice currentDevice].name isEqualToString:@"iPhone Simulator"])
     {
-        [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image]];
+        [self.imageView sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+            self.progressView.hidden = NO;
+            self.progressView.progress = 1.0 * receivedSize / expectedSize;
+            self.progressView.progressLabel.text = [NSString stringWithFormat:@"%.0f%%", self.progressView.progress * 100];
+        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            self.progressView.hidden = YES;
+        } ];
     }else
     {
         AFNetworkReachabilityStatus status =[AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;

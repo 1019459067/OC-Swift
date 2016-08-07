@@ -15,6 +15,6 @@
     [super prepare];
     self.stateLabel.textColor = [UIColor orangeColor];
     self.triggerAutomaticallyRefreshPercent = 0;
-    self.automaticallyRefresh = NO;
+    self.automaticallyRefresh = YES;
 }
 @end

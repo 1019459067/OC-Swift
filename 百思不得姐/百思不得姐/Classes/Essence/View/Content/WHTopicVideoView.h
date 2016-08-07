@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class WHTopic;
 @interface WHTopicVideoView : UIView
+
+@property (strong, nonatomic) WHTopic *topic;
 
 @end

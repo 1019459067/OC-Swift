@@ -34,6 +34,13 @@
 /** 是否为动态图 */
 @property (nonatomic, assign) BOOL is_gif;
 
+/** 视频的时长 */
+@property (nonatomic, assign) NSInteger videotime;
+/** 音频的时长 */
+@property (nonatomic, assign) NSInteger voicetime;
+/** 播放数量 */
+@property (nonatomic, assign) NSInteger playcount;
+
 //@property (strong, nonatomic) NSArray<WHComent *> *top_cmt;
 /** 最热评论 */
 @property (strong, nonatomic) WHComent *top_cmt;

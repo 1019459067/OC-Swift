@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class WHTopic;
 @interface WHTopicVoiceView : UIView
+
+@property (strong, nonatomic) WHTopic *topic;
 
 @end

@@ -61,7 +61,7 @@ static NSString * const WHTopicCellID = @"WHTopicCell";
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"a"] = @"list";
     param[@"c"] = @"data";
-    param[@"type"] = @"10";
+    param[@"type"] = @"1";
     param[@"maxtime"] = self.maxtime;
 
 
@@ -85,7 +85,7 @@ static NSString * const WHTopicCellID = @"WHTopicCell";
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"a"] = @"list";
     param[@"c"] = @"data";
-    param[@"type"] = @"10";
+    param[@"type"] = @"41";//10 pic 41 video
 
     [self.mgr GET:WHCommonURL parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
         
