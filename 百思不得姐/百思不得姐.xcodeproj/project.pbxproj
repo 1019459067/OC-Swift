@@ -23,6 +23,8 @@
 		C91EC4A11D572175009A63A6 /* WHTopicVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = C91EC49A1D572175009A63A6 /* WHTopicVoiceView.m */; };
 		C91EC4A21D572175009A63A6 /* WHTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C91EC49B1D572175009A63A6 /* WHTopicVoiceView.xib */; };
 		C91EC4A71D573339009A63A6 /* WHTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C91EC4A61D573339009A63A6 /* WHTopicCell.xib */; };
+		C91EC4AD1D5742AD009A63A6 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = C91EC4AA1D5742AD009A63A6 /* DACircularProgressView.m */; };
+		C91EC4AE1D5742AD009A63A6 /* DALabeledCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = C91EC4AC1D5742AD009A63A6 /* DALabeledCircularProgressView.m */; };
 		C921F34A1D35401600BAFB3C /* UIBarButtonItem+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F3491D35401600BAFB3C /* UIBarButtonItem+WHExtension.m */; };
 		C921F34D1D35431100BAFB3C /* WHRecommendFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F34C1D35431100BAFB3C /* WHRecommendFollowViewController.m */; };
 		C921F3501D3547D500BAFB3C /* WHSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F34F1D3547D500BAFB3C /* WHSettingViewController.m */; };
@@ -150,6 +152,10 @@
 		C91EC49A1D572175009A63A6 /* WHTopicVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHTopicVoiceView.m; sourceTree = "<group>"; };
 		C91EC49B1D572175009A63A6 /* WHTopicVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WHTopicVoiceView.xib; sourceTree = "<group>"; };
 		C91EC4A61D573339009A63A6 /* WHTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WHTopicCell.xib; sourceTree = "<group>"; };
+		C91EC4A91D5742AD009A63A6 /* DACircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACircularProgressView.h; sourceTree = "<group>"; };
+		C91EC4AA1D5742AD009A63A6 /* DACircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACircularProgressView.m; sourceTree = "<group>"; };
+		C91EC4AB1D5742AD009A63A6 /* DALabeledCircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DALabeledCircularProgressView.h; sourceTree = "<group>"; };
+		C91EC4AC1D5742AD009A63A6 /* DALabeledCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DALabeledCircularProgressView.m; sourceTree = "<group>"; };
 		C921F3481D35401600BAFB3C /* UIBarButtonItem+WHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+WHExtension.h"; sourceTree = "<group>"; };
 		C921F3491D35401600BAFB3C /* UIBarButtonItem+WHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+WHExtension.m"; sourceTree = "<group>"; };
 		C921F34B1D35431100BAFB3C /* WHRecommendFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHRecommendFollowViewController.h; sourceTree = "<group>"; };
@@ -370,6 +376,17 @@
 			path = Content;
 			sourceTree = "<group>";
 		};
+		C91EC4A81D5742AD009A63A6 /* DACircularProgress */ = {
+			isa = PBXGroup;
+			children = (
+				C91EC4A91D5742AD009A63A6 /* DACircularProgressView.h */,
+				C91EC4AA1D5742AD009A63A6 /* DACircularProgressView.m */,
+				C91EC4AB1D5742AD009A63A6 /* DALabeledCircularProgressView.h */,
+				C91EC4AC1D5742AD009A63A6 /* DALabeledCircularProgressView.m */,
+			);
+			path = DACircularProgress;
+			sourceTree = "<group>";
+		};
 		C99075901D2AB61100304220 = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +425,7 @@
 		C9D8475C1D43D13300FFBCBC /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				C91EC4A81D5742AD009A63A6 /* DACircularProgress */,
 				C9D847EF1D46349500FFBCBC /* MJRefresh */,
 				C9D847D91D44CD0000FFBCBC /* SVProgressHUD */,
 				C9D847A61D44637700FFBCBC /* MJExtension */,
@@ -969,6 +987,7 @@
 				C9D847991D43D21100FFBCBC /* SDWebImageDownloaderOperation.m in Sources */,
 				303B9BEE1D45FCD200A235DC /* WHPictureViewController.m in Sources */,
 				C9D8479F1D43D21100FFBCBC /* UIImage+WebP.m in Sources */,
+				C91EC4AD1D5742AD009A63A6 /* DACircularProgressView.m in Sources */,
 				C9D8481F1D46349500FFBCBC /* MJRefreshBackFooter.m in Sources */,
 				C9D847BF1D44637700FFBCBC /* MJFoundation.m in Sources */,
 				C9D848231D46349500FFBCBC /* MJRefreshAutoGifFooter.m in Sources */,
@@ -981,6 +1000,7 @@
 				C9D847C51D44637700FFBCBC /* NSObject+MJKeyValue.m in Sources */,
 				303B9BF11D45FCDD00A235DC /* WHWordViewController.m in Sources */,
 				C9D847C11D44637700FFBCBC /* MJPropertyKey.m in Sources */,
+				C91EC4AE1D5742AD009A63A6 /* DALabeledCircularProgressView.m in Sources */,
 				C9D8479A1D43D21100FFBCBC /* SDWebImageManager.m in Sources */,
 				C9D848401D46687000FFBCBC /* WHRefreshFooter.m in Sources */,
 				C9D848221D46349500FFBCBC /* MJRefreshHeader.m in Sources */,
