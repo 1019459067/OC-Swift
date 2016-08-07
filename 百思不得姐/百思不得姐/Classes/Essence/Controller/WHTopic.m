@@ -8,11 +8,21 @@
 
 #import "WHTopic.h"
 #import "NSDate+WHExtension.h"
+#import "MJExtension.h"
+#import "WHComent.h"
 
 static const NSDateFormatter *fmt_;
 
 @implementation WHTopic
 
+//+ (NSDictionary *)mj_objectClassInArray
+//{
+//    return @{@"ID":@"id"};
+//}
++ (id)mj_replacedKeyFromPropertyName
+{
+    return @{@"ID":@"id"};
+}
 + (void)initialize
 {
     fmt_ = [[NSDateFormatter alloc] init];

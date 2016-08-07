@@ -18,7 +18,7 @@
 static NSString * const WHTopicCellID = @"WHTopicCell";
 
 @interface WHAllViewController ()
-@property (strong, nonatomic) NSMutableArray *topics;
+@property (strong, nonatomic) NSMutableArray<WHTopic *> *topics;
 /** 用来加载下一页数据 */
 @property (copy, nonatomic) NSString *maxtime;
 @property (strong, nonatomic) WHHTTPSessionManager *mgr;
@@ -93,6 +93,12 @@ static NSString * const WHTopicCellID = @"WHTopicCell";
         self.maxtime = responseObject[@"info"][@"maxtime"];
         
         self.topics = [WHTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        for (int i = 0 ; i< self.topics.count; i++) {
+            if (self.topics[i].top_cmt.count) {
+                NSLog(@"=== %d",i);
+            }
+        }
+        
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

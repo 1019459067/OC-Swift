@@ -30,6 +30,8 @@
 		C9254C221D43274A0047D8AE /* WHMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9254C211D43274A0047D8AE /* WHMeCell.m */; };
 		C9254C251D4328020047D8AE /* WHConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C9254C241D4328020047D8AE /* WHConst.m */; };
 		C9254C281D43CC8D0047D8AE /* WHMeFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9254C271D43CC8D0047D8AE /* WHMeFootView.m */; };
+		C97B0AA51D50E96C002F3555 /* WHComent.m in Sources */ = {isa = PBXBuildFile; fileRef = C97B0AA41D50E96C002F3555 /* WHComent.m */; };
+		C97B0AA81D50ECA7002F3555 /* WHUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C97B0AA71D50ECA7002F3555 /* WHUser.m */; };
 		C99075A71D2AB61100304220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99075A51D2AB61100304220 /* Main.storyboard */; };
 		C99075A91D2AB61100304220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99075A81D2AB61100304220 /* Assets.xcassets */; };
 		C9AB38E51D50435500837A79 /* NSDate+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AB38E41D50435500837A79 /* NSDate+WHExtension.m */; };
@@ -156,6 +158,10 @@
 		C9254C241D4328020047D8AE /* WHConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHConst.m; sourceTree = "<group>"; };
 		C9254C261D43CC8D0047D8AE /* WHMeFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHMeFootView.h; sourceTree = "<group>"; };
 		C9254C271D43CC8D0047D8AE /* WHMeFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHMeFootView.m; sourceTree = "<group>"; };
+		C97B0AA31D50E96C002F3555 /* WHComent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHComent.h; sourceTree = "<group>"; };
+		C97B0AA41D50E96C002F3555 /* WHComent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHComent.m; sourceTree = "<group>"; };
+		C97B0AA61D50ECA7002F3555 /* WHUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHUser.h; sourceTree = "<group>"; };
+		C97B0AA71D50ECA7002F3555 /* WHUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHUser.m; sourceTree = "<group>"; };
 		C99075991D2AB61100304220 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99075A61D2AB61100304220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C99075A81D2AB61100304220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -625,6 +631,10 @@
 			children = (
 				303B9BF21D461D5F00A235DC /* WHTopic.h */,
 				303B9BF31D461D5F00A235DC /* WHTopic.m */,
+				C97B0AA31D50E96C002F3555 /* WHComent.h */,
+				C97B0AA41D50E96C002F3555 /* WHComent.m */,
+				C97B0AA61D50ECA7002F3555 /* WHUser.h */,
+				C97B0AA71D50ECA7002F3555 /* WHUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -914,6 +924,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9D847D51D44A60300FFBCBC /* NSString+WHExtension.m in Sources */,
+				C97B0AA81D50ECA7002F3555 /* WHUser.m in Sources */,
 				C9D847BE1D44637700FFBCBC /* MJExtensionConst.m in Sources */,
 				C9D847991D43D21100FFBCBC /* SDWebImageDownloaderOperation.m in Sources */,
 				303B9BEE1D45FCD200A235DC /* WHPictureViewController.m in Sources */,
@@ -991,6 +1002,7 @@
 				C9D8476E1D43D18000FFBCBC /* AFURLRequestSerialization.m in Sources */,
 				C921F3561D35A07900BAFB3C /* WHTabBarViewController.m in Sources */,
 				C9D8479D1D43D21100FFBCBC /* UIImage+GIF.m in Sources */,
+				C97B0AA51D50E96C002F3555 /* WHComent.m in Sources */,
 				C9D847D11D448ED100FFBCBC /* WHWebViewController.m in Sources */,
 				C9D847C61D44637700FFBCBC /* NSObject+MJProperty.m in Sources */,
 				C9D847981D43D21100FFBCBC /* SDWebImageDownloader.m in Sources */,
