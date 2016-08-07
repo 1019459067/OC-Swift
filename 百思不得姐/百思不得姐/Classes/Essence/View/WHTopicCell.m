@@ -169,8 +169,8 @@
 - (void)setFrame:(CGRect)frame
 {
     frame.size.height -= WHMargin;
-    frame.origin.x = WHMargin;
-    frame.size.width -= WHMargin*2;
+//    frame.origin.x = WHMargin;
+//    frame.size.width -= WHMargin*2;
     [super setFrame:frame];
 }
 - (void)layoutSubviews
