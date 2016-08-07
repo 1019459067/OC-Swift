@@ -14,7 +14,6 @@
 		303B9BF11D45FCDD00A235DC /* WHWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303B9BF01D45FCDD00A235DC /* WHWordViewController.m */; };
 		303B9BF41D461D5F00A235DC /* WHTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 303B9BF31D461D5F00A235DC /* WHTopic.m */; };
 		303B9BF71D474D8100A235DC /* WHTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 303B9BF61D474D8100A235DC /* WHTopicCell.m */; };
-		303B9C011D476BB900A235DC /* WHTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303B9C001D476BB900A235DC /* WHTopicCell.xib */; };
 		305713A71D421E64000ECA6B /* UITextField+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 305713A61D421E64000ECA6B /* UITextField+WHExtension.m */; };
 		C91EC4851D56E0D0009A63A6 /* WHExtensionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C91EC4841D56E0D0009A63A6 /* WHExtensionConfig.m */; };
 		C91EC49D1D572175009A63A6 /* WHTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = C91EC4941D572175009A63A6 /* WHTopicPictureView.m */; };
@@ -23,6 +22,7 @@
 		C91EC4A01D572175009A63A6 /* WHTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C91EC4981D572175009A63A6 /* WHTopicVideoView.xib */; };
 		C91EC4A11D572175009A63A6 /* WHTopicVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = C91EC49A1D572175009A63A6 /* WHTopicVoiceView.m */; };
 		C91EC4A21D572175009A63A6 /* WHTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C91EC49B1D572175009A63A6 /* WHTopicVoiceView.xib */; };
+		C91EC4A71D573339009A63A6 /* WHTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C91EC4A61D573339009A63A6 /* WHTopicCell.xib */; };
 		C921F34A1D35401600BAFB3C /* UIBarButtonItem+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F3491D35401600BAFB3C /* UIBarButtonItem+WHExtension.m */; };
 		C921F34D1D35431100BAFB3C /* WHRecommendFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F34C1D35431100BAFB3C /* WHRecommendFollowViewController.m */; };
 		C921F3501D3547D500BAFB3C /* WHSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F34F1D3547D500BAFB3C /* WHSettingViewController.m */; };
@@ -136,7 +136,6 @@
 		303B9BF31D461D5F00A235DC /* WHTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHTopic.m; path = "百思不得姐/Classes/Essence/Controller/WHTopic.m"; sourceTree = SOURCE_ROOT; };
 		303B9BF51D474D8100A235DC /* WHTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHTopicCell.h; sourceTree = "<group>"; };
 		303B9BF61D474D8100A235DC /* WHTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHTopicCell.m; sourceTree = "<group>"; };
-		303B9C001D476BB900A235DC /* WHTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WHTopicCell.xib; sourceTree = "<group>"; };
 		305713A51D421E64000ECA6B /* UITextField+WHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+WHExtension.h"; sourceTree = "<group>"; };
 		305713A61D421E64000ECA6B /* UITextField+WHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+WHExtension.m"; sourceTree = "<group>"; };
 		C91EC4831D56E0D0009A63A6 /* WHExtensionConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHExtensionConfig.h; sourceTree = "<group>"; };
@@ -150,6 +149,7 @@
 		C91EC4991D572175009A63A6 /* WHTopicVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHTopicVoiceView.h; sourceTree = "<group>"; };
 		C91EC49A1D572175009A63A6 /* WHTopicVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHTopicVoiceView.m; sourceTree = "<group>"; };
 		C91EC49B1D572175009A63A6 /* WHTopicVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WHTopicVoiceView.xib; sourceTree = "<group>"; };
+		C91EC4A61D573339009A63A6 /* WHTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WHTopicCell.xib; sourceTree = "<group>"; };
 		C921F3481D35401600BAFB3C /* UIBarButtonItem+WHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+WHExtension.h"; sourceTree = "<group>"; };
 		C921F3491D35401600BAFB3C /* UIBarButtonItem+WHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+WHExtension.m"; sourceTree = "<group>"; };
 		C921F34B1D35431100BAFB3C /* WHRecommendFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHRecommendFollowViewController.h; sourceTree = "<group>"; };
@@ -681,7 +681,7 @@
 				C9D847ED1D451ABB00FFBCBC /* WHTitleButton.m */,
 				303B9BF51D474D8100A235DC /* WHTopicCell.h */,
 				303B9BF61D474D8100A235DC /* WHTopicCell.m */,
-				303B9C001D476BB900A235DC /* WHTopicCell.xib */,
+				C91EC4A61D573339009A63A6 /* WHTopicCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -945,11 +945,11 @@
 				C9D847E61D44CD0000FFBCBC /* SVProgressHUD.bundle in Resources */,
 				C921F35B1D39FB2F00BAFB3C /* WHFollowViewController.xib in Resources */,
 				C99075A91D2AB61100304220 /* Assets.xcassets in Resources */,
-				303B9C011D476BB900A235DC /* WHTopicCell.xib in Resources */,
 				C921F3651D3A180800BAFB3C /* WHLoginRegisterViewController.xib in Resources */,
 				C91EC4A21D572175009A63A6 /* WHTopicVoiceView.xib in Resources */,
 				C91EC4A01D572175009A63A6 /* WHTopicVideoView.xib in Resources */,
 				C9D847BD1D44637700FFBCBC /* Info.plist in Resources */,
+				C91EC4A71D573339009A63A6 /* WHTopicCell.xib in Resources */,
 				C9D847D21D448ED100FFBCBC /* WHWebViewController.xib in Resources */,
 				C9D8482C1D46349500FFBCBC /* MJRefresh.bundle in Resources */,
 				C99075A71D2AB61100304220 /* Main.storyboard in Resources */,
