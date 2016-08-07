@@ -22,4 +22,6 @@
 @property (assign, nonatomic) CGFloat wh_bottom;
 
 @property (assign, nonatomic) CGSize wh_size;
+
++ (instancetype)wh_viewFromXib;
 @end

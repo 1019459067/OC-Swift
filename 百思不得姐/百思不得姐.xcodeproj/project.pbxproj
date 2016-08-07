@@ -17,6 +17,12 @@
 		303B9C011D476BB900A235DC /* WHTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303B9C001D476BB900A235DC /* WHTopicCell.xib */; };
 		305713A71D421E64000ECA6B /* UITextField+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 305713A61D421E64000ECA6B /* UITextField+WHExtension.m */; };
 		C91EC4851D56E0D0009A63A6 /* WHExtensionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C91EC4841D56E0D0009A63A6 /* WHExtensionConfig.m */; };
+		C91EC49D1D572175009A63A6 /* WHTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = C91EC4941D572175009A63A6 /* WHTopicPictureView.m */; };
+		C91EC49E1D572175009A63A6 /* WHTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C91EC4951D572175009A63A6 /* WHTopicPictureView.xib */; };
+		C91EC49F1D572175009A63A6 /* WHTopicVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C91EC4971D572175009A63A6 /* WHTopicVideoView.m */; };
+		C91EC4A01D572175009A63A6 /* WHTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C91EC4981D572175009A63A6 /* WHTopicVideoView.xib */; };
+		C91EC4A11D572175009A63A6 /* WHTopicVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = C91EC49A1D572175009A63A6 /* WHTopicVoiceView.m */; };
+		C91EC4A21D572175009A63A6 /* WHTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C91EC49B1D572175009A63A6 /* WHTopicVoiceView.xib */; };
 		C921F34A1D35401600BAFB3C /* UIBarButtonItem+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F3491D35401600BAFB3C /* UIBarButtonItem+WHExtension.m */; };
 		C921F34D1D35431100BAFB3C /* WHRecommendFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F34C1D35431100BAFB3C /* WHRecommendFollowViewController.m */; };
 		C921F3501D3547D500BAFB3C /* WHSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F34F1D3547D500BAFB3C /* WHSettingViewController.m */; };
@@ -135,6 +141,15 @@
 		305713A61D421E64000ECA6B /* UITextField+WHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+WHExtension.m"; sourceTree = "<group>"; };
 		C91EC4831D56E0D0009A63A6 /* WHExtensionConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHExtensionConfig.h; sourceTree = "<group>"; };
 		C91EC4841D56E0D0009A63A6 /* WHExtensionConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHExtensionConfig.m; sourceTree = "<group>"; };
+		C91EC4931D572175009A63A6 /* WHTopicPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHTopicPictureView.h; sourceTree = "<group>"; };
+		C91EC4941D572175009A63A6 /* WHTopicPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHTopicPictureView.m; sourceTree = "<group>"; };
+		C91EC4951D572175009A63A6 /* WHTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WHTopicPictureView.xib; sourceTree = "<group>"; };
+		C91EC4961D572175009A63A6 /* WHTopicVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHTopicVideoView.h; sourceTree = "<group>"; };
+		C91EC4971D572175009A63A6 /* WHTopicVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHTopicVideoView.m; sourceTree = "<group>"; };
+		C91EC4981D572175009A63A6 /* WHTopicVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WHTopicVideoView.xib; sourceTree = "<group>"; };
+		C91EC4991D572175009A63A6 /* WHTopicVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHTopicVoiceView.h; sourceTree = "<group>"; };
+		C91EC49A1D572175009A63A6 /* WHTopicVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHTopicVoiceView.m; sourceTree = "<group>"; };
+		C91EC49B1D572175009A63A6 /* WHTopicVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WHTopicVoiceView.xib; sourceTree = "<group>"; };
 		C921F3481D35401600BAFB3C /* UIBarButtonItem+WHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+WHExtension.h"; sourceTree = "<group>"; };
 		C921F3491D35401600BAFB3C /* UIBarButtonItem+WHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+WHExtension.m"; sourceTree = "<group>"; };
 		C921F34B1D35431100BAFB3C /* WHRecommendFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHRecommendFollowViewController.h; sourceTree = "<group>"; };
@@ -339,6 +354,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C91EC4901D572175009A63A6 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				C91EC4931D572175009A63A6 /* WHTopicPictureView.h */,
+				C91EC4941D572175009A63A6 /* WHTopicPictureView.m */,
+				C91EC4951D572175009A63A6 /* WHTopicPictureView.xib */,
+				C91EC4961D572175009A63A6 /* WHTopicVideoView.h */,
+				C91EC4971D572175009A63A6 /* WHTopicVideoView.m */,
+				C91EC4981D572175009A63A6 /* WHTopicVideoView.xib */,
+				C91EC4991D572175009A63A6 /* WHTopicVoiceView.h */,
+				C91EC49A1D572175009A63A6 /* WHTopicVoiceView.m */,
+				C91EC49B1D572175009A63A6 /* WHTopicVoiceView.xib */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
 		C99075901D2AB61100304220 = {
 			isa = PBXGroup;
 			children = (
@@ -645,6 +676,7 @@
 		C9DDCAC81D328F4400004080 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C91EC4901D572175009A63A6 /* Content */,
 				C9D847EC1D451ABB00FFBCBC /* WHTitleButton.h */,
 				C9D847ED1D451ABB00FFBCBC /* WHTitleButton.m */,
 				303B9BF51D474D8100A235DC /* WHTopicCell.h */,
@@ -909,11 +941,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C91EC49E1D572175009A63A6 /* WHTopicPictureView.xib in Resources */,
 				C9D847E61D44CD0000FFBCBC /* SVProgressHUD.bundle in Resources */,
 				C921F35B1D39FB2F00BAFB3C /* WHFollowViewController.xib in Resources */,
 				C99075A91D2AB61100304220 /* Assets.xcassets in Resources */,
 				303B9C011D476BB900A235DC /* WHTopicCell.xib in Resources */,
 				C921F3651D3A180800BAFB3C /* WHLoginRegisterViewController.xib in Resources */,
+				C91EC4A21D572175009A63A6 /* WHTopicVoiceView.xib in Resources */,
+				C91EC4A01D572175009A63A6 /* WHTopicVideoView.xib in Resources */,
 				C9D847BD1D44637700FFBCBC /* Info.plist in Resources */,
 				C9D847D21D448ED100FFBCBC /* WHWebViewController.xib in Resources */,
 				C9D8482C1D46349500FFBCBC /* MJRefresh.bundle in Resources */,
@@ -963,6 +998,7 @@
 				C921F36B1D3A185200BAFB3C /* WHQuickLoginButton.m in Sources */,
 				C9D848431D46747600FFBCBC /* WHHTTPSessionManager.m in Sources */,
 				C9D848311D46349500FFBCBC /* UIView+MJExtension.m in Sources */,
+				C91EC4A11D572175009A63A6 /* WHTopicVoiceView.m in Sources */,
 				C9D847A21D43D21100FFBCBC /* UIView+WebCacheOperation.m in Sources */,
 				C921F3591D35A09600BAFB3C /* WHNavigationController.m in Sources */,
 				C9D847961D43D21100FFBCBC /* SDWebImageCompat.m in Sources */,
@@ -975,6 +1011,7 @@
 				C9AB38E81D5044F700837A79 /* NSCalendar+WHExtension.m in Sources */,
 				C9D848201D46349500FFBCBC /* MJRefreshComponent.m in Sources */,
 				C9D847A51D4462D800FFBCBC /* WHMeSquare.m in Sources */,
+				C91EC49D1D572175009A63A6 /* WHTopicPictureView.m in Sources */,
 				C9254C221D43274A0047D8AE /* WHMeCell.m in Sources */,
 				C921F3641D3A180800BAFB3C /* WHLoginRegisterViewController.m in Sources */,
 				C9D847A01D43D21100FFBCBC /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -989,6 +1026,7 @@
 				C9D8476B1D43D18000FFBCBC /* AFHTTPSessionManager.m in Sources */,
 				303B9BE81D45FCA400A235DC /* WHVideoViewController.m in Sources */,
 				303B9BE51D45FC9200A235DC /* WHAllViewController.m in Sources */,
+				C91EC49F1D572175009A63A6 /* WHTopicVideoView.m in Sources */,
 				C9D848291D46349500FFBCBC /* MJRefreshGifHeader.m in Sources */,
 				C9D8476F1D43D18000FFBCBC /* AFURLResponseSerialization.m in Sources */,
 				C9D8479E1D43D21100FFBCBC /* UIImage+MultiFormat.m in Sources */,

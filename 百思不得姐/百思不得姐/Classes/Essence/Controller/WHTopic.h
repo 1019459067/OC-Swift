@@ -42,5 +42,7 @@
 
 /** 额外的属性 */
 @property (assign, nonatomic) CGFloat cellHeight;
+/** 中间内容的 frame */
+@property (assign, nonatomic) CGRect contentF;
 
 @end

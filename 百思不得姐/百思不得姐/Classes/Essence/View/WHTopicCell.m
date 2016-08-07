@@ -11,6 +11,9 @@
 #import "UIImageView+WebCache.h"
 #import "WHComent.h"
 #import "WHUser.h"
+#import "WHTopicVideoView.h"
+#import "WHTopicVoiceView.h"
+#import "WHTopicPictureView.h"
 
 @interface WHTopicCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -21,12 +24,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *caiButton;
 @property (weak, nonatomic) IBOutlet UIButton *repostButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
-///** 图片 */
-//@property (nonatomic, weak) WHTopicPictureView *pictureView;
-///** 视频 */
-//@property (nonatomic, weak) WHTopicVideoView *videoView;
-///** 声音 */
-//@property (nonatomic, weak) WHTopicVoiceView *voiceView;
+/** 图片 */
+@property (nonatomic, weak) WHTopicPictureView *pictureView;
+/** 视频 */
+@property (nonatomic, weak) WHTopicVideoView *videoView;
+/** 声音 */
+@property (nonatomic, weak) WHTopicVoiceView *voiceView;
 
 /** 最热评论-整体 */
 @property (weak, nonatomic) IBOutlet UIView *topCmtView;
@@ -35,6 +38,37 @@
 
 @end
 @implementation WHTopicCell
+
+- (WHTopicPictureView *)pictureView
+{
+    if (!_pictureView) {
+        WHTopicPictureView *pictureView = [WHTopicPictureView wh_viewFromXib];
+        [self.contentView addSubview:pictureView];
+        _pictureView = pictureView;
+    }
+    return _pictureView;
+}
+
+- (WHTopicVideoView *)videoView
+{
+    if (!_videoView) {
+        WHTopicVideoView *videoView = [WHTopicVideoView wh_viewFromXib];
+        [self.contentView addSubview:videoView];
+        _videoView = videoView;
+    }
+    return _videoView;
+}
+
+- (WHTopicVoiceView *)voiceView
+{
+    if (!_voiceView) {
+        WHTopicVoiceView *voiceView = [WHTopicVoiceView wh_viewFromXib];
+        [self.contentView addSubview:voiceView];
+        _voiceView = voiceView;
+    }
+    return _voiceView;
+}
+
 
 - (void)setTopic:(WHTopic *)topic
 {
@@ -73,27 +107,31 @@
     //处理中间内容
     // 根据帖子的类型决定中间的内容
     if (topic.type == WHTopicTypePicture) { // 图片
-//        self.videoView.hidden = YES;
-//        self.voiceView.hidden = YES;
-//        self.pictureView.hidden = NO;
-//        self.pictureView.frame = topic.contentFrame;
+        self.videoView.hidden = YES;
+        self.voiceView.hidden = YES;
+        self.pictureView.hidden = NO;
+        self.pictureView.frame = topic.contentF;
 //        self.pictureView.topic = topic;
+//        [self.contentView addSubview:self.pictureView];
     } else if (topic.type == WHTopicTypeVoice) { // 声音
-//        self.pictureView.hidden = YES;
-//        self.videoView.hidden = YES;
-//        self.voiceView.hidden = NO;
-//        self.voiceView.frame = topic.contentFrame;
+        self.pictureView.hidden = YES;
+        self.videoView.hidden = YES;
+        self.voiceView.hidden = NO;
+        self.voiceView.frame = topic.contentF;
 //        self.voiceView.topic = topic;
+//        [self.contentView addSubview:self.voiceView];
     } else if (topic.type == WHTopicTypeVideo) { // 视频
-//        self.pictureView.hidden = YES;
-//        self.voiceView.hidden = YES;
-//        self.videoView.hidden = NO;
-//        self.videoView.frame = topic.contentFrame;
+        self.pictureView.hidden = YES;
+        self.voiceView.hidden = YES;
+        self.videoView.hidden = NO;
+        self.videoView.frame = topic.contentF;
+        WHLog(@"%@",NSStringFromCGRect(topic.contentF));
 //        self.videoView.topic = topic;
+//        [self.contentView addSubview:self.videoView];
     } else if (topic.type == WHTopicTypeWord) { // 文字
-//        self.pictureView.hidden = YES;
-//        self.videoView.hidden = YES;
-//        self.voiceView.hidden = YES;
+        self.pictureView.hidden = YES;
+        self.videoView.hidden = YES;
+        self.voiceView.hidden = YES;
     }
 
 }

@@ -81,6 +81,8 @@ static const NSDateFormatter *fmt_;
     if (self.type != WHTopicTypeWord)
     {
         CGFloat contentH = textMaxW * self.height/self.width;
+        self.contentF = CGRectMake(WHMargin, _cellHeight, textMaxW, contentH);
+//        WHLog(@"%@",NSStringFromCGRect(self.contentF));
         _cellHeight += contentH+WHMargin;
     }
     // 最热评论
