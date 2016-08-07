@@ -116,7 +116,7 @@
     scrollView.delegate = self;
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.backgroundColor = WHRandomColor;
+    scrollView.backgroundColor = WHColorCommonBg;
     [self.view addSubview:scrollView];
     self.scrollView = scrollView;
     
