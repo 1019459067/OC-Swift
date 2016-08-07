@@ -93,11 +93,6 @@ static NSString * const WHTopicCellID = @"WHTopicCell";
         self.maxtime = responseObject[@"info"][@"maxtime"];
         
         self.topics = [WHTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-        for (int i = 0 ; i< self.topics.count; i++) {
-            if (self.topics[i].top_cmt.count) {
-                NSLog(@"=== %d",i);
-            }
-        }
         
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];

@@ -16,6 +16,7 @@
 		303B9BF71D474D8100A235DC /* WHTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 303B9BF61D474D8100A235DC /* WHTopicCell.m */; };
 		303B9C011D476BB900A235DC /* WHTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303B9C001D476BB900A235DC /* WHTopicCell.xib */; };
 		305713A71D421E64000ECA6B /* UITextField+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 305713A61D421E64000ECA6B /* UITextField+WHExtension.m */; };
+		C91EC4851D56E0D0009A63A6 /* WHExtensionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C91EC4841D56E0D0009A63A6 /* WHExtensionConfig.m */; };
 		C921F34A1D35401600BAFB3C /* UIBarButtonItem+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F3491D35401600BAFB3C /* UIBarButtonItem+WHExtension.m */; };
 		C921F34D1D35431100BAFB3C /* WHRecommendFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F34C1D35431100BAFB3C /* WHRecommendFollowViewController.m */; };
 		C921F3501D3547D500BAFB3C /* WHSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F34F1D3547D500BAFB3C /* WHSettingViewController.m */; };
@@ -132,6 +133,8 @@
 		303B9C001D476BB900A235DC /* WHTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WHTopicCell.xib; sourceTree = "<group>"; };
 		305713A51D421E64000ECA6B /* UITextField+WHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+WHExtension.h"; sourceTree = "<group>"; };
 		305713A61D421E64000ECA6B /* UITextField+WHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+WHExtension.m"; sourceTree = "<group>"; };
+		C91EC4831D56E0D0009A63A6 /* WHExtensionConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHExtensionConfig.h; sourceTree = "<group>"; };
+		C91EC4841D56E0D0009A63A6 /* WHExtensionConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHExtensionConfig.m; sourceTree = "<group>"; };
 		C921F3481D35401600BAFB3C /* UIBarButtonItem+WHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+WHExtension.h"; sourceTree = "<group>"; };
 		C921F3491D35401600BAFB3C /* UIBarButtonItem+WHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+WHExtension.m"; sourceTree = "<group>"; };
 		C921F34B1D35431100BAFB3C /* WHRecommendFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHRecommendFollowViewController.h; sourceTree = "<group>"; };
@@ -804,6 +807,8 @@
 				C9AB38E41D50435500837A79 /* NSDate+WHExtension.m */,
 				C9AB38E61D5044F700837A79 /* NSCalendar+WHExtension.h */,
 				C9AB38E71D5044F700837A79 /* NSCalendar+WHExtension.m */,
+				C91EC4831D56E0D0009A63A6 /* WHExtensionConfig.h */,
+				C91EC4841D56E0D0009A63A6 /* WHExtensionConfig.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -987,6 +992,7 @@
 				C9D848291D46349500FFBCBC /* MJRefreshGifHeader.m in Sources */,
 				C9D8476F1D43D18000FFBCBC /* AFURLResponseSerialization.m in Sources */,
 				C9D8479E1D43D21100FFBCBC /* UIImage+MultiFormat.m in Sources */,
+				C91EC4851D56E0D0009A63A6 /* WHExtensionConfig.m in Sources */,
 				C9D848251D46349500FFBCBC /* MJRefreshAutoStateFooter.m in Sources */,
 				C9DDCAEF1D328F4400004080 /* UIView+WHExtension.m in Sources */,
 				C9D847EB1D44D6F900FFBCBC /* WHSettingCell.m in Sources */,

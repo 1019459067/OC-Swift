@@ -15,19 +15,20 @@ static const NSDateFormatter *fmt_;
 
 @implementation WHTopic
 
+//#pragma mark - MJExtension
+//
 //+ (NSDictionary *)mj_objectClassInArray
+//{
+//    return @{@"top_cmt":@"WHComent"};
+//}
+//+ (id)mj_replacedKeyFromPropertyName
 //{
 //    return @{@"ID":@"id"};
 //}
-+ (id)mj_replacedKeyFromPropertyName
-{
-    return @{@"ID":@"id"};
-}
 + (void)initialize
 {
     fmt_ = [[NSDateFormatter alloc] init];
     fmt_.dateFormat = @"yyyy-MM-dd HH:mm:ss";
-
 }
 
 #pragma mark - getter

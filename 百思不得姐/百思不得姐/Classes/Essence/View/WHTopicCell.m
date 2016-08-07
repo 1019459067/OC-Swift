@@ -9,8 +9,8 @@
 #import "WHTopicCell.h"
 #import "WHTopic.h"
 #import "UIImageView+WebCache.h"
-//#import "WHComent.h"
-//#import "WHUser.h"
+#import "WHComent.h"
+#import "WHUser.h"
 
 @interface WHTopicCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -53,21 +53,12 @@
     [self setupButtonTitle:self.commentButton number:topic.comment placeholder:@"评论"];
     
     //最热评论
-//    WHComent *comment = topic.top_cmt;
-//    WHLog(@"%@",topic.ID);
-
-//    if ([topic.name isEqualToString:@"*ゞ.迴憶 "]) {
-//        WHLog(@"%@",topic.top_cmt);
-//    }
-    if (topic.top_cmt.count)
+    if (topic.top_cmt)
     {
-        NSDictionary *comment = topic.top_cmt.firstObject;
-        NSString *username = comment[@"user"][@"username"];
-        NSString *content = comment[@"content"];
-
+        NSString *username = topic.top_cmt.user.username;
+        NSString *content = topic.top_cmt.content;
         self.topCmtLabel.text = [NSString stringWithFormat:@"%@:%@",username,content];
 
-//        self.topCmtLabel.text = [NSString stringWithFormat:@"%@:%@",topic.top_cmt.user.username,topic.top_cmt.content];
         self.topCmtView.hidden = NO;
     }else
     {

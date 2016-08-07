@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-//@class WHComent;
+@class WHComent;
 @interface WHTopic : NSObject
 @property (copy, nonatomic) NSString *ID;
 @property (copy, nonatomic) NSString *name;
@@ -20,8 +20,8 @@
 @property (assign, nonatomic) NSInteger repost;
 @property (assign, nonatomic) NSInteger comment;
 
-@property (strong, nonatomic) NSArray *top_cmt;
+//@property (strong, nonatomic) NSArray<WHComent *> *top_cmt;
 /** 最热评论 */
-//@property (strong, nonatomic) WHComent *top_cmt;
+@property (strong, nonatomic) WHComent *top_cmt;
 
 @end

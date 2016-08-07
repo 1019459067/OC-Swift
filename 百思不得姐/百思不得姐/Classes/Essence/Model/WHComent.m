@@ -9,8 +9,5 @@
 #import "WHComent.h"
 
 @implementation WHComent
-+ (id)mj_replacedKeyFromPropertyName
-{
-    return @{@"ID":@"id"};
-}
+
 @end
