@@ -1,15 +1,15 @@
 //
 //  WHTopicVideoView.m
-//  3期-百思不得姐
+//  百思不得姐
 //
-//  Created by xiaomage on 15/9/17.
-//  Copyright (c) 2015年 xiaomage. All rights reserved.
+//  Created by XWH on 16/08/09.
+//  Copyright (c) 2016年 XWH. All rights reserved.
 //
 
 #import "WHTopicVideoView.h"
 #import "WHTopic.h"
-//#import <UIImageView+AFNetworking.h>
 #import "UIImageView+WebCache.h"
+#import "WHSeeBigViewController.h"
 
 @interface WHTopicVideoView()
 @property (weak, nonatomic) IBOutlet UILabel *playCountLabel;
@@ -25,9 +25,21 @@
     [super awakeFromNib];
     
     self.autoresizingMask = UIViewAutoresizingNone;
+    
+    self.imageView.userInteractionEnabled = YES;
+    [self.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(seeBig)]];
 }
+
+- (void)seeBig
+{
+    WHSeeBigViewController *seeBig = [[WHSeeBigViewController alloc] init];
+    seeBig.topic = self.topic;
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:seeBig animated:YES completion:nil];
+}
+
 - (void)setTopic:(WHTopic *)topic
 {
+    _topic = topic;
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image]];
     self.playCountLabel.text = [NSString stringWithFormat:@"%zd播放", topic.playcount];
     

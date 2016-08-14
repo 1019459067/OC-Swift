@@ -42,6 +42,9 @@
 		C9254C281D43CC8D0047D8AE /* WHMeFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9254C271D43CC8D0047D8AE /* WHMeFootView.m */; };
 		C97B0AA51D50E96C002F3555 /* WHComent.m in Sources */ = {isa = PBXBuildFile; fileRef = C97B0AA41D50E96C002F3555 /* WHComent.m */; };
 		C97B0AA81D50ECA7002F3555 /* WHUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C97B0AA71D50ECA7002F3555 /* WHUser.m */; };
+		C987C26A1D5A215F005832A0 /* WHSeeBigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C987C2681D5A215F005832A0 /* WHSeeBigViewController.m */; };
+		C987C26B1D5A215F005832A0 /* WHSeeBigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C987C2691D5A215F005832A0 /* WHSeeBigViewController.xib */; };
+		C987C26F1D5A2C3D005832A0 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C987C26E1D5A2C3D005832A0 /* Reachability.m */; };
 		C99075A71D2AB61100304220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99075A51D2AB61100304220 /* Main.storyboard */; };
 		C99075A91D2AB61100304220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99075A81D2AB61100304220 /* Assets.xcassets */; };
 		C9AB38E51D50435500837A79 /* NSDate+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AB38E41D50435500837A79 /* NSDate+WHExtension.m */; };
@@ -189,6 +192,11 @@
 		C97B0AA41D50E96C002F3555 /* WHComent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHComent.m; sourceTree = "<group>"; };
 		C97B0AA61D50ECA7002F3555 /* WHUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHUser.h; sourceTree = "<group>"; };
 		C97B0AA71D50ECA7002F3555 /* WHUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHUser.m; sourceTree = "<group>"; };
+		C987C2671D5A215F005832A0 /* WHSeeBigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHSeeBigViewController.h; sourceTree = "<group>"; };
+		C987C2681D5A215F005832A0 /* WHSeeBigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHSeeBigViewController.m; sourceTree = "<group>"; };
+		C987C2691D5A215F005832A0 /* WHSeeBigViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WHSeeBigViewController.xib; sourceTree = "<group>"; };
+		C987C26D1D5A2C3D005832A0 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		C987C26E1D5A2C3D005832A0 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		C99075991D2AB61100304220 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99075A61D2AB61100304220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C99075A81D2AB61100304220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -390,6 +398,15 @@
 			path = DACircularProgress;
 			sourceTree = "<group>";
 		};
+		C987C26C1D5A2C3D005832A0 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				C987C26D1D5A2C3D005832A0 /* Reachability.h */,
+				C987C26E1D5A2C3D005832A0 /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
 		C99075901D2AB61100304220 = {
 			isa = PBXGroup;
 			children = (
@@ -428,6 +445,7 @@
 		C9D8475C1D43D13300FFBCBC /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				C987C26C1D5A2C3D005832A0 /* Reachability */,
 				C91EC4A81D5742AD009A63A6 /* DACircularProgress */,
 				C9D847EF1D46349500FFBCBC /* MJRefresh */,
 				C9D847D91D44CD0000FFBCBC /* SVProgressHUD */,
@@ -665,6 +683,9 @@
 		C9DDCAC41D328F4400004080 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C987C2671D5A215F005832A0 /* WHSeeBigViewController.h */,
+				C987C2681D5A215F005832A0 /* WHSeeBigViewController.m */,
+				C987C2691D5A215F005832A0 /* WHSeeBigViewController.xib */,
 				C91EC4AF1D574AFC009A63A6 /* WHTopicViewController.h */,
 				C91EC4B01D574AFC009A63A6 /* WHTopicViewController.m */,
 				C9DDCAC51D328F4400004080 /* WHEssenceViewController.h */,
@@ -964,6 +985,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C987C26B1D5A215F005832A0 /* WHSeeBigViewController.xib in Resources */,
 				C91EC49E1D572175009A63A6 /* WHTopicPictureView.xib in Resources */,
 				C9D847E61D44CD0000FFBCBC /* SVProgressHUD.bundle in Resources */,
 				C921F35B1D39FB2F00BAFB3C /* WHFollowViewController.xib in Resources */,
@@ -1032,6 +1054,7 @@
 				C921F34A1D35401600BAFB3C /* UIBarButtonItem+WHExtension.m in Sources */,
 				C9D847C01D44637700FFBCBC /* MJProperty.m in Sources */,
 				C9D847971D43D21100FFBCBC /* SDWebImageDecoder.m in Sources */,
+				C987C26A1D5A215F005832A0 /* WHSeeBigViewController.m in Sources */,
 				C9DDCAEB1D328F4400004080 /* WHFollowViewController.m in Sources */,
 				303B9BF71D474D8100A235DC /* WHTopicCell.m in Sources */,
 				C9AB38E81D5044F700837A79 /* NSCalendar+WHExtension.m in Sources */,
@@ -1079,6 +1102,7 @@
 				C9AB38E51D50435500837A79 /* NSDate+WHExtension.m in Sources */,
 				C9DDCAEC1D328F4400004080 /* WHMeViewController.m in Sources */,
 				C9DDCAF01D328F4400004080 /* main.m in Sources */,
+				C987C26F1D5A2C3D005832A0 /* Reachability.m in Sources */,
 				C921F3681D3A181600BAFB3C /* WHTabBar.m in Sources */,
 				C9DDCAEE1D328F4400004080 /* AppDelegate.m in Sources */,
 				C9D8482B1D46349500FFBCBC /* MJRefreshStateHeader.m in Sources */,

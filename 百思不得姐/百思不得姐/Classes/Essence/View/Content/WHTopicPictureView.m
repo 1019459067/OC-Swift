@@ -1,16 +1,17 @@
 //
 //  WHTopicPictureView.m
-//  3期-百思不得姐
+//  百思不得姐
 //
-//  Created by xiaomage on 15/9/16.
-//  Copyright (c) 2015年 xiaomage. All rights reserved.
+//  Created by XWH on 15/9/16.
+//  Copyright (c) 2016年 XWH. All rights reserved.
 //
 
 #import "WHTopicPictureView.h"
 #import "WHTopic.h"
 #import "UIImageView+WebCache.h"
-#import "AFNetworking.h"
 #import "DALabeledCircularProgressView.h"
+#import "WHSeeBigViewController.h"
+#import "Reachability.h"
 
 @interface WHTopicPictureView()
 @property (weak, nonatomic) IBOutlet UIImageView *gifView;
@@ -29,6 +30,16 @@
     self.autoresizingMask = UIViewAutoresizingNone;
     self.progressView.roundedCorners = 5;
     self.progressView.progressLabel.textColor = [UIColor whiteColor];
+    
+    self.imageView.userInteractionEnabled = YES;
+    [self.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(seeBig)]];
+}
+
+- (void)seeBig
+{
+    WHSeeBigViewController *seeBig = [[WHSeeBigViewController alloc] init];
+    seeBig.topic = self.topic;
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:seeBig animated:YES completion:nil];
 }
 
 - (void)setTopic:(WHTopic *)topic
@@ -38,22 +49,17 @@
 //    WHWeakSelf;
     if ([[UIDevice currentDevice].name isEqualToString:@"iPhone Simulator"])
     {
-        [self.imageView sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-            self.progressView.hidden = NO;
-            self.progressView.progress = 1.0 * receivedSize / expectedSize;
-            self.progressView.progressLabel.text = [NSString stringWithFormat:@"%.0f%%", self.progressView.progress * 100];
-        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            self.progressView.hidden = YES;
-        } ];
+        [self showImageView:topic.large_image];
     }else
     {
-        AFNetworkReachabilityStatus status =[AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
+        Reachability *reachability = [Reachability reachabilityForInternetConnection];
+        NetworkStatus status = [reachability currentReachabilityStatus];
         switch (status) {
-            case AFNetworkReachabilityStatusReachableViaWiFi:
-                [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image]];
+            case ReachableViaWiFi:
+                [self showImageView:topic.large_image];
                 break;
-            case AFNetworkReachabilityStatusReachableViaWWAN:
-                [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.small_image]];
+            case ReachableViaWWAN:
+                [self showImageView:topic.small_image];
                 break;
             default:
                 self.imageView.image = nil;
@@ -100,5 +106,14 @@
 //        _imageView.clipsToBounds = NO;
 //    }
 }
-
+- (void)showImageView:(NSString *)imageUrl
+{
+    [self.imageView sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        self.progressView.hidden = NO;
+        self.progressView.progress = 1.0 * receivedSize / expectedSize;
+        self.progressView.progressLabel.text = [NSString stringWithFormat:@"%.0f%%", self.progressView.progress * 100];
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.progressView.hidden = YES;
+    }];
+}
 @end

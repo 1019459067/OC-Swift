@@ -44,7 +44,7 @@
                         </state>
                         <state key="highlighted" image="cellmorebtnclick"/>
                         <connections>
-                            <action selector="moreClick" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ujt-hg-2Df"/>
+                            <action selector="onActionMore:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eT0-wX-O9Q"/>
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQy-XY-Vyd" userLabel="文字内容">
