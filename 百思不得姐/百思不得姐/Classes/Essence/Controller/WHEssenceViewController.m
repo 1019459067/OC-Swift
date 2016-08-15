@@ -13,6 +13,7 @@
 #import "WHVoiceViewController.h"
 #import "WHPictureViewController.h"
 #import "WHWordViewController.h"
+#import "XMGTagViewController.h"
 
 @interface WHEssenceViewController ()<UIScrollViewDelegate>
 @property (weak, nonatomic) WHTitleButton *selectedBtn;
@@ -157,7 +158,7 @@
 - (void)onActionTagClick
 {
     WHLogFunc
-    UIViewController *vc = [[UIViewController alloc]init];
+    XMGTagViewController *vc = [[XMGTagViewController alloc]init];
     vc.view.backgroundColor = WHRandomColor;
     [self.navigationController pushViewController:vc animated:YES];
 }

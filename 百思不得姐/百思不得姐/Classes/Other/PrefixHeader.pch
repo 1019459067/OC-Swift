@@ -18,6 +18,10 @@
 #import "WHConst.h"
 #import "NSString+WHExtension.h"
 #import "NSCalendar+WHExtension.h"
+#import "UIImage+WHExtension.h"
+
+#import "AFNetworking.h"
+#import "SVProgressHUD.h"
 
 /** 日志 */
 #ifdef DEBUG

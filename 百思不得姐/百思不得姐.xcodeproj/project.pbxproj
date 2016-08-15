@@ -15,6 +15,11 @@
 		303B9BF41D461D5F00A235DC /* WHTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 303B9BF31D461D5F00A235DC /* WHTopic.m */; };
 		303B9BF71D474D8100A235DC /* WHTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 303B9BF61D474D8100A235DC /* WHTopicCell.m */; };
 		305713A71D421E64000ECA6B /* UITextField+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 305713A61D421E64000ECA6B /* UITextField+WHExtension.m */; };
+		30608E241D61A31E008B8F81 /* XMGTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30608E231D61A31E008B8F81 /* XMGTagViewController.m */; };
+		30608E271D61A32D008B8F81 /* XMGTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 30608E261D61A32D008B8F81 /* XMGTag.m */; };
+		30608E2B1D61A33F008B8F81 /* XMGTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30608E291D61A33F008B8F81 /* XMGTagCell.m */; };
+		30608E2C1D61A33F008B8F81 /* XMGTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30608E2A1D61A33F008B8F81 /* XMGTagCell.xib */; };
+		30608E2F1D61A5CA008B8F81 /* UIImage+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 30608E2E1D61A5CA008B8F81 /* UIImage+WHExtension.m */; };
 		C91EC4851D56E0D0009A63A6 /* WHExtensionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C91EC4841D56E0D0009A63A6 /* WHExtensionConfig.m */; };
 		C91EC49D1D572175009A63A6 /* WHTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = C91EC4941D572175009A63A6 /* WHTopicPictureView.m */; };
 		C91EC49E1D572175009A63A6 /* WHTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C91EC4951D572175009A63A6 /* WHTopicPictureView.xib */; };
@@ -144,6 +149,15 @@
 		303B9BF61D474D8100A235DC /* WHTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHTopicCell.m; sourceTree = "<group>"; };
 		305713A51D421E64000ECA6B /* UITextField+WHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+WHExtension.h"; sourceTree = "<group>"; };
 		305713A61D421E64000ECA6B /* UITextField+WHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+WHExtension.m"; sourceTree = "<group>"; };
+		30608E221D61A31E008B8F81 /* XMGTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTagViewController.h; sourceTree = "<group>"; };
+		30608E231D61A31E008B8F81 /* XMGTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTagViewController.m; sourceTree = "<group>"; };
+		30608E251D61A32D008B8F81 /* XMGTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTag.h; sourceTree = "<group>"; };
+		30608E261D61A32D008B8F81 /* XMGTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTag.m; sourceTree = "<group>"; };
+		30608E281D61A33F008B8F81 /* XMGTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTagCell.h; sourceTree = "<group>"; };
+		30608E291D61A33F008B8F81 /* XMGTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTagCell.m; sourceTree = "<group>"; };
+		30608E2A1D61A33F008B8F81 /* XMGTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGTagCell.xib; sourceTree = "<group>"; };
+		30608E2D1D61A5CA008B8F81 /* UIImage+WHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WHExtension.h"; sourceTree = "<group>"; };
+		30608E2E1D61A5CA008B8F81 /* UIImage+WHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WHExtension.m"; sourceTree = "<group>"; };
 		C91EC4831D56E0D0009A63A6 /* WHExtensionConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHExtensionConfig.h; sourceTree = "<group>"; };
 		C91EC4841D56E0D0009A63A6 /* WHExtensionConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHExtensionConfig.m; sourceTree = "<group>"; };
 		C91EC4931D572175009A63A6 /* WHTopicPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHTopicPictureView.h; sourceTree = "<group>"; };
@@ -683,6 +697,8 @@
 		C9DDCAC41D328F4400004080 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				30608E221D61A31E008B8F81 /* XMGTagViewController.h */,
+				30608E231D61A31E008B8F81 /* XMGTagViewController.m */,
 				C987C2671D5A215F005832A0 /* WHSeeBigViewController.h */,
 				C987C2681D5A215F005832A0 /* WHSeeBigViewController.m */,
 				C987C2691D5A215F005832A0 /* WHSeeBigViewController.xib */,
@@ -707,6 +723,8 @@
 		C9DDCAC71D328F4400004080 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				30608E251D61A32D008B8F81 /* XMGTag.h */,
+				30608E261D61A32D008B8F81 /* XMGTag.m */,
 				303B9BF21D461D5F00A235DC /* WHTopic.h */,
 				303B9BF31D461D5F00A235DC /* WHTopic.m */,
 				C97B0AA31D50E96C002F3555 /* WHComent.h */,
@@ -720,6 +738,9 @@
 		C9DDCAC81D328F4400004080 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				30608E281D61A33F008B8F81 /* XMGTagCell.h */,
+				30608E291D61A33F008B8F81 /* XMGTagCell.m */,
+				30608E2A1D61A33F008B8F81 /* XMGTagCell.xib */,
 				C91EC4901D572175009A63A6 /* Content */,
 				C9D847EC1D451ABB00FFBCBC /* WHTitleButton.h */,
 				C9D847ED1D451ABB00FFBCBC /* WHTitleButton.m */,
@@ -885,6 +906,8 @@
 				C9AB38E71D5044F700837A79 /* NSCalendar+WHExtension.m */,
 				C91EC4831D56E0D0009A63A6 /* WHExtensionConfig.h */,
 				C91EC4841D56E0D0009A63A6 /* WHExtensionConfig.m */,
+				30608E2D1D61A5CA008B8F81 /* UIImage+WHExtension.h */,
+				30608E2E1D61A5CA008B8F81 /* UIImage+WHExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -990,6 +1013,7 @@
 				C9D847E61D44CD0000FFBCBC /* SVProgressHUD.bundle in Resources */,
 				C921F35B1D39FB2F00BAFB3C /* WHFollowViewController.xib in Resources */,
 				C99075A91D2AB61100304220 /* Assets.xcassets in Resources */,
+				30608E2C1D61A33F008B8F81 /* XMGTagCell.xib in Resources */,
 				C921F3651D3A180800BAFB3C /* WHLoginRegisterViewController.xib in Resources */,
 				C91EC4A21D572175009A63A6 /* WHTopicVoiceView.xib in Resources */,
 				C91EC4A01D572175009A63A6 /* WHTopicVideoView.xib in Resources */,
@@ -1050,6 +1074,7 @@
 				C9D847A21D43D21100FFBCBC /* UIView+WebCacheOperation.m in Sources */,
 				C921F3591D35A09600BAFB3C /* WHNavigationController.m in Sources */,
 				C9D847961D43D21100FFBCBC /* SDWebImageCompat.m in Sources */,
+				30608E271D61A32D008B8F81 /* XMGTag.m in Sources */,
 				C9DDCAED1D328F4400004080 /* WHNewViewController.m in Sources */,
 				C921F34A1D35401600BAFB3C /* UIBarButtonItem+WHExtension.m in Sources */,
 				C9D847C01D44637700FFBCBC /* MJProperty.m in Sources */,
@@ -1058,6 +1083,7 @@
 				C9DDCAEB1D328F4400004080 /* WHFollowViewController.m in Sources */,
 				303B9BF71D474D8100A235DC /* WHTopicCell.m in Sources */,
 				C9AB38E81D5044F700837A79 /* NSCalendar+WHExtension.m in Sources */,
+				30608E2B1D61A33F008B8F81 /* XMGTagCell.m in Sources */,
 				C9D848201D46349500FFBCBC /* MJRefreshComponent.m in Sources */,
 				C9D847A51D4462D800FFBCBC /* WHMeSquare.m in Sources */,
 				C91EC49D1D572175009A63A6 /* WHTopicPictureView.m in Sources */,
@@ -1102,8 +1128,10 @@
 				C9AB38E51D50435500837A79 /* NSDate+WHExtension.m in Sources */,
 				C9DDCAEC1D328F4400004080 /* WHMeViewController.m in Sources */,
 				C9DDCAF01D328F4400004080 /* main.m in Sources */,
+				30608E2F1D61A5CA008B8F81 /* UIImage+WHExtension.m in Sources */,
 				C987C26F1D5A2C3D005832A0 /* Reachability.m in Sources */,
 				C921F3681D3A181600BAFB3C /* WHTabBar.m in Sources */,
+				30608E241D61A31E008B8F81 /* XMGTagViewController.m in Sources */,
 				C9DDCAEE1D328F4400004080 /* AppDelegate.m in Sources */,
 				C9D8482B1D46349500FFBCBC /* MJRefreshStateHeader.m in Sources */,
 				C921F3501D3547D500BAFB3C /* WHSettingViewController.m in Sources */,
