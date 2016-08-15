@@ -14,6 +14,7 @@
 #import "WHTopicVideoView.h"
 #import "WHTopicVoiceView.h"
 #import "WHTopicPictureView.h"
+#import "UIImageView+WHExtension.h"
 
 @interface WHTopicCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -73,7 +74,8 @@
 - (void)setTopic:(WHTopic *)topic
 {
     _topic = topic;
-    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    [self.profileImageView setHeader:topic.profile_image];
+
     self.nameLabel.text = topic.name;
     
     self.createdAtLabel.text = topic.created_at;

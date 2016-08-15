@@ -8,7 +8,7 @@
 
 #import "WHTagCell.h"
 #import "WHTag.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+WHExtension.h"
 
 @interface WHTagCell()
 @property (weak, nonatomic) IBOutlet UIImageView *imageListView;
@@ -32,9 +32,8 @@
     _tagModel = tagModel;
     
     // 设置头像
-//    [self.imageListView setHeader:tagModel.image_list];
-    UIImage *placeholder = [[UIImage imageNamed:@"defaultUserIcon"] circleImage];
-    [self.imageListView sd_setImageWithURL:[NSURL URLWithString:tagModel.image_list] placeholderImage:placeholder];
+    [self.imageListView setHeader:tagModel.image_list];
+
     self.themeNameLabel.text = tagModel.theme_name;
     
     // 订阅数
