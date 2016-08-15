@@ -9,7 +9,6 @@
 #import "WHExtensionConfig.h"
 #import "WHComent.h"
 #import "WHTopic.h"
-#import "MJExtension.h"
 
 @implementation WHExtensionConfig
 // 用到才调用

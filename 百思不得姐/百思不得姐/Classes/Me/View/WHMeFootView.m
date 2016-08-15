@@ -9,7 +9,6 @@
 #import "WHMeFootView.h"
 #import "WHHTTPSessionManager.h"
 #import "WHMeSquareButton.h"
-#import "MJExtension.h"
 #import "WHMeSquare.h"
 #import "WHWebViewController.h"
 #import <SafariServices/SafariServices.h>
@@ -26,12 +25,13 @@
         NSMutableDictionary *param = [NSMutableDictionary dictionary];
         param[@"a"] = @"square";
         param[@"c"] = @"topic";
-    
+        
+        WHWeakSelf;
         [[WHHTTPSessionManager manager] GET:WHCommonURL parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NSArray *squares = [WHMeSquare mj_objectArrayWithKeyValuesArray:responseObject[@"square_list"]];
-            [self createSquare:squares];
+            [weakSelf createSquare:squares];
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             WHLogFunc
         }];

@@ -1,14 +1,14 @@
 //
-//  XMGTag.h
-//  3期-百思不得姐
+//  WHTag.h
+//  百思不得姐
 //
-//  Created by xiaomage on 15/9/6.
-//  Copyright (c) 2015年 xiaomage. All rights reserved.
+//  Created by XWH on 16/15/08.
+//  Copyright (c) 2016年 XWH. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface XMGTag : NSObject
+@interface WHTag : NSObject
 /** 图片 */
 @property (nonatomic, copy) NSString *image_list;
 /** 订阅数 */

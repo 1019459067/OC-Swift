@@ -1,22 +1,22 @@
 //
-//  XMGTagCell.m
-//  3期-百思不得姐
+//  WHTagCell.m
+//  百思不得姐
 //
-//  Created by xiaomage on 15/9/6.
-//  Copyright (c) 2015年 xiaomage. All rights reserved.
+//  Created by XWH on 16/15/08.
+//  Copyright (c) 2016年 XWH. All rights reserved.
 //
 
-#import "XMGTagCell.h"
-#import "XMGTag.h"
+#import "WHTagCell.h"
+#import "WHTag.h"
 #import "UIImageView+WebCache.h"
 
-@interface XMGTagCell()
+@interface WHTagCell()
 @property (weak, nonatomic) IBOutlet UIImageView *imageListView;
 @property (weak, nonatomic) IBOutlet UILabel *themeNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *subNumberLabel;
 @end
 
-@implementation XMGTagCell
+@implementation WHTagCell
 
 /**
  * 重写这个方法的目的：拦截cell的frame设置
@@ -24,11 +24,10 @@
 - (void)setFrame:(CGRect)frame
 {
     frame.size.height -= 1;
-    
     [super setFrame:frame];
 }
 
-- (void)setTagModel:(XMGTag *)tagModel
+- (void)setTagModel:(WHTag *)tagModel
 {
     _tagModel = tagModel;
     

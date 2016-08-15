@@ -8,7 +8,6 @@
 
 #import "WHTopic.h"
 #import "NSDate+WHExtension.h"
-#import "MJExtension.h"
 #import "WHComent.h"
 #import "WHUser.h"
 

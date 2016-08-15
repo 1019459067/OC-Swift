@@ -9,7 +9,6 @@
 #import "WHTopicViewController.h"
 #import "WHHTTPSessionManager.h"
 #import "WHTopic.h"
-#import "MJExtension.h"
 #import "UIImageView+WebCache.h"
 #import "WHRefreshHeader.h"
 #import "WHRefreshFooter.h"
@@ -69,17 +68,17 @@ static NSString * const WHTopicCellID = @"WHTopicCell";
     param[@"type"] = @(self.type);
     param[@"maxtime"] = self.maxtime;
     
-    
+    WHWeakSelf;
     [self.mgr GET:WHCommonURL parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        self.maxtime = responseObject[@"info"][@"maxtime"];
-        [self.topics addObjectsFromArray:[WHTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]]];
-        [self.tableView reloadData];
-        [self.tableView.mj_footer endRefreshing];
+        weakSelf.maxtime = responseObject[@"info"][@"maxtime"];
+        [weakSelf.topics addObjectsFromArray:[WHTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]]];
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView.mj_footer endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         WHLogFunc
-        [self.tableView.mj_footer endRefreshing];
+        [weakSelf.tableView.mj_footer endRefreshing];
     }];
     
 }
@@ -92,19 +91,20 @@ static NSString * const WHTopicCellID = @"WHTopicCell";
     param[@"c"] = @"data";
     param[@"type"] = @(self.type);//10 pic 41 video
     
+    WHWeakSelf;
     [self.mgr GET:WHCommonURL parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         //
-        self.maxtime = responseObject[@"info"][@"maxtime"];
+        weakSelf.maxtime = responseObject[@"info"][@"maxtime"];
         
-        self.topics = [WHTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        weakSelf.topics = [WHTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
-        [self.tableView reloadData];
-        [self.tableView.mj_header endRefreshing];
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView.mj_header endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         WHLogFunc
-        [self.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_header endRefreshing];
     }];
 }
 - (void)didReceiveMemoryWarning {
