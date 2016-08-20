@@ -9,7 +9,7 @@
 #import "WHTopicCell.h"
 #import "WHTopic.h"
 #import "UIImageView+WebCache.h"
-#import "WHComent.h"
+#import "WHComment.h"
 #import "WHUser.h"
 #import "WHTopicVideoView.h"
 #import "WHTopicVoiceView.h"

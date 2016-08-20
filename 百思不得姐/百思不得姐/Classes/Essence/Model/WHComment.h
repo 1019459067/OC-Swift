@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger,WHTopicType) {
 };
 
 @class WHUser;
-@interface WHComent : NSObject
+@interface WHComment : NSObject
 
 /** id */
 //@property (nonatomic, copy) NSString *ID;

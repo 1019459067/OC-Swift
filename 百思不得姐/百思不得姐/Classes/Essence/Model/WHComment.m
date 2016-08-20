@@ -6,8 +6,8 @@
 //  Copyright © 2016年 XWH. All rights reserved.
 //
 
-#import "WHComent.h"
+#import "WHComment.h"
 
-@implementation WHComent
+@implementation WHComment
 
 @end

@@ -134,7 +134,7 @@ static NSString * const WHTopicCellID = @"WHTopicCell";
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    WHTopicCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    //    cell.wh_height -= 10;
+        WHTopicCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        cell.wh_height -= 10;
 }
 @end

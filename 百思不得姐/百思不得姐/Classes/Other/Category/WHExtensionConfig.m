@@ -7,7 +7,7 @@
 //
 
 #import "WHExtensionConfig.h"
-#import "WHComent.h"
+#import "WHComment.h"
 #import "WHTopic.h"
 
 @implementation WHExtensionConfig
@@ -20,7 +20,7 @@
 + (void)load
 {
     [WHTopic mj_setupObjectClassInArray:^NSDictionary *{
-        return @{@"top_cmt":[WHComent class]};
+        return @{@"top_cmt":[WHComment class]};
     }];
     
     [WHTopic mj_setupReplacedKeyFromPropertyName:^NSDictionary *{

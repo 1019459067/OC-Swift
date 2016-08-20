@@ -8,7 +8,7 @@
 
 #import "WHTopic.h"
 #import "NSDate+WHExtension.h"
-#import "WHComent.h"
+#import "WHComment.h"
 #import "WHUser.h"
 
 static const NSDateFormatter *fmt_;

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "WHComent.h"
+#import "WHComment.h"
 
 @interface WHTopic : NSObject
 //@property (copy, nonatomic) NSString *ID;
@@ -43,7 +43,7 @@
 
 //@property (strong, nonatomic) NSArray<WHComent *> *top_cmt;
 /** 最热评论 */
-@property (strong, nonatomic) WHComent *top_cmt;
+@property (strong, nonatomic) WHComment *top_cmt;
 
 /** 类型 */
 @property (nonatomic, assign) WHTopicType type;
