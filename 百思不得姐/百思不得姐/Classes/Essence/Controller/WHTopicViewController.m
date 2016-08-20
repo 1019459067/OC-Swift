@@ -10,9 +10,9 @@
 #import "WHHTTPSessionManager.h"
 #import "WHTopic.h"
 #import "UIImageView+WebCache.h"
-#import "WHRefreshHeader.h"
 #import "WHRefreshFooter.h"
 #import "WHTopicCell.h"
+#import "WHCommentViewController.h"
 
 static NSString * const WHTopicCellID = @"WHTopicCell";
 
@@ -134,7 +134,8 @@ static NSString * const WHTopicCellID = @"WHTopicCell";
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        WHTopicCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        cell.wh_height -= 10;
+    WHCommentViewController *vc = [[WHCommentViewController alloc]init];
+    vc.topic = self.topics[indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

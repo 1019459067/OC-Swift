@@ -1,27 +1,27 @@
 //
-//  XMGCommentViewController.m
-//  3期-百思不得姐
+//  WHCommentViewController.m
+//  百思不得姐
 //
-//  Created by xiaomage on 15/9/17.
-//  Copyright (c) 2015年 xiaomage. All rights reserved.
+//  Created by XWH on 16/8/20.
+//  Copyright (c) 2015年 XWH. All rights reserved.
 //
 
-#import "XMGCommentViewController.h"
+#import "WHCommentViewController.h"
 #import "WHTopicCell.h"
-#import "XMGCommentCell.h"
+#import "WHCommentCell.h"
 #import "WHTopic.h"
 #import "WHComment.h"
-#import "XMGCommentHeaderView.h"
-#import "XMGUser.h"
+#import "WHCommentHeaderView.h"
+#import "WHUser.h"
 
-@interface XMGCommentViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface WHCommentViewController () <UITableViewDelegate, UITableViewDataSource>
 /** 请求管理者 */
 @property (nonatomic, weak) AFHTTPSessionManager *manager;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpace;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 /** 暂时存储：最热评论 */
-@property (nonatomic, strong) XMGComment *topComment;
+@property (nonatomic, strong) WHComment *topCommentSave;
 
 /** 最热评论 */
 @property (nonatomic, strong) NSArray *hotComments;
@@ -32,10 +32,10 @@
 //@property (nonatomic, strong) NSMutableArray *newComments;
 
 /** 写方法声明的目的是为了使用点语法提示 */
-- (XMGComment *)selectedComment;
+- (WHComment *)selectedComment;
 @end
 
-@implementation XMGCommentViewController
+@implementation WHCommentViewController
 
 #pragma mark - 懒加载
 - (AFHTTPSessionManager *)manager
@@ -47,14 +47,15 @@
 }
 
 #pragma mark - 初始化
-static NSString * const XMGCommentCellId = @"comment";
-static NSString * const XMGHeaderId = @"header";
+
+static NSString * const WHCommentCellId = @"comment";
+static NSString * const WHHeaderId = @"header";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"评论";
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"comment_nav_item_share_icon" highImage:@"comment_nav_item_share_icon_click" target:nil action:nil];
+    self.navigationItem.title = @"评论";
+        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"comment_nav_item_share_icon" hightImage:@"comment_nav_item_share_icon_click" action:nil addTarget:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
     [self setupTable];
@@ -64,29 +65,29 @@ static NSString * const XMGHeaderId = @"header";
 
 - (void)setupTable
 {
-    self.tableView.backgroundColor = XMGCommonBgColor;
+    self.tableView.backgroundColor = WHColorCommonBg;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XMGCommentCell class]) bundle:nil] forCellReuseIdentifier:XMGCommentCellId];
-    [self.tableView registerClass:[XMGCommentHeaderView class] forHeaderFooterViewReuseIdentifier:XMGHeaderId];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([WHCommentCell class]) bundle:nil] forCellReuseIdentifier:WHCommentCellId];
+    [self.tableView registerClass:[WHCommentHeaderView class] forHeaderFooterViewReuseIdentifier:WHHeaderId];
     
     self.tableView.estimatedRowHeight = 100;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     // 处理模型数据
-    if (self.topic.topComment) {
-        self.topComment = self.topic.topComment;
-        self.topic.topComment = nil;
+    if (self.topic.top_cmt)
+    {
+        self.topCommentSave = self.topic.top_cmt;
+        self.topic.top_cmt = nil;
         self.topic.cellHeight = 0;
     }
-    
-    // celll
-    XMGTopicCell *cell = [XMGTopicCell viewFromXib];
+
+    WHTopicCell *cell = [WHTopicCell wh_viewFromXib];
     cell.topic = self.topic;
-    cell.frame = CGRectMake(0, 0, XMGScreenW, self.topic.cellHeight);
-    
+    cell.frame = CGRectMake(0, 0, WH_ScreenW, self.topic.cellHeight);
+
     // 设置header
     UIView *header = [[UIView alloc] init];
-    header.height = cell.height + 2 * XMGCommonMargin;
+    header.wh_height = cell.wh_height + 2 * WHMargin;
     [header addSubview:cell];
     
     self.tableView.tableHeaderView = header;
@@ -94,19 +95,19 @@ static NSString * const XMGHeaderId = @"header";
 
 - (void)setupRefresh
 {
-    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewComments)];
-    [self.tableView.header beginRefreshing];
+    self.tableView.mj_header = [WHRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewComments)];
+    [self.tableView.mj_header beginRefreshing];
     
-    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreComments)];
+    self.tableView.mj_footer = [WHRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreComments)];
 }
 
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
-    // 恢复帖子的最热评论数据
-    if (self.topComment) {
-        self.topic.topComment = self.topComment;
+    if (self.topCommentSave)
+    {
+        self.topic.top_cmt = self.topCommentSave;
         self.topic.cellHeight = 0;
     }
 }
@@ -114,10 +115,8 @@ static NSString * const XMGHeaderId = @"header";
 #pragma mark - 加载评论数据
 - (void)loadNewComments
 {
-    // 取消之前的所有请求
     [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
-    
-    // 请求参数
+
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"dataList";
     params[@"c"] = @"comment";
@@ -125,39 +124,36 @@ static NSString * const XMGHeaderId = @"header";
     params[@"hot"] = @1;
     
     // 发送请求
-    XMGWeakSelf;
-    [self.manager GET:XMGRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+    WHWeakSelf;
+    [self.manager GET:WHCommonURL parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
         if ([responseObject isKindOfClass:[NSArray class]]) {
-            // 意味着没有评论数据
-            
             // 结束刷新
-            [weakSelf.tableView.header endRefreshing];
-            
-            // 返回
+            [weakSelf.tableView.mj_header endRefreshing];
             return;
         }
         
         // 最热评论
-        weakSelf.hotComments = [XMGComment objectArrayWithKeyValuesArray:responseObject[@"hot"]];
+        weakSelf.hotComments = [WHComment mj_objectArrayWithKeyValuesArray:responseObject[@"hot"]];
         
         // 最新评论
-        weakSelf.latestComments = [XMGComment objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        weakSelf.latestComments = [WHComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         
         // 刷新表格
         [weakSelf.tableView reloadData];
         
         // 结束刷新
-        [weakSelf.tableView.header endRefreshing];
+        [weakSelf.tableView.mj_header endRefreshing];
         
         // 判断评论数据是否已经加载完全
         if (self.latestComments.count >= [responseObject[@"total"] intValue]) {
-            // 已经完全加载完毕
-//            [weakSelf.tableView.footer noticeNoMoreData];
-            weakSelf.tableView.footer.hidden = YES;
+            weakSelf.tableView.mj_footer.hidden = YES;
         }
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        // 结束刷新
-        [weakSelf.tableView.header endRefreshing];
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [weakSelf.tableView.mj_header endRefreshing];
     }];
 }
 
@@ -174,36 +170,35 @@ static NSString * const XMGHeaderId = @"header";
     params[@"lastcid"] = [self.latestComments.lastObject ID];
     
     // 发送请求
-    XMGWeakSelf;
-    [self.manager GET:XMGRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        XMGWriteToPlist(responseObject, @"comment_more");
-        // 最新评论
-        NSArray *newComments = [XMGComment objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        [self.latestComments addObjectsFromArray:newComments];
+    WHWeakSelf;
+    [self.manager GET:WHCommonURL parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
         
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        WHWriteToPlist(responseObject, @"comment_more");
+        // 最新评论
+        NSArray *newComments = [WHComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.latestComments addObjectsFromArray:newComments];
         // 刷新表格
         [weakSelf.tableView reloadData];
-        
         // 判断评论数据是否已经加载完全
-        if (self.latestComments.count >= [responseObject[@"total"] intValue]) {
-            // 已经完全加载完毕
-//            [weakSelf.tableView.footer noticeNoMoreData];
-            weakSelf.tableView.footer.hidden = YES;
+        if (self.latestComments.count >= [responseObject[@"total"] intValue])
+        {
+            weakSelf.tableView.mj_footer.hidden = YES;
         } else { // 应该还会有下一页数据
             // 结束刷新(恢复到普通状态，仍旧可以继续刷新)
-            [weakSelf.tableView.footer endRefreshing];
+            [weakSelf.tableView.mj_footer endRefreshing];
         }
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         // 结束刷新
-        [weakSelf.tableView.footer endRefreshing];
+        [weakSelf.tableView.mj_footer endRefreshing];
     }];
+
 }
 
 #pragma mark - 监听
 - (void)keyboardWillChangeFrame:(NSNotification *)note
 {
-    // 工具条平移的距离 == 屏幕高度 - 键盘最终的Y值
-    self.bottomSpace.constant = XMGScreenH - [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].origin.y;
+    self.bottomSpace.constant = WH_ScreenH - [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].origin.y;
     
     CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{
@@ -230,15 +225,13 @@ static NSString * const XMGHeaderId = @"header";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    XMGCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:XMGCommentCellId];
+    WHCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:WHCommentCellId];
     
-    // 获得对应的评论数据
     NSArray *comments = self.latestComments;
-    if (indexPath.section == 0 && self.hotComments.count) {
+    if (indexPath.section == 0 && self.hotComments.count)
+    {
         comments = self.hotComments;
     }
-    
-    // 传递模型给cell
     cell.comment = comments[indexPath.row];
     
     return cell;
@@ -252,10 +245,9 @@ static NSString * const XMGHeaderId = @"header";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    XMGCommentHeaderView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:XMGHeaderId
-                                           ];
-    // 覆盖文字
-    if (section == 0 && self.hotComments.count) {
+    WHCommentHeaderView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:WHHeaderId];
+    if (section == 0 && self.hotComments.count)
+    {
         header.text = @"最热评论";
     } else {
         header.text = @"最新评论";
@@ -279,7 +271,7 @@ static NSString * const XMGHeaderId = @"header";
                        ];
     
     // 显示位置
-    CGRect rect = CGRectMake(0, cell.height * 0.5, cell.width, 1);
+    CGRect rect = CGRectMake(0, cell.wh_height * 0.5, cell.wh_width, 1);
     [menu setTargetRect:rect inView:cell];
     
     // 显示出来
@@ -287,7 +279,7 @@ static NSString * const XMGHeaderId = @"header";
 }
 
 #pragma mark - 获得当前选中的评论
-- (XMGComment *)selectedComment
+- (WHComment *)selectedComment
 {
     // 获得被选中的cell的行号
     NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
@@ -321,22 +313,22 @@ static NSString * const XMGHeaderId = @"header";
 
 - (void)ding:(UIMenuController *)menu
 {
-    XMGLog(@"ding - %@ %@",
-           self.selectedComment.user.username,
-           self.selectedComment.content);
+//    WHLog(@"ding - %@ %@",
+//           self.selectedComment.user.username,
+//           self.selectedComment.content);
 }
 
 - (void)reply:(UIMenuController *)menu
 {
-    XMGLog(@"reply - %@ %@",
-           self.selectedComment.user.username,
-           self.selectedComment.content);
+//    WHLog(@"reply - %@ %@",
+//           self.selectedComment.user.username,
+//           self.selectedComment.content);
 }
 
 - (void)warn:(UIMenuController *)menu
 {
-    XMGLog(@"warn - %@ %@",
-           self.selectedComment.user.username,
-           self.selectedComment.content);
+//    WHLog(@"warn - %@ %@",
+//           self.selectedComment.user.username,
+//           self.selectedComment.content);
 }
 @end

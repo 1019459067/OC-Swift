@@ -19,22 +19,26 @@
 // 加载内存中立即调用
 + (void)load
 {
-    [WHTopic mj_setupObjectClassInArray:^NSDictionary *{
-        return @{@"top_cmt":[WHComment class]};
-    }];
+//    [WHTopic mj_setupObjectClassInArray:^NSDictionary *{
+//        return @{@"top_cmt":[WHComment class]};
+//    }];
     
     [WHTopic mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-        return @{@"top_cmt":@"top_cmt[0]",
+        return @{@"ID":@"id",
+                 @"top_cmt":@"top_cmt[0]",
                  @"small_image":@"image0",
                  @"large_image":@"image1",
                  @"middle_image":@"image2",
                  };
     }];
     
+//    [WHComment mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+//        return @{@"ID":@"id"};
+//    }];
 //    [WHTopic mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
 //        return @{@"ID":@"id"};
 //    }];
-//    
+//
 //    [WHComent mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
 //        return @{@"ID":@"id"};
 //    }];

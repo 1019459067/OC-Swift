@@ -1,16 +1,17 @@
 //
-//  XMGCommentCell.m
-//  3期-百思不得姐
+//  WHCommentCell.m
+//  百思不得姐
 //
-//  Created by xiaomage on 15/9/17.
-//  Copyright (c) 2015年 xiaomage. All rights reserved.
+//  Created by XWH on 16/8/20.
+//  Copyright (c) 2015年 XWH. All rights reserved.
 //
 
-#import "XMGCommentCell.h"
-#import "XMGComment.h"
-#import "XMGUser.h"
+#import "WHCommentCell.h"
+#import "WHComment.h"
+#import "WHUser.h"
+#import "UIImageView+WHExtension.h"
 
-@interface XMGCommentCell()
+@interface WHCommentCell()
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *sexView;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
@@ -19,21 +20,24 @@
 @property (weak, nonatomic) IBOutlet UILabel *likeCountLabel;
 @end
 
-@implementation XMGCommentCell
+@implementation WHCommentCell
 
 - (void)awakeFromNib
 {
     self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
 }
 
-- (void)setComment:(XMGComment *)comment
+- (void)setComment:(WHComment *)comment
 {
     _comment = comment;
     
-    if (comment.voiceuri.length) {
+    if (comment.voiceuri.length)
+    {
         self.voiceButton.hidden = NO;
         [self.voiceButton setTitle:[NSString stringWithFormat:@"%zd''", comment.voicetime] forState:UIControlStateNormal];
-    } else {
+    }
+    else
+    {
         self.voiceButton.hidden = YES;
     }
     
@@ -41,11 +45,15 @@
     self.contentLabel.text = comment.content;
     self.usernameLabel.text = comment.user.username;
     self.likeCountLabel.text = [NSString stringWithFormat:@"%zd", comment.like_count];
-    if ([comment.user.sex isEqualToString:XMGUserSexMale]) {
+    if ([comment.user.sex isEqualToString:WHUserSexMale]) {
         self.sexView.image = [UIImage imageNamed:@"Profile_manIcon"];
     } else {
         self.sexView.image = [UIImage imageNamed:@"Profile_womanIcon"];
     }
+}
+- (IBAction)playVoice:(UIButton *)sender
+{
+    WHLogFunc
 }
 
 @end

@@ -15,3 +15,9 @@ UIKIT_EXTERN CGFloat const WHSmallMargin;
 
 /** 公共的 URL */
 UIKIT_EXTERN NSString * const WHCommonURL;
+
+/** 性别-男 */
+UIKIT_EXTERN NSString * const WHUserSexMale;
+
+/** 性别-女 */
+UIKIT_EXTERN NSString * const WHUserSexFemale;

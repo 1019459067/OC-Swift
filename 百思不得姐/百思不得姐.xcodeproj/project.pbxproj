@@ -20,10 +20,11 @@
 		30608E2B1D61A33F008B8F81 /* WHTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30608E291D61A33F008B8F81 /* WHTagCell.m */; };
 		30608E2C1D61A33F008B8F81 /* WHTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30608E2A1D61A33F008B8F81 /* WHTagCell.xib */; };
 		30608E2F1D61A5CA008B8F81 /* UIImage+WHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 30608E2E1D61A5CA008B8F81 /* UIImage+WHExtension.m */; };
-		C91DFC561D66189400A2BC59 /* XMGCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C91DFC541D66189400A2BC59 /* XMGCommentViewController.m */; };
-		C91DFC571D66189400A2BC59 /* XMGCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C91DFC551D66189400A2BC59 /* XMGCommentViewController.xib */; };
-		C91DFC5B1D6618F200A2BC59 /* XMGCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C91DFC591D6618F200A2BC59 /* XMGCommentCell.m */; };
-		C91DFC5C1D6618F200A2BC59 /* XMGCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C91DFC5A1D6618F200A2BC59 /* XMGCommentCell.xib */; };
+		30611A611D681569003BD0DA /* WHCommentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30611A601D681569003BD0DA /* WHCommentHeaderView.m */; };
+		C91DFC561D66189400A2BC59 /* WHCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C91DFC541D66189400A2BC59 /* WHCommentViewController.m */; };
+		C91DFC571D66189400A2BC59 /* WHCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C91DFC551D66189400A2BC59 /* WHCommentViewController.xib */; };
+		C91DFC5B1D6618F200A2BC59 /* WHCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C91DFC591D6618F200A2BC59 /* WHCommentCell.m */; };
+		C91DFC5C1D6618F200A2BC59 /* WHCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C91DFC5A1D6618F200A2BC59 /* WHCommentCell.xib */; };
 		C91EC4851D56E0D0009A63A6 /* WHExtensionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C91EC4841D56E0D0009A63A6 /* WHExtensionConfig.m */; };
 		C91EC49D1D572175009A63A6 /* WHTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = C91EC4941D572175009A63A6 /* WHTopicPictureView.m */; };
 		C91EC49E1D572175009A63A6 /* WHTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C91EC4951D572175009A63A6 /* WHTopicPictureView.xib */; };
@@ -163,12 +164,14 @@
 		30608E2A1D61A33F008B8F81 /* WHTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WHTagCell.xib; sourceTree = "<group>"; };
 		30608E2D1D61A5CA008B8F81 /* UIImage+WHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WHExtension.h"; sourceTree = "<group>"; };
 		30608E2E1D61A5CA008B8F81 /* UIImage+WHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WHExtension.m"; sourceTree = "<group>"; };
-		C91DFC531D66189400A2BC59 /* XMGCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGCommentViewController.h; sourceTree = "<group>"; };
-		C91DFC541D66189400A2BC59 /* XMGCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGCommentViewController.m; sourceTree = "<group>"; };
-		C91DFC551D66189400A2BC59 /* XMGCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGCommentViewController.xib; sourceTree = "<group>"; };
-		C91DFC581D6618F200A2BC59 /* XMGCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGCommentCell.h; sourceTree = "<group>"; };
-		C91DFC591D6618F200A2BC59 /* XMGCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGCommentCell.m; sourceTree = "<group>"; };
-		C91DFC5A1D6618F200A2BC59 /* XMGCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGCommentCell.xib; sourceTree = "<group>"; };
+		30611A5F1D681569003BD0DA /* WHCommentHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCommentHeaderView.h; sourceTree = "<group>"; };
+		30611A601D681569003BD0DA /* WHCommentHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCommentHeaderView.m; sourceTree = "<group>"; };
+		C91DFC531D66189400A2BC59 /* WHCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCommentViewController.h; sourceTree = "<group>"; };
+		C91DFC541D66189400A2BC59 /* WHCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCommentViewController.m; sourceTree = "<group>"; };
+		C91DFC551D66189400A2BC59 /* WHCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WHCommentViewController.xib; sourceTree = "<group>"; };
+		C91DFC581D6618F200A2BC59 /* WHCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCommentCell.h; sourceTree = "<group>"; };
+		C91DFC591D6618F200A2BC59 /* WHCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCommentCell.m; sourceTree = "<group>"; };
+		C91DFC5A1D6618F200A2BC59 /* WHCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WHCommentCell.xib; sourceTree = "<group>"; };
 		C91EC4831D56E0D0009A63A6 /* WHExtensionConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHExtensionConfig.h; sourceTree = "<group>"; };
 		C91EC4841D56E0D0009A63A6 /* WHExtensionConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHExtensionConfig.m; sourceTree = "<group>"; };
 		C91EC4931D572175009A63A6 /* WHTopicPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHTopicPictureView.h; sourceTree = "<group>"; };
@@ -710,9 +713,9 @@
 		C9DDCAC41D328F4400004080 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C91DFC531D66189400A2BC59 /* XMGCommentViewController.h */,
-				C91DFC541D66189400A2BC59 /* XMGCommentViewController.m */,
-				C91DFC551D66189400A2BC59 /* XMGCommentViewController.xib */,
+				C91DFC531D66189400A2BC59 /* WHCommentViewController.h */,
+				C91DFC541D66189400A2BC59 /* WHCommentViewController.m */,
+				C91DFC551D66189400A2BC59 /* WHCommentViewController.xib */,
 				30608E221D61A31E008B8F81 /* WHTagViewController.h */,
 				30608E231D61A31E008B8F81 /* WHTagViewController.m */,
 				C987C2671D5A215F005832A0 /* WHSeeBigViewController.h */,
@@ -754,9 +757,11 @@
 		C9DDCAC81D328F4400004080 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C91DFC581D6618F200A2BC59 /* XMGCommentCell.h */,
-				C91DFC591D6618F200A2BC59 /* XMGCommentCell.m */,
-				C91DFC5A1D6618F200A2BC59 /* XMGCommentCell.xib */,
+				30611A5F1D681569003BD0DA /* WHCommentHeaderView.h */,
+				30611A601D681569003BD0DA /* WHCommentHeaderView.m */,
+				C91DFC581D6618F200A2BC59 /* WHCommentCell.h */,
+				C91DFC591D6618F200A2BC59 /* WHCommentCell.m */,
+				C91DFC5A1D6618F200A2BC59 /* WHCommentCell.xib */,
 				30608E281D61A33F008B8F81 /* WHTagCell.h */,
 				30608E291D61A33F008B8F81 /* WHTagCell.m */,
 				30608E2A1D61A33F008B8F81 /* WHTagCell.xib */,
@@ -1031,13 +1036,13 @@
 			files = (
 				C987C26B1D5A215F005832A0 /* WHSeeBigViewController.xib in Resources */,
 				C91EC49E1D572175009A63A6 /* WHTopicPictureView.xib in Resources */,
-				C91DFC5C1D6618F200A2BC59 /* XMGCommentCell.xib in Resources */,
+				C91DFC5C1D6618F200A2BC59 /* WHCommentCell.xib in Resources */,
 				C9D847E61D44CD0000FFBCBC /* SVProgressHUD.bundle in Resources */,
 				C921F35B1D39FB2F00BAFB3C /* WHFollowViewController.xib in Resources */,
 				C99075A91D2AB61100304220 /* Assets.xcassets in Resources */,
 				30608E2C1D61A33F008B8F81 /* WHTagCell.xib in Resources */,
 				C921F3651D3A180800BAFB3C /* WHLoginRegisterViewController.xib in Resources */,
-				C91DFC571D66189400A2BC59 /* XMGCommentViewController.xib in Resources */,
+				C91DFC571D66189400A2BC59 /* WHCommentViewController.xib in Resources */,
 				C91EC4A21D572175009A63A6 /* WHTopicVoiceView.xib in Resources */,
 				C91EC4A01D572175009A63A6 /* WHTopicVideoView.xib in Resources */,
 				C9D847BD1D44637700FFBCBC /* Info.plist in Resources */,
@@ -1057,7 +1062,7 @@
 			files = (
 				C9D847D51D44A60300FFBCBC /* NSString+WHExtension.m in Sources */,
 				C97B0AA81D50ECA7002F3555 /* WHUser.m in Sources */,
-				C91DFC561D66189400A2BC59 /* XMGCommentViewController.m in Sources */,
+				C91DFC561D66189400A2BC59 /* WHCommentViewController.m in Sources */,
 				C9D847BE1D44637700FFBCBC /* MJExtensionConst.m in Sources */,
 				C9D847991D43D21100FFBCBC /* SDWebImageDownloaderOperation.m in Sources */,
 				303B9BEE1D45FCD200A235DC /* WHPictureViewController.m in Sources */,
@@ -1129,7 +1134,7 @@
 				C91EC49F1D572175009A63A6 /* WHTopicVideoView.m in Sources */,
 				C9D848291D46349500FFBCBC /* MJRefreshGifHeader.m in Sources */,
 				C9D8476F1D43D18000FFBCBC /* AFURLResponseSerialization.m in Sources */,
-				C91DFC5B1D6618F200A2BC59 /* XMGCommentCell.m in Sources */,
+				C91DFC5B1D6618F200A2BC59 /* WHCommentCell.m in Sources */,
 				C9D8479E1D43D21100FFBCBC /* UIImage+MultiFormat.m in Sources */,
 				C91EC4851D56E0D0009A63A6 /* WHExtensionConfig.m in Sources */,
 				C9D848251D46349500FFBCBC /* MJRefreshAutoStateFooter.m in Sources */,
@@ -1163,6 +1168,7 @@
 				C921F3501D3547D500BAFB3C /* WHSettingViewController.m in Sources */,
 				C9D848281D46349500FFBCBC /* MJRefreshBackStateFooter.m in Sources */,
 				C9D847CA1D447E5A00FFBCBC /* WHMeSquareButton.m in Sources */,
+				30611A611D681569003BD0DA /* WHCommentHeaderView.m in Sources */,
 				C9D8482D1D46349500FFBCBC /* MJRefreshConst.m in Sources */,
 				C9D8476C1D43D18000FFBCBC /* AFNetworkReachabilityManager.m in Sources */,
 				C9D8482A1D46349500FFBCBC /* MJRefreshNormalHeader.m in Sources */,

@@ -9,7 +9,7 @@
 #import "UIBarButtonItem+WHExtension.h"
 
 @implementation UIBarButtonItem (WHExtension)
-+ (instancetype)itemWithImage:(NSString *)strImg hightImag:(NSString *)strHightImg action:(SEL)action addTarget:(id)target
++ (instancetype)itemWithImage:(NSString *)strImg hightImage:(NSString *)strHightImg action:(SEL)action addTarget:(id)target
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setImage:[UIImage imageNamed:strImg] forState:UIControlStateNormal];

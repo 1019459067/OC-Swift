@@ -10,7 +10,7 @@
 #import "WHComment.h"
 
 @interface WHTopic : NSObject
-//@property (copy, nonatomic) NSString *ID;
+@property (copy, nonatomic) NSString *ID;
 @property (copy, nonatomic) NSString *name;
 @property (copy, nonatomic) NSString *profile_image;
 /** 文字 */

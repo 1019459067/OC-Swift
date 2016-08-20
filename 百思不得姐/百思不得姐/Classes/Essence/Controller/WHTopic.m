@@ -21,10 +21,10 @@ static const NSDateFormatter *fmt_;
 //{
 //    return @{@"top_cmt":@"WHComent"};
 //}
-//+ (id)mj_replacedKeyFromPropertyName
-//{
-//    return @{@"ID":@"id"};
-//}
++ (id)mj_replacedKeyFromPropertyName
+{
+    return @{@"ID":@"id"};
+}
 + (void)initialize
 {
     fmt_ = [[NSDateFormatter alloc] init];
@@ -95,7 +95,12 @@ static const NSDateFormatter *fmt_;
     if (self.top_cmt)
     {
         _cellHeight += 20;// 标题
-        NSString *topCmtContent = [NSString stringWithFormat:@"%@ : %@",self.top_cmt.user.username,self.top_cmt.content];
+        NSString *content = self.top_cmt.content;
+        if (self.top_cmt.voiceuri.length)
+        {
+            content = @"[语音评论]";
+        }
+        NSString *topCmtContent = [NSString stringWithFormat:@"%@ : %@",self.top_cmt.user.username,content];
         CGSize topCmtContentSize = [topCmtContent boundingRectWithSize:textMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size;
         _cellHeight += topCmtContentSize.height+WHMargin;
     }

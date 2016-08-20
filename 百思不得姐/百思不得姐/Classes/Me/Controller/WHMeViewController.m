@@ -42,9 +42,9 @@
 {
     self.navigationItem.title = @"我的";
     
-    UIBarButtonItem *itemSetting = [UIBarButtonItem itemWithImage:@"mine-setting-icon" hightImag:@"mine-setting-icon-click" action:@selector(onActionSettingClick) addTarget:self];
+    UIBarButtonItem *itemSetting = [UIBarButtonItem itemWithImage:@"mine-setting-icon" hightImage:@"mine-setting-icon-click" action:@selector(onActionSettingClick) addTarget:self];
     
-    UIBarButtonItem *itemMoon = [UIBarButtonItem itemWithImage:@"mine-moon-icon" hightImag:@"mine-moon-icon-click" action:@selector(onActionMoonClick) addTarget:self];
+    UIBarButtonItem *itemMoon = [UIBarButtonItem itemWithImage:@"mine-moon-icon" hightImage:@"mine-moon-icon-click" action:@selector(onActionMoonClick) addTarget:self];
     
     self.navigationItem.rightBarButtonItems = @[itemSetting,itemMoon];
 }

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIBarButtonItem (WHExtension)
-+ (instancetype)itemWithImage:(NSString *)strImg hightImag:(NSString *)strHightImg action:(SEL)action addTarget:(id)target;
++ (instancetype)itemWithImage:(NSString *)strImg hightImage:(NSString *)strHightImg action:(SEL)action addTarget:(id)target;
 @end

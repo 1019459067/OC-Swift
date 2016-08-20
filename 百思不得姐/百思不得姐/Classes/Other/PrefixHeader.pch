@@ -23,6 +23,8 @@
 #import "AFNetworking.h"
 #import "SVProgressHUD.h"
 #import "MJExtension.h"
+#import "WHRefreshHeader.h"
+#import "WHRefreshFooter.h"
 #import "UIImageView+WebCache.h"
 
 /** 日志 */
@@ -44,6 +46,8 @@
 #define WHColorCommonBg WHGrayColor(206)
 
 #define WHWeakSelf __weak typeof(self) weakSelf = self;
+
+#define WHWriteToPlist(data, filename) [data writeToFile:[NSString stringWithFormat:@"/Users/STMBP/Desktop/%@.plist", filename] atomically:YES];
 
 // 屏幕尺寸
 #define WH_ScreenH [UIScreen mainScreen].bounds.size.height

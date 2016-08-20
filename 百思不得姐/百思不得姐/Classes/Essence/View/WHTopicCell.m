@@ -98,8 +98,11 @@
     {
         NSString *username = topic.top_cmt.user.username;
         NSString *content = topic.top_cmt.content;
+        if (topic.top_cmt.voiceuri.length)
+        {
+            content = @"[语音评论]";
+        }
         self.topCmtLabel.text = [NSString stringWithFormat:@"%@ : %@",username,content];
-
         self.topCmtView.hidden = NO;
     }else
     {
