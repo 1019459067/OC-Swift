@@ -271,7 +271,7 @@ static NSString * const WHHeaderId = @"header";
                        ];
     
     // 显示位置
-    CGRect rect = CGRectMake(0, cell.wh_height * 0.5, cell.wh_width, 1);
+    CGRect rect = CGRectMake(0, cell.wh_height * 0.5, cell.wh_width, 10);
     [menu setTargetRect:rect inView:cell];
     
     // 显示出来
@@ -313,22 +313,22 @@ static NSString * const WHHeaderId = @"header";
 
 - (void)ding:(UIMenuController *)menu
 {
-//    WHLog(@"ding - %@ %@",
-//           self.selectedComment.user.username,
-//           self.selectedComment.content);
+    WHLog(@"ding - %@ %@",
+           self.selectedComment.user.username,
+           self.selectedComment.content);
 }
 
 - (void)reply:(UIMenuController *)menu
 {
-//    WHLog(@"reply - %@ %@",
-//           self.selectedComment.user.username,
-//           self.selectedComment.content);
+    WHLog(@"reply - %@ %@",
+           self.selectedComment.user.username,
+           self.selectedComment.content);
 }
 
 - (void)warn:(UIMenuController *)menu
 {
-//    WHLog(@"warn - %@ %@",
-//           self.selectedComment.user.username,
-//           self.selectedComment.content);
+    WHLog(@"warn - %@ %@",
+           self.selectedComment.user.username,
+           self.selectedComment.content);
 }
 @end
