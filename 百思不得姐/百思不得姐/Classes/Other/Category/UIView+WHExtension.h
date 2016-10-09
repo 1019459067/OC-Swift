@@ -24,4 +24,6 @@
 @property (assign, nonatomic) CGSize wh_size;
 
 + (instancetype)wh_viewFromXib;
+
+- (BOOL)intersectsRectWithView:(UIView *)view;
 @end

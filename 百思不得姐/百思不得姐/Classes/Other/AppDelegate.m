@@ -28,6 +28,7 @@ UIWindow *window_;
         window_ = [[UIWindow alloc]init];
         window_.frame = [UIApplication sharedApplication].statusBarFrame;
         window_.windowLevel = UIWindowLevelAlert;
+        window_.backgroundColor = [UIColor clearColor];
         window_.hidden = NO;
         
         [window_ addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTapWindowTop)]];
@@ -36,17 +37,20 @@ UIWindow *window_;
 }
 - (void)onTapWindowTop
 {
-    [self findScrollViewInWindow:[UIApplication sharedApplication].keyWindow];
+    [self findScrollViewInView:[UIApplication sharedApplication].keyWindow];
 }
-- (void)findScrollViewInWindow:(UIView *)view
+- (void)findScrollViewInView:(UIView *)view
 {
     for (UIView *subView in view.subviews)
     {
-        [self findScrollViewInWindow:subView];
+        [self findScrollViewInView:subView];
     }
     
     if (![view isKindOfClass:[UIScrollView class]]) return;
 
+    //判断view是否和window有重叠
+    if (![view intersectsRectWithView:[UIApplication sharedApplication].keyWindow]) return;
+    
     UIScrollView *scrollView = (UIScrollView *)view;
     CGPoint offset = scrollView.contentOffset;
     offset.y = -scrollView.contentInset.top;
