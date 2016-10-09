@@ -47,6 +47,7 @@
 		C921F3681D3A181600BAFB3C /* WHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F3671D3A181600BAFB3C /* WHTabBar.m */; };
 		C921F36B1D3A185200BAFB3C /* WHQuickLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F36A1D3A185200BAFB3C /* WHQuickLoginButton.m */; };
 		C921F36E1D3B733900BAFB3C /* WHLoginRegisterTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C921F36D1D3B733900BAFB3C /* WHLoginRegisterTextField.m */; };
+		C922C5291DAA87C8003A41D9 /* WHTopWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = C922C5281DAA87C8003A41D9 /* WHTopWindow.m */; };
 		C9254C221D43274A0047D8AE /* WHMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9254C211D43274A0047D8AE /* WHMeCell.m */; };
 		C9254C251D4328020047D8AE /* WHConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C9254C241D4328020047D8AE /* WHConst.m */; };
 		C9254C281D43CC8D0047D8AE /* WHMeFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9254C271D43CC8D0047D8AE /* WHMeFootView.m */; };
@@ -210,6 +211,8 @@
 		C921F36A1D3A185200BAFB3C /* WHQuickLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHQuickLoginButton.m; sourceTree = "<group>"; };
 		C921F36C1D3B733900BAFB3C /* WHLoginRegisterTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHLoginRegisterTextField.h; sourceTree = "<group>"; };
 		C921F36D1D3B733900BAFB3C /* WHLoginRegisterTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHLoginRegisterTextField.m; sourceTree = "<group>"; };
+		C922C5271DAA87C8003A41D9 /* WHTopWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHTopWindow.h; sourceTree = "<group>"; };
+		C922C5281DAA87C8003A41D9 /* WHTopWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHTopWindow.m; sourceTree = "<group>"; };
 		C9254C201D43274A0047D8AE /* WHMeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHMeCell.h; sourceTree = "<group>"; };
 		C9254C211D43274A0047D8AE /* WHMeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHMeCell.m; sourceTree = "<group>"; };
 		C9254C231D4328020047D8AE /* WHConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHConst.h; sourceTree = "<group>"; };
@@ -972,6 +975,8 @@
 				C9D848361D463EBF00FFBCBC /* WHRefreshHeader.m */,
 				C9D8483E1D46687000FFBCBC /* WHRefreshFooter.h */,
 				C9D8483F1D46687000FFBCBC /* WHRefreshFooter.m */,
+				C922C5271DAA87C8003A41D9 /* WHTopWindow.h */,
+				C922C5281DAA87C8003A41D9 /* WHTopWindow.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1080,6 +1085,7 @@
 				C9D847951D43D21100FFBCBC /* SDImageCache.m in Sources */,
 				C9D847C51D44637700FFBCBC /* NSObject+MJKeyValue.m in Sources */,
 				303B9BF11D45FCDD00A235DC /* WHWordViewController.m in Sources */,
+				C922C5291DAA87C8003A41D9 /* WHTopWindow.m in Sources */,
 				C9D847C11D44637700FFBCBC /* MJPropertyKey.m in Sources */,
 				C91EC4AE1D5742AD009A63A6 /* DALabeledCircularProgressView.m in Sources */,
 				C9D8479A1D43D21100FFBCBC /* SDWebImageManager.m in Sources */,

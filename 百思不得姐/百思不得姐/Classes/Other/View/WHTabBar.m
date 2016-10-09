@@ -55,12 +55,20 @@
         }
         viewSub.frame = CGRectMake(fBtnX, fBtnY, fBtnW, fBtnH);
         indexBtn ++ ;
+        
+//        UIControl *controlTabbar = (UIControl *)viewSub;
+//        [controlTabbar addTarget:self action:@selector(onActionTabbarBtn) forControlEvents:UIControlEventTouchUpInside];
     }
     // add button
     self.btnPublish.wh_width = fBtnW;
     self.btnPublish.wh_height = fBtnH;
     self.btnPublish.wh_centerX = self.wh_width * 0.5;
     self.btnPublish.wh_centerY = self.wh_height * 0.5;
+}
+
+- (void)onActionTabbarBtn
+{
+    WHLogFunc;
 }
 
 - (void)onActionPublish
