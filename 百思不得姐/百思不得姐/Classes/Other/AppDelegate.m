@@ -13,6 +13,7 @@
 
 @end
 
+UIWindow *window_;
 @implementation AppDelegate
 
 
@@ -22,9 +23,35 @@
     self.window.rootViewController = [[WHTabBarViewController alloc]init];;
     
     [self.window makeKeyAndVisible];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        window_ = [[UIWindow alloc]init];
+        window_.frame = [UIApplication sharedApplication].statusBarFrame;
+        window_.windowLevel = UIWindowLevelAlert;
+        window_.hidden = NO;
+        
+        [window_ addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTapWindowTop)]];
+    });
     return YES;
 }
+- (void)onTapWindowTop
+{
+    [self findScrollViewInWindow:[UIApplication sharedApplication].keyWindow];
+}
+- (void)findScrollViewInWindow:(UIView *)view
+{
+    for (UIView *subView in view.subviews)
+    {
+        [self findScrollViewInWindow:subView];
+    }
+    
+    if (![view isKindOfClass:[UIScrollView class]]) return;
 
+    UIScrollView *scrollView = (UIScrollView *)view;
+    CGPoint offset = scrollView.contentOffset;
+    offset.y = -scrollView.contentInset.top;
+    [scrollView setContentOffset:offset animated:YES];
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
