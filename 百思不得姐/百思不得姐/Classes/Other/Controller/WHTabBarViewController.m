@@ -51,11 +51,16 @@
                     title:@"我" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
 
 
-
-    //change tabbar
-    [self setValue:[[WHTabBar alloc]init] forKey:@"tabBar"];
+    [self setupTabbar];
 }
 
+/**
+ change tabbar
+ */
+- (void)setupTabbar
+{
+    [self setValue:[[WHTabBar alloc]init] forKey:@"tabBar"];
+}
 - (void)setupChildOneVC:(UIViewController *)vc title:(NSString *)title image:(NSString *)strImg selectedImage:(NSString *)selectedImg
 {
     vc.tabBarItem.title = title;

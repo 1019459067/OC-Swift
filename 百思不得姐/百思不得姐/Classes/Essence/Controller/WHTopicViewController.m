@@ -43,6 +43,14 @@ static NSString * const WHTopicCellID = @"WHTopicCell";
     [self setupRefresh];
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([WHTopicCell class]) bundle:nil] forCellReuseIdentifier:WHTopicCellID];
+    
+    [self setupNoti];
+}
+- (void)setupNoti
+{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onActionTabBarButtonRepeatClick) name:WHTabBarButtonRepeatClickNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onActionTitleButtonRepeatClick) name:WHTitleButtonRepeatClickNotification object:nil];
+
 }
 - (void)setupTableView
 {
@@ -57,6 +65,26 @@ static NSString * const WHTopicCellID = @"WHTopicCell";
     [self.tableView.mj_header beginRefreshing];
     
     self.tableView.mj_footer = [WHRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
+}
+#pragma mark - 监听
+- (void)onActionTitleButtonRepeatClick
+{
+    [self onActionTabBarButtonRepeatClick];
+}
+- (void)onActionTabBarButtonRepeatClick
+{
+    //如果当前控制器view 不再window上，直接返回
+    if (self.view.window == nil) return;
+    
+    //如果当前控制器view是否与window重叠，直接返回
+    if (![self.view intersectsRectWithView:[UIApplication sharedApplication].keyWindow]) return;
+
+    [self.tableView.mj_header beginRefreshing];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 #pragma mark - 数据加载
 - (void)loadMoreTopics

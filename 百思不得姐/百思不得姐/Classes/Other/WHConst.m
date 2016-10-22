@@ -22,3 +22,9 @@ NSString * const WHUserSexMale = @"m";
 
 /** 性别-女 */
 NSString * const WHUserSexFemale = @"f";
+
+/** tabbar 被重复点击的通知 */
+NSString * const WHTabBarButtonRepeatClickNotification = @"WHTabBarButtonRepeatClickNotification";
+
+/** title button 被重复点击的通知 */
+NSString * const WHTitleButtonRepeatClickNotification = @"WHTitleButtonRepeatClickNotification";

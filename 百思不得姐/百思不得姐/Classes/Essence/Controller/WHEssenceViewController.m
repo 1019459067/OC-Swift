@@ -20,6 +20,7 @@
 @property (strong, nonatomic) UIView *indicatorView;
 @property (weak, nonatomic) UIScrollView *scrollView;
 @property (weak, nonatomic) UIView *viewTitles;
+@property (weak, nonatomic) UIButton *selectedTitleButton;
 @end
 
 @implementation WHEssenceViewController
@@ -93,6 +94,12 @@
 }
 - (void)onActionTitleButton:(WHTitleButton *)sender
 {
+    if (sender == self.selectedTitleButton)
+    {
+        [[NSNotificationCenter defaultCenter]postNotificationName:WHTitleButtonRepeatClickNotification object:nil];
+    }
+    self.selectedTitleButton = sender;
+
     self.selectedBtn.selected = NO;
     sender.selected = YES;
     self.selectedBtn = sender;

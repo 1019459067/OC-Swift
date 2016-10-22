@@ -66,10 +66,10 @@
     self.btnPublish.wh_centerY = self.wh_height * 0.5;
 }
 
-- (void)onActionTabbarBtn
-{
-    WHLogFunc;
-}
+//- (void)onActionTabbarBtn
+//{
+//    WHLogFunc;
+//}
 
 - (void)onActionPublish
 {

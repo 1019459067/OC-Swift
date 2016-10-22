@@ -10,14 +10,19 @@
 #import "WHTabBarViewController.h"
 #import "WHTopWindow.h"
 @interface AppDelegate ()<UITabBarControllerDelegate>
-
+///记录上一次点击的控制器 索引
+@property (assign, nonatomic) NSInteger lastSelectedIndex;
 @end
 
 @implementation AppDelegate
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
-    WHLogFunc
+    if (tabBarController.selectedIndex == self.lastSelectedIndex)
+    {
+        [[NSNotificationCenter defaultCenter]postNotificationName:WHTabBarButtonRepeatClickNotification object:nil];
+    }
+    self.lastSelectedIndex = tabBarController.selectedIndex;
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];

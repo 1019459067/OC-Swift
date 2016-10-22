@@ -21,3 +21,10 @@ UIKIT_EXTERN NSString * const WHUserSexMale;
 
 /** 性别-女 */
 UIKIT_EXTERN NSString * const WHUserSexFemale;
+
+/** 通知 */
+/** tabbar 被重复点击的通知 */
+UIKIT_EXTERN NSString * const WHTabBarButtonRepeatClickNotification;
+
+/** title button 被重复点击的通知 */
+UIKIT_EXTERN NSString * const WHTitleButtonRepeatClickNotification;
