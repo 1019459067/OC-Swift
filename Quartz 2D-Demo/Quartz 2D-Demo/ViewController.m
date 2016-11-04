@@ -15,13 +15,21 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+//    Test *view=[[Test alloc]initWithFrame:[UIScreen mainScreen].bounds];
+//    view.backgroundColor=[UIColor orangeColor];
+//    [self.view addSubview:view];
+    
+    [self baseGrapicDraw];
+}
+- (void)baseGrapicDraw
+{
     WHView *view=[[WHView alloc]initWithFrame:[UIScreen mainScreen].bounds];
     view.backgroundColor=[UIColor orangeColor];
     [self.view addSubview:view];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
