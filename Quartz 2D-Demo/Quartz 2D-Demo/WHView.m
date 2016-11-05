@@ -17,9 +17,9 @@
 #pragma mark - 图片绘制
 - (void)drawImgWithContext:(CGContextRef)context
 {
-    UIImage *img = [UIImage imageNamed:@"071.jpg"];
+    UIImage *img = [UIImage imageNamed:@"07.jpg"];
     
-    [img drawAtPoint:CGPointMake(50, 50)];
+    [img drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) blendMode:kCGBlendModeMultiply alpha:1];
 }
 #pragma mark - 文字绘制
 - (void)drawTextWithContext:(CGContextRef)context

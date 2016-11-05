@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "WHView.h"
+#import "WHColorView.h"
 
 @interface ViewController ()<CALayerDelegate>
 
@@ -19,10 +20,15 @@
 {
     [super viewDidLoad];
     
-    [self baseGrapicDraw];
+    [self colorGrapicDraw];
 }
 #pragma mark - 绘制矩形
-
+- (void)colorGrapicDraw
+{
+    WHColorView *view=[[WHColorView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    view.backgroundColor=[UIColor whiteColor];
+    [self.view addSubview:view];
+}
 - (void)baseGrapicDraw
 {
     WHView *view=[[WHView alloc]initWithFrame:[UIScreen mainScreen].bounds];

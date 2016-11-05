@@ -15,6 +15,7 @@
 		301D36421DCC152C00FB3BA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 301D36401DCC152C00FB3BA9 /* LaunchScreen.storyboard */; };
 		301D364B1DCC159600FB3BA9 /* WHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 301D364A1DCC159600FB3BA9 /* WHView.m */; };
 		C94C4A6E1DCDCD1E00D98F8B /* 07.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C94C4A6D1DCDCD1E00D98F8B /* 07.jpg */; };
+		C94C4A731DCDD2E800D98F8B /* WHColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C4A721DCDD2E800D98F8B /* WHColorView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		301D36491DCC159600FB3BA9 /* WHView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHView.h; sourceTree = "<group>"; };
 		301D364A1DCC159600FB3BA9 /* WHView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHView.m; sourceTree = "<group>"; };
 		C94C4A6D1DCDCD1E00D98F8B /* 07.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 07.jpg; sourceTree = "<group>"; };
+		C94C4A711DCDD2E800D98F8B /* WHColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHColorView.h; sourceTree = "<group>"; };
+		C94C4A721DCDD2E800D98F8B /* WHColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHColorView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,8 @@
 				301D36391DCC152C00FB3BA9 /* ViewController.m */,
 				301D36491DCC159600FB3BA9 /* WHView.h */,
 				301D364A1DCC159600FB3BA9 /* WHView.m */,
+				C94C4A711DCDD2E800D98F8B /* WHColorView.h */,
+				C94C4A721DCDD2E800D98F8B /* WHColorView.m */,
 				301D363B1DCC152C00FB3BA9 /* Main.storyboard */,
 				301D363E1DCC152C00FB3BA9 /* Assets.xcassets */,
 				301D36401DCC152C00FB3BA9 /* LaunchScreen.storyboard */,
@@ -161,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				301D363A1DCC152C00FB3BA9 /* ViewController.m in Sources */,
+				C94C4A731DCDD2E800D98F8B /* WHColorView.m in Sources */,
 				301D364B1DCC159600FB3BA9 /* WHView.m in Sources */,
 				301D36371DCC152C00FB3BA9 /* AppDelegate.m in Sources */,
 				301D36341DCC152C00FB3BA9 /* main.m in Sources */,
