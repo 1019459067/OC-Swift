@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "WHView.h"
 #import "WHColorView.h"
+#import "WHImgView.h"
 
 @interface ViewController ()<CALayerDelegate>
 
@@ -20,9 +21,15 @@
 {
     [super viewDidLoad];
     
-    [self colorGrapicDraw];
+    [self imgGrapicDraw];
 }
 #pragma mark - 绘制矩形
+- (void)imgGrapicDraw
+{
+    WHImgView *view=[[WHImgView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    view.backgroundColor=[UIColor whiteColor];
+    [self.view addSubview:view];
+}
 - (void)colorGrapicDraw
 {
     WHColorView *view=[[WHColorView alloc]initWithFrame:[UIScreen mainScreen].bounds];

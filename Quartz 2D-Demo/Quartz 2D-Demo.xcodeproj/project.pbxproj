@@ -16,6 +16,7 @@
 		301D364B1DCC159600FB3BA9 /* WHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 301D364A1DCC159600FB3BA9 /* WHView.m */; };
 		C94C4A6E1DCDCD1E00D98F8B /* 07.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C94C4A6D1DCDCD1E00D98F8B /* 07.jpg */; };
 		C94C4A731DCDD2E800D98F8B /* WHColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C4A721DCDD2E800D98F8B /* WHColorView.m */; };
+		C971DDF41DCE0875004A9223 /* WHImgView.m in Sources */ = {isa = PBXBuildFile; fileRef = C971DDF31DCE0875004A9223 /* WHImgView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		C94C4A6D1DCDCD1E00D98F8B /* 07.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 07.jpg; sourceTree = "<group>"; };
 		C94C4A711DCDD2E800D98F8B /* WHColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHColorView.h; sourceTree = "<group>"; };
 		C94C4A721DCDD2E800D98F8B /* WHColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHColorView.m; sourceTree = "<group>"; };
+		C971DDF21DCE0875004A9223 /* WHImgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHImgView.h; sourceTree = "<group>"; };
+		C971DDF31DCE0875004A9223 /* WHImgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHImgView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +73,8 @@
 				301D36361DCC152C00FB3BA9 /* AppDelegate.m */,
 				301D36381DCC152C00FB3BA9 /* ViewController.h */,
 				301D36391DCC152C00FB3BA9 /* ViewController.m */,
+				C971DDF21DCE0875004A9223 /* WHImgView.h */,
+				C971DDF31DCE0875004A9223 /* WHImgView.m */,
 				301D36491DCC159600FB3BA9 /* WHView.h */,
 				301D364A1DCC159600FB3BA9 /* WHView.m */,
 				C94C4A711DCDD2E800D98F8B /* WHColorView.h */,
@@ -166,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				301D363A1DCC152C00FB3BA9 /* ViewController.m in Sources */,
+				C971DDF41DCE0875004A9223 /* WHImgView.m in Sources */,
 				C94C4A731DCDD2E800D98F8B /* WHColorView.m in Sources */,
 				301D364B1DCC159600FB3BA9 /* WHView.m in Sources */,
 				301D36371DCC152C00FB3BA9 /* AppDelegate.m in Sources */,
