@@ -12,7 +12,45 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    [self drawArcWithContext:UIGraphicsGetCurrentContext()];
+    [self drawImgWithContext:UIGraphicsGetCurrentContext()];
+}
+#pragma mark - 图片绘制
+- (void)drawImgWithContext:(CGContextRef)context
+{
+    UIImage *img = [UIImage imageNamed:@"071.jpg"];
+    
+    [img drawAtPoint:CGPointMake(50, 50)];
+}
+#pragma mark - 文字绘制
+- (void)drawTextWithContext:(CGContextRef)context
+{
+    NSString *str = @"1019459067";
+    CGRect rect = CGRectMake(20, 50, self.frame.size.width-20*2, self.frame.size.height-50);
+    NSMutableDictionary *attri = [NSMutableDictionary dictionary];
+    attri[NSFontAttributeName] = [UIFont systemFontOfSize:14];
+    attri[NSBackgroundColorAttributeName] = [UIColor orangeColor];
+    attri[NSForegroundColorAttributeName] = [UIColor redColor];
+    
+    NSMutableParagraphStyle *style=[[NSMutableParagraphStyle alloc]init];//段落样式
+    style.alignment = NSTextAlignmentCenter;
+    attri[NSParagraphStyleAttributeName] = style;
+    [str drawInRect:rect withAttributes:attri];
+}
+#pragma mark - 绘制贝塞尔曲线
+- (void)drawCurveWithContext:(CGContextRef)context
+{
+    // start point one
+    CGContextMoveToPoint(context, 20, 100);
+    CGContextAddQuadCurveToPoint(context, 160, 0, 300, 100);
+    
+    // start point two
+    CGContextMoveToPoint(context, 20, 500);
+    CGContextAddCurveToPoint(context, 80, 300, 240, 500, 300, 300);
+
+    [[UIColor yellowColor]setFill];
+    [[UIColor redColor]setStroke];
+    
+    CGContextDrawPath(context, kCGPathFillStroke);
 }
 #pragma mark - 绘制圆弧
 - (void)drawArcWithContext:(CGContextRef)context
