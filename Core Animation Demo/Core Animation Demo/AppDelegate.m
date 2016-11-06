@@ -14,6 +14,8 @@
 #import "Test1ViewController.h"
 #import "Test2ViewController.h"
 #import "Test3ViewController.h"
+#import "Test4ViewController.h"
+#import "Test5ViewController.h"
 
 @interface AppDelegate ()
 
@@ -26,7 +28,7 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    int tag = 3;
+    int tag = 5;
     if (tag == 1)
     {
         Test1ViewController *vc = [[Test1ViewController alloc]init];
@@ -40,6 +42,16 @@
     if (tag == 3)
     {
         Test3ViewController *vc = [[Test3ViewController alloc]init];
+        self.window.rootViewController = vc;
+    }
+    if (tag == 4)
+    {
+        Test4ViewController *vc = [[Test4ViewController alloc]init];
+        self.window.rootViewController = vc;
+    }
+    if (tag == 5)
+    {
+        Test5ViewController *vc = [[Test5ViewController alloc]init];
         self.window.rootViewController = vc;
     }
 

@@ -17,6 +17,11 @@
 		C9CF1D001DCF16810007E1FD /* Test3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF1CFF1DCF16810007E1FD /* Test3ViewController.m */; };
 		C9CF1D031DCF171E0007E1FD /* WHLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF1D021DCF171E0007E1FD /* WHLayer.m */; };
 		C9CF1D061DCF18A80007E1FD /* WHView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF1D051DCF18A80007E1FD /* WHView.m */; };
+		C9CF1D091DCF1C610007E1FD /* Test4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF1D081DCF1C610007E1FD /* Test4ViewController.m */; };
+		C9CF1D0B1DCF1D280007E1FD /* 08.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9CF1D0A1DCF1D280007E1FD /* 08.jpg */; };
+		C9CF1D0E1DCF20D70007E1FD /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9CF1D0C1DCF20D70007E1FD /* background@2x.png */; };
+		C9CF1D0F1DCF20D70007E1FD /* leaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9CF1D0D1DCF20D70007E1FD /* leaf@2x.png */; };
+		C9CF1D121DCF220E0007E1FD /* Test5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF1D111DCF220E0007E1FD /* Test5ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +43,13 @@
 		C9CF1D021DCF171E0007E1FD /* WHLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHLayer.m; sourceTree = "<group>"; };
 		C9CF1D041DCF18A80007E1FD /* WHView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHView.h; sourceTree = "<group>"; };
 		C9CF1D051DCF18A80007E1FD /* WHView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHView.m; sourceTree = "<group>"; };
+		C9CF1D071DCF1C610007E1FD /* Test4ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test4ViewController.h; sourceTree = "<group>"; };
+		C9CF1D081DCF1C610007E1FD /* Test4ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test4ViewController.m; sourceTree = "<group>"; };
+		C9CF1D0A1DCF1D280007E1FD /* 08.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 08.jpg; sourceTree = "<group>"; };
+		C9CF1D0C1DCF20D70007E1FD /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
+		C9CF1D0D1DCF20D70007E1FD /* leaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leaf@2x.png"; sourceTree = "<group>"; };
+		C9CF1D101DCF220E0007E1FD /* Test5ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test5ViewController.h; sourceTree = "<group>"; };
+		C9CF1D111DCF220E0007E1FD /* Test5ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test5ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +90,10 @@
 				C9CF1CFA1DCF0BAE0007E1FD /* Test2ViewController.m */,
 				C9CF1CFE1DCF16810007E1FD /* Test3ViewController.h */,
 				C9CF1CFF1DCF16810007E1FD /* Test3ViewController.m */,
+				C9CF1D071DCF1C610007E1FD /* Test4ViewController.h */,
+				C9CF1D081DCF1C610007E1FD /* Test4ViewController.m */,
+				C9CF1D101DCF220E0007E1FD /* Test5ViewController.h */,
+				C9CF1D111DCF220E0007E1FD /* Test5ViewController.m */,
 				C9CF1D011DCF171E0007E1FD /* WHLayer.h */,
 				C9CF1D021DCF171E0007E1FD /* WHLayer.m */,
 				C9CF1D041DCF18A80007E1FD /* WHView.h */,
@@ -93,6 +109,9 @@
 		C971DE041DCE1C61004A9223 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C9CF1D0C1DCF20D70007E1FD /* background@2x.png */,
+				C9CF1D0D1DCF20D70007E1FD /* leaf@2x.png */,
+				C9CF1D0A1DCF1D280007E1FD /* 08.jpg */,
 				C9CF1CFC1DCF0CFF0007E1FD /* 06.jpg */,
 				C971DE051DCE1C61004A9223 /* main.m */,
 			);
@@ -158,7 +177,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9CF1CFD1DCF0CFF0007E1FD /* 06.jpg in Resources */,
+				C9CF1D0B1DCF1D280007E1FD /* 08.jpg in Resources */,
+				C9CF1D0F1DCF20D70007E1FD /* leaf@2x.png in Resources */,
 				C971DE141DCE1C61004A9223 /* LaunchScreen.storyboard in Resources */,
+				C9CF1D0E1DCF20D70007E1FD /* background@2x.png in Resources */,
 				C971DE111DCE1C61004A9223 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,9 +195,11 @@
 				C9CF1CF81DCF09C30007E1FD /* Test1ViewController.m in Sources */,
 				C9CF1D061DCF18A80007E1FD /* WHView.m in Sources */,
 				C9CF1CFB1DCF0BAE0007E1FD /* Test2ViewController.m in Sources */,
+				C9CF1D091DCF1C610007E1FD /* Test4ViewController.m in Sources */,
 				C971DE091DCE1C61004A9223 /* AppDelegate.m in Sources */,
 				C9CF1D001DCF16810007E1FD /* Test3ViewController.m in Sources */,
 				C9CF1D031DCF171E0007E1FD /* WHLayer.m in Sources */,
+				C9CF1D121DCF220E0007E1FD /* Test5ViewController.m in Sources */,
 				C971DE061DCE1C61004A9223 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
