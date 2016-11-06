@@ -40,21 +40,24 @@
     layer.masksToBounds = YES;
     [self.view.layer addSublayer:layer];
     
+    //利用图层形变解决图像倒立问题
+    layer.transform = CATransform3DMakeRotation(M_PI, 1, 0, 0);
+    
     layer.delegate = self;
     [layer setNeedsDisplay];
 }
 #pragma mark - 绘制图形、图像到图层,通过图层代理drawLayer: inContext:方法绘制
 - (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx
 {
-    CGContextSaveGState(ctx);
+//    CGContextSaveGState(ctx);
     
-    CGContextScaleCTM(ctx, 1, -1);
-    CGContextTranslateCTM(ctx, 0, -PHOTO_HEIGHT);
+//    CGContextScaleCTM(ctx, 1, -1);
+//    CGContextTranslateCTM(ctx, 0, -PHOTO_HEIGHT);
     
     UIImage *img = [UIImage imageNamed:@"06.jpg"];
     CGContextDrawImage(ctx, CGRectMake(0, 0, PHOTO_HEIGHT, PHOTO_HEIGHT), img.CGImage);
     
-    CGContextRestoreGState(ctx);
+//    CGContextRestoreGState(ctx);
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
