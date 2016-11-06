@@ -12,6 +12,7 @@
 
 #import "AppDelegate.h"
 #import "Test1ViewController.h"
+#import "Test2ViewController.h"
 
 @interface AppDelegate ()
 
@@ -24,10 +25,15 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    int tag = 1;
+    int tag = 2;
     if (tag == 1)
     {
         Test1ViewController *vc = [[Test1ViewController alloc]init];
+        self.window.rootViewController = vc;
+    }
+    if (tag == 2)
+    {
+        Test2ViewController *vc = [[Test2ViewController alloc]init];
         self.window.rootViewController = vc;
     }
     [self.window makeKeyAndVisible];

@@ -12,6 +12,8 @@
 		C971DE111DCE1C61004A9223 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C971DE101DCE1C61004A9223 /* Assets.xcassets */; };
 		C971DE141DCE1C61004A9223 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C971DE121DCE1C61004A9223 /* LaunchScreen.storyboard */; };
 		C9CF1CF81DCF09C30007E1FD /* Test1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF1CF71DCF09C30007E1FD /* Test1ViewController.m */; };
+		C9CF1CFB1DCF0BAE0007E1FD /* Test2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF1CFA1DCF0BAE0007E1FD /* Test2ViewController.m */; };
+		C9CF1CFD1DCF0CFF0007E1FD /* 06.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9CF1CFC1DCF0CFF0007E1FD /* 06.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,9 @@
 		C971DE151DCE1C61004A9223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9CF1CF61DCF09C30007E1FD /* Test1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test1ViewController.h; sourceTree = "<group>"; };
 		C9CF1CF71DCF09C30007E1FD /* Test1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test1ViewController.m; sourceTree = "<group>"; };
+		C9CF1CF91DCF0BAE0007E1FD /* Test2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test2ViewController.h; sourceTree = "<group>"; };
+		C9CF1CFA1DCF0BAE0007E1FD /* Test2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test2ViewController.m; sourceTree = "<group>"; };
+		C9CF1CFC1DCF0CFF0007E1FD /* 06.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 06.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +65,8 @@
 				C971DE081DCE1C61004A9223 /* AppDelegate.m */,
 				C9CF1CF61DCF09C30007E1FD /* Test1ViewController.h */,
 				C9CF1CF71DCF09C30007E1FD /* Test1ViewController.m */,
+				C9CF1CF91DCF0BAE0007E1FD /* Test2ViewController.h */,
+				C9CF1CFA1DCF0BAE0007E1FD /* Test2ViewController.m */,
 				C971DE101DCE1C61004A9223 /* Assets.xcassets */,
 				C971DE121DCE1C61004A9223 /* LaunchScreen.storyboard */,
 				C971DE151DCE1C61004A9223 /* Info.plist */,
@@ -71,6 +78,7 @@
 		C971DE041DCE1C61004A9223 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C9CF1CFC1DCF0CFF0007E1FD /* 06.jpg */,
 				C971DE051DCE1C61004A9223 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -134,6 +142,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9CF1CFD1DCF0CFF0007E1FD /* 06.jpg in Resources */,
 				C971DE141DCE1C61004A9223 /* LaunchScreen.storyboard in Resources */,
 				C971DE111DCE1C61004A9223 /* Assets.xcassets in Resources */,
 			);
@@ -147,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9CF1CF81DCF09C30007E1FD /* Test1ViewController.m in Sources */,
+				C9CF1CFB1DCF0BAE0007E1FD /* Test2ViewController.m in Sources */,
 				C971DE091DCE1C61004A9223 /* AppDelegate.m in Sources */,
 				C971DE061DCE1C61004A9223 /* main.m in Sources */,
 			);
