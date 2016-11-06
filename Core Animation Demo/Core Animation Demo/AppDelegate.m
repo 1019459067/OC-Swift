@@ -16,6 +16,7 @@
 #import "Test3ViewController.h"
 #import "Test4ViewController.h"
 #import "Test5ViewController.h"
+#import "Test6ViewController.h"
 
 @interface AppDelegate ()
 
@@ -28,7 +29,7 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    int tag = 5;
+    int tag = 6;
     if (tag == 1)
     {
         Test1ViewController *vc = [[Test1ViewController alloc]init];
@@ -54,7 +55,11 @@
         Test5ViewController *vc = [[Test5ViewController alloc]init];
         self.window.rootViewController = vc;
     }
-
+    if (tag == 6)
+    {
+        Test6ViewController *vc = [[Test6ViewController alloc]init];
+        self.window.rootViewController = vc;
+    }
     [self.window makeKeyAndVisible];
     return YES;
 }

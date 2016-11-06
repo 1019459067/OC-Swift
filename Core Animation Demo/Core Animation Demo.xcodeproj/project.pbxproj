@@ -22,6 +22,12 @@
 		C9CF1D0E1DCF20D70007E1FD /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9CF1D0C1DCF20D70007E1FD /* background@2x.png */; };
 		C9CF1D0F1DCF20D70007E1FD /* leaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9CF1D0D1DCF20D70007E1FD /* leaf@2x.png */; };
 		C9CF1D121DCF220E0007E1FD /* Test5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF1D111DCF220E0007E1FD /* Test5ViewController.m */; };
+		C9CF1D151DCF31800007E1FD /* Test6ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF1D141DCF31800007E1FD /* Test6ViewController.m */; };
+		C9CF1D1B1DCF32A50007E1FD /* 00.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9CF1D161DCF32A50007E1FD /* 00.jpg */; };
+		C9CF1D1C1DCF32A50007E1FD /* 01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9CF1D171DCF32A50007E1FD /* 01.jpg */; };
+		C9CF1D1D1DCF32A50007E1FD /* 02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9CF1D181DCF32A50007E1FD /* 02.jpg */; };
+		C9CF1D1E1DCF32A50007E1FD /* 03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9CF1D191DCF32A50007E1FD /* 03.jpg */; };
+		C9CF1D1F1DCF32A50007E1FD /* 04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9CF1D1A1DCF32A50007E1FD /* 04.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +56,13 @@
 		C9CF1D0D1DCF20D70007E1FD /* leaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leaf@2x.png"; sourceTree = "<group>"; };
 		C9CF1D101DCF220E0007E1FD /* Test5ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test5ViewController.h; sourceTree = "<group>"; };
 		C9CF1D111DCF220E0007E1FD /* Test5ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test5ViewController.m; sourceTree = "<group>"; };
+		C9CF1D131DCF31800007E1FD /* Test6ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test6ViewController.h; sourceTree = "<group>"; };
+		C9CF1D141DCF31800007E1FD /* Test6ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test6ViewController.m; sourceTree = "<group>"; };
+		C9CF1D161DCF32A50007E1FD /* 00.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 00.jpg; sourceTree = "<group>"; };
+		C9CF1D171DCF32A50007E1FD /* 01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 01.jpg; sourceTree = "<group>"; };
+		C9CF1D181DCF32A50007E1FD /* 02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 02.jpg; sourceTree = "<group>"; };
+		C9CF1D191DCF32A50007E1FD /* 03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 03.jpg; sourceTree = "<group>"; };
+		C9CF1D1A1DCF32A50007E1FD /* 04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 04.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +107,8 @@
 				C9CF1D081DCF1C610007E1FD /* Test4ViewController.m */,
 				C9CF1D101DCF220E0007E1FD /* Test5ViewController.h */,
 				C9CF1D111DCF220E0007E1FD /* Test5ViewController.m */,
+				C9CF1D131DCF31800007E1FD /* Test6ViewController.h */,
+				C9CF1D141DCF31800007E1FD /* Test6ViewController.m */,
 				C9CF1D011DCF171E0007E1FD /* WHLayer.h */,
 				C9CF1D021DCF171E0007E1FD /* WHLayer.m */,
 				C9CF1D041DCF18A80007E1FD /* WHView.h */,
@@ -109,6 +124,11 @@
 		C971DE041DCE1C61004A9223 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C9CF1D161DCF32A50007E1FD /* 00.jpg */,
+				C9CF1D171DCF32A50007E1FD /* 01.jpg */,
+				C9CF1D181DCF32A50007E1FD /* 02.jpg */,
+				C9CF1D191DCF32A50007E1FD /* 03.jpg */,
+				C9CF1D1A1DCF32A50007E1FD /* 04.jpg */,
 				C9CF1D0C1DCF20D70007E1FD /* background@2x.png */,
 				C9CF1D0D1DCF20D70007E1FD /* leaf@2x.png */,
 				C9CF1D0A1DCF1D280007E1FD /* 08.jpg */,
@@ -176,11 +196,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9CF1D1E1DCF32A50007E1FD /* 03.jpg in Resources */,
 				C9CF1CFD1DCF0CFF0007E1FD /* 06.jpg in Resources */,
 				C9CF1D0B1DCF1D280007E1FD /* 08.jpg in Resources */,
+				C9CF1D1F1DCF32A50007E1FD /* 04.jpg in Resources */,
+				C9CF1D1B1DCF32A50007E1FD /* 00.jpg in Resources */,
 				C9CF1D0F1DCF20D70007E1FD /* leaf@2x.png in Resources */,
 				C971DE141DCE1C61004A9223 /* LaunchScreen.storyboard in Resources */,
 				C9CF1D0E1DCF20D70007E1FD /* background@2x.png in Resources */,
+				C9CF1D1C1DCF32A50007E1FD /* 01.jpg in Resources */,
+				C9CF1D1D1DCF32A50007E1FD /* 02.jpg in Resources */,
 				C971DE111DCE1C61004A9223 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,6 +220,7 @@
 				C9CF1CF81DCF09C30007E1FD /* Test1ViewController.m in Sources */,
 				C9CF1D061DCF18A80007E1FD /* WHView.m in Sources */,
 				C9CF1CFB1DCF0BAE0007E1FD /* Test2ViewController.m in Sources */,
+				C9CF1D151DCF31800007E1FD /* Test6ViewController.m in Sources */,
 				C9CF1D091DCF1C610007E1FD /* Test4ViewController.m in Sources */,
 				C971DE091DCE1C61004A9223 /* AppDelegate.m in Sources */,
 				C9CF1D001DCF16810007E1FD /* Test3ViewController.m in Sources */,
