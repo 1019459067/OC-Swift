@@ -11,6 +11,7 @@
  */
 
 #import "AppDelegate.h"
+#import "Test1ViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,7 +21,16 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    int tag = 1;
+    if (tag == 1)
+    {
+        Test1ViewController *vc = [[Test1ViewController alloc]init];
+        self.window.rootViewController = vc;
+    }
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
