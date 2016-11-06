@@ -18,16 +18,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    CALayer *layerShaw = [CALayer layer];
+    layerShaw.bounds = CGRectMake(0, 0, PHOTO_HEIGHT, PHOTO_HEIGHT);
+    layerShaw.position = CGPointMake(self.view.frame.size.width/2., self.view.frame.size.height/2.);
+    layerShaw.borderWidth = 2;
+    layerShaw.borderColor = [UIColor whiteColor].CGColor;
+    layerShaw.cornerRadius = PHOTO_HEIGHT/2;
+    layerShaw.shadowOpacity = 0.8;
+    layerShaw.shadowColor = [UIColor lightGrayColor].CGColor;
+    layerShaw.shadowOffset = CGSizeMake(2, 2);
+    [self.view.layer addSublayer:layerShaw];
+
+    
     CALayer *layer = [CALayer layer];
-    layer.bounds = CGRectMake(0, 0, PHOTO_HEIGHT, PHOTO_HEIGHT);
     layer.backgroundColor = [UIColor blueColor].CGColor;
+    layer.bounds = CGRectMake(0, 0, PHOTO_HEIGHT, PHOTO_HEIGHT);
     layer.position = CGPointMake(self.view.frame.size.width/2., self.view.frame.size.height/2.);
     layer.borderWidth = 2;
     layer.borderColor = [UIColor whiteColor].CGColor;
     layer.cornerRadius = PHOTO_HEIGHT/2;
-    layer.shadowOpacity = 0.8;
-    layer.shadowColor = [UIColor lightGrayColor].CGColor;
-    layer.shadowOffset = CGSizeMake(2, 2);
     layer.masksToBounds = YES;
     [self.view.layer addSublayer:layer];
     
