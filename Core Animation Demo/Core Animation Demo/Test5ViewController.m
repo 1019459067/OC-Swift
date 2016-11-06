@@ -26,6 +26,29 @@
     self.layer.position = CGPointMake(50, 150);
     self.layer.contents = (id)[UIImage imageNamed:@"leaf"].CGImage;
     [self.view.layer addSublayer:self.layer];
+ 
+    [self translationAnimation];
+}
+#pragma mark - 关键帧动画
+- (void)translationAnimation
+{
+    //1.创建关键帧动画并设置动画属性
+    CAKeyframeAnimation *keyframeAnimation=[CAKeyframeAnimation animationWithKeyPath:@"position"];
+    
+    //2.设置关键帧,这里有四个关键帧
+    NSValue *key1=[NSValue valueWithCGPoint:_layer.position];//对于关键帧动画初始值不能省略
+    NSValue *key2=[NSValue valueWithCGPoint:CGPointMake(80, 220)];
+    NSValue *key3=[NSValue valueWithCGPoint:CGPointMake(45, 300)];
+    NSValue *key4=[NSValue valueWithCGPoint:CGPointMake(55, 400)];
+    NSArray *values=@[key1,key2,key3,key4];
+    keyframeAnimation.values=values;
+    //设置其他属性
+    keyframeAnimation.duration=8.0;
+    keyframeAnimation.beginTime=CACurrentMediaTime()+2;//设置延迟2秒执行
+    
+    
+    //3.添加动画到图层，添加动画后就会执行动画
+    [self.layer addAnimation:keyframeAnimation forKey:@"KCKeyframeAnimation_Position"];
 }
 #pragma mark - 移动动画
 - (void)moveTransformAnimationWithPoint:(CGPoint)point
@@ -60,9 +83,10 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    CGPoint point = [[touches anyObject] locationInView:self.view];
-    [self moveTransformAnimationWithPoint:point];
-    [self rotationAnimation];
+//    CGPoint point = [[touches anyObject] locationInView:self.view];
+//    [self moveTransformAnimationWithPoint:point];
+//    [self rotationAnimation];
+    
 }
 
 #pragma mark - CAAnimationDelegate
