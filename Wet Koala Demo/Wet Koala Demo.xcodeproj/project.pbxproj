@@ -12,6 +12,9 @@
 		30FE74431DF14A8F00C68411 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30FE74411DF14A8F00C68411 /* LaunchScreen.storyboard */; };
 		30FE74541DF14B4400C68411 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FE744F1DF14B4400C68411 /* MainViewController.m */; };
 		30FE74551DF14B4400C68411 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FE74531DF14B4400C68411 /* AppDelegate.m */; };
+		30FE745E1DF1560D00C68411 /* HomeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FE745D1DF1560D00C68411 /* HomeScene.m */; };
+		30FE74611DF1562300C68411 /* ButtonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FE74601DF1562300C68411 /* ButtonNode.m */; };
+		30FE74641DF15CA300C68411 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FE74631DF15CA300C68411 /* GameScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,12 @@
 		30FE744F1DF14B4400C68411 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		30FE74521DF14B4400C68411 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		30FE74531DF14B4400C68411 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		30FE745C1DF1560D00C68411 /* HomeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScene.h; sourceTree = "<group>"; };
+		30FE745D1DF1560D00C68411 /* HomeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeScene.m; sourceTree = "<group>"; };
+		30FE745F1DF1562300C68411 /* ButtonNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonNode.h; sourceTree = "<group>"; };
+		30FE74601DF1562300C68411 /* ButtonNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonNode.m; sourceTree = "<group>"; };
+		30FE74621DF15CA300C68411 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		30FE74631DF15CA300C68411 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +65,8 @@
 		30FE74321DF14A8F00C68411 /* Wet Koala Demo */ = {
 			isa = PBXGroup;
 			children = (
-				30FE744D1DF14B4400C68411 /* Class */,
 				30FE74501DF14B4400C68411 /* lib */,
+				30FE744D1DF14B4400C68411 /* Class */,
 				30FE74511DF14B4400C68411 /* Main */,
 				30FE743F1DF14A8F00C68411 /* Assets.xcassets */,
 				30FE74411DF14A8F00C68411 /* LaunchScreen.storyboard */,
@@ -78,6 +87,8 @@
 		30FE744D1DF14B4400C68411 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				30FE745A1DF1560D00C68411 /* Nodes */,
+				30FE745B1DF1560D00C68411 /* Scenes */,
 				30FE744E1DF14B4400C68411 /* MainViewController.h */,
 				30FE744F1DF14B4400C68411 /* MainViewController.m */,
 			);
@@ -98,6 +109,26 @@
 				30FE74531DF14B4400C68411 /* AppDelegate.m */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		30FE745A1DF1560D00C68411 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				30FE745F1DF1562300C68411 /* ButtonNode.h */,
+				30FE74601DF1562300C68411 /* ButtonNode.m */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+		30FE745B1DF1560D00C68411 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				30FE745C1DF1560D00C68411 /* HomeScene.h */,
+				30FE745D1DF1560D00C68411 /* HomeScene.m */,
+				30FE74621DF15CA300C68411 /* GameScene.h */,
+				30FE74631DF15CA300C68411 /* GameScene.m */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,7 +203,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				30FE74351DF14A8F00C68411 /* main.m in Sources */,
+				30FE74611DF1562300C68411 /* ButtonNode.m in Sources */,
+				30FE745E1DF1560D00C68411 /* HomeScene.m in Sources */,
 				30FE74541DF14B4400C68411 /* MainViewController.m in Sources */,
+				30FE74641DF15CA300C68411 /* GameScene.m in Sources */,
 				30FE74551DF14B4400C68411 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

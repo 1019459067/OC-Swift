@@ -7,17 +7,164 @@
 //
 
 #import "MainViewController.h"
+#import "HomeScene.h"
 
-@interface MainViewController ()
+#define k_Sound @"k_Sound" //设置声音
+
+@interface MainViewController ()<GKGameCenterControllerDelegate>
+
+@property (nonatomic) GKLocalPlayer *gkLocalPlayer;
+@property (nonatomic) BOOL gameCenterLogged;
+@property (strong, nonatomic) NSUserDefaults *userDefault;
+@property (nonatomic) AVAudioPlayer * audioPlayerBgMusic;
 
 @end
 
 @implementation MainViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+        ///configure the view
+    SKView *skView = [[SKView alloc]initWithFrame:self.view.bounds];
+    [self.view addSubview:skView];
+    NSAssert([skView isKindOfClass:[SKView class]],@"View controller's view is not a GLKView");
+
+    if (!skView.scene)
+    {
+        [self authenticateLocalPlayer];
+
+        self.userDefault = [NSUserDefaults standardUserDefaults];
+        if ([self.userDefault objectForKey:k_Sound])
+        {
+            [self.userDefault setObject:@"YES" forKey:k_Sound];
+        }
+
+        NSString *strMusicSetting = [self.userDefault objectForKey:k_Sound];
+        NSURL *urlBg = [[NSBundle mainBundle]URLForResource:@"bgm" withExtension:@"m4a"];
+        self.audioPlayerBgMusic = [[AVAudioPlayer alloc]initWithContentsOfURL:urlBg error:nil];
+        self.audioPlayerBgMusic.numberOfLoops = -1;
+        [self.audioPlayerBgMusic prepareToPlay];
+
+        if ([strMusicSetting isEqualToString:@"YES"])
+        {
+            [self.audioPlayerBgMusic play];
+        }
+
+        skView.showsFPS = NO;
+        skView.showsNodeCount = NO;
+
+        self.gameCenterLogged = NO;
+
+        SKScene *scene = [HomeScene sceneWithSize:skView.bounds.size];
+        scene.scaleMode = SKSceneScaleModeAspectFill;
+        [skView presentScene:scene];
+    }
+}
+- (void)authenticateLocalPlayer
+{
+    self.gkLocalPlayer = [GKLocalPlayer localPlayer];
+
+    __weak GKLocalPlayer *weakPlayer = self.gkLocalPlayer;
+
+    __weak typeof(self) weakSelf = self;
+    self.gkLocalPlayer.authenticateHandler = ^(UIViewController *viewController,NSError *error){
+        if (error)
+        {
+            NSLog(@"authenticateLocalPlayer error:%@",error);
+        }
+
+        if (viewController)
+        {
+            [weakSelf showAuthenticationDialogWhenReasonable];
+        }else if (weakPlayer.authenticated)
+        {
+            [weakSelf authenticatedPlayer:weakPlayer];
+        }else
+        {
+            [weakSelf disableGameCenter];
+        }
+    };
+}
+
+- (void)disableGameCenter
+{
+    self.gameCenterLogged = NO;
+}
+- (void)authenticatedPlayer:(GKLocalPlayer *)player
+{
+    self.gkLocalPlayer = player;
+    self.gameCenterLogged = YES;
+    [self loadLeaderboardInfo];
+}
+- (void)loadLeaderboardInfo
+{
+#warning _leaderboardIdentifier = leaderboardIdentifier;
+    [self.gkLocalPlayer loadDefaultLeaderboardIdentifierWithCompletionHandler:nil];
+}
+- (void)showAuthenticationDialogWhenReasonable
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"gamecenter:"]];
+}
+
+- (void)showGameCenterLeaderBoard
+{
+    if(self.gameCenterLogged){
+        GKGameCenterViewController *gameCenterController = [[GKGameCenterViewController alloc] init];
+        if (gameCenterController != nil)
+        {
+            gameCenterController.gameCenterDelegate = self;
+            gameCenterController.viewState = GKGameCenterViewControllerStateLeaderboards;
+            [self presentViewController: gameCenterController animated: YES completion:nil];
+        }
+    }else{
+        [self showAuthenticationDialogWhenReasonable];
+    }
+}
+#pragma mark - GKGameCenterControllerDelegate
+- (void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)switchSound
+{
+    if ([self isSound])
+    {
+        [self turnOffSound];
+    }else
+    {
+        [self turnOnSound];
+    }
+}
+- (BOOL)isSound
+{
+    NSString * musicPlaySetting = [self.userDefault objectForKey:k_Sound];
+    if ([musicPlaySetting isEqualToString:@"YES"])
+    {
+        return YES;
+    }else{
+        return NO;
+    }
+}
+-(void) turnOffSound
+{
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
+    [self.audioPlayerBgMusic stop];
+    [self.userDefault setObject:@"NO" forKey:@"sound"];
+}
+
+-(void) turnOnSound
+{
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategorySoloAmbient error:nil];
+    [self.audioPlayerBgMusic play];
+    [self.userDefault setObject:@"YES" forKey:@"sound"];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
