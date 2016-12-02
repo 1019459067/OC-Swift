@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "30FE742F1DF14A8F00C68411"
+               BlueprintIdentifier = "30FE75E81DF1765F00C68411"
                BuildableName = "Wet Koala Demo.app"
                BlueprintName = "Wet Koala Demo"
                ReferencedContainer = "container:Wet Koala Demo.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "30FE742F1DF14A8F00C68411"
+            BlueprintIdentifier = "30FE75E81DF1765F00C68411"
             BuildableName = "Wet Koala Demo.app"
             BlueprintName = "Wet Koala Demo"
             ReferencedContainer = "container:Wet Koala Demo.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "30FE742F1DF14A8F00C68411"
+            BlueprintIdentifier = "30FE75E81DF1765F00C68411"
             BuildableName = "Wet Koala Demo.app"
             BlueprintName = "Wet Koala Demo"
             ReferencedContainer = "container:Wet Koala Demo.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "30FE742F1DF14A8F00C68411"
+            BlueprintIdentifier = "30FE75E81DF1765F00C68411"
             BuildableName = "Wet Koala Demo.app"
             BlueprintName = "Wet Koala Demo"
             ReferencedContainer = "container:Wet Koala Demo.xcodeproj">

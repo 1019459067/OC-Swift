@@ -7,36 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		30FE74351DF14A8F00C68411 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FE74341DF14A8F00C68411 /* main.m */; };
-		30FE74401DF14A8F00C68411 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30FE743F1DF14A8F00C68411 /* Assets.xcassets */; };
-		30FE74431DF14A8F00C68411 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30FE74411DF14A8F00C68411 /* LaunchScreen.storyboard */; };
-		30FE74541DF14B4400C68411 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FE744F1DF14B4400C68411 /* MainViewController.m */; };
-		30FE74551DF14B4400C68411 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FE74531DF14B4400C68411 /* AppDelegate.m */; };
-		30FE745E1DF1560D00C68411 /* HomeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FE745D1DF1560D00C68411 /* HomeScene.m */; };
-		30FE74611DF1562300C68411 /* ButtonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FE74601DF1562300C68411 /* ButtonNode.m */; };
-		30FE74641DF15CA300C68411 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FE74631DF15CA300C68411 /* GameScene.m */; };
+		30FE75EE1DF1765F00C68411 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FE75ED1DF1765F00C68411 /* main.m */; };
+		30FE76001DF1765F00C68411 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30FE75FF1DF1765F00C68411 /* Assets.xcassets */; };
+		30FE76031DF1765F00C68411 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30FE76011DF1765F00C68411 /* LaunchScreen.storyboard */; };
+		30FE76161DF176B400C68411 /* ButtonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FE760F1DF176B400C68411 /* ButtonNode.m */; };
+		30FE76181DF176B400C68411 /* HomeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FE76141DF176B400C68411 /* HomeScene.m */; };
+		30FE76241DF176C500C68411 /* Molot.otf in Resources */ = {isa = PBXBuildFile; fileRef = 30FE761C1DF176C500C68411 /* Molot.otf */; };
+		30FE76251DF176C500C68411 /* pointboard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30FE761D1DF176C500C68411 /* pointboard.jpg */; };
+		30FE76261DF176C500C68411 /* bgm.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 30FE761F1DF176C500C68411 /* bgm.m4a */; };
+		30FE76271DF176C500C68411 /* button-in.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 30FE76201DF176C500C68411 /* button-in.m4a */; };
+		30FE76281DF176C500C68411 /* button-out.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 30FE76211DF176C500C68411 /* button-out.m4a */; };
+		30FE76291DF176C500C68411 /* wet.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 30FE76221DF176C500C68411 /* wet.m4a */; };
+		30FE762A1DF176C500C68411 /* sprite.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 30FE76231DF176C500C68411 /* sprite.atlas */; };
+		30FE762D1DF1772C00C68411 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FE762C1DF1772C00C68411 /* GameScene.m */; };
+		30FE762F1DF179D200C68411 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30FE762E1DF179D200C68411 /* Main.storyboard */; };
+		30FE76321DF17AF700C68411 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FE76311DF17AF700C68411 /* GameViewController.m */; };
+		30FE76361DF17B0800C68411 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FE76351DF17B0800C68411 /* AppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		30FE74301DF14A8F00C68411 /* Wet Koala Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wet Koala Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		30FE74341DF14A8F00C68411 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		30FE743F1DF14A8F00C68411 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		30FE74421DF14A8F00C68411 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		30FE74441DF14A8F00C68411 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		30FE744E1DF14B4400C68411 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		30FE744F1DF14B4400C68411 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		30FE74521DF14B4400C68411 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		30FE74531DF14B4400C68411 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		30FE745C1DF1560D00C68411 /* HomeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScene.h; sourceTree = "<group>"; };
-		30FE745D1DF1560D00C68411 /* HomeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeScene.m; sourceTree = "<group>"; };
-		30FE745F1DF1562300C68411 /* ButtonNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonNode.h; sourceTree = "<group>"; };
-		30FE74601DF1562300C68411 /* ButtonNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonNode.m; sourceTree = "<group>"; };
-		30FE74621DF15CA300C68411 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
-		30FE74631DF15CA300C68411 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		30FE75E91DF1765F00C68411 /* Wet Koala Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wet Koala Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		30FE75ED1DF1765F00C68411 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		30FE75FF1DF1765F00C68411 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		30FE76021DF1765F00C68411 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		30FE76041DF1765F00C68411 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30FE760E1DF176B400C68411 /* ButtonNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonNode.h; sourceTree = "<group>"; };
+		30FE760F1DF176B400C68411 /* ButtonNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonNode.m; sourceTree = "<group>"; };
+		30FE76131DF176B400C68411 /* HomeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScene.h; sourceTree = "<group>"; };
+		30FE76141DF176B400C68411 /* HomeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeScene.m; sourceTree = "<group>"; };
+		30FE761C1DF176C500C68411 /* Molot.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Molot.otf; sourceTree = "<group>"; };
+		30FE761D1DF176C500C68411 /* pointboard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pointboard.jpg; sourceTree = "<group>"; };
+		30FE761F1DF176C500C68411 /* bgm.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = bgm.m4a; sourceTree = "<group>"; };
+		30FE76201DF176C500C68411 /* button-in.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "button-in.m4a"; sourceTree = "<group>"; };
+		30FE76211DF176C500C68411 /* button-out.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "button-out.m4a"; sourceTree = "<group>"; };
+		30FE76221DF176C500C68411 /* wet.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = wet.m4a; sourceTree = "<group>"; };
+		30FE76231DF176C500C68411 /* sprite.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = sprite.atlas; sourceTree = "<group>"; };
+		30FE762B1DF1772C00C68411 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		30FE762C1DF1772C00C68411 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		30FE762E1DF179D200C68411 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		30FE76301DF17AF700C68411 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		30FE76311DF17AF700C68411 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		30FE76341DF17B0800C68411 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		30FE76351DF17B0800C68411 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		30FE742D1DF14A8F00C68411 /* Frameworks */ = {
+		30FE75E61DF1765F00C68411 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -46,101 +62,133 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		30FE74271DF14A8F00C68411 = {
+		30FE75E01DF1765F00C68411 = {
 			isa = PBXGroup;
 			children = (
-				30FE74321DF14A8F00C68411 /* Wet Koala Demo */,
-				30FE74311DF14A8F00C68411 /* Products */,
+				30FE75EB1DF1765F00C68411 /* Wet Koala Demo */,
+				30FE75EA1DF1765F00C68411 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		30FE74311DF14A8F00C68411 /* Products */ = {
+		30FE75EA1DF1765F00C68411 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				30FE74301DF14A8F00C68411 /* Wet Koala Demo.app */,
+				30FE75E91DF1765F00C68411 /* Wet Koala Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		30FE74321DF14A8F00C68411 /* Wet Koala Demo */ = {
+		30FE75EB1DF1765F00C68411 /* Wet Koala Demo */ = {
 			isa = PBXGroup;
 			children = (
-				30FE74501DF14B4400C68411 /* lib */,
-				30FE744D1DF14B4400C68411 /* Class */,
-				30FE74511DF14B4400C68411 /* Main */,
-				30FE743F1DF14A8F00C68411 /* Assets.xcassets */,
-				30FE74411DF14A8F00C68411 /* LaunchScreen.storyboard */,
-				30FE74441DF14A8F00C68411 /* Info.plist */,
-				30FE74331DF14A8F00C68411 /* Supporting Files */,
+				30FE76191DF176BD00C68411 /* lib */,
+				30FE760A1DF176B400C68411 /* Class */,
+				30FE76331DF17B0800C68411 /* Main */,
+				30FE762E1DF179D200C68411 /* Main.storyboard */,
+				30FE75FF1DF1765F00C68411 /* Assets.xcassets */,
+				30FE76011DF1765F00C68411 /* LaunchScreen.storyboard */,
+				30FE76041DF1765F00C68411 /* Info.plist */,
+				30FE75EC1DF1765F00C68411 /* Supporting Files */,
 			);
 			path = "Wet Koala Demo";
 			sourceTree = "<group>";
 		};
-		30FE74331DF14A8F00C68411 /* Supporting Files */ = {
+		30FE75EC1DF1765F00C68411 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				30FE74341DF14A8F00C68411 /* main.m */,
+				30FE761A1DF176C500C68411 /* Resources */,
+				30FE75ED1DF1765F00C68411 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		30FE744D1DF14B4400C68411 /* Class */ = {
+		30FE760A1DF176B400C68411 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				30FE745A1DF1560D00C68411 /* Nodes */,
-				30FE745B1DF1560D00C68411 /* Scenes */,
-				30FE744E1DF14B4400C68411 /* MainViewController.h */,
-				30FE744F1DF14B4400C68411 /* MainViewController.m */,
+				30FE76301DF17AF700C68411 /* GameViewController.h */,
+				30FE76311DF17AF700C68411 /* GameViewController.m */,
+				30FE760D1DF176B400C68411 /* Nodes */,
+				30FE76101DF176B400C68411 /* Scenes */,
 			);
 			path = Class;
 			sourceTree = "<group>";
 		};
-		30FE74501DF14B4400C68411 /* lib */ = {
+		30FE760D1DF176B400C68411 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				30FE760E1DF176B400C68411 /* ButtonNode.h */,
+				30FE760F1DF176B400C68411 /* ButtonNode.m */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+		30FE76101DF176B400C68411 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				30FE762B1DF1772C00C68411 /* GameScene.h */,
+				30FE762C1DF1772C00C68411 /* GameScene.m */,
+				30FE76131DF176B400C68411 /* HomeScene.h */,
+				30FE76141DF176B400C68411 /* HomeScene.m */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		30FE76191DF176BD00C68411 /* lib */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = lib;
 			sourceTree = "<group>";
 		};
-		30FE74511DF14B4400C68411 /* Main */ = {
+		30FE761A1DF176C500C68411 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				30FE74521DF14B4400C68411 /* AppDelegate.h */,
-				30FE74531DF14B4400C68411 /* AppDelegate.m */,
+				30FE761B1DF176C500C68411 /* font */,
+				30FE761D1DF176C500C68411 /* pointboard.jpg */,
+				30FE761E1DF176C500C68411 /* Sounds */,
+				30FE76231DF176C500C68411 /* sprite.atlas */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		30FE761B1DF176C500C68411 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				30FE761C1DF176C500C68411 /* Molot.otf */,
+			);
+			path = font;
+			sourceTree = "<group>";
+		};
+		30FE761E1DF176C500C68411 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				30FE761F1DF176C500C68411 /* bgm.m4a */,
+				30FE76201DF176C500C68411 /* button-in.m4a */,
+				30FE76211DF176C500C68411 /* button-out.m4a */,
+				30FE76221DF176C500C68411 /* wet.m4a */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		30FE76331DF17B0800C68411 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				30FE76341DF17B0800C68411 /* AppDelegate.h */,
+				30FE76351DF17B0800C68411 /* AppDelegate.m */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		30FE745A1DF1560D00C68411 /* Nodes */ = {
-			isa = PBXGroup;
-			children = (
-				30FE745F1DF1562300C68411 /* ButtonNode.h */,
-				30FE74601DF1562300C68411 /* ButtonNode.m */,
-			);
-			path = Nodes;
-			sourceTree = "<group>";
-		};
-		30FE745B1DF1560D00C68411 /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				30FE745C1DF1560D00C68411 /* HomeScene.h */,
-				30FE745D1DF1560D00C68411 /* HomeScene.m */,
-				30FE74621DF15CA300C68411 /* GameScene.h */,
-				30FE74631DF15CA300C68411 /* GameScene.m */,
-			);
-			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		30FE742F1DF14A8F00C68411 /* Wet Koala Demo */ = {
+		30FE75E81DF1765F00C68411 /* Wet Koala Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 30FE74471DF14A8F00C68411 /* Build configuration list for PBXNativeTarget "Wet Koala Demo" */;
+			buildConfigurationList = 30FE76071DF1765F00C68411 /* Build configuration list for PBXNativeTarget "Wet Koala Demo" */;
 			buildPhases = (
-				30FE742C1DF14A8F00C68411 /* Sources */,
-				30FE742D1DF14A8F00C68411 /* Frameworks */,
-				30FE742E1DF14A8F00C68411 /* Resources */,
+				30FE75E51DF1765F00C68411 /* Sources */,
+				30FE75E61DF1765F00C68411 /* Frameworks */,
+				30FE75E71DF1765F00C68411 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -148,26 +196,26 @@
 			);
 			name = "Wet Koala Demo";
 			productName = "Wet Koala Demo";
-			productReference = 30FE74301DF14A8F00C68411 /* Wet Koala Demo.app */;
+			productReference = 30FE75E91DF1765F00C68411 /* Wet Koala Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		30FE74281DF14A8F00C68411 /* Project object */ = {
+		30FE75E11DF1765F00C68411 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = 1019459067;
 				TargetAttributes = {
-					30FE742F1DF14A8F00C68411 = {
+					30FE75E81DF1765F00C68411 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = G426QE9Z25;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 30FE742B1DF14A8F00C68411 /* Build configuration list for PBXProject "Wet Koala Demo" */;
+			buildConfigurationList = 30FE75E41DF1765F00C68411 /* Build configuration list for PBXProject "Wet Koala Demo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -175,49 +223,57 @@
 				en,
 				Base,
 			);
-			mainGroup = 30FE74271DF14A8F00C68411;
-			productRefGroup = 30FE74311DF14A8F00C68411 /* Products */;
+			mainGroup = 30FE75E01DF1765F00C68411;
+			productRefGroup = 30FE75EA1DF1765F00C68411 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				30FE742F1DF14A8F00C68411 /* Wet Koala Demo */,
+				30FE75E81DF1765F00C68411 /* Wet Koala Demo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		30FE742E1DF14A8F00C68411 /* Resources */ = {
+		30FE75E71DF1765F00C68411 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30FE74431DF14A8F00C68411 /* LaunchScreen.storyboard in Resources */,
-				30FE74401DF14A8F00C68411 /* Assets.xcassets in Resources */,
+				30FE762A1DF176C500C68411 /* sprite.atlas in Resources */,
+				30FE762F1DF179D200C68411 /* Main.storyboard in Resources */,
+				30FE76251DF176C500C68411 /* pointboard.jpg in Resources */,
+				30FE76001DF1765F00C68411 /* Assets.xcassets in Resources */,
+				30FE76261DF176C500C68411 /* bgm.m4a in Resources */,
+				30FE76271DF176C500C68411 /* button-in.m4a in Resources */,
+				30FE76031DF1765F00C68411 /* LaunchScreen.storyboard in Resources */,
+				30FE76291DF176C500C68411 /* wet.m4a in Resources */,
+				30FE76241DF176C500C68411 /* Molot.otf in Resources */,
+				30FE76281DF176C500C68411 /* button-out.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		30FE742C1DF14A8F00C68411 /* Sources */ = {
+		30FE75E51DF1765F00C68411 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30FE74351DF14A8F00C68411 /* main.m in Sources */,
-				30FE74611DF1562300C68411 /* ButtonNode.m in Sources */,
-				30FE745E1DF1560D00C68411 /* HomeScene.m in Sources */,
-				30FE74541DF14B4400C68411 /* MainViewController.m in Sources */,
-				30FE74641DF15CA300C68411 /* GameScene.m in Sources */,
-				30FE74551DF14B4400C68411 /* AppDelegate.m in Sources */,
+				30FE76321DF17AF700C68411 /* GameViewController.m in Sources */,
+				30FE76161DF176B400C68411 /* ButtonNode.m in Sources */,
+				30FE76361DF17B0800C68411 /* AppDelegate.m in Sources */,
+				30FE76181DF176B400C68411 /* HomeScene.m in Sources */,
+				30FE762D1DF1772C00C68411 /* GameScene.m in Sources */,
+				30FE75EE1DF1765F00C68411 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		30FE74411DF14A8F00C68411 /* LaunchScreen.storyboard */ = {
+		30FE76011DF1765F00C68411 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				30FE74421DF14A8F00C68411 /* Base */,
+				30FE76021DF1765F00C68411 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -225,7 +281,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		30FE74451DF14A8F00C68411 /* Debug */ = {
+		30FE76051DF1765F00C68411 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -273,7 +329,7 @@
 			};
 			name = Debug;
 		};
-		30FE74461DF14A8F00C68411 /* Release */ = {
+		30FE76061DF1765F00C68411 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -315,7 +371,7 @@
 			};
 			name = Release;
 		};
-		30FE74481DF14A8F00C68411 /* Debug */ = {
+		30FE76081DF1765F00C68411 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -328,7 +384,7 @@
 			};
 			name = Debug;
 		};
-		30FE74491DF14A8F00C68411 /* Release */ = {
+		30FE76091DF1765F00C68411 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -344,24 +400,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		30FE742B1DF14A8F00C68411 /* Build configuration list for PBXProject "Wet Koala Demo" */ = {
+		30FE75E41DF1765F00C68411 /* Build configuration list for PBXProject "Wet Koala Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				30FE74451DF14A8F00C68411 /* Debug */,
-				30FE74461DF14A8F00C68411 /* Release */,
+				30FE76051DF1765F00C68411 /* Debug */,
+				30FE76061DF1765F00C68411 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		30FE74471DF14A8F00C68411 /* Build configuration list for PBXNativeTarget "Wet Koala Demo" */ = {
+		30FE76071DF1765F00C68411 /* Build configuration list for PBXNativeTarget "Wet Koala Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				30FE74481DF14A8F00C68411 /* Debug */,
-				30FE74491DF14A8F00C68411 /* Release */,
+				30FE76081DF1765F00C68411 /* Debug */,
+				30FE76091DF1765F00C68411 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 30FE74281DF14A8F00C68411 /* Project object */;
+	rootObject = 30FE75E11DF1765F00C68411 /* Project object */;
 }

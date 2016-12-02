@@ -1,5 +1,5 @@
 //
-//  MainViewController.h
+//  GameViewController.h
 //  Wet Koala Demo
 //
 //  Created by STMBP on 2016/12/2.
@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
+#import <GameplayKit/GameplayKit.h>
 #import <GameKit/GameKit.h>
 
-@interface MainViewController : UIViewController
+@interface GameViewController : UIViewController
 
 - (void)showGameCenterLeaderBoard;
 - (void)switchSound;

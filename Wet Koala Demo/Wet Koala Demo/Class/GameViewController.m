@@ -1,17 +1,20 @@
 //
-//  MainViewController.m
+//  GameViewController.m
 //  Wet Koala Demo
 //
 //  Created by STMBP on 2016/12/2.
 //  Copyright © 2016年 1019459067. All rights reserved.
 //
 
-#import "MainViewController.h"
+#import "GameViewController.h"
+#import "GameScene.h"
 #import "HomeScene.h"
 
 #define k_Sound @"k_Sound" //设置声音
+#import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface MainViewController ()<GKGameCenterControllerDelegate>
+@interface GameViewController ()<GKGameCenterControllerDelegate>
 
 @property (nonatomic) GKLocalPlayer *gkLocalPlayer;
 @property (nonatomic) BOOL gameCenterLogged;
@@ -20,26 +23,18 @@
 
 @end
 
-@implementation MainViewController
-- (BOOL)prefersStatusBarHidden
-{
-    return YES;
-}
-- (void)viewDidLoad
-{
+@implementation GameViewController
+
+- (void)viewDidLoad {
     [super viewDidLoad];
 
-        ///configure the view
-    SKView *skView = [[SKView alloc]initWithFrame:self.view.bounds];
-    [self.view addSubview:skView];
-    NSAssert([skView isKindOfClass:[SKView class]],@"View controller's view is not a GLKView");
-
+    SKView *skView = (SKView*)self.view;
     if (!skView.scene)
     {
         [self authenticateLocalPlayer];
 
         self.userDefault = [NSUserDefaults standardUserDefaults];
-        if ([self.userDefault objectForKey:k_Sound])
+        if (![self.userDefault objectForKey:k_Sound])
         {
             [self.userDefault setObject:@"YES" forKey:k_Sound];
         }
@@ -151,14 +146,14 @@
         return NO;
     }
 }
--(void) turnOffSound
+- (void)turnOffSound
 {
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
     [self.audioPlayerBgMusic stop];
     [self.userDefault setObject:@"NO" forKey:@"sound"];
 }
 
--(void) turnOnSound
+- (void)turnOnSound
 {
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategorySoloAmbient error:nil];
     [self.audioPlayerBgMusic play];
@@ -166,9 +161,25 @@
 }
 
 
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        return UIInterfaceOrientationMaskAllButUpsideDown;
+    } else {
+        return UIInterfaceOrientationMaskAll;
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    // Release any cached data, images, etc that aren't in use.
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 @end

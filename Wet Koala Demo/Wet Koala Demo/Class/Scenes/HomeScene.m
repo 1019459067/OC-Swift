@@ -8,7 +8,7 @@
 
 #import "HomeScene.h"
 #import "ButtonNode.h"
-#import "MainViewController.h"
+#import "GameViewController.h"
 #import "GameScene.h"
 
 @implementation HomeScene
@@ -77,7 +77,7 @@
                                                CGRectGetMinY(self.frame) + musicButton.size.height * 2 / 3);
         }
         [musicButton setMethod: ^ (void) {
-            MainViewController * vc = (MainViewController *) self.view.window.rootViewController;
+            GameViewController * vc = (GameViewController *) self.view.window.rootViewController;
             [vc switchSound];
         }];
 
@@ -95,7 +95,7 @@
 
 - (void)scoreButtonPressed
 {
-    MainViewController * vc = (MainViewController *) self.view.window.rootViewController;
+    GameViewController * vc = (GameViewController *) self.view.window.rootViewController;
     [vc showGameCenterLeaderBoard];
 }
 
