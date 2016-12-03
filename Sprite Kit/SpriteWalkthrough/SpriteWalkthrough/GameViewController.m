@@ -7,6 +7,7 @@
 //
 
 #import "GameViewController.h"
+#import "HelloScene.h"
 
 @implementation GameViewController
 
@@ -18,6 +19,9 @@
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
     skView.showsDrawCount = YES;
+
+    HelloScene *hello = [[HelloScene alloc]initWithSize:self.view.bounds.size];
+    [skView presentScene:hello];
 }
 
 - (BOOL)shouldAutorotate {
