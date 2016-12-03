@@ -11,81 +11,78 @@
 #import "GameViewController.h"
 #import "GameScene.h"
 
+@interface HomeScene ()
+@property BOOL contentCreated;
+@end
 @implementation HomeScene
-- (instancetype)initWithSize:(CGSize)size
+
+- (void)didMoveToView:(SKView *)view
 {
-    if (self = [super initWithSize:size])
+    if (!self.contentCreated)
     {
         self.backgroundColor = [SKColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
-
-        SKTextureAtlas * atlas = [SKTextureAtlas atlasNamed:@"sprite"];
-
-        SKSpriteNode * background = [SKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"background"]];
-        background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-        [self addChild:background];
-
-        SKSpriteNode * title = [SKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"text-logo"]];
-        title.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame) * 5 / 8);
-        [self addChild:title];
-
-        [title runAction:
-         [SKAction repeatActionForever:
-          [SKAction sequence:@[
-                               [SKAction moveByX:0 y:-5 duration:0.3],
-                               [SKAction moveByX:0 y:5 duration:0.3]
-                               ]
-           ]
-          ]
-         ];
-
-        SKSpriteNode * copyright = [SKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"text-copyright"]];
-        copyright.position = CGPointMake(self.size.width / 2, self.size.height / 4 - 60);
-        [self addChild:copyright];
-
-
-        CGFloat buttonY = CGRectGetMidY(self.frame) / 2;
-
-        SKTexture * startDefault = [atlas textureNamed:@"button-start-off"];
-        SKTexture * startTouched = [atlas textureNamed:@"button-start-on"];
-
-        ButtonNode *startButton = [[ButtonNode alloc] initWithDefaultTexture:startDefault andTouchedTexture:startTouched];
-        startButton.position = CGPointMake(CGRectGetMidX(self.frame) - (startButton.size.width / 2 + 8), buttonY);
-
-        [startButton setMethod: ^ (void) { [self startButtonPressed]; } ];
-        [self addChild:startButton];
-
-        SKTexture *scoreDefault = [atlas textureNamed:@"button-score-off"];
-        SKTexture *scoreTouched = [atlas textureNamed:@"button-score-on"];
-
-        ButtonNode *scoreButton = [[ButtonNode alloc] initWithDefaultTexture:scoreDefault andTouchedTexture:scoreTouched];
-        scoreButton.position = CGPointMake(CGRectGetMidX(self.frame) + (scoreButton.size.width / 2 + 8), buttonY);
-
-        [scoreButton setMethod: ^ (void) { [self scoreButtonPressed]; } ];
-        [self addChild:scoreButton];
-
-
-        SKTexture * musicDefault = [atlas textureNamed:@"button-music-off"];
-        SKTexture * musicTouched = [atlas textureNamed:@"button-music-on"];
-
-        ButtonNode * musicButton = [[ButtonNode alloc] initWithDefaultTexture:musicDefault andTouchedTexture:musicTouched];
-
-        if(self.frame.size.height > 500.0){
-            musicButton.position = CGPointMake(CGRectGetMidX(self.frame),
-                                               buttonY + scoreButton.size.height);
-        }else{
-            musicButton.position = CGPointMake(CGRectGetMidX(self.frame),
-                                               CGRectGetMinY(self.frame) + musicButton.size.height * 2 / 3);
-        }
-        [musicButton setMethod: ^ (void) {
-            GameViewController * vc = (GameViewController *) self.view.window.rootViewController;
-            [vc switchSound];
-        }];
-
-        [self addChild:musicButton];
+        self.contentCreated = YES;
+        [self createSceneContents];
     }
-    return self;
 }
-
+- (void)createSceneContents
+{
+    SKTextureAtlas *atlas = [SKTextureAtlas atlasNamed:@"sprite"];
+    
+    SKSpriteNode *background = [SKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"background"]];
+    background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+    [self addChild:background];
+    
+    SKSpriteNode *title = [SKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"text-logo"]];
+    title.position= CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame)*5/8);
+    [self addChild:title];
+    
+    SKAction *spring = [SKAction sequence:@[[SKAction moveByX:0 y:-5 duration:0.3],
+                                            [SKAction moveByX:0 y:5 duration:0.3]]];
+    [title runAction:[SKAction repeatActionForever:spring]];
+    
+    SKSpriteNode *copyright = [SKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"text-copyright"]];
+    copyright.position= CGPointMake(self.size.width/2., self.size.height/4.-60);
+    [self addChild:copyright];
+    
+    
+    CGFloat buttonY = CGRectGetMidY(self.frame)/2;
+    SKTexture *startDefault = [atlas textureNamed:@"button-start-off"];
+    SKTexture *startTouched = [atlas textureNamed:@"button-start-on"];
+    
+    ButtonNode *startButton = [[ButtonNode alloc]initWithDefaultTexture:startDefault andTouchedTexture:startTouched];
+    startButton.position = CGPointMake(CGRectGetMidX(self.frame)-(startButton.size.width/2+8), buttonY);
+    [startButton setMethod: ^ (void) { [self startButtonPressed]; } ];
+    [self addChild:startButton];
+    
+    SKTexture *scoreDefault = [atlas textureNamed:@"button-score-off"];
+    SKTexture *scoreTouched = [atlas textureNamed:@"button-score-on"];
+    ButtonNode *scoreButton = [[ButtonNode alloc]initWithDefaultTexture:scoreDefault andTouchedTexture:scoreTouched];
+    scoreButton.position = CGPointMake(CGRectGetMidX(self.frame)+(scoreButton.size.width/2+8), buttonY);
+    [scoreButton setMethod: ^ (void) { [self scoreButtonPressed]; } ];
+    [self addChild:scoreButton];
+    
+    SKTexture * musicDefault = [atlas textureNamed:@"button-music-off"];
+    SKTexture * musicTouched = [atlas textureNamed:@"button-music-on"];
+    
+    ButtonNode * musicButton = [[ButtonNode alloc] initWithDefaultTexture:musicDefault andTouchedTexture:musicTouched];
+    
+    if(self.frame.size.height > 500.0)
+    {
+        musicButton.position = CGPointMake(CGRectGetMidX(self.frame),
+                                           buttonY + scoreButton.size.height);
+    }else
+    {
+        musicButton.position = CGPointMake(CGRectGetMidX(self.frame),
+                                           CGRectGetMinY(self.frame)+musicButton.size.height*2/3);
+    }
+    [musicButton setMethod: ^ (void) {
+        GameViewController *vc = (GameViewController *)self.view.window.rootViewController;
+        [vc switchSound];
+    }];
+    
+    [self addChild:musicButton];
+}
 - (void)startButtonPressed
 {
 //    SKTransition *reveal = [SKTransition fadeWithDuration: 0.5];

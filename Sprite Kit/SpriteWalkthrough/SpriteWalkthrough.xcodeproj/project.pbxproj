@@ -15,6 +15,7 @@
 		30E2EA4F1DF2F3870061E6BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30E2EA4D1DF2F3870061E6BF /* LaunchScreen.storyboard */; };
 		30E2EA581DF2F5090061E6BF /* HelloScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EA571DF2F5090061E6BF /* HelloScene.m */; };
 		30E2EA5B1DF2FDD50061E6BF /* SpaceshipScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EA5A1DF2FDD50061E6BF /* SpaceshipScene.m */; };
+		C9E849651DF33242000CC915 /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = C9E849641DF33242000CC915 /* rocket.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		30E2EA571DF2F5090061E6BF /* HelloScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloScene.m; sourceTree = "<group>"; };
 		30E2EA591DF2FDD50061E6BF /* SpaceshipScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceshipScene.h; sourceTree = "<group>"; };
 		30E2EA5A1DF2FDD50061E6BF /* SpaceshipScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceshipScene.m; sourceTree = "<group>"; };
+		C9E849641DF33242000CC915 /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocket.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		30E2EA381DF2F3870061E6BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C9E849641DF33242000CC915 /* rocket.png */,
 				30E2EA391DF2F3870061E6BF /* main.m */,
 			);
 			name = "Supporting Files";
@@ -149,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30E2EA4A1DF2F3870061E6BF /* Main.storyboard in Resources */,
+				C9E849651DF33242000CC915 /* rocket.png in Resources */,
 				30E2EA4C1DF2F3870061E6BF /* Assets.xcassets in Resources */,
 				30E2EA4F1DF2F3870061E6BF /* LaunchScreen.storyboard in Resources */,
 			);
@@ -326,6 +330,7 @@
 				30E2EA551DF2F3880061E6BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
