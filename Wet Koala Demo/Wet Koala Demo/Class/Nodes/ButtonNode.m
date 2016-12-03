@@ -108,4 +108,52 @@
     }
     return pressed;
 }
+
+
+-(void) didActionTouched
+{
+    if ([_button actionForKey:@"button-touched"]) {
+        [_button removeActionForKey:@"button-touched"];
+    }
+    [_button runAction:
+     [SKAction repeatActionForever:
+      [SKAction animateWithTextures:@[_touchedTexture]
+                       timePerFrame:10.0f
+                             resize:YES
+                            restore:YES]] withKey:@"button-touched"];
+
+}
+
+-(SKAction *)actionForKey:(NSString *)key
+{
+    return [_button actionForKey:key];
+}
+
+-(void)removeActionForKey:(NSString *)key
+{
+    [_button removeActionForKey:key];
+}
+
+-(void) runMethod
+{
+    _returnMethod();
+}
+
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self runAction:[SKAction playSoundFileNamed:@"button-in.m4a" waitForCompletion:NO]];
+    [self didActionTouched];
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    if ([self actionForKey:@"button-touched"]) {
+        [self runAction:[SKAction playSoundFileNamed:@"button-out.m4a" waitForCompletion:NO]];
+        [self runMethod];
+    }
+    [self didActionDefault];
+}
 @end

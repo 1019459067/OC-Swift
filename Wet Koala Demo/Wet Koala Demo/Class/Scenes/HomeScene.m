@@ -88,15 +88,29 @@
 
 - (void)startButtonPressed
 {
-    SKTransition *reveal = [SKTransition fadeWithDuration: 0.5];
-    GameScene *myScene = [[GameScene alloc] initWithSize:self.size];
-    [self.view presentScene:myScene transition:reveal];
+//    SKTransition *reveal = [SKTransition fadeWithDuration: 0.5];
+//    GameScene *myScene = [[GameScene alloc] initWithSize:self.size];
+//    [self.view presentScene:myScene transition:reveal];
 }
 
 - (void)scoreButtonPressed
 {
-    GameViewController * vc = (GameViewController *) self.view.window.rootViewController;
+    GameViewController * vc = (GameViewController *)self.view.window.rootViewController;
     [vc showGameCenterLeaderBoard];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [ButtonNode doButtonsActionEnded:self touches:touches withEvent:event];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [ButtonNode doButtonsActionBegan:self touches:touches withEvent:event];
 }
 
 @end

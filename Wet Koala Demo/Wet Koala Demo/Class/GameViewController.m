@@ -150,14 +150,14 @@
 {
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
     [self.audioPlayerBgMusic stop];
-    [self.userDefault setObject:@"NO" forKey:@"sound"];
+    [self.userDefault setObject:@"NO" forKey:k_Sound];
 }
 
 - (void)turnOnSound
 {
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategorySoloAmbient error:nil];
     [self.audioPlayerBgMusic play];
-    [self.userDefault setObject:@"YES" forKey:@"sound"];
+    [self.userDefault setObject:@"YES" forKey:k_Sound];
 }
 
 
