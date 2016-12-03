@@ -7,6 +7,7 @@
 //
 
 #import "HelloScene.h"
+#import "SpaceshipScene.h"
 
 @interface HelloScene ()
 @property BOOL contentCreated;
@@ -58,7 +59,12 @@
                                                       pause,
                                                       fadeAway,
                                                       remove]];
-        [node runAction:moveSequence];
+        [node runAction:moveSequence completion:^{
+            SpaceshipScene *spaceshipScene = [[SpaceshipScene alloc]initWithSize:self.size];
+            SKTransition *doors = [SKTransition doorsOpenVerticalWithDuration:0.5];
+            [self.view presentScene:spaceshipScene transition:doors];
+        }];
+
     }
 }
 
