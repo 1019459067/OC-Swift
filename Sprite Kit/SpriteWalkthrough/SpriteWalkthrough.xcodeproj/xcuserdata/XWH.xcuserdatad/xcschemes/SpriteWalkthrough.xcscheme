@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "30FE763F1DF25E3D00C68411"
-               BuildableName = "SpriteKitSimpleGame.app"
-               BlueprintName = "SpriteKitSimpleGame"
-               ReferencedContainer = "container:SpriteKitSimpleGame.xcodeproj">
+               BlueprintIdentifier = "30E2EA341DF2F3870061E6BF"
+               BuildableName = "SpriteWalkthrough.app"
+               BlueprintName = "SpriteWalkthrough"
+               ReferencedContainer = "container:SpriteWalkthrough.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "30FE763F1DF25E3D00C68411"
-            BuildableName = "SpriteKitSimpleGame.app"
-            BlueprintName = "SpriteKitSimpleGame"
-            ReferencedContainer = "container:SpriteKitSimpleGame.xcodeproj">
+            BlueprintIdentifier = "30E2EA341DF2F3870061E6BF"
+            BuildableName = "SpriteWalkthrough.app"
+            BlueprintName = "SpriteWalkthrough"
+            ReferencedContainer = "container:SpriteWalkthrough.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "30FE763F1DF25E3D00C68411"
-            BuildableName = "SpriteKitSimpleGame.app"
-            BlueprintName = "SpriteKitSimpleGame"
-            ReferencedContainer = "container:SpriteKitSimpleGame.xcodeproj">
+            BlueprintIdentifier = "30E2EA341DF2F3870061E6BF"
+            BuildableName = "SpriteWalkthrough.app"
+            BlueprintName = "SpriteWalkthrough"
+            ReferencedContainer = "container:SpriteWalkthrough.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "30FE763F1DF25E3D00C68411"
-            BuildableName = "SpriteKitSimpleGame.app"
-            BlueprintName = "SpriteKitSimpleGame"
-            ReferencedContainer = "container:SpriteKitSimpleGame.xcodeproj">
+            BlueprintIdentifier = "30E2EA341DF2F3870061E6BF"
+            BuildableName = "SpriteWalkthrough.app"
+            BlueprintName = "SpriteWalkthrough"
+            ReferencedContainer = "container:SpriteWalkthrough.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
