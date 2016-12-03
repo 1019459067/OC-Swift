@@ -35,7 +35,31 @@
     labelNode.text = @"Hello,World!";
     labelNode.fontSize = 42;
     labelNode.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+    labelNode.name = @"helloNode";
     return labelNode;
+}
+#pragma mark - responder
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    SKNode *node = [self childNodeWithName:@"helloNode"];
+
+    if (node)
+    {
+        node.name = nil;
+
+        SKAction *moveUp = [SKAction moveByX:0 y:100 duration:0.5];
+        SKAction *zoom = [SKAction scaleTo:2.0 duration:0.25];
+        SKAction *pause = [SKAction waitForDuration:0.5];
+        SKAction *fadeAway = [SKAction fadeInWithDuration:0.25];
+        SKAction *remove = [SKAction removeFromParent];
+
+        SKAction *moveSequence = [SKAction sequence:@[moveUp,
+                                                      zoom,
+                                                      pause,
+                                                      fadeAway,
+                                                      remove]];
+        [node runAction:moveSequence];
+    }
 }
 
 @end
