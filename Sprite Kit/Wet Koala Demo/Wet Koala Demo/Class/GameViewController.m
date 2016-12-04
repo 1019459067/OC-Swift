@@ -50,8 +50,8 @@
             [self.audioPlayerBgMusic play];
         }
 
-        skView.showsFPS = NO;
-        skView.showsNodeCount = NO;
+        skView.showsFPS = YES;
+        skView.showsNodeCount = YES;
 
         self.gameCenterLogged = NO;
 

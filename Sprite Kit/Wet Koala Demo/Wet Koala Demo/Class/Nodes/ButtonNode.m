@@ -9,12 +9,12 @@
 #import "ButtonNode.h"
 
 @interface ButtonNode ()
-{
-    SKTexture * _defaultTexture;
-    SKTexture * _touchedTexture;
-    SKSpriteNode * _button;
-    AnonBlock _returnMethod;
-}
+
+@property (strong, nonatomic) SKTexture *defaultTexture;
+@property (strong, nonatomic) SKTexture *touchedTexture;
+@property (strong, nonatomic) SKSpriteNode *button;
+@property (strong, nonatomic) AnonBlock returnMethod;
+
 @end
 @implementation ButtonNode
 
@@ -22,50 +22,49 @@
 {
     if (self = [super initWithTexture:defaultTexture])
     {
-        _returnMethod = ^{};
+        self.returnMethod = ^{};
 
-        _defaultTexture = defaultTexture;
-        _touchedTexture = touchedTexture;
+        self.defaultTexture = defaultTexture;
+        self.touchedTexture = touchedTexture;
 
-        _button = [SKSpriteNode spriteNodeWithTexture:_defaultTexture];
-        [_button runAction:
-         [SKAction repeatActionForever:
-          [SKAction animateWithTextures:@[_defaultTexture]
-                           timePerFrame:10.0f
-                                 resize:YES
-                                restore:YES]] withKey:@"button-default"];
+        self.button = [SKSpriteNode spriteNodeWithTexture:self.defaultTexture];
+        SKAction *animations = [SKAction animateWithTextures:@[self.defaultTexture]
+                                                timePerFrame:2.0f
+                                                      resize:YES
+                                                     restore:YES];
+        [self.button runAction:[SKAction repeatActionForever:animations] withKey:@"button-default"];
 
-        [self addChild:_button];
+        [self addChild:self.button];
 
-        self.size = _button.size;
+        self.size = self.button.size;
     }
     return self;
 }
-- (void)setMethod:(void (^)())returnMethod
+- (void)setMethod:(void(^)())returnMethod
 {
-    _returnMethod = returnMethod;
+    self.returnMethod = returnMethod;
 }
 
 + (void)doButtonsActionBegan:(SKNode *)node touches:(NSSet *)touches withEvent:(UIEvent *)event
 {
     if (![ButtonNode isButtonPressed:[node children]])
     {
-        UITouch * touch = [touches anyObject];
-        CGPoint location = [touch locationInNode:node];
-        SKNode * targetNode = [node nodeAtPoint:location];
+        CGPoint location = [[touches anyObject] locationInNode:node];
+        SKNode *targetNode = [node nodeAtPoint:location];
 
-        if ([node isEqual:targetNode.parent]) {
+        if ([node isEqual:targetNode.parent])
+        {
             [targetNode touchesBegan:touches withEvent:event];
-        }else{
+        }else
+        {
             [targetNode.parent touchesBegan:touches withEvent:event];
         }
     }
 }
 + (void)doButtonsActionEnded:(SKNode *)node touches:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch * touch = [touches anyObject];
-    CGPoint location = [touch locationInNode:node];
-    SKNode * targetNode = [node nodeAtPoint:location];
+    CGPoint location = [[touches anyObject] locationInNode:node];
+    SKNode *targetNode = [node nodeAtPoint:location];
 
     if ([node isEqual:targetNode.parent])
     {
@@ -80,14 +79,15 @@
 
 - (void)didActionDefault
 {
-    [_button removeActionForKey:@"button-touched"];
+    [self.button removeActionForKey:@"button-touched"];
 }
+
 + (void)removeButtonPressed:(NSArray *)nodes
 {
     for (SKNode * node in nodes) {
         if ([node isKindOfClass:[self class]])
         {
-            ButtonNode * button = (ButtonNode *) node;
+            ButtonNode *button = (ButtonNode *) node;
             [button didActionDefault];
         }
     }
@@ -95,11 +95,11 @@
 + (BOOL)isButtonPressed:(NSArray *)nodes
 {
     BOOL pressed = NO;
-    for (SKNode * node in nodes)
+    for (SKNode *node in nodes)
     {
         if ([node isKindOfClass:[self class]])
         {
-            ButtonNode * button = (ButtonNode *) node;
+            ButtonNode * button = (ButtonNode *)node;
             if ([button actionForKey:@"button-touched"])
             {
                 pressed = YES;
@@ -109,48 +109,50 @@
     return pressed;
 }
 
-
--(void) didActionTouched
+- (void)didActionTouched
 {
-    if ([_button actionForKey:@"button-touched"]) {
-        [_button removeActionForKey:@"button-touched"];
+    if ([self.button actionForKey:@"button-touched"])
+    {
+        [self.button removeActionForKey:@"button-touched"];
     }
-    [_button runAction:
-     [SKAction repeatActionForever:
-      [SKAction animateWithTextures:@[_touchedTexture]
-                       timePerFrame:10.0f
-                             resize:YES
-                            restore:YES]] withKey:@"button-touched"];
+    SKAction *animations = [SKAction animateWithTextures:@[self.touchedTexture]
+                                            timePerFrame:2.0f
+                                                  resize:YES
+                                                 restore:YES];
+    [self.button runAction:[SKAction repeatActionForever:animations] withKey:@"button-touched"];
 
 }
 
--(SKAction *)actionForKey:(NSString *)key
+- (SKAction *)actionForKey:(NSString *)key
 {
-    return [_button actionForKey:key];
+    return [self.button actionForKey:key];
 }
 
--(void)removeActionForKey:(NSString *)key
+- (void)removeActionForKey:(NSString *)key
 {
-    [_button removeActionForKey:key];
+    [self.button removeActionForKey:key];
 }
 
--(void) runMethod
+- (void)runMethod
 {
-    _returnMethod();
+    self.returnMethod();
 }
 
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self runAction:[SKAction playSoundFileNamed:@"button-in.m4a" waitForCompletion:NO]];
     [self didActionTouched];
 }
 
--(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
 }
 
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    if ([self actionForKey:@"button-touched"]) {
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if ([self actionForKey:@"button-touched"])
+    {
         [self runAction:[SKAction playSoundFileNamed:@"button-out.m4a" waitForCompletion:NO]];
         [self runMethod];
     }

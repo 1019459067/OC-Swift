@@ -52,20 +52,24 @@
     
     ButtonNode *startButton = [[ButtonNode alloc]initWithDefaultTexture:startDefault andTouchedTexture:startTouched];
     startButton.position = CGPointMake(CGRectGetMidX(self.frame)-(startButton.size.width/2+8), buttonY);
-    [startButton setMethod: ^ (void) { [self startButtonPressed]; } ];
+    [startButton setMethod:^{
+        [self startButtonPressed];
+    }];
     [self addChild:startButton];
     
     SKTexture *scoreDefault = [atlas textureNamed:@"button-score-off"];
     SKTexture *scoreTouched = [atlas textureNamed:@"button-score-on"];
     ButtonNode *scoreButton = [[ButtonNode alloc]initWithDefaultTexture:scoreDefault andTouchedTexture:scoreTouched];
     scoreButton.position = CGPointMake(CGRectGetMidX(self.frame)+(scoreButton.size.width/2+8), buttonY);
-    [scoreButton setMethod: ^ (void) { [self scoreButtonPressed]; } ];
+    [scoreButton setMethod:^{
+        [self scoreButtonPressed];
+    }];
     [self addChild:scoreButton];
     
-    SKTexture * musicDefault = [atlas textureNamed:@"button-music-off"];
-    SKTexture * musicTouched = [atlas textureNamed:@"button-music-on"];
+    SKTexture *musicDefault = [atlas textureNamed:@"button-music-off"];
+    SKTexture *musicTouched = [atlas textureNamed:@"button-music-on"];
     
-    ButtonNode * musicButton = [[ButtonNode alloc] initWithDefaultTexture:musicDefault andTouchedTexture:musicTouched];
+    ButtonNode *musicButton = [[ButtonNode alloc] initWithDefaultTexture:musicDefault andTouchedTexture:musicTouched];
     
     if(self.frame.size.height > 500.0)
     {
@@ -76,7 +80,7 @@
         musicButton.position = CGPointMake(CGRectGetMidX(self.frame),
                                            CGRectGetMinY(self.frame)+musicButton.size.height*2/3);
     }
-    [musicButton setMethod: ^ (void) {
+    [musicButton setMethod:^{
         GameViewController *vc = (GameViewController *)self.view.window.rootViewController;
         [vc switchSound];
     }];
@@ -85,9 +89,9 @@
 }
 - (void)startButtonPressed
 {
-//    SKTransition *reveal = [SKTransition fadeWithDuration: 0.5];
-//    GameScene *myScene = [[GameScene alloc] initWithSize:self.size];
-//    [self.view presentScene:myScene transition:reveal];
+    SKTransition *reveal = [SKTransition fadeWithDuration:0.5];
+    GameScene *myScene = [[GameScene alloc]initWithSize:self.size];
+    [self.view presentScene:myScene transition:reveal];
 }
 
 - (void)scoreButtonPressed
