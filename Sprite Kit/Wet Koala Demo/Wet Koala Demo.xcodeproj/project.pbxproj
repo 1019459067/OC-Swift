@@ -23,6 +23,7 @@
 		30FE762F1DF179D200C68411 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30FE762E1DF179D200C68411 /* Main.storyboard */; };
 		30FE76321DF17AF700C68411 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FE76311DF17AF700C68411 /* GameViewController.m */; };
 		30FE76361DF17B0800C68411 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FE76351DF17B0800C68411 /* AppDelegate.m */; };
+		C9E849BB1DF3F067000CC915 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C9E849BA1DF3F067000CC915 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		30FE76311DF17AF700C68411 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		30FE76341DF17B0800C68411 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		30FE76351DF17B0800C68411 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C9E849BA1DF3F067000CC915 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		30FE75EC1DF1765F00C68411 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C9E849BA1DF3F067000CC915 /* icon.png */,
 				30FE761A1DF176C500C68411 /* Resources */,
 				30FE75ED1DF1765F00C68411 /* main.m */,
 			);
@@ -244,6 +247,7 @@
 				30FE76001DF1765F00C68411 /* Assets.xcassets in Resources */,
 				30FE76261DF176C500C68411 /* bgm.m4a in Resources */,
 				30FE76271DF176C500C68411 /* button-in.m4a in Resources */,
+				C9E849BB1DF3F067000CC915 /* icon.png in Resources */,
 				30FE76031DF1765F00C68411 /* LaunchScreen.storyboard in Resources */,
 				30FE76291DF176C500C68411 /* wet.m4a in Resources */,
 				30FE76241DF176C500C68411 /* Molot.otf in Resources */,
