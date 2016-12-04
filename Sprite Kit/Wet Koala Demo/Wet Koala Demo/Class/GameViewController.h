@@ -13,7 +13,13 @@
 
 @interface GameViewController : UIViewController
 
+@property (nonatomic) BOOL gameCenterLogged;
+@property (weak, nonatomic) GKLocalPlayer *gkLocalPlayer;
+
 - (void)showGameCenterLeaderBoard;
 - (void)switchSound;
+
+- (void)reportScore:(int64_t)score;
+- (void)shareText:(NSString *)string andImage:(UIImage *)image;
 
 @end

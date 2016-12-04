@@ -24,6 +24,12 @@
 		30FE76321DF17AF700C68411 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FE76311DF17AF700C68411 /* GameViewController.m */; };
 		30FE76361DF17B0800C68411 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FE76351DF17B0800C68411 /* AppDelegate.m */; };
 		C9E849BB1DF3F067000CC915 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C9E849BA1DF3F067000CC915 /* icon.png */; };
+		C9E849BE1DF43999000CC915 /* PlayerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E849BD1DF43999000CC915 /* PlayerNode.m */; };
+		C9E849C11DF43ABE000CC915 /* GuideNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E849C01DF43ABE000CC915 /* GuideNode.m */; };
+		C9E849C41DF43C70000CC915 /* CounterHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E849C31DF43C70000CC915 /* CounterHandler.m */; };
+		C9E849E11DF44AC3000CC915 /* SSKeychain.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9E849DB1DF44AC3000CC915 /* SSKeychain.strings */; };
+		C9E849E21DF44AC3000CC915 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E849DE1DF44AC3000CC915 /* SSKeychain.m */; };
+		C9E849E31DF44AC3000CC915 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E849E01DF44AC3000CC915 /* SSKeychainQuery.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +57,17 @@
 		30FE76341DF17B0800C68411 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		30FE76351DF17B0800C68411 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C9E849BA1DF3F067000CC915 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		C9E849BC1DF43999000CC915 /* PlayerNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerNode.h; sourceTree = "<group>"; };
+		C9E849BD1DF43999000CC915 /* PlayerNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerNode.m; sourceTree = "<group>"; };
+		C9E849BF1DF43ABE000CC915 /* GuideNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideNode.h; sourceTree = "<group>"; };
+		C9E849C01DF43ABE000CC915 /* GuideNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideNode.m; sourceTree = "<group>"; };
+		C9E849C21DF43C70000CC915 /* CounterHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CounterHandler.h; sourceTree = "<group>"; };
+		C9E849C31DF43C70000CC915 /* CounterHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CounterHandler.m; sourceTree = "<group>"; };
+		C9E849DC1DF44AC3000CC915 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SSKeychain.strings; sourceTree = "<group>"; };
+		C9E849DD1DF44AC3000CC915 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		C9E849DE1DF44AC3000CC915 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		C9E849DF1DF44AC3000CC915 /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
+		C9E849E01DF44AC3000CC915 /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +100,7 @@
 		30FE75EB1DF1765F00C68411 /* Wet Koala Demo */ = {
 			isa = PBXGroup;
 			children = (
-				30FE76191DF176BD00C68411 /* lib */,
+				C9E849D91DF44ABA000CC915 /* Lib */,
 				30FE760A1DF176B400C68411 /* Class */,
 				30FE76331DF17B0800C68411 /* Main */,
 				30FE762E1DF179D200C68411 /* Main.storyboard */,
@@ -121,6 +138,12 @@
 			children = (
 				30FE760E1DF176B400C68411 /* ButtonNode.h */,
 				30FE760F1DF176B400C68411 /* ButtonNode.m */,
+				C9E849BC1DF43999000CC915 /* PlayerNode.h */,
+				C9E849BD1DF43999000CC915 /* PlayerNode.m */,
+				C9E849BF1DF43ABE000CC915 /* GuideNode.h */,
+				C9E849C01DF43ABE000CC915 /* GuideNode.m */,
+				C9E849C21DF43C70000CC915 /* CounterHandler.h */,
+				C9E849C31DF43C70000CC915 /* CounterHandler.m */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -134,13 +157,6 @@
 				30FE76141DF176B400C68411 /* HomeScene.m */,
 			);
 			path = Scenes;
-			sourceTree = "<group>";
-		};
-		30FE76191DF176BD00C68411 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = lib;
 			sourceTree = "<group>";
 		};
 		30FE761A1DF176C500C68411 /* Resources */ = {
@@ -180,6 +196,26 @@
 				30FE76351DF17B0800C68411 /* AppDelegate.m */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		C9E849D91DF44ABA000CC915 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				C9E849DA1DF44AC3000CC915 /* SSKeychain */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		C9E849DA1DF44AC3000CC915 /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				C9E849DB1DF44AC3000CC915 /* SSKeychain.strings */,
+				C9E849DD1DF44AC3000CC915 /* SSKeychain.h */,
+				C9E849DE1DF44AC3000CC915 /* SSKeychain.m */,
+				C9E849DF1DF44AC3000CC915 /* SSKeychainQuery.h */,
+				C9E849E01DF44AC3000CC915 /* SSKeychainQuery.m */,
+			);
+			path = SSKeychain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +285,7 @@
 				30FE76271DF176C500C68411 /* button-in.m4a in Resources */,
 				C9E849BB1DF3F067000CC915 /* icon.png in Resources */,
 				30FE76031DF1765F00C68411 /* LaunchScreen.storyboard in Resources */,
+				C9E849E11DF44AC3000CC915 /* SSKeychain.strings in Resources */,
 				30FE76291DF176C500C68411 /* wet.m4a in Resources */,
 				30FE76241DF176C500C68411 /* Molot.otf in Resources */,
 				30FE76281DF176C500C68411 /* button-out.m4a in Resources */,
@@ -263,11 +300,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				30FE76321DF17AF700C68411 /* GameViewController.m in Sources */,
+				C9E849E31DF44AC3000CC915 /* SSKeychainQuery.m in Sources */,
 				30FE76161DF176B400C68411 /* ButtonNode.m in Sources */,
+				C9E849C11DF43ABE000CC915 /* GuideNode.m in Sources */,
+				C9E849C41DF43C70000CC915 /* CounterHandler.m in Sources */,
+				C9E849BE1DF43999000CC915 /* PlayerNode.m in Sources */,
 				30FE76361DF17B0800C68411 /* AppDelegate.m in Sources */,
 				30FE76181DF176B400C68411 /* HomeScene.m in Sources */,
 				30FE762D1DF1772C00C68411 /* GameScene.m in Sources */,
 				30FE75EE1DF1765F00C68411 /* main.m in Sources */,
+				C9E849E21DF44AC3000CC915 /* SSKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +322,14 @@
 				30FE76021DF1765F00C68411 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C9E849DB1DF44AC3000CC915 /* SSKeychain.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9E849DC1DF44AC3000CC915 /* en */,
+			);
+			name = SSKeychain.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

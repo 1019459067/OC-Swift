@@ -181,7 +181,7 @@
 - (void) loadLeaderboardInfo
 {
     [self.localPlayer loadDefaultLeaderboardIdentifierWithCompletionHandler:^(NSString *leaderboardIdentifier, NSError *error) {
-        _leaderboardIdentifier = leaderboardIdentifier;
+//        _leaderboardIdentifier = leaderboardIdentifier;
     }];
 }
 

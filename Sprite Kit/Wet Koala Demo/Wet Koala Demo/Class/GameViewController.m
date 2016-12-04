@@ -16,8 +16,6 @@
 
 @interface GameViewController ()<GKGameCenterControllerDelegate>
 
-@property (nonatomic) GKLocalPlayer *gkLocalPlayer;
-@property (nonatomic) BOOL gameCenterLogged;
 @property (strong, nonatomic) NSUserDefaults *userDefault;
 @property (nonatomic) AVAudioPlayer * audioPlayerBgMusic;
 
@@ -62,12 +60,12 @@
 }
 - (void)authenticateLocalPlayer
 {
-    self.gkLocalPlayer = [GKLocalPlayer localPlayer];
-
-    __weak GKLocalPlayer *weakPlayer = self.gkLocalPlayer;
+    GKLocalPlayer *gkLocalPlayer = [GKLocalPlayer localPlayer];
+    self.gkLocalPlayer = gkLocalPlayer;
+    __weak GKLocalPlayer *weakPlayer = gkLocalPlayer;
 
     __weak typeof(self) weakSelf = self;
-    self.gkLocalPlayer.authenticateHandler = ^(UIViewController *viewController,NSError *error){
+    gkLocalPlayer.authenticateHandler = ^(UIViewController *viewController,NSError *error){
         if (error)
         {
             NSLog(@"authenticateLocalPlayer error:%@",error);
@@ -160,8 +158,43 @@
     [self.userDefault setObject:@"YES" forKey:k_Sound];
 }
 
+- (void)reportScore:(int64_t)score
+{
+    [self reportScore:score forLeaderboardID:@"leaderBoardI"];
+}
+- (void) reportScore:(int64_t)score forLeaderboardID:(NSString*)identifier
+{
+    if(self.gameCenterLogged){
+        GKScore *scoreReporter = [[GKScore alloc] initWithLeaderboardIdentifier:identifier];
+        scoreReporter.value = score;
+        scoreReporter.context = 0;
+        
+        NSArray *scores = @[scoreReporter];
+        [GKScore reportScores:scores withCompletionHandler:^(NSError *error) {
+            // NSLog(@"I sent your score %lld", score);
+        }];
+    }
+}
 
-- (BOOL)shouldAutorotate {
+- (void)shareText:(NSString *)string andImage:(UIImage *)image
+{
+    NSMutableArray *sharingItems = [NSMutableArray new];
+    
+    if (string)
+    {
+        [sharingItems addObject:string];
+    }
+    if (image)
+    {
+        [sharingItems addObject:image];
+    }
+    
+    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
+    [self presentViewController:activityController animated:YES completion:nil];
+}
+
+- (BOOL)shouldAutorotate
+{
     return YES;
 }
 
