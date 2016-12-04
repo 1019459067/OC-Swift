@@ -277,7 +277,5 @@
         [self checkLocation:timeSinceLast];
     }
 }
-
-
 @end
 

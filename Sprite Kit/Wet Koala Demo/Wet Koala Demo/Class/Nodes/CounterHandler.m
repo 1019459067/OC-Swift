@@ -111,7 +111,8 @@
     [self updateNumbersPosition];
 }
 
--(void) addNumber:(NSInteger)digit atIndex:(int)index {
+- (void)addNumber:(NSInteger)digit atIndex:(int)index
+{
     NSString * numberName =[NSString stringWithFormat:@"number-%d", (int) digit];
     SKSpriteNode * number = [SKSpriteNode spriteNodeWithTexture: [numberTexture objectAtIndex:digit]];
     number.anchorPoint = CGPointMake(1.0, .0);
@@ -122,8 +123,8 @@
     [numbersNode insertObject:number atIndex:index];
 }
 
--(SKAction *) getShowAction {
-    SKAction * act = [SKAction group:@[
+- (SKAction *)getShowAction {
+    SKAction *act = [SKAction group:@[
                                        [SKAction scaleBy:1.1 duration:0.0],
                                        [SKAction scaleBy:1 duration:0.2]
                                        ]];

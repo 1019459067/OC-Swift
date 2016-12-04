@@ -170,9 +170,15 @@ static const uint32_t koalaCategory    =  0x1 << 1;
     [ButtonNode doButtonsActionEnded:self touches:touches withEvent:event];
     [self.player touchesEnded:touches withEvent:event];
 }
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
     [self.player touchesMoved:touches withEvent:event];
     [self.guide touchesMoved:touches withEvent:event];
+}
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [ButtonNode doButtonsActionBegan:self touches:touches withEvent:event];
+    [self.player touchesBegan:touches withEvent:event];
 }
 #pragma mark - SKPhysicsContactDelegate
 //有了物理作用作出相应反应
@@ -254,10 +260,10 @@ static const uint32_t koalaCategory    =  0x1 << 1;
     
     CGFloat buttonY = CGRectGetMidY(self.frame) / 2;
     
-    SKTexture * homeDefault = [self.atlas textureNamed:@"button-home-off"];
-    SKTexture * homeTouched = [self.atlas textureNamed:@"button-home-on"];
+    SKTexture *homeDefault = [self.atlas textureNamed:@"button-home-off"];
+    SKTexture *homeTouched = [self.atlas textureNamed:@"button-home-on"];
     
-    ButtonNode * homeButton = [[ButtonNode alloc] initWithDefaultTexture:homeDefault andTouchedTexture:homeTouched];
+    ButtonNode *homeButton = [[ButtonNode alloc] initWithDefaultTexture:homeDefault andTouchedTexture:homeTouched];
     homeButton.position = CGPointMake(CGRectGetMidX(self.frame) - (homeButton.size.width / 2 + 8), buttonY);
     
     [homeButton setMethod: ^ (void) {
@@ -343,11 +349,8 @@ static const uint32_t koalaCategory    =  0x1 << 1;
     rateButton.position = CGPointMake(CGRectGetMidX(self.frame) + rateButton.size.width / 2 + 8, smallButtonY);
     
     [rateButton setMethod: ^ (void) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:
-                                                    @"itms-apps://itunes.apple.com/app/id824136867"
-                                                    ]];
         
-    } ];
+    }];
     
     SKTexture * retryDefault = [_atlas textureNamed:@"button-retry-off"];
     SKTexture * retryTouched = [_atlas textureNamed:@"button-retry-on"];
