@@ -15,6 +15,8 @@
 		30E2EA4F1DF2F3870061E6BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30E2EA4D1DF2F3870061E6BF /* LaunchScreen.storyboard */; };
 		30E2EA581DF2F5090061E6BF /* HomeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EA571DF2F5090061E6BF /* HomeScene.m */; };
 		30E2EA5B1DF2FDD50061E6BF /* SpaceshipScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EA5A1DF2FDD50061E6BF /* SpaceshipScene.m */; };
+		30E2EABD1DF54C7C0061E6BF /* ButtonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EABC1DF54C7C0061E6BF /* ButtonNode.m */; };
+		30E2EAC11DF54D810061E6BF /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EAC01DF54D810061E6BF /* GameScene.m */; };
 		C9E849651DF33242000CC915 /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = C9E849641DF33242000CC915 /* rocket.png */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,10 @@
 		30E2EA571DF2F5090061E6BF /* HomeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeScene.m; sourceTree = "<group>"; };
 		30E2EA591DF2FDD50061E6BF /* SpaceshipScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceshipScene.h; sourceTree = "<group>"; };
 		30E2EA5A1DF2FDD50061E6BF /* SpaceshipScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceshipScene.m; sourceTree = "<group>"; };
+		30E2EABB1DF54C7C0061E6BF /* ButtonNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonNode.h; sourceTree = "<group>"; };
+		30E2EABC1DF54C7C0061E6BF /* ButtonNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonNode.m; sourceTree = "<group>"; };
+		30E2EABF1DF54D810061E6BF /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		30E2EAC01DF54D810061E6BF /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		C9E849641DF33242000CC915 /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocket.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,10 +76,8 @@
 				30E2EA3C1DF2F3870061E6BF /* AppDelegate.m */,
 				30E2EA451DF2F3870061E6BF /* GameViewController.h */,
 				30E2EA461DF2F3870061E6BF /* GameViewController.m */,
-				30E2EA561DF2F5090061E6BF /* HomeScene.h */,
-				30E2EA571DF2F5090061E6BF /* HomeScene.m */,
-				30E2EA591DF2FDD50061E6BF /* SpaceshipScene.h */,
-				30E2EA5A1DF2FDD50061E6BF /* SpaceshipScene.m */,
+				30E2EABE1DF54C810061E6BF /* Node */,
+				30E2EABA1DF54C490061E6BF /* Scene */,
 				30E2EA481DF2F3870061E6BF /* Main.storyboard */,
 				30E2EA4B1DF2F3870061E6BF /* Assets.xcassets */,
 				30E2EA4D1DF2F3870061E6BF /* LaunchScreen.storyboard */,
@@ -90,6 +94,28 @@
 				30E2EA391DF2F3870061E6BF /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		30E2EABA1DF54C490061E6BF /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				30E2EA561DF2F5090061E6BF /* HomeScene.h */,
+				30E2EA571DF2F5090061E6BF /* HomeScene.m */,
+				30E2EABF1DF54D810061E6BF /* GameScene.h */,
+				30E2EAC01DF54D810061E6BF /* GameScene.m */,
+				30E2EA591DF2FDD50061E6BF /* SpaceshipScene.h */,
+				30E2EA5A1DF2FDD50061E6BF /* SpaceshipScene.m */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
+		30E2EABE1DF54C810061E6BF /* Node */ = {
+			isa = PBXGroup;
+			children = (
+				30E2EABB1DF54C7C0061E6BF /* ButtonNode.h */,
+				30E2EABC1DF54C7C0061E6BF /* ButtonNode.m */,
+			);
+			name = Node;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +194,8 @@
 				30E2EA471DF2F3870061E6BF /* GameViewController.m in Sources */,
 				30E2EA581DF2F5090061E6BF /* HomeScene.m in Sources */,
 				30E2EA5B1DF2FDD50061E6BF /* SpaceshipScene.m in Sources */,
+				30E2EAC11DF54D810061E6BF /* GameScene.m in Sources */,
+				30E2EABD1DF54C7C0061E6BF /* ButtonNode.m in Sources */,
 				30E2EA3D1DF2F3870061E6BF /* AppDelegate.m in Sources */,
 				30E2EA3A1DF2F3870061E6BF /* main.m in Sources */,
 			);
