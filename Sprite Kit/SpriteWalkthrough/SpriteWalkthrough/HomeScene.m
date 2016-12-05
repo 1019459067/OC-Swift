@@ -6,14 +6,14 @@
 //  Copyright © 2016年 1019459067. All rights reserved.
 //
 
-#import "HelloScene.h"
+#import "HomeScene.h"
 #import "SpaceshipScene.h"
 
-@interface HelloScene ()
+@interface HomeScene ()
 @property BOOL contentCreated;
 @end
 
-@implementation HelloScene
+@implementation HomeScene
 - (void)didMoveToView:(SKView *)view
 {
     if (!self.contentCreated)

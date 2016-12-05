@@ -8,6 +8,6 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface HelloScene : SKScene
+@interface HomeScene : SKScene
 
 @end

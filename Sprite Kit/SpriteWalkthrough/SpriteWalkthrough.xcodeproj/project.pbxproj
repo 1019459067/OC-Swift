@@ -13,7 +13,7 @@
 		30E2EA4A1DF2F3870061E6BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30E2EA481DF2F3870061E6BF /* Main.storyboard */; };
 		30E2EA4C1DF2F3870061E6BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30E2EA4B1DF2F3870061E6BF /* Assets.xcassets */; };
 		30E2EA4F1DF2F3870061E6BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30E2EA4D1DF2F3870061E6BF /* LaunchScreen.storyboard */; };
-		30E2EA581DF2F5090061E6BF /* HelloScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EA571DF2F5090061E6BF /* HelloScene.m */; };
+		30E2EA581DF2F5090061E6BF /* HomeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EA571DF2F5090061E6BF /* HomeScene.m */; };
 		30E2EA5B1DF2FDD50061E6BF /* SpaceshipScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EA5A1DF2FDD50061E6BF /* SpaceshipScene.m */; };
 		C9E849651DF33242000CC915 /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = C9E849641DF33242000CC915 /* rocket.png */; };
 /* End PBXBuildFile section */
@@ -29,8 +29,8 @@
 		30E2EA4B1DF2F3870061E6BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30E2EA4E1DF2F3870061E6BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30E2EA501DF2F3880061E6BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		30E2EA561DF2F5090061E6BF /* HelloScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloScene.h; sourceTree = "<group>"; };
-		30E2EA571DF2F5090061E6BF /* HelloScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloScene.m; sourceTree = "<group>"; };
+		30E2EA561DF2F5090061E6BF /* HomeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScene.h; sourceTree = "<group>"; };
+		30E2EA571DF2F5090061E6BF /* HomeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeScene.m; sourceTree = "<group>"; };
 		30E2EA591DF2FDD50061E6BF /* SpaceshipScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceshipScene.h; sourceTree = "<group>"; };
 		30E2EA5A1DF2FDD50061E6BF /* SpaceshipScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceshipScene.m; sourceTree = "<group>"; };
 		C9E849641DF33242000CC915 /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocket.png; sourceTree = "<group>"; };
@@ -70,8 +70,8 @@
 				30E2EA3C1DF2F3870061E6BF /* AppDelegate.m */,
 				30E2EA451DF2F3870061E6BF /* GameViewController.h */,
 				30E2EA461DF2F3870061E6BF /* GameViewController.m */,
-				30E2EA561DF2F5090061E6BF /* HelloScene.h */,
-				30E2EA571DF2F5090061E6BF /* HelloScene.m */,
+				30E2EA561DF2F5090061E6BF /* HomeScene.h */,
+				30E2EA571DF2F5090061E6BF /* HomeScene.m */,
 				30E2EA591DF2FDD50061E6BF /* SpaceshipScene.h */,
 				30E2EA5A1DF2FDD50061E6BF /* SpaceshipScene.m */,
 				30E2EA481DF2F3870061E6BF /* Main.storyboard */,
@@ -166,7 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30E2EA471DF2F3870061E6BF /* GameViewController.m in Sources */,
-				30E2EA581DF2F5090061E6BF /* HelloScene.m in Sources */,
+				30E2EA581DF2F5090061E6BF /* HomeScene.m in Sources */,
 				30E2EA5B1DF2FDD50061E6BF /* SpaceshipScene.m in Sources */,
 				30E2EA3D1DF2F3870061E6BF /* AppDelegate.m in Sources */,
 				30E2EA3A1DF2F3870061E6BF /* main.m in Sources */,

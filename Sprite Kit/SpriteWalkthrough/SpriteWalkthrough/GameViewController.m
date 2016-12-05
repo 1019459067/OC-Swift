@@ -7,7 +7,7 @@
 //
 
 #import "GameViewController.h"
-#import "HelloScene.h"
+#import "HomeScene.h"
 
 @implementation GameViewController
 
@@ -20,8 +20,8 @@
     skView.showsNodeCount = YES;
     skView.showsDrawCount = YES;
 
-    HelloScene *hello = [[HelloScene alloc]initWithSize:self.view.bounds.size];
-    [skView presentScene:hello];
+    HomeScene *scene = [[HomeScene alloc]initWithSize:self.view.bounds.size];
+    [skView presentScene:scene];
 }
 
 - (BOOL)shouldAutorotate {
