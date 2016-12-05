@@ -16,7 +16,8 @@
  */
 @interface GameScene ()
 @property (assign, nonatomic) BOOL contentCreated;
-@property (strong, nonatomic) SKLabelNode *labelNumber;
+@property (weak, nonatomic) SKLabelNode *labelNumber;
+@property (weak, nonatomic) SKSpriteNode *ship;
 @end
 @implementation GameScene
 - (void)didMoveToView:(SKView *)view
@@ -71,6 +72,11 @@ static inline CGFloat skRand(CGFloat start,CGFloat end)
     hull.physicsBody.dynamic = NO;
     hull.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     [self addChild:hull];
+    self.ship = hull;
+
+    // add gesture
+    UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanFrom:)];
+    [[self view] addGestureRecognizer:gestureRecognizer];
 
         ///add light
     SKSpriteNode *l1 = [self newLightWithPosition:CGPointMake(-18, 8)];
@@ -107,6 +113,18 @@ static inline CGFloat skRand(CGFloat start,CGFloat end)
 //    [hull runAction:[SKAction repeatActionForever:square]];
 
 }
+
+- (void)handlePanFrom:(UIPanGestureRecognizer *)recognizer
+{
+    CGPoint translation = [recognizer translationInView:recognizer.view];
+    translation = CGPointMake(translation.x, -translation.y);
+    [self panForTranslation:translation];
+    [recognizer setTranslation:CGPointZero inView:recognizer.view];
+}
+- (void)panForTranslation:(CGPoint)pointTran
+{
+    self.ship.position = CGPointMake(self.ship.position.x+pointTran.x, self.ship.position.y+pointTran.y);
+}
 - (SKSpriteNode *)newLightWithPosition:(CGPoint)point
 {
     SKSpriteNode *light = [[SKSpriteNode alloc]initWithColor:[SKColor yellowColor] size:CGSizeMake(12, 2)];
@@ -126,16 +144,11 @@ static inline CGFloat skRand(CGFloat start,CGFloat end)
     HomeScene *scene = [[HomeScene alloc]initWithSize:self.size];
     SKTransition *tran = [SKTransition doorsCloseVerticalWithDuration:0.5];
     [self.view presentScene:scene transition:tran];
+    
+    GameViewController *vc = (GameViewController *) self.view.window.rootViewController;
+    [vc stopTime];
 }
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    SKNode *node = [self childNodeWithName:@"ship"];
 
-        ///
-    CGPoint pointTouch = [[touches anyObject]locationInView:self.view];
-    NSLog(@"%@",NSStringFromCGPoint(pointTouch));
-    node.position = CGPointMake(pointTouch.x, self.size.height-pointTouch.y);
-}
 - (void)didSimulatePhysics
 {
     [self enumerateChildNodesWithName:@"rock" usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
@@ -148,7 +161,6 @@ static inline CGFloat skRand(CGFloat start,CGFloat end)
 - (void)update:(NSTimeInterval)currentTime
 {
     GameViewController *vc = (GameViewController *) self.view.window.rootViewController;
-    NSLog(@"===%d",vc.iNumber);
     self.labelNumber.text = [NSString stringWithFormat:@"时间：%d s",vc.iNumber];
 }
 @end

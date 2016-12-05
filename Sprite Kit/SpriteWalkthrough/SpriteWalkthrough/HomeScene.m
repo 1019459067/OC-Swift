@@ -10,6 +10,7 @@
 #import "SpaceshipScene.h"
 #import "ButtonNode.h"
 #import "GameScene.h"
+#import "GameViewController.h"
 
 @interface HomeScene ()
 @property BOOL contentCreated;
@@ -60,13 +61,16 @@
     GameScene *game = [[GameScene alloc]initWithSize:self.size];
     SKTransition *tran = [SKTransition doorsOpenVerticalWithDuration:0.5];
     [self.view presentScene:game transition:tran];
+    
+    GameViewController *vc = (GameViewController *) self.view.window.rootViewController;
+    [vc startTime];
 }
 - (SKLabelNode *)newHelloNode
 {
     SKLabelNode *labelNode = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     labelNode.text = @"Hello,World!";
     labelNode.fontSize = 42;
-    labelNode.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+    labelNode.position = CGPointMake(CGRectGetMidX(self.frame), 50);
     labelNode.name = @"helloNode";
     return labelNode;
 }

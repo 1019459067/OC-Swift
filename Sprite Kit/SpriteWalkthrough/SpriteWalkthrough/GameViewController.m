@@ -9,6 +9,11 @@
 #import "GameViewController.h"
 #import "HomeScene.h"
 
+@interface GameViewController()
+
+@property (strong, nonatomic) NSTimer *timer;
+
+@end
 @implementation GameViewController
 
 - (void)viewDidLoad {
@@ -23,12 +28,31 @@
     HomeScene *scene = [[HomeScene alloc]initWithSize:self.view.bounds.size];
     [skView presentScene:scene];
 
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(addNumber) userInfo:nil repeats:YES];
+//    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(addNumber) userInfo:nil repeats:YES];
+//    [self.timer setFireDate:[NSDate distantFuture]];
+}
+- (NSTimer *)timer
+{
+    if (!_timer)
+    {
+        _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(addNumber) userInfo:nil repeats:YES];
+        [_timer setFireDate:[NSDate distantFuture]];
+    }
+    return _timer;
 }
 - (void)addNumber
 {
     self.iNumber = self.iNumber+1;
-    NSLog(@"== %d",self.iNumber);
+}
+- (void)stopTime
+{
+    [self.timer invalidate];
+    self.timer = nil;
+    self.iNumber = 0;
+}
+- (void)startTime
+{
+    [self.timer setFireDate:[NSDate distantPast]];
 }
 - (int)iNumber
 {

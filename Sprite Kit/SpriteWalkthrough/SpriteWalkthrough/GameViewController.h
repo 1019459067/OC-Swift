@@ -13,5 +13,6 @@
 @interface GameViewController : UIViewController
 
 @property (assign, nonatomic) int iNumber;
-
+- (void)startTime;
+- (void)stopTime;
 @end
