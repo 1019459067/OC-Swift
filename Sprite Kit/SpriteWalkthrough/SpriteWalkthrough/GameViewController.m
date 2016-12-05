@@ -22,8 +22,18 @@
 
     HomeScene *scene = [[HomeScene alloc]initWithSize:self.view.bounds.size];
     [skView presentScene:scene];
-}
 
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(addNumber) userInfo:nil repeats:YES];
+}
+- (void)addNumber
+{
+    self.iNumber = self.iNumber+1;
+    NSLog(@"== %d",self.iNumber);
+}
+- (int)iNumber
+{
+    return _iNumber;
+}
 - (BOOL)shouldAutorotate {
     return YES;
 }

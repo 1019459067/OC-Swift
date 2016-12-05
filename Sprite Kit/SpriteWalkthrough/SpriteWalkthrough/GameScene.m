@@ -9,9 +9,14 @@
 #import "GameScene.h"
 #import "ButtonNode.h"
 #import "HomeScene.h"
+#import "GameViewController.h"
 
+/*
+ http://blog.csdn.net/kobbbb/article/details/9093601
+ */
 @interface GameScene ()
 @property (assign, nonatomic) BOOL contentCreated;
+@property (strong, nonatomic) SKLabelNode *labelNumber;
 @end
 @implementation GameScene
 - (void)didMoveToView:(SKView *)view
@@ -74,6 +79,13 @@ static inline CGFloat skRand(CGFloat start,CGFloat end)
     SKSpriteNode *l2 = [self newLightWithPosition:CGPointMake(18, 8)];
     [hull addChild:l2];
 
+        //add label
+    SKLabelNode *labelNumber = [[SKLabelNode alloc]init];
+    labelNumber.text = @"sensetime";
+    labelNumber.fontColor = [SKColor yellowColor];
+    labelNumber.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame)*1/8.);
+    [self addChild:labelNumber];
+    self.labelNumber = labelNumber;
         /// add action
 //    int margin = 75;
 //    SKAction *leftDown = [SKAction moveByX:-margin y:-margin duration:0.25];
@@ -97,7 +109,7 @@ static inline CGFloat skRand(CGFloat start,CGFloat end)
 }
 - (SKSpriteNode *)newLightWithPosition:(CGPoint)point
 {
-    SKSpriteNode *light = [[SKSpriteNode alloc]initWithColor:[SKColor yellowColor] size:CGSizeMake(2, 2)];
+    SKSpriteNode *light = [[SKSpriteNode alloc]initWithColor:[SKColor yellowColor] size:CGSizeMake(12, 2)];
     light.position = point;
     light.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:light.size];
     light.physicsBody.dynamic = NO;
@@ -132,5 +144,11 @@ static inline CGFloat skRand(CGFloat start,CGFloat end)
             [node removeFromParent];
         }
     }];
+}
+- (void)update:(NSTimeInterval)currentTime
+{
+    GameViewController *vc = (GameViewController *) self.view.window.rootViewController;
+    NSLog(@"===%d",vc.iNumber);
+    self.labelNumber.text = [NSString stringWithFormat:@"时间：%d s",vc.iNumber];
 }
 @end

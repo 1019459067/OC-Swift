@@ -48,10 +48,10 @@
 - (void)newLabelNode
 {
     SKLabelNode *labelNode = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-    labelNode.text = @"Hello,SenseTime!";
+    labelNode.text = @"👻👻";
     labelNode.name = @"labelNode";
     labelNode.fontSize = 30;
-    labelNode.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame)+150);
+    labelNode.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame)+200);
     [self addChild:labelNode];
 }
 
@@ -95,6 +95,12 @@
                                                 rightDown,wait3,
                                                 zero,wait4,]];
         [labelNode runAction:[SKAction repeatActionForever:square]];
+
+        SKAction *fadeIn = [SKAction fadeInWithDuration:0.25];
+        SKAction *fadeOut = [SKAction fadeOutWithDuration:0.3];
+
+        [labelNode runAction:[SKAction repeatActionForever:[SKAction sequence:@[fadeIn,fadeOut]]]];
+
     }
 
     SKNode *node = [self childNodeWithName:@"helloNode"];

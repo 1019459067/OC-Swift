@@ -12,4 +12,6 @@
 
 @interface GameViewController : UIViewController
 
+@property (assign, nonatomic) int iNumber;
+
 @end
