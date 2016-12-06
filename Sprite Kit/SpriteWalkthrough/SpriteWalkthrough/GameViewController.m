@@ -87,15 +87,16 @@
     [self.view addSubview:self.previewView];
     self.previewView.hidden = YES;
 
-        // 640x480
-    _fScale = 640 / KSCREENW;
-    float fPreviewW = 480 / _fScale;
+        // 640x480 1280x720
+    _fScale = 1280 / KSCREENH;
+    float fPreviewW = 720 / _fScale;
     float fPreviewH = KSCREENH;
-
+    
     float displayScale = 1/6.;
     self.previewView.frame = CGRectMake(KSCREENW-fPreviewW*displayScale-20,
                                         20,
-                                        fPreviewW*displayScale, fPreviewH*displayScale);
+                                        fPreviewW*displayScale,
+                                        fPreviewH*displayScale);
 }
 - (void)initLocalCam
 {
@@ -186,6 +187,10 @@
         }
         self.yawValue = mainFace.yaw;
         self.pitchValue = mainFace.pitch;
+    }else
+    {
+        self.yawValue = 0;
+        self.pitchValue = 0;
     }
     cv_face_release_tracker_result(pFaceArray, iCount);
     CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);

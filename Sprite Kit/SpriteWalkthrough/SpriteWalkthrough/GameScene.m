@@ -18,12 +18,16 @@
 @property (assign, nonatomic) BOOL contentCreated;
 @property (weak, nonatomic) SKLabelNode *labelNumber;
 @property (weak, nonatomic) SKSpriteNode *ship;
+@property (strong, nonatomic) NSMutableArray *nearbyArray;
 @end
 @implementation GameScene
 - (void)didMoveToView:(SKView *)view
 {
     if (!self.contentCreated)
     {
+        self.nearbyArray=[[NSMutableArray alloc]init];
+        [self addBackground];
+
             // add gesture
         UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanFrom:)];
         [[self view] addGestureRecognizer:gestureRecognizer];
@@ -31,6 +35,49 @@
         self.contentCreated = YES;
         [self createSceneContents];
     }
+}
+- (void)addBackground
+{
+    /*第一个场景背景节点*/
+    UIImage  *farTextureImage=[UIImage imageNamed:@"planeBack"];
+    SKTexture *farTexture = [SKTexture  textureWithImage:farTextureImage];
+    
+    SKSpriteNode  *farTextureSpriteOne = [SKSpriteNode spriteNodeWithTexture:farTexture size:self.size];
+    // farTextureSpriteOne.anchorPoint=CGPointMake(DEVICE_Width/2, DEVICE_Height/2);
+    farTextureSpriteOne.zPosition=0;
+    farTextureSpriteOne.position=CGPointMake(self.frame.size.width/2, self.frame.size.height/2 );
+    
+    /*第二个场景背景节点*/
+    UIImage  *farTextureImageTwo=[UIImage imageNamed:@"planeBack"];
+    SKTexture *farTextureTwo = [SKTexture  textureWithImage:farTextureImageTwo];
+    SKSpriteNode  *farTextureSpriteTwo = [SKSpriteNode spriteNodeWithTexture:farTextureTwo size:self.size];
+    //farTextureSpriteTwo.anchorPoint=CGPointMake(0, 0);
+    farTextureSpriteTwo.zPosition=0;
+    farTextureSpriteTwo.position=CGPointMake(farTextureSpriteOne.position.x, -(self.frame.size.height/2-10));
+    
+    
+    
+    /*第三个场景背景节点*/
+    UIImage  *farTextureImageThree=[UIImage imageNamed:@"planeBack"];
+    SKTexture *farTextureThree = [SKTexture  textureWithImage:farTextureImageThree];
+    
+    SKSpriteNode  *farTextureSpriteThree =[SKSpriteNode spriteNodeWithTexture:farTextureThree size:self.size];
+    
+    farTextureSpriteThree.zPosition=0;
+    farTextureSpriteThree.position=CGPointMake(farTextureSpriteOne.position.x, -(self.frame.size.height/2+self.frame.size.height-20));
+    
+    
+    
+    
+    [self addChild:farTextureSpriteOne];
+    [self addChild:farTextureSpriteTwo];
+    [self addChild:farTextureSpriteThree];
+    
+    /*把三个场景背景节点加到一个数组中去，等会滚动之后，才好快速获取每个节点，重置postion*/
+    [self.nearbyArray addObject:farTextureSpriteOne];
+    [self.nearbyArray addObject:farTextureSpriteTwo];
+    [self.nearbyArray addObject:farTextureSpriteThree];
+
 }
 - (void)createSceneContents
 {
@@ -106,7 +153,15 @@ static inline CGFloat skRand(CGFloat start,CGFloat end)
 }
 - (void)panForTranslation:(CGPoint)pointTran
 {
-    self.ship.position = CGPointMake(self.ship.position.x+pointTran.x, self.ship.position.y+pointTran.y);
+    float shipWTemp = self.ship.frame.size.width/2.;
+    float shipHTemp = self.ship.frame.size.height/2.;
+
+    if (self.ship.position.x+pointTran.x>=shipWTemp && self.ship.position.x+pointTran.x < self.frame.size.width-shipWTemp
+        &&self.ship.position.y-pointTran.y>=shipHTemp && self.ship.position.y-pointTran.y < self.frame.size.height-shipHTemp
+        )
+    {
+        self.ship.position = CGPointMake(self.ship.position.x+pointTran.x, self.ship.position.y+pointTran.y);
+    }
 }
 - (SKSpriteNode *)newLightWithPosition:(CGPoint)point
 {
@@ -142,19 +197,64 @@ static inline CGFloat skRand(CGFloat start,CGFloat end)
         }
     }];
 }
+
+/*设置背景图片滚动的方法*/
+- (void)BackMove:(CGFloat)moveSpeed
+{
+    
+    for (int i=0; i<self.nearbyArray.count; i++)
+    {
+        SKSpriteNode *TempSprite=[self.nearbyArray objectAtIndex:i];
+        [TempSprite setPosition:CGPointMake(TempSprite.position.x,TempSprite.position.y+moveSpeed)];
+    }
+    
+    //循环滚动算法
+    SKSpriteNode *RollOneSprite=[self.nearbyArray objectAtIndex:0];
+    SKSpriteNode *RollTwoSprite=[self.nearbyArray objectAtIndex:1];
+    SKSpriteNode *ThreeBackSprit=[self.nearbyArray objectAtIndex:2];
+    
+    if (RollOneSprite.position.y>(self.frame.size.height/2+self.frame.size.height))
+    {
+        RollOneSprite.position=CGPointMake(RollOneSprite.position.x, -(self.frame.size.height/2+self.frame.size.height-30));
+        
+    }
+    if (RollTwoSprite.position.y>(self.frame.size.height/2+self.frame.size.height)) {
+        RollTwoSprite.position=CGPointMake(RollOneSprite.position.x, -(self.frame.size.height/2+self.frame.size.height-30));
+        
+    }
+    if (ThreeBackSprit.position.y>(self.frame.size.height/2+self.frame.size.height)) {
+        ThreeBackSprit.position=CGPointMake(RollOneSprite.position.x, -(self.frame.size.height/2+self.frame.size.height-30));
+        
+    }
+}
+
 - (void)update:(NSTimeInterval)currentTime
 {
+    //
+    [self BackMove:1];
+    
     GameViewController *vc = (GameViewController *) self.view.window.rootViewController;
     self.labelNumber.text = [NSString stringWithFormat:@"时间：%d s",vc.iNumber];
-
+    
+    float shipWTemp = self.ship.frame.size.width/2.;
+    float shipHTemp = self.ship.frame.size.height/2.;
+    
     if (fabs(vc.yawValue)<=30)
     {
-        if (self.ship.position.x+vc.yawValue>=0 && self.ship.position.x+vc.yawValue < self.frame.size.width
-//            && self.ship.position.x+vc.pitchValue>=0 && self.ship.position.x+vc.pitchValue < self.frame.size.height
-            )
+        if (self.ship.position.x+vc.yawValue>=shipWTemp && self.ship.position.x+vc.yawValue < self.frame.size.width-shipWTemp)
         {
             self.ship.position = CGPointMake(self.ship.position.x+vc.yawValue, self.ship.position.y);
         }
     }
+    
+    if (fabs(vc.pitchValue)<=17)
+    {
+        if (self.ship.position.y-vc.pitchValue>=shipHTemp && self.ship.position.y-vc.pitchValue < self.frame.size.height-shipHTemp
+            )
+        {
+            self.ship.position = CGPointMake(self.ship.position.x, self.ship.position.y-vc.pitchValue);
+        }
+    }
+    
 }
 @end
