@@ -13,6 +13,8 @@
 @interface GameViewController : UIViewController
 
 @property (assign, nonatomic) int iNumber;
+@property (assign, nonatomic) double yawValue;
+@property (assign, nonatomic) double pitchValue;
 - (void)startTime;
 - (void)stopTime;
 

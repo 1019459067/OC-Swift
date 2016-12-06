@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A8EC302BE206354B1A863B31D5F9C18F394830BA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A8EC302BE206354B1A863B31D5F9C18F394830BA" : 9223372036854775807,
+    "F1679FBF5E6B022A6FB94EF012DDDF4FC216B3DE" : 9223372036854775807,
+    "1AD98DE02C0D59C2EC652DC5D7B70E4B5FBA2510" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "4D5BC7C7-6481-482B-98D0-9F1FFD606345",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A8EC302BE206354B1A863B31D5F9C18F394830BA" : "iOS9_OC_Learning\/",
+    "F1679FBF5E6B022A6FB94EF012DDDF4FC216B3DE" : "gitlab-sz-ios\/iOSLibrary\/",
+    "1AD98DE02C0D59C2EC652DC5D7B70E4B5FBA2510" : "gitlab-sz-ios\/CVFaceSDK\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SpriteWalkthrough",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Sprite Kit\/SpriteWalkthrough\/SpriteWalkthrough.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "gitlab.sz.sensetime.com:iOS\/CVFaceSDK.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1AD98DE02C0D59C2EC652DC5D7B70E4B5FBA2510"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:1019459067\/OC-Swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A8EC302BE206354B1A863B31D5F9C18F394830BA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "gitlab.sz.sensetime.com:iOS\/iOSLibrary.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F1679FBF5E6B022A6FB94EF012DDDF4FC216B3DE"
+    }
+  ]
+}

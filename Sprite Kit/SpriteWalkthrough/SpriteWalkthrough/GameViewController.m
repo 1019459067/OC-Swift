@@ -10,6 +10,7 @@
 #import "HomeScene.h"
 #import <AVFoundation/AVFoundation.h>
 #import "PreviewView.h"
+#import "FaceSDKTool.h"
 
 #define KSCREENW [UIScreen mainScreen].bounds.size.width
 #define KSCREENH [UIScreen mainScreen].bounds.size.height
@@ -25,6 +26,8 @@
 
 @property (nonatomic) dispatch_queue_t sessionQueue;
 @property (strong, nonatomic) PreviewView *previewView;
+
+@property (nonatomic) cv_handle_t hTracker;
 
 @end
 @implementation GameViewController
@@ -68,6 +71,15 @@
     self.sessionQueue = dispatch_queue_create("session queue", DISPATCH_QUEUE_SERIAL);
     [self setupUI];
     [self initLocalCam];
+
+    self.hTracker = [FaceSDKTool st_initTrackerWith320W:NO];
+    if (!self.hTracker)
+    {
+        NSLog(@"Failed to init FaceSDK.");
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Failed to init FaceSDK" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
 }
 - (void)setupUI
 {
@@ -133,7 +145,50 @@
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
 {
+    CVPixelBufferRef pixelBuffer = (CVPixelBufferRef)CMSampleBufferGetImageBuffer(sampleBuffer);
+    CVPixelBufferLockBaseAddress(pixelBuffer, 0);
+    uint8_t *baseAddress = CVPixelBufferGetBaseAddress(pixelBuffer);
+    cv_face_t *pFaceArray = NULL ;
+    int iCount = 0;
+    int iWidth  = (int)CVPixelBufferGetWidth(pixelBuffer);
+    int iHeight = (int)CVPixelBufferGetHeight(pixelBuffer);
 
+    cv_result_t iRet = CV_OK;
+    iRet = cv_face_track(self.hTracker, baseAddress, CV_PIX_FMT_BGRA8888, iWidth, iHeight, iWidth * 4, CV_FACE_LEFT, &pFaceArray, &iCount);
+
+    if (iRet == CV_OK && iCount)
+    {
+        cv_face_t mainFace;
+        mainFace.points_count = 0;
+        mainFace.rect.top = 0;
+        mainFace.rect.left = 0;
+        mainFace.rect.right = 0;
+        mainFace.rect.bottom = 0;
+        mainFace.ID = -1;
+        mainFace.score = 0;
+        mainFace.yaw = 0;
+        mainFace.pitch = 0;
+        mainFace.roll = 0;
+        mainFace.eye_dist = 0;
+
+        int iFaceWidthMax = 0;
+
+        for (int i = 0; i < iCount ; i++)       // Pick the biggest face
+        {
+            cv_face_t faceInfoAll = pFaceArray[i] ;
+
+            int iFaceWidth = (faceInfoAll.rect.right - faceInfoAll.rect.left);
+            if (iFaceWidth > iFaceWidthMax)
+            {
+                mainFace = faceInfoAll;
+                iFaceWidthMax = iFaceWidth;
+            }
+        }
+        self.yawValue = mainFace.yaw;
+        self.pitchValue = mainFace.pitch;
+    }
+    cv_face_release_tracker_result(pFaceArray, iCount);
+    CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
 }
 - (NSTimer *)timer
 {
@@ -175,6 +230,14 @@
 - (void)startTime
 {
     [self.timer setFireDate:[NSDate distantPast]];
+}
+- (double)yawValue
+{
+    return _yawValue;
+}
+- (double)pitchValue
+{
+    return _pitchValue;
 }
 - (int)iNumber
 {

@@ -24,6 +24,10 @@
 {
     if (!self.contentCreated)
     {
+            // add gesture
+        UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanFrom:)];
+        [[self view] addGestureRecognizer:gestureRecognizer];
+
         self.contentCreated = YES;
         [self createSceneContents];
     }
@@ -74,9 +78,7 @@ static inline CGFloat skRand(CGFloat start,CGFloat end)
     [self addChild:hull];
     self.ship = hull;
 
-    // add gesture
-    UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanFrom:)];
-    [[self view] addGestureRecognizer:gestureRecognizer];
+//    self.lastYaw = hull.position.x;
 
         ///add light
     SKSpriteNode *l1 = [self newLightWithPosition:CGPointMake(-18, 8)];
@@ -92,25 +94,6 @@ static inline CGFloat skRand(CGFloat start,CGFloat end)
     labelNumber.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame)*1/8.);
     [self addChild:labelNumber];
     self.labelNumber = labelNumber;
-        /// add action
-//    int margin = 75;
-//    SKAction *leftDown = [SKAction moveByX:-margin y:-margin duration:0.25];
-//    SKAction *wait1 = [SKAction waitForDuration:0.3];
-//
-//    SKAction *down = [SKAction moveByX:margin y:-margin duration:0.25];
-//    SKAction *wait2 = [SKAction waitForDuration:0.3];
-//
-//    SKAction *rightDown = [SKAction moveByX:margin y:margin duration:0.25];
-//    SKAction *wait3 = [SKAction waitForDuration:0.3];
-//
-//    SKAction *zero = [SKAction moveByX:-margin y:margin duration:0.25];
-//    SKAction *wait4 = [SKAction waitForDuration:0.3];
-//
-//    SKAction *square = [SKAction sequence:@[leftDown,wait1,
-//                                            down,wait2,
-//                                            rightDown,wait3,
-//                                            zero,wait4,]];
-//    [hull runAction:[SKAction repeatActionForever:square]];
 
 }
 
@@ -163,5 +146,15 @@ static inline CGFloat skRand(CGFloat start,CGFloat end)
 {
     GameViewController *vc = (GameViewController *) self.view.window.rootViewController;
     self.labelNumber.text = [NSString stringWithFormat:@"时间：%d s",vc.iNumber];
+
+    if (fabs(vc.yawValue)<=30)
+    {
+        if (self.ship.position.x+vc.yawValue>=0 && self.ship.position.x+vc.yawValue < self.frame.size.width
+//            && self.ship.position.x+vc.pitchValue>=0 && self.ship.position.x+vc.pitchValue < self.frame.size.height
+            )
+        {
+            self.ship.position = CGPointMake(self.ship.position.x+vc.yawValue, self.ship.position.y);
+        }
+    }
 }
 @end
