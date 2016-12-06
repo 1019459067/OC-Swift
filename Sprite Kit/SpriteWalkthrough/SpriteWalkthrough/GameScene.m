@@ -147,6 +147,7 @@ static inline CGFloat skRand(CGFloat start,CGFloat end)
     
     GameViewController *vc = (GameViewController *) self.view.window.rootViewController;
     [vc stopTime];
+    [vc stopLocalCam];
 }
 
 - (void)didSimulatePhysics

@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  SpriteWalkthrough
 //
-//  Created by STMBP on 2016/12/3.
+//  Created by 1019459067 on 2016/12/3.
 //  Copyright © 2016年 1019459067. All rights reserved.
 //
 

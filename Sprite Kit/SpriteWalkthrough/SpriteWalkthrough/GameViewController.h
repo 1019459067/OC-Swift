@@ -15,4 +15,7 @@
 @property (assign, nonatomic) int iNumber;
 - (void)startTime;
 - (void)stopTime;
+
+- (void)startLocalCam;
+- (void)stopLocalCam;
 @end

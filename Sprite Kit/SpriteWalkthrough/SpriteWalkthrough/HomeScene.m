@@ -64,6 +64,7 @@
     
     GameViewController *vc = (GameViewController *) self.view.window.rootViewController;
     [vc startTime];
+    [vc startLocalCam];
 }
 - (SKLabelNode *)newHelloNode
 {
