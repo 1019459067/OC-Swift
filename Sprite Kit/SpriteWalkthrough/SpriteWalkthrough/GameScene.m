@@ -11,6 +11,7 @@
 #import "HomeScene.h"
 #import "GameViewController.h"
 
+static int tempValue = 2;
 /*
  http://blog.csdn.net/kobbbb/article/details/9093601
  */
@@ -36,43 +37,7 @@
         [self createSceneContents];
     }
 }
-- (void)addBackground
-{
-    /*第一个场景背景节点*/
-    SKTexture *farTexture = [SKTexture textureWithImageNamed:@"background"];
-    SKSpriteNode  *farTextureSpriteOne = [SKSpriteNode spriteNodeWithTexture:farTexture size:self.size];
-    farTextureSpriteOne.zPosition=0;
-    farTextureSpriteOne.position=CGPointMake(self.frame.size.width/2, self.frame.size.height/2 );
-    
-    /*第二个场景背景节点*/
-    SKTexture *farTextureTwo = [SKTexture textureWithImageNamed:@"background"];
-    SKSpriteNode  *farTextureSpriteTwo = [SKSpriteNode spriteNodeWithTexture:farTextureTwo size:self.size];
-    farTextureSpriteTwo.zPosition=0;
-    farTextureSpriteTwo.position=CGPointMake(farTextureSpriteOne.position.x, -(self.frame.size.height/2-10));
-    
-    
-    
-    /*第三个场景背景节点*/
-    SKTexture *farTextureThree = [SKTexture textureWithImageNamed:@"background"];
-    
-    SKSpriteNode  *farTextureSpriteThree =[SKSpriteNode spriteNodeWithTexture:farTextureThree size:self.size];
-    
-    farTextureSpriteThree.zPosition=0;
-    farTextureSpriteThree.position=CGPointMake(farTextureSpriteOne.position.x, -(self.frame.size.height/2+self.frame.size.height-20));
-    
-    
-    
-    
-    [self addChild:farTextureSpriteOne];
-    [self addChild:farTextureSpriteTwo];
-    [self addChild:farTextureSpriteThree];
-    
-    /*把三个场景背景节点加到一个数组中去，等会滚动之后，才好快速获取每个节点，重置postion*/
-    [self.nearbyArray addObject:farTextureSpriteOne];
-    [self.nearbyArray addObject:farTextureSpriteTwo];
-    [self.nearbyArray addObject:farTextureSpriteThree];
 
-}
 - (void)createSceneContents
 {
         /// back button
@@ -191,7 +156,33 @@ static inline CGFloat skRand(CGFloat start,CGFloat end)
         }
     }];
 }
-
+- (void)addBackground
+{
+    /*第一个场景背景节点*/
+    SKSpriteNode  *farTextureSpriteOne = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"background"] size:self.size];
+    farTextureSpriteOne.zPosition=0;
+    farTextureSpriteOne.position=CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+    
+    /*第二个场景背景节点*/
+    SKSpriteNode  *farTextureSpriteTwo = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"background"] size:self.size];
+    farTextureSpriteTwo.zPosition=0;
+    farTextureSpriteTwo.position=CGPointMake(farTextureSpriteOne.position.x, -(self.frame.size.height/2-tempValue));
+    
+    /*第三个场景背景节点*/
+    SKSpriteNode  *farTextureSpriteThree =[SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"background"] size:self.size];
+    farTextureSpriteThree.zPosition=0;
+    farTextureSpriteThree.position=CGPointMake(farTextureSpriteOne.position.x, -(self.frame.size.height/2+self.frame.size.height-tempValue*2));
+    
+    [self addChild:farTextureSpriteOne];
+    [self addChild:farTextureSpriteTwo];
+    [self addChild:farTextureSpriteThree];
+    
+    /*把三个场景背景节点加到一个数组中去，等会滚动之后，才好快速获取每个节点，重置postion*/
+    [self.nearbyArray addObject:farTextureSpriteOne];
+    [self.nearbyArray addObject:farTextureSpriteTwo];
+    [self.nearbyArray addObject:farTextureSpriteThree];
+    
+}
 /*设置背景图片滚动的方法*/
 - (void)BackMove:(CGFloat)moveSpeed
 {
@@ -203,29 +194,25 @@ static inline CGFloat skRand(CGFloat start,CGFloat end)
     }
     
     //循环滚动算法
-    SKSpriteNode *RollOneSprite=[self.nearbyArray objectAtIndex:0];
-    SKSpriteNode *RollTwoSprite=[self.nearbyArray objectAtIndex:1];
-    SKSpriteNode *ThreeBackSprit=[self.nearbyArray objectAtIndex:2];
-    
-    if (RollOneSprite.position.y>(self.frame.size.height/2+self.frame.size.height))
+    SKSpriteNode *rollOneSprite=[self.nearbyArray objectAtIndex:0];
+    SKSpriteNode *rollTwoSprite=[self.nearbyArray objectAtIndex:1];
+    SKSpriteNode *rollThreeSprit=[self.nearbyArray objectAtIndex:2];
+    if (rollOneSprite.position.y>(self.frame.size.height/2+self.frame.size.height))
     {
-        RollOneSprite.position=CGPointMake(RollOneSprite.position.x, -(self.frame.size.height/2+self.frame.size.height-30));
-        
+        rollOneSprite.position=CGPointMake(rollOneSprite.position.x, -(self.frame.size.height/2+self.frame.size.height-tempValue*3));
     }
-    if (RollTwoSprite.position.y>(self.frame.size.height/2+self.frame.size.height)) {
-        RollTwoSprite.position=CGPointMake(RollOneSprite.position.x, -(self.frame.size.height/2+self.frame.size.height-30));
-        
+    if (rollTwoSprite.position.y>(self.frame.size.height/2+self.frame.size.height)) {
+        rollTwoSprite.position=CGPointMake(rollTwoSprite.position.x, -(self.frame.size.height/2+self.frame.size.height-tempValue*3));
     }
-    if (ThreeBackSprit.position.y>(self.frame.size.height/2+self.frame.size.height)) {
-        ThreeBackSprit.position=CGPointMake(RollOneSprite.position.x, -(self.frame.size.height/2+self.frame.size.height-30));
-        
+    if (rollThreeSprit.position.y>(self.frame.size.height/2+self.frame.size.height)) {
+        rollThreeSprit.position=CGPointMake(rollThreeSprit.position.x, -(self.frame.size.height/2+self.frame.size.height-tempValue*3));
     }
 }
 
 - (void)update:(NSTimeInterval)currentTime
 {
     //
-    [self BackMove:5];
+    [self BackMove:1];
     
     GameViewController *vc = (GameViewController *) self.view.window.rootViewController;
     self.labelNumber.text = [NSString stringWithFormat:@"时间：%d s",vc.iNumber];
