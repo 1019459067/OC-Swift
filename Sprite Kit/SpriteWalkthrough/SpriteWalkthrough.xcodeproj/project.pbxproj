@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		30371FD81DF8060F00170B9E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 30371FD71DF8060F00170B9E /* background.png */; };
-		30371FDA1DF806EB00170B9E /* hero_fly.png in Resources */ = {isa = PBXBuildFile; fileRef = 30371FD91DF806EB00170B9E /* hero_fly.png */; };
 		30E2EA3A1DF2F3870061E6BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EA391DF2F3870061E6BF /* main.m */; };
 		30E2EA3D1DF2F3870061E6BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EA3C1DF2F3870061E6BF /* AppDelegate.m */; };
 		30E2EA471DF2F3870061E6BF /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EA461DF2F3870061E6BF /* GameViewController.m */; };
@@ -22,11 +20,12 @@
 		30E2EBB41DF6B3D00061E6BF /* libcvface_api.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E2EB241DF6B3CF0061E6BF /* libcvface_api.a */; };
 		30E2EC271DF6B4AE0061E6BF /* FaceSDKTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EC231DF6B4AE0061E6BF /* FaceSDKTool.m */; };
 		C9E849651DF33242000CC915 /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = C9E849641DF33242000CC915 /* rocket.png */; };
+		C9F391F91DF8445B008EDE4C /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F391F71DF8445B008EDE4C /* background@2x.png */; };
+		C9F391FA1DF8445B008EDE4C /* background@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F391F81DF8445B008EDE4C /* background@3x.png */; };
+		C9F391FC1DF84482008EDE4C /* hero_fly.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F391FB1DF84482008EDE4C /* hero_fly.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		30371FD71DF8060F00170B9E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
-		30371FD91DF806EB00170B9E /* hero_fly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hero_fly.png; sourceTree = "<group>"; };
 		30E2EA351DF2F3870061E6BF /* SpriteWalkthrough.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpriteWalkthrough.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30E2EA391DF2F3870061E6BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		30E2EA3B1DF2F3870061E6BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -45,13 +44,16 @@
 		30E2EAC01DF54D810061E6BF /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		30E2EB151DF6ABF50061E6BF /* PreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewView.h; sourceTree = "<group>"; };
 		30E2EB161DF6ABF50061E6BF /* PreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewView.m; sourceTree = "<group>"; };
-		30E2EB1F1DF6B3CF0061E6BF /* cv_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cv_common.h; sourceTree = "<group>"; };
-		30E2EB201DF6B3CF0061E6BF /* cv_face.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cv_face.h; sourceTree = "<group>"; };
-		30E2EB211DF6B3CF0061E6BF /* cv_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cv_utils.h; sourceTree = "<group>"; };
-		30E2EB241DF6B3CF0061E6BF /* libcvface_api.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcvface_api.a; sourceTree = "<group>"; };
-		30E2EC221DF6B4AE0061E6BF /* FaceSDKTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceSDKTool.h; sourceTree = "<group>"; };
-		30E2EC231DF6B4AE0061E6BF /* FaceSDKTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceSDKTool.m; sourceTree = "<group>"; };
 		C9E849641DF33242000CC915 /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocket.png; sourceTree = "<group>"; };
+		C9E849EB1DF6F7F0000CC915 /* cv_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cv_common.h; sourceTree = "<group>"; };
+		C9E849EC1DF6F7F0000CC915 /* cv_face.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cv_face.h; sourceTree = "<group>"; };
+		C9E849ED1DF6F7F0000CC915 /* cv_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cv_utils.h; sourceTree = "<group>"; };
+		C9E849F01DF6F7F0000CC915 /* libcvface_api.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcvface_api.a; sourceTree = "<group>"; };
+		C9E84AEC1DF6F82A000CC915 /* FaceSDKTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceSDKTool.h; sourceTree = "<group>"; };
+		C9E84AED1DF6F82A000CC915 /* FaceSDKTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceSDKTool.m; sourceTree = "<group>"; };
+		C9F391F71DF8445B008EDE4C /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
+		C9F391F81DF8445B008EDE4C /* background@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@3x.png"; sourceTree = "<group>"; };
+		C9F391FB1DF84482008EDE4C /* hero_fly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hero_fly.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30E2EBB41DF6B3D00061E6BF /* libcvface_api.a in Frameworks */,
+				C9E84A7E1DF6F7F1000CC915 /* libcvface_api.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,8 +71,8 @@
 		30E2EA2C1DF2F3870061E6BF = {
 			isa = PBXGroup;
 			children = (
-				30E2EC211DF6B4AE0061E6BF /* FaceSDKTool */,
-				30E2EB181DF6B3CF0061E6BF /* v6.2.1-full_m1-ios-85f7644 */,
+				C9E84AEB1DF6F82A000CC915 /* FaceSDKTool */,
+				C9E849E41DF6F7F0000CC915 /* v6.2.1-full_m1-ios-85f7644 */,
 				30E2EA371DF2F3870061E6BF /* SpriteWalkthrough */,
 				30E2EA361DF2F3870061E6BF /* Products */,
 			);
@@ -107,8 +109,9 @@
 		30E2EA381DF2F3870061E6BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				30371FD91DF806EB00170B9E /* hero_fly.png */,
-				30371FD71DF8060F00170B9E /* background.png */,
+				C9F391FB1DF84482008EDE4C /* hero_fly.png */,
+				C9F391F71DF8445B008EDE4C /* background@2x.png */,
+				C9F391F81DF8445B008EDE4C /* background@3x.png */,
 				C9E849641DF33242000CC915 /* rocket.png */,
 				30E2EA391DF2F3870061E6BF /* main.m */,
 			);
@@ -135,50 +138,50 @@
 			name = Node;
 			sourceTree = "<group>";
 		};
-		30E2EB181DF6B3CF0061E6BF /* v6.2.1-full_m1-ios-85f7644 */ = {
+		C9E849E41DF6F7F0000CC915 /* v6.2.1-full_m1-ios-85f7644 */ = {
 			isa = PBXGroup;
 			children = (
-				30E2EB1E1DF6B3CF0061E6BF /* include */,
-				30E2EB221DF6B3CF0061E6BF /* libs */,
+				C9E849EA1DF6F7F0000CC915 /* include */,
+				C9E849EE1DF6F7F0000CC915 /* libs */,
 			);
 			name = "v6.2.1-full_m1-ios-85f7644";
-			path = "../../../gitlab-sz-ios/CVFaceSDK/v6.2.1-full_m1-ios-85f7644";
+			path = "../../../ST_WorkSpace/CVFaceSDK/v6.2.1-full_m1-ios-85f7644";
 			sourceTree = "<group>";
 		};
-		30E2EB1E1DF6B3CF0061E6BF /* include */ = {
+		C9E849EA1DF6F7F0000CC915 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				30E2EB1F1DF6B3CF0061E6BF /* cv_common.h */,
-				30E2EB201DF6B3CF0061E6BF /* cv_face.h */,
-				30E2EB211DF6B3CF0061E6BF /* cv_utils.h */,
+				C9E849EB1DF6F7F0000CC915 /* cv_common.h */,
+				C9E849EC1DF6F7F0000CC915 /* cv_face.h */,
+				C9E849ED1DF6F7F0000CC915 /* cv_utils.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
 		};
-		30E2EB221DF6B3CF0061E6BF /* libs */ = {
+		C9E849EE1DF6F7F0000CC915 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				30E2EB231DF6B3CF0061E6BF /* ios_os-universal */,
+				C9E849EF1DF6F7F0000CC915 /* ios_os-universal */,
 			);
 			path = libs;
 			sourceTree = "<group>";
 		};
-		30E2EB231DF6B3CF0061E6BF /* ios_os-universal */ = {
+		C9E849EF1DF6F7F0000CC915 /* ios_os-universal */ = {
 			isa = PBXGroup;
 			children = (
-				30E2EB241DF6B3CF0061E6BF /* libcvface_api.a */,
+				C9E849F01DF6F7F0000CC915 /* libcvface_api.a */,
 			);
 			path = "ios_os-universal";
 			sourceTree = "<group>";
 		};
-		30E2EC211DF6B4AE0061E6BF /* FaceSDKTool */ = {
+		C9E84AEB1DF6F82A000CC915 /* FaceSDKTool */ = {
 			isa = PBXGroup;
 			children = (
-				30E2EC221DF6B4AE0061E6BF /* FaceSDKTool.h */,
-				30E2EC231DF6B4AE0061E6BF /* FaceSDKTool.m */,
+				C9E84AEC1DF6F82A000CC915 /* FaceSDKTool.h */,
+				C9E84AED1DF6F82A000CC915 /* FaceSDKTool.m */,
 			);
 			name = FaceSDKTool;
-			path = "../../../gitlab-sz-ios/iOSLibrary/FaceSDKTool";
+			path = ../../../ST_WorkSpace/iOSLibrary/FaceSDKTool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,11 +244,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				30E2EA4A1DF2F3870061E6BF /* Main.storyboard in Resources */,
-				30371FD81DF8060F00170B9E /* background.png in Resources */,
 				C9E849651DF33242000CC915 /* rocket.png in Resources */,
-				30371FDA1DF806EB00170B9E /* hero_fly.png in Resources */,
+				C9F391FC1DF84482008EDE4C /* hero_fly.png in Resources */,
+				C9F391F91DF8445B008EDE4C /* background@2x.png in Resources */,
 				30E2EA4C1DF2F3870061E6BF /* Assets.xcassets in Resources */,
 				30E2EA4F1DF2F3870061E6BF /* LaunchScreen.storyboard in Resources */,
+				C9F391FA1DF8445B008EDE4C /* background@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +262,9 @@
 			files = (
 				30E2EA471DF2F3870061E6BF /* GameViewController.m in Sources */,
 				30E2EA581DF2F5090061E6BF /* HomeScene.m in Sources */,
+				C9E84AF11DF6F82A000CC915 /* FaceSDKTool.m in Sources */,
 				30E2EAC11DF54D810061E6BF /* GameScene.m in Sources */,
 				30E2EABD1DF54C7C0061E6BF /* ButtonNode.m in Sources */,
-				30E2EC271DF6B4AE0061E6BF /* FaceSDKTool.m in Sources */,
 				30E2EB171DF6ABF50061E6BF /* PreviewView.m in Sources */,
 				30E2EA3D1DF2F3870061E6BF /* AppDelegate.m in Sources */,
 				30E2EA3A1DF2F3870061E6BF /* main.m in Sources */,
@@ -388,7 +392,7 @@
 				INFOPLIST_FILE = SpriteWalkthrough/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../../../gitlab-sz-ios/CVFaceSDK/v6.2.1-full_m1-ios-85f7644/libs/ios_os-universal\"";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../../../ST_WorkSpace/CVFaceSDK/v6.2.1-full_m1-ios-85f7644/libs/ios_os-universal\"";
 				OTHER_LDFLAGS = (
 					"-lstdc++",
 					"-ObjC",
@@ -407,7 +411,7 @@
 				INFOPLIST_FILE = SpriteWalkthrough/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../../../gitlab-sz-ios/CVFaceSDK/v6.2.1-full_m1-ios-85f7644/libs/ios_os-universal\"";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../../../ST_WorkSpace/CVFaceSDK/v6.2.1-full_m1-ios-85f7644/libs/ios_os-universal\"";
 				OTHER_LDFLAGS = (
 					"-lstdc++",
 					"-ObjC",
