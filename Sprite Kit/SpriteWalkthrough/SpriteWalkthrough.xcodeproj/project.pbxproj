@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30371FD81DF8060F00170B9E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 30371FD71DF8060F00170B9E /* background.png */; };
+		30371FDA1DF806EB00170B9E /* hero_fly.png in Resources */ = {isa = PBXBuildFile; fileRef = 30371FD91DF806EB00170B9E /* hero_fly.png */; };
 		30E2EA3A1DF2F3870061E6BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EA391DF2F3870061E6BF /* main.m */; };
 		30E2EA3D1DF2F3870061E6BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EA3C1DF2F3870061E6BF /* AppDelegate.m */; };
 		30E2EA471DF2F3870061E6BF /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EA461DF2F3870061E6BF /* GameViewController.m */; };
@@ -14,7 +16,6 @@
 		30E2EA4C1DF2F3870061E6BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30E2EA4B1DF2F3870061E6BF /* Assets.xcassets */; };
 		30E2EA4F1DF2F3870061E6BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30E2EA4D1DF2F3870061E6BF /* LaunchScreen.storyboard */; };
 		30E2EA581DF2F5090061E6BF /* HomeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EA571DF2F5090061E6BF /* HomeScene.m */; };
-		30E2EA5B1DF2FDD50061E6BF /* SpaceshipScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EA5A1DF2FDD50061E6BF /* SpaceshipScene.m */; };
 		30E2EABD1DF54C7C0061E6BF /* ButtonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EABC1DF54C7C0061E6BF /* ButtonNode.m */; };
 		30E2EAC11DF54D810061E6BF /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EAC01DF54D810061E6BF /* GameScene.m */; };
 		30E2EB171DF6ABF50061E6BF /* PreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EB161DF6ABF50061E6BF /* PreviewView.m */; };
@@ -24,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30371FD71DF8060F00170B9E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		30371FD91DF806EB00170B9E /* hero_fly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hero_fly.png; sourceTree = "<group>"; };
 		30E2EA351DF2F3870061E6BF /* SpriteWalkthrough.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpriteWalkthrough.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30E2EA391DF2F3870061E6BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		30E2EA3B1DF2F3870061E6BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -36,8 +39,6 @@
 		30E2EA501DF2F3880061E6BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30E2EA561DF2F5090061E6BF /* HomeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScene.h; sourceTree = "<group>"; };
 		30E2EA571DF2F5090061E6BF /* HomeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeScene.m; sourceTree = "<group>"; };
-		30E2EA591DF2FDD50061E6BF /* SpaceshipScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceshipScene.h; sourceTree = "<group>"; };
-		30E2EA5A1DF2FDD50061E6BF /* SpaceshipScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceshipScene.m; sourceTree = "<group>"; };
 		30E2EABB1DF54C7C0061E6BF /* ButtonNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonNode.h; sourceTree = "<group>"; };
 		30E2EABC1DF54C7C0061E6BF /* ButtonNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonNode.m; sourceTree = "<group>"; };
 		30E2EABF1DF54D810061E6BF /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
@@ -106,6 +107,8 @@
 		30E2EA381DF2F3870061E6BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				30371FD91DF806EB00170B9E /* hero_fly.png */,
+				30371FD71DF8060F00170B9E /* background.png */,
 				C9E849641DF33242000CC915 /* rocket.png */,
 				30E2EA391DF2F3870061E6BF /* main.m */,
 			);
@@ -119,8 +122,6 @@
 				30E2EA571DF2F5090061E6BF /* HomeScene.m */,
 				30E2EABF1DF54D810061E6BF /* GameScene.h */,
 				30E2EAC01DF54D810061E6BF /* GameScene.m */,
-				30E2EA591DF2FDD50061E6BF /* SpaceshipScene.h */,
-				30E2EA5A1DF2FDD50061E6BF /* SpaceshipScene.m */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -240,7 +241,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				30E2EA4A1DF2F3870061E6BF /* Main.storyboard in Resources */,
+				30371FD81DF8060F00170B9E /* background.png in Resources */,
 				C9E849651DF33242000CC915 /* rocket.png in Resources */,
+				30371FDA1DF806EB00170B9E /* hero_fly.png in Resources */,
 				30E2EA4C1DF2F3870061E6BF /* Assets.xcassets in Resources */,
 				30E2EA4F1DF2F3870061E6BF /* LaunchScreen.storyboard in Resources */,
 			);
@@ -255,7 +258,6 @@
 			files = (
 				30E2EA471DF2F3870061E6BF /* GameViewController.m in Sources */,
 				30E2EA581DF2F5090061E6BF /* HomeScene.m in Sources */,
-				30E2EA5B1DF2FDD50061E6BF /* SpaceshipScene.m in Sources */,
 				30E2EAC11DF54D810061E6BF /* GameScene.m in Sources */,
 				30E2EABD1DF54C7C0061E6BF /* ButtonNode.m in Sources */,
 				30E2EC271DF6B4AE0061E6BF /* FaceSDKTool.m in Sources */,

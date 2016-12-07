@@ -7,7 +7,6 @@
 //
 
 #import "HomeScene.h"
-#import "SpaceshipScene.h"
 #import "ButtonNode.h"
 #import "GameScene.h"
 #import "GameViewController.h"

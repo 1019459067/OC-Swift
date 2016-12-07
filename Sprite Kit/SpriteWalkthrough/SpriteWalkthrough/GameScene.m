@@ -39,27 +39,21 @@
 - (void)addBackground
 {
     /*第一个场景背景节点*/
-    UIImage  *farTextureImage=[UIImage imageNamed:@"planeBack"];
-    SKTexture *farTexture = [SKTexture  textureWithImage:farTextureImage];
-    
+    SKTexture *farTexture = [SKTexture textureWithImageNamed:@"background"];
     SKSpriteNode  *farTextureSpriteOne = [SKSpriteNode spriteNodeWithTexture:farTexture size:self.size];
-    // farTextureSpriteOne.anchorPoint=CGPointMake(DEVICE_Width/2, DEVICE_Height/2);
     farTextureSpriteOne.zPosition=0;
     farTextureSpriteOne.position=CGPointMake(self.frame.size.width/2, self.frame.size.height/2 );
     
     /*第二个场景背景节点*/
-    UIImage  *farTextureImageTwo=[UIImage imageNamed:@"planeBack"];
-    SKTexture *farTextureTwo = [SKTexture  textureWithImage:farTextureImageTwo];
+    SKTexture *farTextureTwo = [SKTexture textureWithImageNamed:@"background"];
     SKSpriteNode  *farTextureSpriteTwo = [SKSpriteNode spriteNodeWithTexture:farTextureTwo size:self.size];
-    //farTextureSpriteTwo.anchorPoint=CGPointMake(0, 0);
     farTextureSpriteTwo.zPosition=0;
     farTextureSpriteTwo.position=CGPointMake(farTextureSpriteOne.position.x, -(self.frame.size.height/2-10));
     
     
     
     /*第三个场景背景节点*/
-    UIImage  *farTextureImageThree=[UIImage imageNamed:@"planeBack"];
-    SKTexture *farTextureThree = [SKTexture  textureWithImage:farTextureImageThree];
+    SKTexture *farTextureThree = [SKTexture textureWithImageNamed:@"background"];
     
     SKSpriteNode  *farTextureSpriteThree =[SKSpriteNode spriteNodeWithTexture:farTextureThree size:self.size];
     
@@ -117,7 +111,7 @@ static inline CGFloat skRand(CGFloat start,CGFloat end)
 }
 - (void)newShip
 {
-    SKSpriteNode *hull = [[SKSpriteNode alloc]initWithColor:[SKColor grayColor] size:CGSizeMake(30, 20)];
+    SKSpriteNode *hull = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"hero_fly"]];
     hull.name = @"ship";
     hull.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:hull.size];
     hull.physicsBody.dynamic = NO;
@@ -231,7 +225,7 @@ static inline CGFloat skRand(CGFloat start,CGFloat end)
 - (void)update:(NSTimeInterval)currentTime
 {
     //
-    [self BackMove:1];
+    [self BackMove:5];
     
     GameViewController *vc = (GameViewController *) self.view.window.rootViewController;
     self.labelNumber.text = [NSString stringWithFormat:@"时间：%d s",vc.iNumber];

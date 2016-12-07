@@ -88,8 +88,8 @@
     self.previewView.hidden = YES;
 
         // 640x480 1280x720
-    _fScale = 1280 / KSCREENH;
-    float fPreviewW = 720 / _fScale;
+    _fScale = 640 / KSCREENH;
+    float fPreviewW = 480 / _fScale;
     float fPreviewH = KSCREENH;
     
     float displayScale = 1/6.;
@@ -97,6 +97,11 @@
                                         20,
                                         fPreviewW*displayScale,
                                         fPreviewH*displayScale);
+
+    self.previewView.userInteractionEnabled = YES;
+    UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanFrom:)];
+    [self.previewView addGestureRecognizer:gestureRecognizer];
+
 }
 - (void)initLocalCam
 {
@@ -269,4 +274,23 @@
     return YES;
 }
 
+- (void)handlePanFrom:(UIPanGestureRecognizer *)recognizer
+{
+//    CGPoint translation = [recognizer translationInView:recognizer.view];
+//    translation = CGPointMake(translation.x, -translation.y);
+//    [self panForTranslation:translation];
+//    [recognizer setTranslation:CGPointZero inView:recognizer.view];
+}
+- (void)panForTranslation:(CGPoint)pointTran
+{
+    float tempW = self.previewView.frame.size.width/2.;
+    float tempH = self.previewView.frame.size.height/2.;
+
+    if (self.previewView.center.x+pointTran.x>=tempW && self.previewView.center.x+pointTran.x < self.view.frame.size.width-tempW
+        &&self.previewView.center.y-pointTran.y>=tempH && self.previewView.center.y-pointTran.y < self.view.frame.size.height-tempH
+        )
+    {
+        self.previewView.center = CGPointMake(self.previewView.center.x+pointTran.x, self.previewView.center.y+pointTran.y);
+    }
+}
 @end

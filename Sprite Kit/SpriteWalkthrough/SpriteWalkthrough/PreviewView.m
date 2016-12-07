@@ -31,7 +31,7 @@
 }
 + (NSString *)returnAVCaptureSessionSessionPreset{
 
-    NSString *tempStr = @"1280x720";//[DefaultInfo shareUserInfo].strLocalCamResolution;
+    NSString *tempStr = @"640x480";//[DefaultInfo shareUserInfo].strLocalCamResolution;
     if ([tempStr isEqualToString:@"640x480"]) {
         return AVCaptureSessionPreset640x480;
     }else if ([tempStr isEqualToString:@"1280x720"]){
