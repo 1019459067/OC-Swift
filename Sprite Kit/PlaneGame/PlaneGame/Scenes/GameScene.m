@@ -16,6 +16,10 @@ typedef NS_ENUM(uint32_t, PGRoleCategory)
     PGRoleCategoryFoePlane          = 4,
     PGRoleCategoryPlayerPlane       = 8
 };
+static int iSmallPlaneH = 14;
+static int iMediumPlaneH = 33;
+static int iBigPlaneH = 86;
+
 @interface GameScene ()<SKPhysicsContactDelegate>
 @property (assign, nonatomic) BOOL contentCreated;
 @property (assign, nonatomic) int iMoveBgPosition;
@@ -59,33 +63,30 @@ typedef NS_ENUM(uint32_t, PGRoleCategory)
     if (self.timeSmallPlane > 25)
     {
         FoePlane *foePlane = [self createFoePlaneWithType:PGFoePlaneTypeSmall];
-        foePlane.name = k_NodeName_SmallPlane;
         [self addChild:foePlane];
 
         float speed = randf(3, 5);
-        [foePlane runAction:[SKAction sequence:@[[SKAction moveToY:0 duration:speed],[SKAction removeFromParent]]]];
+        [foePlane runAction:[SKAction sequence:@[[SKAction moveToY:-iSmallPlaneH duration:speed],[SKAction removeFromParent]]]];
         self.timeSmallPlane = 0;
     }
 
     if (self.timeMediumPlane > 400)
     {
         FoePlane *foePlane = [self createFoePlaneWithType:PGFoePlaneTypeMedium];
-        foePlane.name = k_NodeName_MediumPlane;
         [self addChild:foePlane];
 
         float speed = randf(3.5, 6);
-        [foePlane runAction:[SKAction sequence:@[[SKAction moveToY:0 duration:speed],[SKAction removeFromParent]]]];
+        [foePlane runAction:[SKAction sequence:@[[SKAction moveToY:-iMediumPlaneH duration:speed],[SKAction removeFromParent]]]];
         self.timeMediumPlane = 0;
     }
 
     if (self.timeBigPlane > 700)
     {
         FoePlane *foePlane = [self createFoePlaneWithType:PGFoePlaneTypeBig];
-        foePlane.name = k_NodeName_BigPlane;
         [self addChild:foePlane];
 
         float speed = randf(3.5, 8);
-        [foePlane runAction:[SKAction sequence:@[[SKAction moveToY:0 duration:speed],[SKAction removeFromParent]]]];
+        [foePlane runAction:[SKAction sequence:@[[SKAction moveToY:-iBigPlaneH duration:speed],[SKAction removeFromParent]]]];
         self.timeBigPlane = 0;
     }
 }
@@ -95,15 +96,15 @@ typedef NS_ENUM(uint32_t, PGRoleCategory)
     float fFoePositionX = 0;
     switch (type)
     {
-        case PGFoePlaneTypeSmall://68*50
+        case PGFoePlaneTypeSmall:
             fFoePositionX = randf(19, self.size.width-19);
             foePlane = [FoePlane createSmallPlane];
             break;
-        case PGFoePlaneTypeMedium://92*116
+        case PGFoePlaneTypeMedium:
             fFoePositionX = randf(23, self.size.width-23);
             foePlane = [FoePlane createMediumPlane];
             break;
-        case PGFoePlaneTypeBig://219*328
+        case PGFoePlaneTypeBig:
             fFoePositionX = randf(56, self.size.width-56);
             foePlane = [FoePlane createBigPlane];
             break;
@@ -128,7 +129,6 @@ typedef NS_ENUM(uint32_t, PGRoleCategory)
 - (void)createBullet
 {
     SKSpriteNode *bullet = [SKSpriteNode spriteNodeWithTexture:[SharedAtlas textureWithType:PGTextureTypeBullet1]];
-    bullet.name = k_NodeName_Bullet;
     bullet.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:bullet.size];
     bullet.physicsBody.contactTestBitMask = PGRoleCategoryFoePlane;
     bullet.physicsBody.categoryBitMask = PGRoleCategoryBullet;
@@ -138,8 +138,8 @@ typedef NS_ENUM(uint32_t, PGRoleCategory)
                                   self.playerPlane.size.height/2.+self.playerPlane.position.y);
     [self addChild:bullet];
 
-    [bullet runAction:[SKAction sequence:@[[SKAction moveTo:CGPointMake(self.playerPlane.position.x, self.size.height) duration:k_TimeInterval_bullet_Move],
-                                          [SKAction removeFromParent]]]];
+    [bullet runAction:[SKAction sequence:@[[SKAction moveTo:CGPointMake(self.playerPlane.position.x, self.size.height+bullet.size.height) duration:k_TimeInterval_bullet_Move],
+                                           [SKAction removeFromParent]]]];
         // add bullet music
     [self runAction:[SKAction playSoundFileNamed:@"bullet.mp3" waitForCompletion:YES]];
 }
@@ -222,33 +222,6 @@ typedef NS_ENUM(uint32_t, PGRoleCategory)
         self.playerPlane.position = CGPointMake(self.playerPlane.position.x+pointTran.x, self.playerPlane.position.y+pointTran.y);
     }
         ///需要进一步交互
-}
-- (void)didSimulatePhysics
-{
-    [self removeNodesFromParentWith:k_NodeName_Bullet bFoePlane:NO];
-    [self removeNodesFromParentWith:k_NodeName_BigPlane bFoePlane:YES];
-    [self removeNodesFromParentWith:k_NodeName_MediumPlane bFoePlane:YES];
-    [self removeNodesFromParentWith:k_NodeName_SmallPlane bFoePlane:YES];
-}
-- (void)removeNodesFromParentWith:(NSString *)nodeName bFoePlane:(BOOL)bFoePlane
-{
-    if (bFoePlane)
-    {
-        [self enumerateChildNodesWithName:nodeName usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
-            if (node.position.y<0)
-            {
-                [node removeFromParent];
-            }
-        }];
-    }else
-    {
-        [self enumerateChildNodesWithName:nodeName usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
-            if (node.position.y>self.size.height)
-            {
-                [node removeFromParent];
-            }
-        }];
-    }
 }
     /// 取随机数
 static inline CGFloat skRandf()
