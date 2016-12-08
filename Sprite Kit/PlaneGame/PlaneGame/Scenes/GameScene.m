@@ -40,6 +40,32 @@ typedef NS_ENUM(uint32_t, PGRoleCategory)
     [self initPhysicsWorld];
     [self initBackground];
     [self initPlayerPlane];
+    [self initFiringBullets];
+}
+- (void)initFiringBullets
+{
+    SKAction *actionCreateBullet = [SKAction runBlock:^{
+        [self createBullet];
+    }];
+    [self runAction:[SKAction repeatActionForever:[SKAction sequence:@[actionCreateBullet,
+                                                                       [SKAction waitForDuration:k_TimeInterval_bullet_Fire]]]]];
+}
+- (void)createBullet
+{
+    SKSpriteNode *bullet = [SKSpriteNode spriteNodeWithTexture:[SharedAtlas textureWithType:PGTextureTypeBullet1]];
+    bullet.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:bullet.size];
+    bullet.physicsBody.contactTestBitMask = PGRoleCategoryFoePlane;
+    bullet.physicsBody.categoryBitMask = PGRoleCategoryBullet;
+    bullet.physicsBody.collisionBitMask = 0;
+    bullet.zPosition = 1;
+    bullet.position = CGPointMake(self.playerPlane.position.x,
+                                  self.playerPlane.size.height/2.+self.playerPlane.position.y);
+    [self addChild:bullet];
+
+    [bullet runAction:[SKAction sequence:@[[SKAction moveTo:CGPointMake(self.playerPlane.position.x, self.size.height) duration:k_TimeInterval_bullet_Move],
+                                          [SKAction removeFromParent]]]];
+        // add bullet music
+    [self runAction:[SKAction playSoundFileNamed:@"bullet.mps" waitForCompletion:YES]];
 }
 - (void)initPlayerPlane
 {
