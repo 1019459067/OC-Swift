@@ -158,13 +158,13 @@ typedef NS_ENUM(uint32_t, PGRoleCategory)
 }
 - (void)initBackground
 {
-    self.background1 = [SKSpriteNode spriteNodeWithTexture:[SharedAtlas textureWithType:PGTextureTypeBackground]];
+    self.background1 = [SKSpriteNode spriteNodeWithTexture:[SharedAtlas textureWithType:PGTextureTypeBackground] size:self.size];
     self.background1.position = CGPointMake(self.size.width/2., 0);
     self.background1.anchorPoint = CGPointMake(0.5, 0);
     self.background1.zPosition = 0;
     [self addChild:self.background1];
 
-    self.background2 = [SKSpriteNode spriteNodeWithTexture:[SharedAtlas textureWithType:PGTextureTypeBackground]];
+    self.background2 = [SKSpriteNode spriteNodeWithTexture:[SharedAtlas textureWithType:PGTextureTypeBackground] size:self.size];
     self.background2.position = CGPointMake(self.size.width/2., self.size.height);
     self.background2.anchorPoint = CGPointMake(0.5, 0);
     self.background2.zPosition = 0;
@@ -183,7 +183,7 @@ typedef NS_ENUM(uint32_t, PGRoleCategory)
         self.iMoveBgPosition = self.size.height;
     }
     self.background1.position = CGPointMake(self.size.width/2., self.iMoveBgPosition-self.size.height);
-    self.background2.position = CGPointMake(self.size.width/2., self.iMoveBgPosition);
+    self.background2.position = CGPointMake(self.size.width/2., self.iMoveBgPosition-1);
 }
 - (void)initPhysicsWorld
 {
@@ -216,7 +216,7 @@ typedef NS_ENUM(uint32_t, PGRoleCategory)
     float shipHTemp = self.playerPlane.frame.size.height/2.;
 
     if (self.playerPlane.position.x+pointTran.x>=shipWTemp && self.playerPlane.position.x+pointTran.x < self.frame.size.width-shipWTemp
-        &&self.playerPlane.position.y-pointTran.y>=shipHTemp && self.playerPlane.position.y-pointTran.y < self.frame.size.height-shipHTemp
+        &&self.playerPlane.position.y+pointTran.y>=shipHTemp && self.playerPlane.position.y+pointTran.y < self.frame.size.height-shipHTemp
         )
     {
         self.playerPlane.position = CGPointMake(self.playerPlane.position.x+pointTran.x, self.playerPlane.position.y+pointTran.y);
