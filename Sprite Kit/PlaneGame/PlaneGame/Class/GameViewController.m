@@ -18,14 +18,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.launchingView = [[LaunchView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:self.launchingView];
-
-    [self performSelector:@selector(loadResources) withObject:nil afterDelay:2];
+    [self loadResources];
+//    self.launchingView = [[LaunchView alloc] initWithFrame:self.view.bounds];
+//    [self.view addSubview:self.launchingView];
+//
+//    [self performSelector:@selector(loadResources) withObject:nil afterDelay:2];
 }
 - (void)loadResources
 {
-    [self.launchingView removeFromSuperview];
+//    [self.launchingView removeFromSuperview];
 
     SKView *skView = (SKView *)self.view;
     skView.showsFPS = YES;
