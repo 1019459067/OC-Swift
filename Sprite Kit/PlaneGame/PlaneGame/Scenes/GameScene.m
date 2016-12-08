@@ -9,11 +9,18 @@
 #import "GameScene.h"
 #import "SharedAtlas.h"
 
+typedef NS_ENUM(uint32_t, PGRoleCategory)
+{
+    PGRoleCategoryBullet            = 1,
+    PGRoleCategoryFoePlane          = 4,
+    PGRoleCategoryPlayerPlane       = 8
+};
 @interface GameScene ()<SKPhysicsContactDelegate>
 @property (assign, nonatomic) BOOL contentCreated;
 @property (assign, nonatomic) int iMoveBgPosition;
 @property (strong, nonatomic) SKSpriteNode *background1;
 @property (strong, nonatomic) SKSpriteNode *background2;
+@property (strong, nonatomic) SKSpriteNode *playerPlane;
 @end
 @implementation GameScene
 
@@ -32,6 +39,20 @@
         /// 物理模拟
     [self initPhysicsWorld];
     [self initBackground];
+    [self initPlayerPlane];
+}
+- (void)initPlayerPlane
+{
+    self.playerPlane = [SKSpriteNode spriteNodeWithTexture:[SharedAtlas textureWithType:PGTextureTypePlayerPlane1]];
+    self.playerPlane.position = CGPointMake(self.size.width/2., 50);
+    self.playerPlane.zPosition = 1;
+    self.playerPlane.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.playerPlane.size];
+    self.playerPlane.physicsBody.collisionBitMask = 0;
+    self.playerPlane.physicsBody.categoryBitMask = PGRoleCategoryPlayerPlane;
+    self.playerPlane.physicsBody.contactTestBitMask = PGRoleCategoryFoePlane;
+    [self addChild:self.playerPlane];
+
+    [self.playerPlane runAction:[SharedAtlas playerPlaneAction]];
 }
 - (void)initBackground
 {

@@ -29,8 +29,15 @@ typedef NS_ENUM(NSInteger, PGTextureType)
  根据类型来获取对应的纹理
 
  @param type 参数类型
- @return 纹理类型
+ @return SKTexture,纹理类型
  */
 + (SKTexture *)textureWithType:(PGTextureType)type;
 
+
+/**
+ 玩家的动作
+
+ @return SKAction,动作
+ */
++ (SKAction *)playerPlaneAction;
 @end
