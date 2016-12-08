@@ -46,7 +46,7 @@
             return [[SharedAtlas shared]textureNamed:@"enemy3_fly_1"];
             break;
         case PGTextureTypeBigFoePlane:
-            return [[SharedAtlas shared]textureNamed:@"enemy3_fly_1"];
+            return [[SharedAtlas shared]textureNamed:@"enemy2_fly_1"];
             break;
         default:
             break;

@@ -8,6 +8,7 @@
 
 #import "GameScene.h"
 #import "SharedAtlas.h"
+#import "FoePlane.h"
 
 typedef NS_ENUM(uint32_t, PGRoleCategory)
 {
@@ -21,6 +22,10 @@ typedef NS_ENUM(uint32_t, PGRoleCategory)
 @property (strong, nonatomic) SKSpriteNode *background1;
 @property (strong, nonatomic) SKSpriteNode *background2;
 @property (strong, nonatomic) SKSpriteNode *playerPlane;
+
+@property (assign, nonatomic) NSInteger timeSmallPlane;  //25
+@property (assign, nonatomic) NSInteger timeMediumPlane; //400
+@property (assign, nonatomic) NSInteger timeBigPlane;    //700
 @end
 @implementation GameScene
 
@@ -44,6 +49,73 @@ typedef NS_ENUM(uint32_t, PGRoleCategory)
 
     UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanFrom:)];
     [[self view] addGestureRecognizer:gestureRecognizer];
+}
+- (void)initFoePlane
+{
+    self.timeSmallPlane++;
+    self.timeMediumPlane++;
+    self.timeBigPlane++;
+
+    if (self.timeSmallPlane > 25)
+    {
+        FoePlane *foePlane = [self createFoePlaneWithType:PGFoePlaneTypeSmall];
+        foePlane.name = k_NodeName_SmallPlane;
+        [self addChild:foePlane];
+
+        float speed = randf(3, 5);
+        [foePlane runAction:[SKAction sequence:@[[SKAction moveToY:0 duration:speed],[SKAction removeFromParent]]]];
+        self.timeSmallPlane = 0;
+    }
+
+    if (self.timeMediumPlane > 400)
+    {
+        FoePlane *foePlane = [self createFoePlaneWithType:PGFoePlaneTypeMedium];
+        foePlane.name = k_NodeName_MediumPlane;
+        [self addChild:foePlane];
+
+        float speed = randf(3.5, 6);
+        [foePlane runAction:[SKAction sequence:@[[SKAction moveToY:0 duration:speed],[SKAction removeFromParent]]]];
+        self.timeMediumPlane = 0;
+    }
+
+    if (self.timeBigPlane > 700)
+    {
+        FoePlane *foePlane = [self createFoePlaneWithType:PGFoePlaneTypeBig];
+        foePlane.name = k_NodeName_BigPlane;
+        [self addChild:foePlane];
+
+        float speed = randf(3.5, 8);
+        [foePlane runAction:[SKAction sequence:@[[SKAction moveToY:0 duration:speed],[SKAction removeFromParent]]]];
+        self.timeBigPlane = 0;
+    }
+}
+- (FoePlane *)createFoePlaneWithType:(PGFoePlaneType)type
+{
+    FoePlane *foePlane = nil;
+    float fFoePositionX = 0;
+    switch (type)
+    {
+        case PGFoePlaneTypeSmall://68*50
+            fFoePositionX = randf(19, self.size.width-19);
+            foePlane = [FoePlane createSmallPlane];
+            break;
+        case PGFoePlaneTypeMedium://92*116
+            fFoePositionX = randf(23, self.size.width-23);
+            foePlane = [FoePlane createMediumPlane];
+            break;
+        case PGFoePlaneTypeBig://219*328
+            fFoePositionX = randf(56, self.size.width-56);
+            foePlane = [FoePlane createBigPlane];
+            break;
+        default:
+            break;
+    }
+    foePlane.zPosition = 1;
+    foePlane.physicsBody.categoryBitMask = PGRoleCategoryFoePlane;
+    foePlane.physicsBody.contactTestBitMask = PGRoleCategoryPlayerPlane;
+    foePlane.physicsBody.collisionBitMask = PGRoleCategoryBullet;
+    foePlane.position = CGPointMake(fFoePositionX, self.size.height);
+    return foePlane;
 }
 - (void)initFiringBullets
 {
@@ -127,6 +199,7 @@ typedef NS_ENUM(uint32_t, PGRoleCategory)
 - (void)update:(NSTimeInterval)currentTime
 {
     [self scrollBackground];
+    [self initFoePlane];
 }
 
 #pragma mark - responder
@@ -152,11 +225,38 @@ typedef NS_ENUM(uint32_t, PGRoleCategory)
 }
 - (void)didSimulatePhysics
 {
-    [self enumerateChildNodesWithName:k_NodeName_Bullet usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
-        if (node.position.y>self.size.height)
-        {
-            [node removeFromParent];
-        }
-    }];
+    [self removeNodesFromParentWith:k_NodeName_Bullet bFoePlane:NO];
+    [self removeNodesFromParentWith:k_NodeName_BigPlane bFoePlane:YES];
+    [self removeNodesFromParentWith:k_NodeName_MediumPlane bFoePlane:YES];
+    [self removeNodesFromParentWith:k_NodeName_SmallPlane bFoePlane:YES];
+}
+- (void)removeNodesFromParentWith:(NSString *)nodeName bFoePlane:(BOOL)bFoePlane
+{
+    if (bFoePlane)
+    {
+        [self enumerateChildNodesWithName:nodeName usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
+            if (node.position.y<0)
+            {
+                [node removeFromParent];
+            }
+        }];
+    }else
+    {
+        [self enumerateChildNodesWithName:nodeName usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
+            if (node.position.y>self.size.height)
+            {
+                [node removeFromParent];
+            }
+        }];
+    }
+}
+    /// 取随机数
+static inline CGFloat skRandf()
+{
+    return rand()/(CGFloat)RAND_MAX;
+}
+static inline CGFloat randf(CGFloat low,CGFloat high)
+{
+    return skRandf()*(high-low)+low;
 }
 @end
