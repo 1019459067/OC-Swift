@@ -56,6 +56,7 @@ typedef NS_ENUM(uint32_t, PGRoleCategory)
 - (void)createBullet
 {
     SKSpriteNode *bullet = [SKSpriteNode spriteNodeWithTexture:[SharedAtlas textureWithType:PGTextureTypeBullet1]];
+    bullet.name = k_NodeName_Bullet;
     bullet.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:bullet.size];
     bullet.physicsBody.contactTestBitMask = PGRoleCategoryFoePlane;
     bullet.physicsBody.categoryBitMask = PGRoleCategoryBullet;
@@ -148,5 +149,14 @@ typedef NS_ENUM(uint32_t, PGRoleCategory)
         self.playerPlane.position = CGPointMake(self.playerPlane.position.x+pointTran.x, self.playerPlane.position.y+pointTran.y);
     }
         ///需要进一步交互
+}
+- (void)didSimulatePhysics
+{
+    [self enumerateChildNodesWithName:k_NodeName_Bullet usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
+        if (node.position.y>self.size.height)
+        {
+            [node removeFromParent];
+        }
+    }];
 }
 @end

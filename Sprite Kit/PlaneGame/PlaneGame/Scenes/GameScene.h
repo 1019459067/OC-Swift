@@ -10,6 +10,9 @@
 
 #define k_TimeInterval_bullet_Move 0.5
 #define k_TimeInterval_bullet_Fire 0.2
+
+#define k_NodeName_Bullet @"bullet"
+
 @interface GameScene : SKScene
 
 @end
