@@ -41,6 +41,9 @@ typedef NS_ENUM(uint32_t, PGRoleCategory)
     [self initBackground];
     [self initPlayerPlane];
     [self initFiringBullets];
+
+    UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanFrom:)];
+    [[self view] addGestureRecognizer:gestureRecognizer];
 }
 - (void)initFiringBullets
 {
@@ -65,7 +68,7 @@ typedef NS_ENUM(uint32_t, PGRoleCategory)
     [bullet runAction:[SKAction sequence:@[[SKAction moveTo:CGPointMake(self.playerPlane.position.x, self.size.height) duration:k_TimeInterval_bullet_Move],
                                           [SKAction removeFromParent]]]];
         // add bullet music
-    [self runAction:[SKAction playSoundFileNamed:@"bullet.mps" waitForCompletion:YES]];
+    [self runAction:[SKAction playSoundFileNamed:@"bullet.mp3" waitForCompletion:YES]];
 }
 - (void)initPlayerPlane
 {
@@ -123,5 +126,27 @@ typedef NS_ENUM(uint32_t, PGRoleCategory)
 - (void)update:(NSTimeInterval)currentTime
 {
     [self scrollBackground];
+}
+
+#pragma mark - responder
+- (void)handlePanFrom:(UIPanGestureRecognizer *)recognizer
+{
+    CGPoint translation = [recognizer translationInView:recognizer.view];
+    translation = CGPointMake(translation.x, -translation.y);
+    [self panForTranslation:translation];
+    [recognizer setTranslation:CGPointZero inView:recognizer.view];
+}
+- (void)panForTranslation:(CGPoint)pointTran
+{
+    float shipWTemp = self.playerPlane.frame.size.width/2.;
+    float shipHTemp = self.playerPlane.frame.size.height/2.;
+
+    if (self.playerPlane.position.x+pointTran.x>=shipWTemp && self.playerPlane.position.x+pointTran.x < self.frame.size.width-shipWTemp
+        &&self.playerPlane.position.y-pointTran.y>=shipHTemp && self.playerPlane.position.y-pointTran.y < self.frame.size.height-shipHTemp
+        )
+    {
+        self.playerPlane.position = CGPointMake(self.playerPlane.position.x+pointTran.x, self.playerPlane.position.y+pointTran.y);
+    }
+        ///需要进一步交互
 }
 @end
