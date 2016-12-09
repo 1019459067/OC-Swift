@@ -7,10 +7,9 @@
 //
 
 #import "GameViewController.h"
-#import "LaunchView.h"
-#import "GameScene.h"
+#import "LoadingScene.h"
+
 @interface GameViewController ()
-@property (strong, nonatomic) LaunchView *launchingView;
 @end
 
 @implementation GameViewController
@@ -18,24 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self loadResources];
-//    self.launchingView = [[LaunchView alloc] initWithFrame:self.view.bounds];
-//    [self.view addSubview:self.launchingView];
-//
-//    [self performSelector:@selector(loadResources) withObject:nil afterDelay:2];
-}
-- (void)loadResources
-{
-//    [self.launchingView removeFromSuperview];
-
     SKView *skView = (SKView *)self.view;
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
-
-    GameScene *scene = [[GameScene alloc]initWithSize:self.view.bounds.size];
+    
+    LoadingScene *scene = [[LoadingScene alloc]initWithSize:self.view.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     [skView presentScene:scene];
-
 }
 
 - (BOOL)shouldAutorotate

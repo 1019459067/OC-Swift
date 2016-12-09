@@ -25,6 +25,7 @@ typedef NS_ENUM(NSInteger, PGTextureType)
 
 + (instancetype)shared;
 
++ (SKTexture *)textureLoadingWith:(int)index;
 
 /**
  根据类型来获取对应的纹理
@@ -42,6 +43,8 @@ typedef NS_ENUM(NSInteger, PGTextureType)
  */
 + (SKAction *)playerPlaneAction;
 
+
++ (SKAction *)actionLoading;
 /**
  玩家爆炸时的动作
 

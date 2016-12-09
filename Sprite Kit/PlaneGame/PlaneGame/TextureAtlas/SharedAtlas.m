@@ -1,3 +1,4 @@
+
 //
 //  SharedAltes.m
 //  PlaneGame
@@ -54,6 +55,11 @@
 }
 
 #pragma mark - init
++ (SKTexture *)textureLoadingWith:(int)index
+{
+    return [[SharedAtlas shared]textureNamed:[NSString stringWithFormat:@"loading%d",index]];
+}
+
 + (SKTexture *)texturePlayerPlaneWith:(int)index
 {
     return [[SharedAtlas shared]textureNamed:[NSString stringWithFormat:@"hero_fly_%d",index]];
@@ -71,6 +77,17 @@
     return [[SharedAtlas shared]textureNamed:[NSString stringWithFormat:@"enemy%d_blowup_%d",type,index]];
 }
 #pragma mark - action
++ (SKAction *)actionLoading
+{
+    NSMutableArray *arrayTextures = [NSMutableArray array];
+    for (int i = 0; i < 4; i++)
+    {
+        SKTexture *texture = [self textureLoadingWith:i];
+        [arrayTextures addObject:texture];
+    }
+    return [SKAction repeatAction:[SKAction animateWithTextures:arrayTextures timePerFrame:0.25] count:3];
+}
+
 + (SKAction *)playerPlaneAction
 {
     NSMutableArray *arrayTextures = [NSMutableArray array];
