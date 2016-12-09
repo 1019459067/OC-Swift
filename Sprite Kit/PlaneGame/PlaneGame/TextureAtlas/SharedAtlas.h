@@ -42,7 +42,12 @@ typedef NS_ENUM(NSInteger, PGTextureType)
  */
 + (SKAction *)playerPlaneAction;
 
+/**
+ 玩家爆炸时的动作
 
+ @return SKAction,爆炸时的动作
+ */
++ (SKAction *)actionBlowupWithPlayerPlane;
 /**
   根据类型来获取敌机被击中时的动作
 

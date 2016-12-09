@@ -99,7 +99,6 @@ static int iBigPlaneH = 86;
         self.timeMediumPlane = 0;
     }
 
-    if (self.timeBigPlane > 700)
     {
         FoePlane *foePlane = [self createFoePlaneWithType:PGFoePlaneTypeBig];
         [self addChild:foePlane];
@@ -149,9 +148,9 @@ static int iBigPlaneH = 86;
 {
     SKSpriteNode *bullet = [SKSpriteNode spriteNodeWithTexture:[SharedAtlas textureWithType:PGTextureTypeBullet1]];
     bullet.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:bullet.size];
-    bullet.physicsBody.contactTestBitMask = PGRoleCategoryFoePlane;
     bullet.physicsBody.categoryBitMask = PGRoleCategoryBullet;
-    bullet.physicsBody.collisionBitMask = 0;
+    bullet.physicsBody.contactTestBitMask = PGRoleCategoryFoePlane;
+    bullet.physicsBody.collisionBitMask = PGRoleCategoryFoePlane;
     bullet.zPosition = 1;
     bullet.position = CGPointMake(self.playerPlane.position.x,
                                   self.playerPlane.size.height/2.+self.playerPlane.position.y);
@@ -210,10 +209,84 @@ static int iBigPlaneH = 86;
     self.physicsWorld.gravity = CGVectorMake(0, 0);
 }
 
+- (void)foePlaneCollisionnAnimationWith:(FoePlane *)foePlane
+{
+    if (![foePlane actionForKey:@"dieAction"])
+    {
+        SKAction *actionHit = nil;
+        SKAction *actionBlownUp = nil;
+        NSString *strSoundPath = nil;
+        switch (foePlane.type)
+        {
+            case PGFoePlaneTypeBig:
+            {
+                foePlane.ph--;
+                actionHit = self.actionHitBigPlane;
+                actionBlownUp = self.actionBlownUpBigPlane;
+                strSoundPath = @"enemy2_down.mp3";
+            }
+                break;
+            case PGFoePlaneTypeMedium:
+            {
+                foePlane.ph--;
+                actionHit = self.actionHitMediumPlane;
+                actionBlownUp = self.actionBlownUpMediumPlane;
+                strSoundPath = @"enemy3_down.mp3";
+            }
+                break;
+            case PGFoePlaneTypeSmall:
+            {
+                foePlane.ph--;
+                actionHit = self.actionHitSmallPlane;
+                actionBlownUp = self.actionBlownUpSmallPlane;
+                strSoundPath = @"enemy1_down.mp3";
+            }
+                break;
+            default:
+                break;
+        }
+
+        if (!foePlane.ph)
+        {
+            [foePlane removeAllActions];
+            [foePlane runAction:actionBlownUp withKey:@"dieAction"];
+            [foePlane runAction:[SKAction playSoundFileNamed:strSoundPath waitForCompletion:YES]];
+        }else
+        {
+            [foePlane runAction:actionHit];
+        }
+    }
+
+}
+- (void)playerPlaneCollisionnAnimationWith:(SKSpriteNode *)playerPlane
+{
+    [self removeAllActions];
+    [playerPlane runAction:[SharedAtlas actionBlowupWithPlayerPlane] completion:^{
+        [self runAction:[SKAction sequence:@[[SKAction playSoundFileNamed:@"game_over.mp3" waitForCompletion:YES],[SKAction runBlock:^{
+
+        }]]]completion:^{
+
+        }];
+    }];
+}
 #pragma mark - SKPhysicsContactDelegate
+/*
+ http://blog.csdn.net/u010019717/article/details/32942641
+ */
 - (void)didBeginContact:(SKPhysicsContact *)contact
 {
-
+    if (contact.bodyA.categoryBitMask & PGRoleCategoryFoePlane
+        ||contact.bodyB.categoryBitMask & PGRoleCategoryFoePlane)
+    {
+        FoePlane *foePlane = (contact.bodyA.categoryBitMask & PGRoleCategoryFoePlane) ? (FoePlane*)contact.bodyA.node:(FoePlane*)contact.bodyB.node;
+        [self foePlaneCollisionnAnimationWith:foePlane];
+    }
+    if (contact.bodyA.categoryBitMask & PGRoleCategoryPlayerPlane
+        ||contact.bodyB.categoryBitMask & PGRoleCategoryPlayerPlane)
+    {
+        SKSpriteNode *spriteNode = (contact.bodyA.categoryBitMask & PGRoleCategoryPlayerPlane) ? (SKSpriteNode*)contact.bodyA.node:(SKSpriteNode*)contact.bodyB.node;
+        [self playerPlaneCollisionnAnimationWith:spriteNode];
+    }
 }
 - (void)update:(NSTimeInterval)currentTime
 {
