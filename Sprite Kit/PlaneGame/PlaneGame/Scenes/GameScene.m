@@ -98,7 +98,7 @@ static int iBigPlaneH = 86;
         [foePlane runAction:[SKAction sequence:@[[SKAction moveToY:-iMediumPlaneH duration:speed],[SKAction removeFromParent]]]];
         self.timeMediumPlane = 0;
     }
-
+    if (self.timeBigPlane > 700)
     {
         FoePlane *foePlane = [self createFoePlaneWithType:PGFoePlaneTypeBig];
         [self addChild:foePlane];
