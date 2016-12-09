@@ -58,7 +58,14 @@
 {
     return [[SharedAtlas shared]textureNamed:[NSString stringWithFormat:@"hero_fly_%d",index]];
 }
-
++ (SKTexture *)textureHittedFoePlaneWithType:(int)type animationIndex:(NSInteger)index
+{
+    return [[SharedAtlas shared]textureNamed:[NSString stringWithFormat:@"enemy%d_hit_%ld",type,index]];
+}
++ (SKTexture *)textureBlownUpFoePlaneWithType:(int)type animationIndex:(NSInteger)index
+{
+    return [[SharedAtlas shared]textureNamed:[NSString stringWithFormat:@"enemy%d_blownup_%ld",type,index]];
+}
 #pragma mark - action
 + (SKAction *)playerPlaneAction
 {
@@ -69,5 +76,86 @@
         [arrayTextures addObject:texture];
     }
     return [SKAction repeatActionForever:[SKAction animateWithTextures:arrayTextures timePerFrame:0.1]];
+}
+
++ (SKAction *)actionHittedWithFoePlaneType:(PGFoePlaneType)type
+{
+    switch (type)
+    {
+        case PGFoePlaneTypeBig:
+        {
+            NSMutableArray *arrayTextures = [NSMutableArray array];
+            SKTexture *texture1 = [self textureHittedFoePlaneWithType:2 animationIndex:1];
+            SKAction *action1 = [SKAction setTexture:texture1];
+            [arrayTextures addObject:action1];
+
+            SKTexture *texture2 = [self textureWithType:PGTextureTypeBigFoePlane];
+            SKAction *action2 = [SKAction setTexture:texture2];
+            [arrayTextures addObject:action2];
+
+            return [SKAction sequence:arrayTextures];
+        }
+            break;
+        case PGFoePlaneTypeMedium:
+        {
+            NSMutableArray *arrayTextures = [NSMutableArray array];
+            for (int i = 0 ; i < 2; i++)
+            {
+                SKTexture *texture = [self textureHittedFoePlaneWithType:3 animationIndex:i+1];
+                [arrayTextures addObject:[SKAction setTexture:texture]];
+            }
+            return [SKAction sequence:arrayTextures];
+        }
+            break;
+        case PGFoePlaneTypeSmall:
+            break;
+        default:
+            break;
+    }
+    return nil;
+}
+
++ (SKAction *)actionBlowupWithFoePlaneType:(PGFoePlaneType)type
+{
+    switch (type)
+    {
+        case PGFoePlaneTypeBig:
+        {
+            NSMutableArray *arrayTextures = [NSMutableArray array];
+            for (int i = 0 ; i < 7; i++)
+            {
+                SKTexture *texture = [self textureBlownUpFoePlaneWithType:2 animationIndex:i+1];
+                [arrayTextures addObject:texture];
+            }
+            return [SKAction sequence:@[[SKAction animateWithTextures:arrayTextures timePerFrame:0.25],[SKAction removeFromParent]]];
+        }
+            break;
+        case PGFoePlaneTypeMedium:
+        {
+            NSMutableArray *arrayTextures = [NSMutableArray array];
+            for (int i = 0 ; i < 4; i++)
+            {
+                SKTexture *texture = [self textureBlownUpFoePlaneWithType:3 animationIndex:i+1];
+                [arrayTextures addObject:texture];
+            }
+            return [SKAction sequence:@[[SKAction animateWithTextures:arrayTextures timePerFrame:0.15],[SKAction removeFromParent]]];
+        }
+            break;
+        case PGFoePlaneTypeSmall:
+        {
+            NSMutableArray *arrayTextures = [NSMutableArray array];
+            for (int i = 0 ; i < 4; i++)
+            {
+                SKTexture *texture = [self textureBlownUpFoePlaneWithType:1 animationIndex:i+1];
+                [arrayTextures addObject:texture];
+            }
+            return [SKAction sequence:@[[SKAction animateWithNormalTextures:arrayTextures timePerFrame:0.1],[SKAction removeFromParent]]];
+        }
+            break;
+        default:
+            break;
+    }
+    return nil;
+
 }
 @end

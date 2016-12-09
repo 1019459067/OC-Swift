@@ -7,6 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "FoePlane.h"
 
 typedef NS_ENUM(NSInteger, PGTextureType)
 {
@@ -40,4 +41,21 @@ typedef NS_ENUM(NSInteger, PGTextureType)
  @return SKAction,动作
  */
 + (SKAction *)playerPlaneAction;
+
+
+/**
+  根据类型来获取敌机被击中时的动作
+
+ @param type 敌机的类型
+ @return SKAction,敌机的动作
+ */
++ (SKAction *)actionHittedWithFoePlaneType:(PGFoePlaneType)type;
+
+/**
+ 根据类型来获取敌机爆炸时的动作
+
+ @param type 敌机的类型
+ @return SKAction,敌机的动作
+ */
++ (SKAction *)actionBlowupWithFoePlaneType:(PGFoePlaneType)type;
 @end

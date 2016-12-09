@@ -30,6 +30,14 @@ static int iBigPlaneH = 86;
 @property (assign, nonatomic) NSInteger timeSmallPlane;  //25
 @property (assign, nonatomic) NSInteger timeMediumPlane; //400
 @property (assign, nonatomic) NSInteger timeBigPlane;    //700
+
+@property (strong, nonatomic) SKAction *actionHitBigPlane;
+@property (strong, nonatomic) SKAction *actionHitMediumPlane;
+@property (strong, nonatomic) SKAction *actionHitSmallPlane;
+
+@property (strong, nonatomic) SKAction *actionBlownUpBigPlane;
+@property (strong, nonatomic) SKAction *actionBlownUpMediumPlane;
+@property (strong, nonatomic) SKAction *actionBlownUpSmallPlane;
 @end
 @implementation GameScene
 
@@ -50,9 +58,20 @@ static int iBigPlaneH = 86;
     [self initBackground];
     [self initPlayerPlane];
     [self initFiringBullets];
+    [self initAction];
 
     UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanFrom:)];
     [[self view] addGestureRecognizer:gestureRecognizer];
+}
+- (void)initAction
+{
+    self.actionHitBigPlane = [SharedAtlas actionHittedWithFoePlaneType:PGFoePlaneTypeBig];
+    self.actionHitMediumPlane = [SharedAtlas actionHittedWithFoePlaneType:PGFoePlaneTypeMedium];
+    self.actionHitSmallPlane = [SharedAtlas actionHittedWithFoePlaneType:PGFoePlaneTypeSmall];
+
+    self.actionBlownUpBigPlane = [SharedAtlas actionBlowupWithFoePlaneType:PGFoePlaneTypeBig];
+    self.actionBlownUpMediumPlane = [SharedAtlas actionBlowupWithFoePlaneType:PGFoePlaneTypeMedium];
+    self.actionBlownUpSmallPlane = [SharedAtlas actionBlowupWithFoePlaneType:PGFoePlaneTypeSmall];
 }
 - (void)initFoePlane
 {
