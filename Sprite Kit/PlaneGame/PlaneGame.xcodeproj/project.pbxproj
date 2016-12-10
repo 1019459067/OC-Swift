@@ -13,6 +13,7 @@
 		302446B41DFC08CD008242AD /* libcvface_api.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 302446241DFC08CD008242AD /* libcvface_api.a */; };
 		302447271DFC08F2008242AD /* FaceSDKTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 302447231DFC08F2008242AD /* FaceSDKTool.m */; };
 		3024472B1DFC09AF008242AD /* PreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3024472A1DFC09AF008242AD /* PreviewView.m */; };
+		3024472E1DFC22F7008242AD /* HomeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3024472D1DFC22F7008242AD /* HomeScene.m */; };
 		30303CA61DF98786008BCDFC /* FoePlane.m in Sources */ = {isa = PBXBuildFile; fileRef = 30303CA51DF98786008BCDFC /* FoePlane.m */; };
 		30371FB01DF8004400170B9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30371FAF1DF8004400170B9E /* main.m */; };
 		30371FC01DF8004400170B9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30371FBE1DF8004400170B9E /* Main.storyboard */; };
@@ -49,6 +50,8 @@
 		302447231DFC08F2008242AD /* FaceSDKTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceSDKTool.m; sourceTree = "<group>"; };
 		302447291DFC09AF008242AD /* PreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewView.h; sourceTree = "<group>"; };
 		3024472A1DFC09AF008242AD /* PreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewView.m; sourceTree = "<group>"; };
+		3024472C1DFC22F7008242AD /* HomeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScene.h; sourceTree = "<group>"; };
+		3024472D1DFC22F7008242AD /* HomeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeScene.m; sourceTree = "<group>"; };
 		30303CA41DF98786008BCDFC /* FoePlane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoePlane.h; sourceTree = "<group>"; };
 		30303CA51DF98786008BCDFC /* FoePlane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoePlane.m; sourceTree = "<group>"; };
 		30371FAB1DF8004400170B9E /* PlaneGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaneGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,6 +250,8 @@
 				303722271DF91D0800170B9E /* GameScene.m */,
 				C9F392011DFB05C1008EDE4C /* LoadingScene.h */,
 				C9F392021DFB05C1008EDE4C /* LoadingScene.m */,
+				3024472C1DFC22F7008242AD /* HomeScene.h */,
+				3024472D1DFC22F7008242AD /* HomeScene.m */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -366,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3037222F1DF9304B00170B9E /* SharedAtlas.m in Sources */,
+				3024472E1DFC22F7008242AD /* HomeScene.m in Sources */,
 				302446111DFBCBB0008242AD /* ButtonNode.m in Sources */,
 				303722241DF91CBE00170B9E /* AppDelegate.m in Sources */,
 				302447271DFC08F2008242AD /* FaceSDKTool.m in Sources */,

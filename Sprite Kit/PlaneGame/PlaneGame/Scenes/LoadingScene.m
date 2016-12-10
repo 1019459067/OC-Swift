@@ -8,7 +8,7 @@
 
 #import "LoadingScene.h"
 #import "SharedAtlas.h"
-#import "GameScene.h"
+#import "HomeScene.h"
 
 @interface LoadingScene ()
 @property (assign, nonatomic) BOOL contentCreated;
@@ -41,7 +41,7 @@
                                                     [SKAction waitForDuration:.2],
                                                     [SKAction removeFromParent]]];
     [nodeLoading runAction:actionSequence completion:^{
-        GameScene *scene = [[GameScene alloc]initWithSize:self.size];
+        HomeScene *scene = [[HomeScene alloc]initWithSize:self.size];
         SKTransition *tran = [SKTransition doorsOpenVerticalWithDuration:1.];
         [self.view presentScene:scene transition:tran];
     }];

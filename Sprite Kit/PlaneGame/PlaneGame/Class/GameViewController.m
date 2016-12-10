@@ -10,6 +10,7 @@
 #import "LoadingScene.h"
 #import "GameScene.h"
 #import "PGButton.h"
+#import "HomeScene.h"
 #import <AVFoundation/AVFoundation.h>
 #import "PreviewView.h"
 #import "FaceSDKTool.h"
@@ -65,8 +66,8 @@
 //    skView.showsFPS = YES;
 //    skView.showsNodeCount = YES;
 
-    GameScene *scene = [[GameScene alloc]initWithSize:self.view.bounds.size];
-//    LoadingScene *scene = [[LoadingScene alloc]initWithSize:self.view.bounds.size];
+//    HomeScene *scene = [[HomeScene alloc]initWithSize:self.view.bounds.size];
+    LoadingScene *scene = [[LoadingScene alloc]initWithSize:self.view.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     [skView presentScene:scene];
 
@@ -85,9 +86,7 @@
         [alert show];
         return;
     }
-    [self startCamera];
-
-    [self gamePause];
+//    [self startCamera];
 }
 - (void)setupUI
 {
@@ -286,19 +285,22 @@
     }];
     [viewPause addSubview:buttonRestart];
 
-    PGButton *buttonSound = [[PGButton alloc]initWithCenter:CGPointMake(viewPause.frame.size.width/2., viewPause.frame.size.height/2.+70) bound:CGRectMake(0,0,200,40) title:@"sound on" selectedTitle:@"sound off"];
-    [buttonSound didClicked:^{
-        [self soundOff:buttonSound];
+    PGButton *buttonBack = [[PGButton alloc]initWithCenter:CGPointMake(viewPause.frame.size.width/2., viewPause.frame.size.height/2.+70) bound:CGRectMake(0,0,200,40) title:@"home" selectedTitle:nil];
+    [buttonBack didClicked:^{
+#warning <#message#>
+//        [self onActionBack:buttonBack];
     }];
-    [viewPause addSubview:buttonSound];
+    [viewPause addSubview:buttonBack];
 }
-- (void)soundOff:(PGButton *)sender
+- (void)onActionBack:(PGButton *)sender
 {
-    sender.selected = !sender.selected;
-    if (sender.selected)
-    {
-        
-    }
+
+    HomeScene *scene = [[HomeScene alloc]initWithSize:self.view.bounds.size];
+    SKTransition *tran = [SKTransition doorsCloseVerticalWithDuration:1.];
+    SKView *skView = (SKView *)self.view;
+
+    [skView presentScene:scene transition:tran];
+
 }
 - (void)continueGame:(PGButton *)sender
 {
