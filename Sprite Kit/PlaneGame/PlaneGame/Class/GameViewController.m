@@ -20,11 +20,11 @@
     [super viewDidLoad];
 
     SKView *skView = (SKView *)self.view;
-    skView.showsFPS = YES;
-    skView.showsNodeCount = YES;
+//    skView.showsFPS = YES;
+//    skView.showsNodeCount = YES;
 
-    GameScene *scene = [[GameScene alloc]initWithSize:self.view.bounds.size];
-//    LoadingScene *scene = [[LoadingScene alloc]initWithSize:self.view.bounds.size];
+//    GameScene *scene = [[GameScene alloc]initWithSize:self.view.bounds.size];
+    LoadingScene *scene = [[LoadingScene alloc]initWithSize:self.view.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     [skView presentScene:scene];
 

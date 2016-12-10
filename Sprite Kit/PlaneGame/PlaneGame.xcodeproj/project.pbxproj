@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		302446111DFBCBB0008242AD /* ButtonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 302446101DFBCBB0008242AD /* ButtonNode.m */; };
 		302446151DFBECC1008242AD /* PGButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 302446141DFBECC1008242AD /* PGButton.m */; };
+		302446171DFC06A9008242AD /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 302446161DFC06A9008242AD /* icon.png */; };
 		30303CA61DF98786008BCDFC /* FoePlane.m in Sources */ = {isa = PBXBuildFile; fileRef = 30303CA51DF98786008BCDFC /* FoePlane.m */; };
 		30371FB01DF8004400170B9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30371FAF1DF8004400170B9E /* main.m */; };
 		30371FC01DF8004400170B9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30371FBE1DF8004400170B9E /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 		302446121DFBDF7B008242AD /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		302446131DFBECC1008242AD /* PGButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGButton.h; sourceTree = "<group>"; };
 		302446141DFBECC1008242AD /* PGButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGButton.m; sourceTree = "<group>"; };
+		302446161DFC06A9008242AD /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		30303CA41DF98786008BCDFC /* FoePlane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoePlane.h; sourceTree = "<group>"; };
 		30303CA51DF98786008BCDFC /* FoePlane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoePlane.m; sourceTree = "<group>"; };
 		30371FAB1DF8004400170B9E /* PlaneGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaneGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +125,7 @@
 		30371FAE1DF8004400170B9E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				302446161DFC06A9008242AD /* icon.png */,
 				303722101DF91CB100170B9E /* Resoures */,
 				30371FAF1DF8004400170B9E /* main.m */,
 			);
@@ -261,6 +264,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				302446171DFC06A9008242AD /* icon.png in Resources */,
 				3037224B1DF93E8600170B9E /* game_over.mp3 in Resources */,
 				303722371DF9312200170B9E /* gameArts-hd.plist in Resources */,
 				303722491DF93E8600170B9E /* enemy3_down.mp3 in Resources */,

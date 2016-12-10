@@ -34,7 +34,9 @@
     nodeLoading.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:nodeLoading.size];
     nodeLoading.physicsBody.dynamic = NO;
     [self addChild:nodeLoading];
-    
+
+    [self createLabelVerion];
+
     SKAction *actionSequence = [SKAction sequence:@[[SharedAtlas actionLoading],
                                                     [SKAction waitForDuration:.2],
                                                     [SKAction removeFromParent]]];
@@ -43,5 +45,15 @@
         SKTransition *tran = [SKTransition doorsOpenVerticalWithDuration:1.];
         [self.view presentScene:scene transition:tran];
     }];
+}
+- (void)createLabelVerion
+{
+    SKLabelNode *nodeVersion = [[SKLabelNode alloc]init];
+    nodeVersion.text = [NSString stringWithFormat:@"v %@",[[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"]];
+    nodeVersion.fontColor = [SKColor blackColor];
+    nodeVersion.fontSize = 11;
+    nodeVersion.position = CGPointMake(self.size.width/2 , 10);
+    [self addChild:nodeVersion];
+
 }
 @end

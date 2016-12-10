@@ -41,6 +41,7 @@ static int iBigPlaneH = 86;
 @property (strong, nonatomic) SKAction *actionBlownUpSmallPlane;
 
 @property (strong, nonatomic) ButtonNode *buttonPause;
+@property (strong, nonatomic) SKLabelNode *labelScore;
 @end
 @implementation GameScene
 
@@ -71,8 +72,17 @@ static int iBigPlaneH = 86;
     [self initFiringBullets];
     [self initAction];
     [self initPauseButton];
+    [self initScore];
 }
-
+- (void)initScore
+{
+    self.labelScore = [[SKLabelNode alloc]initWithFontNamed:MarkerFelt_Thin];
+    self.labelScore.text = @"00000";
+    self.labelScore.fontColor = [SKColor blackColor];
+    self.labelScore.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+    self.labelScore.position = CGPointMake(70, CGRectGetMinY(self.buttonPause.frame));
+    [self addChild:self.labelScore];
+}
 - (void)initPauseButton
 {
     self.buttonPause = [[ButtonNode alloc]initWithDefaultTexture:[SharedAtlas textureButtonPauseDefault] andTouchedTexture:[SharedAtlas textureButtonPauseHight]];
@@ -286,27 +296,57 @@ static int iBigPlaneH = 86;
             [foePlane removeAllActions];
             [foePlane runAction:actionBlownUp withKey:@"dieAction"];
             [foePlane runAction:[SKAction playSoundFileNamed:strSoundPath waitForCompletion:YES]];
+            [self updateScore:foePlane.type];
         }else
         {
             [foePlane runAction:actionHit];
         }
     }
-
+}
+- (void)updateScore:(PGFoePlaneType)type
+{
+    int iScore = 0;
+    switch (type)
+    {
+        case PGFoePlaneTypeBig:
+            iScore = 6;
+            break;
+        case PGFoePlaneTypeMedium:
+            iScore = 3;
+            break;
+        case PGFoePlaneTypeSmall:
+            iScore = 1;
+            break;
+        default:
+            break;
+    }
+    [self.labelScore runAction:[SKAction runBlock:^{
+        self.labelScore.text = [NSString stringWithFormat:@"%05d",self.labelScore.text.intValue+iScore];
+    }]];
 }
 - (void)playerPlaneCollisionnAnimationWith:(SKSpriteNode *)playerPlane
 {
     [self removeAllActions];
     [self.buttonPause removeFromParent];
-    
+    [self.labelScore removeFromParent];
+
     [playerPlane runAction:[SharedAtlas actionBlowupWithPlayerPlane] completion:^{
         [self runAction:[SKAction sequence:@[[SKAction playSoundFileNamed:@"game_over.mp3" waitForCompletion:YES],[SKAction runBlock:^{
             SKLabelNode *nodeLabel = [SKLabelNode labelNodeWithFontNamed:MarkerFelt_Thin];
             nodeLabel.text = @"GameOver";
             nodeLabel.zPosition = 2;
             nodeLabel.fontColor = [SKColor blackColor];
-            nodeLabel.fontSize = 34;
-            nodeLabel.position = CGPointMake(self.size.width/2 , self.size.height/2 + 40);
+            nodeLabel.fontSize = 42;
+            nodeLabel.position = CGPointMake(self.size.width/2 , self.size.height/2 + 50);
             [self addChild:nodeLabel];
+
+            SKLabelNode *nodeLabelScore = [[SKLabelNode alloc]init];
+            nodeLabelScore.text = [NSString stringWithFormat:@"Your score: %d",self.labelScore.text.intValue];
+            nodeLabelScore.zPosition = 2;
+            nodeLabelScore.fontColor = [SKColor blackColor];
+            nodeLabelScore.fontSize = 25;
+            nodeLabelScore.position = CGPointMake(self.size.width/2 , self.size.height/2 - 45);
+            [self addChild:nodeLabelScore];
         }]]] completion:^{
             [[NSNotificationCenter defaultCenter]postNotificationName:k_Noti_GameOver object:nil];
         }];
