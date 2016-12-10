@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		302446111DFBCBB0008242AD /* ButtonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 302446101DFBCBB0008242AD /* ButtonNode.m */; };
+		302446151DFBECC1008242AD /* PGButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 302446141DFBECC1008242AD /* PGButton.m */; };
 		30303CA61DF98786008BCDFC /* FoePlane.m in Sources */ = {isa = PBXBuildFile; fileRef = 30303CA51DF98786008BCDFC /* FoePlane.m */; };
 		30371FB01DF8004400170B9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30371FAF1DF8004400170B9E /* main.m */; };
 		30371FC01DF8004400170B9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30371FBE1DF8004400170B9E /* Main.storyboard */; };
@@ -29,6 +31,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3024460F1DFBCBB0008242AD /* ButtonNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonNode.h; sourceTree = "<group>"; };
+		302446101DFBCBB0008242AD /* ButtonNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonNode.m; sourceTree = "<group>"; };
+		302446121DFBDF7B008242AD /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		302446131DFBECC1008242AD /* PGButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGButton.h; sourceTree = "<group>"; };
+		302446141DFBECC1008242AD /* PGButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGButton.m; sourceTree = "<group>"; };
 		30303CA41DF98786008BCDFC /* FoePlane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoePlane.h; sourceTree = "<group>"; };
 		30303CA51DF98786008BCDFC /* FoePlane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoePlane.m; sourceTree = "<group>"; };
 		30371FAB1DF8004400170B9E /* PlaneGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaneGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +79,8 @@
 		30303CA31DF9876B008BCDFC /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
+				3024460F1DFBCBB0008242AD /* ButtonNode.h */,
+				302446101DFBCBB0008242AD /* ButtonNode.m */,
 				30303CA41DF98786008BCDFC /* FoePlane.h */,
 				30303CA51DF98786008BCDFC /* FoePlane.m */,
 			);
@@ -134,6 +143,8 @@
 			children = (
 				3037221A1DF91CBE00170B9E /* GameViewController.h */,
 				3037221B1DF91CBE00170B9E /* GameViewController.m */,
+				302446131DFBECC1008242AD /* PGButton.h */,
+				302446141DFBECC1008242AD /* PGButton.m */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -143,6 +154,7 @@
 			children = (
 				303722201DF91CBE00170B9E /* AppDelegate.h */,
 				303722211DF91CBE00170B9E /* AppDelegate.m */,
+				302446121DFBDF7B008242AD /* PrefixHeader.pch */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -272,9 +284,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3037222F1DF9304B00170B9E /* SharedAtlas.m in Sources */,
+				302446111DFBCBB0008242AD /* ButtonNode.m in Sources */,
 				303722241DF91CBE00170B9E /* AppDelegate.m in Sources */,
 				303722281DF91D0800170B9E /* GameScene.m in Sources */,
 				30303CA61DF98786008BCDFC /* FoePlane.m in Sources */,
+				302446151DFBECC1008242AD /* PGButton.m in Sources */,
 				C9F392031DFB05C1008EDE4C /* LoadingScene.m in Sources */,
 				30371FB01DF8004400170B9E /* main.m in Sources */,
 				303722221DF91CBE00170B9E /* GameViewController.m in Sources */,
@@ -398,6 +412,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G426QE9Z25;
+				GCC_PREFIX_HEADER = PlaneGame/Main/PrefixHeader.pch;
 				INFOPLIST_FILE = PlaneGame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -412,6 +427,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G426QE9Z25;
+				GCC_PREFIX_HEADER = PlaneGame/Main/PrefixHeader.pch;
 				INFOPLIST_FILE = PlaneGame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

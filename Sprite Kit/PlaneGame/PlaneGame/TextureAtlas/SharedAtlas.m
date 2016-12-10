@@ -20,6 +20,14 @@
     });
     return atlas;
 }
++ (SKTexture *)textureButtonPauseDefault
+{
+    return [[SharedAtlas shared]textureNamed:@"game_pause"];
+}
++ (SKTexture *)textureButtonPauseHight
+{
+    return [[SharedAtlas shared]textureNamed:@"game_pause_hl"];
+}
 
 + (SKTexture *)textureWithType:(PGTextureType)type
 {

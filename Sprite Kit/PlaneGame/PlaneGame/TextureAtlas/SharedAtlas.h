@@ -25,6 +25,9 @@ typedef NS_ENUM(NSInteger, PGTextureType)
 
 + (instancetype)shared;
 
++ (SKTexture *)textureButtonPauseDefault;
++ (SKTexture *)textureButtonPauseHight;
+
 + (SKTexture *)textureLoadingWith:(int)index;
 
 /**

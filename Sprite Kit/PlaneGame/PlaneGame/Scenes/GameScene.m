@@ -9,6 +9,7 @@
 #import "GameScene.h"
 #import "SharedAtlas.h"
 #import "FoePlane.h"
+#import "ButtonNode.h"
 
 typedef NS_ENUM(uint32_t, PGRoleCategory)
 {
@@ -38,6 +39,8 @@ static int iBigPlaneH = 86;
 @property (strong, nonatomic) SKAction *actionBlownUpBigPlane;
 @property (strong, nonatomic) SKAction *actionBlownUpMediumPlane;
 @property (strong, nonatomic) SKAction *actionBlownUpSmallPlane;
+
+@property (strong, nonatomic) ButtonNode *buttonPause;
 @end
 @implementation GameScene
 
@@ -55,13 +58,44 @@ static int iBigPlaneH = 86;
 
         /// 物理模拟
     [self initPhysicsWorld];
+    [self createElements];
+
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(restart) name:k_Noti_Restart object:nil];
+    UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanFrom:)];
+    [[self view] addGestureRecognizer:gestureRecognizer];
+}
+- (void)createElements
+{
     [self initBackground];
     [self initPlayerPlane];
     [self initFiringBullets];
     [self initAction];
+    [self initPauseButton];
+}
 
-    UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanFrom:)];
-    [[self view] addGestureRecognizer:gestureRecognizer];
+- (void)initPauseButton
+{
+    self.buttonPause = [[ButtonNode alloc]initWithDefaultTexture:[SharedAtlas textureButtonPauseDefault] andTouchedTexture:[SharedAtlas textureButtonPauseHight]];
+    self.buttonPause.zPosition = 3;
+    self.buttonPause.position = CGPointMake(self.buttonPause.frame.size.width/2.+20, self.size.height-(self.buttonPause.frame.size.height/2.+20));
+    __weak typeof(ButtonNode *) weakPause = self.buttonPause;
+    __weak typeof(GameScene *) weakSelf = self;
+    [self.buttonPause setMethod:^{
+        [weakSelf didPause:weakPause];
+    }];
+    [self addChild:self.buttonPause];
+}
+- (void)didPause:(ButtonNode *)node
+{
+    [[NSNotificationCenter defaultCenter]postNotificationName:k_Noti_Pause object:nil];
+}
+
+- (void)restart
+{
+    [self removeAllChildren];
+    [self removeAllActions];
+
+    [self createElements];
 }
 - (void)initAction
 {
@@ -105,6 +139,7 @@ static int iBigPlaneH = 86;
 
         float speed = randf(3.5, 8);
         [foePlane runAction:[SKAction sequence:@[[SKAction moveToY:-iBigPlaneH duration:speed],[SKAction removeFromParent]]]];
+        [self runAction:[SKAction playSoundFileNamed:@"enemy2_out.mp3" waitForCompletion:YES]];
         self.timeBigPlane = 0;
     }
 }
@@ -164,12 +199,12 @@ static int iBigPlaneH = 86;
 - (void)initPlayerPlane
 {
     self.playerPlane = [SKSpriteNode spriteNodeWithTexture:[SharedAtlas textureWithType:PGTextureTypePlayerPlane1]];
-    self.playerPlane.position = CGPointMake(self.size.width/2., 50);
+    self.playerPlane.position = CGPointMake(self.size.width/2., self.playerPlane.size.height/2.);
     self.playerPlane.zPosition = 1;
     self.playerPlane.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.playerPlane.size];
-    self.playerPlane.physicsBody.collisionBitMask = 0;
     self.playerPlane.physicsBody.categoryBitMask = PGRoleCategoryPlayerPlane;
     self.playerPlane.physicsBody.contactTestBitMask = PGRoleCategoryFoePlane;
+    self.playerPlane.physicsBody.collisionBitMask = 0;
     [self addChild:self.playerPlane];
 
     [self.playerPlane runAction:[SharedAtlas playerPlaneAction]];
@@ -261,11 +296,19 @@ static int iBigPlaneH = 86;
 - (void)playerPlaneCollisionnAnimationWith:(SKSpriteNode *)playerPlane
 {
     [self removeAllActions];
+    [self.buttonPause removeFromParent];
+    
     [playerPlane runAction:[SharedAtlas actionBlowupWithPlayerPlane] completion:^{
         [self runAction:[SKAction sequence:@[[SKAction playSoundFileNamed:@"game_over.mp3" waitForCompletion:YES],[SKAction runBlock:^{
-
-        }]]]completion:^{
-
+            SKLabelNode *nodeLabel = [SKLabelNode labelNodeWithFontNamed:MarkerFelt_Thin];
+            nodeLabel.text = @"GameOver";
+            nodeLabel.zPosition = 2;
+            nodeLabel.fontColor = [SKColor blackColor];
+            nodeLabel.fontSize = 34;
+            nodeLabel.position = CGPointMake(self.size.width/2 , self.size.height/2 + 40);
+            [self addChild:nodeLabel];
+        }]]] completion:^{
+            [[NSNotificationCenter defaultCenter]postNotificationName:k_Noti_GameOver object:nil];
         }];
     }];
 }
@@ -295,8 +338,20 @@ static int iBigPlaneH = 86;
 }
 
 #pragma mark - responder
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [ButtonNode doButtonsActionBegan:self touches:touches withEvent:event];
+}
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [ButtonNode doButtonsActionEnded:self touches:touches withEvent:event];
+}
 - (void)handlePanFrom:(UIPanGestureRecognizer *)recognizer
 {
+    if (self.isPaused)
+    {
+        return;
+    }
     CGPoint translation = [recognizer translationInView:recognizer.view];
     translation = CGPointMake(translation.x, -translation.y);
     [self panForTranslation:translation];
@@ -314,6 +369,11 @@ static int iBigPlaneH = 86;
         self.playerPlane.position = CGPointMake(self.playerPlane.position.x+pointTran.x, self.playerPlane.position.y+pointTran.y);
     }
         ///需要进一步交互
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
     /// 取随机数
 static inline CGFloat skRandf()
