@@ -65,8 +65,8 @@
 //    skView.showsFPS = YES;
 //    skView.showsNodeCount = YES;
 
-//    GameScene *scene = [[GameScene alloc]initWithSize:self.view.bounds.size];
-    LoadingScene *scene = [[LoadingScene alloc]initWithSize:self.view.bounds.size];
+    GameScene *scene = [[GameScene alloc]initWithSize:self.view.bounds.size];
+//    LoadingScene *scene = [[LoadingScene alloc]initWithSize:self.view.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     [skView presentScene:scene];
 
@@ -75,7 +75,7 @@
 
     self.sessionQueue = dispatch_queue_create("session queue", DISPATCH_QUEUE_SERIAL);
     [self setupUI];
-    [self initLocalCam];
+    [self initCamera];
 
     self.hTracker = [FaceSDKTool st_initTrackerWith320W:NO];
     if (!self.hTracker)
@@ -86,12 +86,14 @@
         return;
     }
     [self startCamera];
+
+    [self gamePause];
 }
 - (void)setupUI
 {
     self.previewView = [[PreviewView alloc]init];
     [self.view addSubview:self.previewView];
-    self.previewView.hidden = YES;
+    self.previewView.alpha = 0;
 
         // 640x480 1280x720
     _fScale = 640 / KSCREENH;
@@ -109,7 +111,7 @@
 //    [self.previewView addGestureRecognizer:gestureRecognizer];
 
 }
-- (void)initLocalCam
+- (void)initCamera
 {
         // Create the AVCaptureSession.
     self.session = [[AVCaptureSession alloc] init];
@@ -217,9 +219,11 @@
 }
 - (void)startCamera
 {
-    if (self.previewView.hidden)
+    if (!self.previewView.alpha)
     {
-        self.previewView.hidden = NO;
+        [UIView animateWithDuration:2. animations:^{
+            self.previewView.alpha = 1;
+        }];
     }
     dispatch_async(self.sessionQueue, ^{
         [self.session startRunning];
@@ -227,9 +231,11 @@
 }
 - (void)stopCamera
 {
-    if (!self.previewView.hidden)
+    if (self.previewView.alpha)
     {
-        self.previewView.hidden = YES;
+        [UIView animateWithDuration:0.5 animations:^{
+            self.previewView.alpha = 0;
+        }];
     }
     [self.session stopRunning];
 }
@@ -268,19 +274,33 @@
     viewPause.center = self.view.center;
     [self.view addSubview:viewPause];
 
-    PGButton *buttonContinue = [[PGButton alloc]initWithCenter:CGPointMake(viewPause.frame.size.width/2., viewPause.frame.size.height/2.-30) bound:CGRectMake(0,0,200,40) title:@"continue"];
+    PGButton *buttonContinue = [[PGButton alloc]initWithCenter:CGPointMake(viewPause.frame.size.width/2., viewPause.frame.size.height/2.-70) bound:CGRectMake(0,0,200,40) title:@"continue" selectedTitle:nil];
     [buttonContinue didClicked:^{
         [self continueGame:buttonContinue];
     }];
     [viewPause addSubview:buttonContinue];
 
-    PGButton *buttonRestart = [[PGButton alloc]initWithCenter:CGPointMake(viewPause.frame.size.width/2., viewPause.frame.size.height/2.+30) bound:CGRectMake(0,0,200,40) title:@"restart"];
+    PGButton *buttonRestart = [[PGButton alloc]initWithCenter:CGPointMake(viewPause.frame.size.width/2., viewPause.frame.size.height/2.) bound:CGRectMake(0,0,200,40) title:@"restart" selectedTitle:nil];
     [buttonRestart didClicked:^{
         [self restart:buttonRestart];
     }];
     [viewPause addSubview:buttonRestart];
+
+    PGButton *buttonSound = [[PGButton alloc]initWithCenter:CGPointMake(viewPause.frame.size.width/2., viewPause.frame.size.height/2.+70) bound:CGRectMake(0,0,200,40) title:@"sound on" selectedTitle:@"sound off"];
+    [buttonSound didClicked:^{
+        [self soundOff:buttonSound];
+    }];
+    [viewPause addSubview:buttonSound];
 }
-- (void)continueGame:(UIButton *)sender
+- (void)soundOff:(PGButton *)sender
+{
+    sender.selected = !sender.selected;
+    if (sender.selected)
+    {
+        
+    }
+}
+- (void)continueGame:(PGButton *)sender
 {
     [sender.superview removeFromSuperview];
     ((SKView *)self.view).paused = NO;
@@ -291,13 +311,13 @@
     viewBg.center = self.view.center;
     [self.view addSubview:viewBg];
 
-    PGButton *button = [[PGButton alloc]initWithCenter:CGPointMake(viewBg.frame.size.width/2., viewBg.frame.size.height/2.) bound:CGRectMake(0,0,200,30) title:@"restart"];
+    PGButton *button = [[PGButton alloc]initWithCenter:CGPointMake(viewBg.frame.size.width/2., viewBg.frame.size.height/2.) bound:CGRectMake(0,0,200,30) title:@"restart" selectedTitle:nil];
     [button didClicked:^{
         [self restart:button];
     }];
     [viewBg addSubview:button];
 }
-- (void)restart:(UIButton *)sender
+- (void)restart:(PGButton *)sender
 {
     [sender.superview removeFromSuperview];
     ((SKView *)self.view).paused = NO;

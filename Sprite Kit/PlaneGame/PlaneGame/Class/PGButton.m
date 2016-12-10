@@ -14,13 +14,14 @@ typedef void (^Block)();
 @end
 @implementation PGButton
 
-- (instancetype)initWithCenter:(CGPoint)center bound:(CGRect)bounds title:(NSString *)title
+- (instancetype)initWithCenter:(CGPoint)center bound:(CGRect)bounds title:(NSString *)title selectedTitle:(NSString *)titleSelected
 {
     if (self = [super init])
     {
         self.center = center;
         self.bounds = bounds;
         [self setTitle:title forState:UIControlStateNormal];
+        [self setTitle:titleSelected forState:UIControlStateSelected];
         [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
         self.layer.borderWidth = 2.0;

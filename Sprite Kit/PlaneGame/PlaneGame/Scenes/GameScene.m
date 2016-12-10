@@ -88,16 +88,18 @@ static int iBigPlaneH = 86;
     self.buttonPause = [[ButtonNode alloc]initWithDefaultTexture:[SharedAtlas textureButtonPauseDefault] andTouchedTexture:[SharedAtlas textureButtonPauseHight]];
     self.buttonPause.zPosition = 3;
     self.buttonPause.position = CGPointMake(self.buttonPause.frame.size.width/2.+20, self.size.height-(self.buttonPause.frame.size.height/2.+20));
-    __weak typeof(ButtonNode *) weakPause = self.buttonPause;
     __weak typeof(GameScene *) weakSelf = self;
     [self.buttonPause setMethod:^{
-        [weakSelf didPause:weakPause];
+        [weakSelf didPause:weakSelf.buttonPause];
     }];
     [self addChild:self.buttonPause];
 }
 - (void)didPause:(ButtonNode *)node
 {
-    [[NSNotificationCenter defaultCenter]postNotificationName:k_Noti_Pause object:nil];
+    if (!self.isPaused)
+    {
+        [[NSNotificationCenter defaultCenter]postNotificationName:k_Noti_Pause object:nil];
+    }
 }
 
 - (void)restart
@@ -149,7 +151,7 @@ static int iBigPlaneH = 86;
 
         float speed = randf(3.5, 8);
         [foePlane runAction:[SKAction sequence:@[[SKAction moveToY:-iBigPlaneH duration:speed],[SKAction removeFromParent]]]];
-        [self runAction:[SKAction playSoundFileNamed:@"enemy2_out.mp3" waitForCompletion:YES]];
+        [self runAction:[SKAction playSoundFileNamed:@"enemy2_out.mp3" waitForCompletion:YES] withKey:k_Music_FoePlane];
         self.timeBigPlane = 0;
     }
 }
@@ -204,7 +206,7 @@ static int iBigPlaneH = 86;
     [bullet runAction:[SKAction sequence:@[[SKAction moveTo:CGPointMake(self.playerPlane.position.x, self.size.height+bullet.size.height) duration:k_TimeInterval_bullet_Move],
                                            [SKAction removeFromParent]]]];
         // add bullet music
-    [self runAction:[SKAction playSoundFileNamed:@"bullet.mp3" waitForCompletion:YES]];
+    [self runAction:[SKAction playSoundFileNamed:@"bullet.mp3" waitForCompletion:YES] withKey:k_Music_Bullet];
 }
 - (void)initPlayerPlane
 {
@@ -234,7 +236,7 @@ static int iBigPlaneH = 86;
     [self addChild:self.background2];
 
         /// add back ground music
-    [self runAction:[SKAction repeatActionForever:[SKAction playSoundFileNamed:@"game_music.mp3" waitForCompletion:YES]]];
+    [self runAction:[SKAction repeatActionForever:[SKAction playSoundFileNamed:@"game_music.mp3" waitForCompletion:YES]] withKey:k_Music_Background];
 
     self.iMoveBgPosition = self.size.height;
 }
@@ -295,7 +297,7 @@ static int iBigPlaneH = 86;
         {
             [foePlane removeAllActions];
             [foePlane runAction:actionBlownUp withKey:@"dieAction"];
-            [foePlane runAction:[SKAction playSoundFileNamed:strSoundPath waitForCompletion:YES]];
+            [foePlane runAction:[SKAction playSoundFileNamed:strSoundPath waitForCompletion:YES] withKey:k_Music_FoePlane_Down];
             [self updateScore:foePlane.type];
         }else
         {

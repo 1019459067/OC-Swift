@@ -10,7 +10,7 @@
 
 @interface PGButton : UIButton
 
-- (instancetype)initWithCenter:(CGPoint)center bound:(CGRect)bounds title:(NSString *)title;
+- (instancetype)initWithCenter:(CGPoint)center bound:(CGRect)bounds title:(NSString *)title selectedTitle:(NSString *)titleSelected;
 
 - (void)didClicked:(void(^)())completion;
 
