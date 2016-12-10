@@ -166,7 +166,7 @@ static int iBigPlaneH = 86;
     }
     foePlane.zPosition = 1;
     foePlane.physicsBody.categoryBitMask = PGRoleCategoryFoePlane;
-    foePlane.physicsBody.contactTestBitMask = PGRoleCategoryPlayerPlane;
+    foePlane.physicsBody.contactTestBitMask = PGRoleCategoryBullet;
     foePlane.physicsBody.collisionBitMask = PGRoleCategoryBullet;
     foePlane.position = CGPointMake(fFoePositionX, self.size.height);
     return foePlane;
@@ -324,11 +324,19 @@ static int iBigPlaneH = 86;
         FoePlane *foePlane = (contact.bodyA.categoryBitMask & PGRoleCategoryFoePlane) ? (FoePlane*)contact.bodyA.node:(FoePlane*)contact.bodyB.node;
         [self foePlaneCollisionnAnimationWith:foePlane];
     }
+
     if (contact.bodyA.categoryBitMask & PGRoleCategoryPlayerPlane
         ||contact.bodyB.categoryBitMask & PGRoleCategoryPlayerPlane)
     {
-        SKSpriteNode *spriteNode = (contact.bodyA.categoryBitMask & PGRoleCategoryPlayerPlane) ? (SKSpriteNode*)contact.bodyA.node:(SKSpriteNode*)contact.bodyB.node;
-        [self playerPlaneCollisionnAnimationWith:spriteNode];
+        SKSpriteNode *playerPlane = (contact.bodyA.categoryBitMask & PGRoleCategoryPlayerPlane) ? (SKSpriteNode*)contact.bodyA.node:(SKSpriteNode*)contact.bodyB.node;
+        [self playerPlaneCollisionnAnimationWith:playerPlane];
+    }
+
+    if (contact.bodyA.categoryBitMask & PGRoleCategoryBullet
+        ||contact.bodyB.categoryBitMask & PGRoleCategoryBullet)
+    {
+        SKSpriteNode *bullet = (contact.bodyA.categoryBitMask & PGRoleCategoryBullet) ? (SKSpriteNode*)contact.bodyA.node:(SKSpriteNode*)contact.bodyB.node;
+        [bullet removeFromParent];
     }
 }
 - (void)update:(NSTimeInterval)currentTime
