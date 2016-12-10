@@ -11,5 +11,12 @@
 #import <GameplayKit/GameplayKit.h>
 
 @interface GameViewController : UIViewController
+@property (assign, nonatomic) int iNumber;
+@property (assign, nonatomic) double yawValue;
+@property (assign, nonatomic) double pitchValue;
+- (void)startTime;
+- (void)stopTime;
 
+- (void)startCamera;
+- (void)stopCamera;
 @end

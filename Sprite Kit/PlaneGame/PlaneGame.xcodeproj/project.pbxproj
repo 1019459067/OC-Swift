@@ -10,6 +10,9 @@
 		302446111DFBCBB0008242AD /* ButtonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 302446101DFBCBB0008242AD /* ButtonNode.m */; };
 		302446151DFBECC1008242AD /* PGButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 302446141DFBECC1008242AD /* PGButton.m */; };
 		302446171DFC06A9008242AD /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 302446161DFC06A9008242AD /* icon.png */; };
+		302446B41DFC08CD008242AD /* libcvface_api.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 302446241DFC08CD008242AD /* libcvface_api.a */; };
+		302447271DFC08F2008242AD /* FaceSDKTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 302447231DFC08F2008242AD /* FaceSDKTool.m */; };
+		3024472B1DFC09AF008242AD /* PreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3024472A1DFC09AF008242AD /* PreviewView.m */; };
 		30303CA61DF98786008BCDFC /* FoePlane.m in Sources */ = {isa = PBXBuildFile; fileRef = 30303CA51DF98786008BCDFC /* FoePlane.m */; };
 		30371FB01DF8004400170B9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30371FAF1DF8004400170B9E /* main.m */; };
 		30371FC01DF8004400170B9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30371FBE1DF8004400170B9E /* Main.storyboard */; };
@@ -38,6 +41,14 @@
 		302446131DFBECC1008242AD /* PGButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGButton.h; sourceTree = "<group>"; };
 		302446141DFBECC1008242AD /* PGButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGButton.m; sourceTree = "<group>"; };
 		302446161DFC06A9008242AD /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		3024461F1DFC08CD008242AD /* cv_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cv_common.h; sourceTree = "<group>"; };
+		302446201DFC08CD008242AD /* cv_face.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cv_face.h; sourceTree = "<group>"; };
+		302446211DFC08CD008242AD /* cv_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cv_utils.h; sourceTree = "<group>"; };
+		302446241DFC08CD008242AD /* libcvface_api.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcvface_api.a; sourceTree = "<group>"; };
+		302447221DFC08F2008242AD /* FaceSDKTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceSDKTool.h; sourceTree = "<group>"; };
+		302447231DFC08F2008242AD /* FaceSDKTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceSDKTool.m; sourceTree = "<group>"; };
+		302447291DFC09AF008242AD /* PreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewView.h; sourceTree = "<group>"; };
+		3024472A1DFC09AF008242AD /* PreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewView.m; sourceTree = "<group>"; };
 		30303CA41DF98786008BCDFC /* FoePlane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoePlane.h; sourceTree = "<group>"; };
 		30303CA51DF98786008BCDFC /* FoePlane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoePlane.m; sourceTree = "<group>"; };
 		30371FAB1DF8004400170B9E /* PlaneGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaneGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,12 +83,75 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				302446B41DFC08CD008242AD /* libcvface_api.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		302446181DFC08CD008242AD /* v6.2.1-full_m1-ios-85f7644 */ = {
+			isa = PBXGroup;
+			children = (
+				3024461E1DFC08CD008242AD /* include */,
+				302446221DFC08CD008242AD /* libs */,
+			);
+			name = "v6.2.1-full_m1-ios-85f7644";
+			path = "../../../gitlab-sz-ios/CVFaceSDK/v6.2.1-full_m1-ios-85f7644";
+			sourceTree = "<group>";
+		};
+		3024461E1DFC08CD008242AD /* include */ = {
+			isa = PBXGroup;
+			children = (
+				3024461F1DFC08CD008242AD /* cv_common.h */,
+				302446201DFC08CD008242AD /* cv_face.h */,
+				302446211DFC08CD008242AD /* cv_utils.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		302446221DFC08CD008242AD /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				302446231DFC08CD008242AD /* ios_os-universal */,
+				302446251DFC08CD008242AD /* ios_sim-universal */,
+				302446261DFC08CD008242AD /* tvos_os-universal */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+		302446231DFC08CD008242AD /* ios_os-universal */ = {
+			isa = PBXGroup;
+			children = (
+				302446241DFC08CD008242AD /* libcvface_api.a */,
+			);
+			path = "ios_os-universal";
+			sourceTree = "<group>";
+		};
+		302446251DFC08CD008242AD /* ios_sim-universal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "ios_sim-universal";
+			sourceTree = "<group>";
+		};
+		302446261DFC08CD008242AD /* tvos_os-universal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "tvos_os-universal";
+			sourceTree = "<group>";
+		};
+		302447211DFC08F2008242AD /* FaceSDKTool */ = {
+			isa = PBXGroup;
+			children = (
+				302447221DFC08F2008242AD /* FaceSDKTool.h */,
+				302447231DFC08F2008242AD /* FaceSDKTool.m */,
+			);
+			name = FaceSDKTool;
+			path = "../../../gitlab-sz-ios/iOSLibrary/FaceSDKTool";
+			sourceTree = "<group>";
+		};
 		30303CA31DF9876B008BCDFC /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +166,8 @@
 		30371FA21DF8004400170B9E = {
 			isa = PBXGroup;
 			children = (
+				302447211DFC08F2008242AD /* FaceSDKTool */,
+				302446181DFC08CD008242AD /* v6.2.1-full_m1-ios-85f7644 */,
 				30371FAD1DF8004400170B9E /* PlaneGame */,
 				30371FAC1DF8004400170B9E /* Products */,
 			);
@@ -146,6 +222,8 @@
 			children = (
 				3037221A1DF91CBE00170B9E /* GameViewController.h */,
 				3037221B1DF91CBE00170B9E /* GameViewController.m */,
+				302447291DFC09AF008242AD /* PreviewView.h */,
+				3024472A1DFC09AF008242AD /* PreviewView.m */,
 				302446131DFBECC1008242AD /* PGButton.h */,
 				302446141DFBECC1008242AD /* PGButton.m */,
 			);
@@ -290,7 +368,9 @@
 				3037222F1DF9304B00170B9E /* SharedAtlas.m in Sources */,
 				302446111DFBCBB0008242AD /* ButtonNode.m in Sources */,
 				303722241DF91CBE00170B9E /* AppDelegate.m in Sources */,
+				302447271DFC08F2008242AD /* FaceSDKTool.m in Sources */,
 				303722281DF91D0800170B9E /* GameScene.m in Sources */,
+				3024472B1DFC09AF008242AD /* PreviewView.m in Sources */,
 				30303CA61DF98786008BCDFC /* FoePlane.m in Sources */,
 				302446151DFBECC1008242AD /* PGButton.m in Sources */,
 				C9F392031DFB05C1008EDE4C /* LoadingScene.m in Sources */,
@@ -416,10 +496,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G426QE9Z25;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = PlaneGame/Main/PrefixHeader.pch;
 				INFOPLIST_FILE = PlaneGame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../../../gitlab-sz-ios/CVFaceSDK/v6.2.1-full_m1-ios-85f7644/libs/ios_os-universal\"";
+				OTHER_LDFLAGS = "-lstdc++  ";
 				PRODUCT_BUNDLE_IDENTIFIER = com.1019459067.PlaneGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -431,10 +514,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G426QE9Z25;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = PlaneGame/Main/PrefixHeader.pch;
 				INFOPLIST_FILE = PlaneGame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../../../gitlab-sz-ios/CVFaceSDK/v6.2.1-full_m1-ios-85f7644/libs/ios_os-universal\"";
+				OTHER_LDFLAGS = "-lstdc++  ";
 				PRODUCT_BUNDLE_IDENTIFIER = com.1019459067.PlaneGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
