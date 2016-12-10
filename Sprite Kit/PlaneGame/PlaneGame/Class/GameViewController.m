@@ -91,6 +91,8 @@
 - (void)setupUI
 {
     self.previewView = [[PreviewView alloc]init];
+    self.previewView.layer.shadowColor = [UIColor lightGrayColor].CGColor;
+    self.previewView.layer.shadowOffset = CGSizeMake(-2, 2);
     [self.view addSubview:self.previewView];
     self.previewView.alpha = 0;
 
@@ -197,6 +199,9 @@
                 iFaceWidthMax = iFaceWidth;
             }
         }
+
+        NSLog(@"yawValue    : %f   %f",mainFace.points_array[13].x-mainFace.points_array[15].x,mainFace.points_array[13].y-mainFace.points_array[15].y);
+
         self.yawValue = mainFace.yaw;
         self.pitchValue = mainFace.pitch;
     }else
@@ -331,6 +336,10 @@
 }
 - (void)dealloc
 {
+    if (self.hTracker)
+    {
+        cv_face_destroy_tracker(self.hTracker);
+    }
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {

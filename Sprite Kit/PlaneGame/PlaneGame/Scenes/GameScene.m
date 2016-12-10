@@ -10,6 +10,7 @@
 #import "SharedAtlas.h"
 #import "FoePlane.h"
 #import "ButtonNode.h"
+#import "GameViewController.h"
 
 typedef NS_ENUM(uint32_t, PGRoleCategory)
 {
@@ -381,11 +382,6 @@ static int iBigPlaneH = 86;
         [bullet removeFromParent];
     }
 }
-- (void)update:(NSTimeInterval)currentTime
-{
-    [self scrollBackground];
-    [self initFoePlane];
-}
 
 #pragma mark - responder
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -420,7 +416,46 @@ static int iBigPlaneH = 86;
     }
         ///需要进一步交互
 }
+- (void)update:(NSTimeInterval)currentTime
+{
+    [self scrollBackground];
+    [self initFoePlane];
 
+    GameViewController *vc = (GameViewController *) self.view.window.rootViewController;
+
+    float iYaw = vc.yawValue;
+    if (iYaw>0)
+    {
+        iYaw = sqrt(iYaw);
+    }else
+    {
+        iYaw = -sqrt(fabs(iYaw));
+    }
+//    NSLog(@"yawValue    : %f   %f",vc.yawValue,iYaw);
+
+//    NSLog(@"yawValue    : %f",vc.yawValue);
+//    NSLog(@"pitchValue  : %f",vc.pitchValue);
+
+    float fNodeW = self.playerPlane.frame.size.width/2.;
+    float fNodeH = self.playerPlane.frame.size.height/2.;
+
+    if (fabs(vc.yawValue)<=30)
+    {
+        if (self.playerPlane.position.x+vc.yawValue>=fNodeW && self.playerPlane.position.x+vc.yawValue < self.frame.size.width-fNodeW)
+        {
+            self.playerPlane.position = CGPointMake(self.playerPlane.position.x+vc.yawValue, self.playerPlane.position.y);
+        }
+    }
+
+    if (fabs(vc.pitchValue)<=17)
+    {
+        if (self.playerPlane.position.y-vc.pitchValue>=fNodeH && self.playerPlane.position.y-vc.pitchValue < self.frame.size.height-fNodeH)
+        {
+            self.playerPlane.position = CGPointMake(self.playerPlane.position.x, self.playerPlane.position.y-vc.pitchValue);
+        }
+    }
+
+}
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter]removeObserver:self];
