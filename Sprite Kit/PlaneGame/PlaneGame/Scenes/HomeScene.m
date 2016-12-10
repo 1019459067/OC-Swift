@@ -31,8 +31,7 @@
 - (void)initTitle
 {
     SKLabelNode *nodeLabel = [SKLabelNode labelNodeWithFontNamed:MarkerFelt_Thin];
-    nodeLabel.text = @"飞机大战";
-    nodeLabel.zPosition = 2;
+    nodeLabel.text = @"Plane Wars";
     nodeLabel.fontColor = [SKColor blackColor];
     nodeLabel.fontSize = 75;
     nodeLabel.position = CGPointMake(self.size.width/2 , self.size.height*3/4.);
