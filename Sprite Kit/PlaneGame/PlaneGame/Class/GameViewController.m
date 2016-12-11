@@ -31,6 +31,7 @@
 @property (strong, nonatomic) PreviewView *previewView;
 
 @property (nonatomic) cv_handle_t hTracker;
+@property (nonatomic) cv_handle_t hLiveness;
 @end
 
 @implementation GameViewController
@@ -61,7 +62,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+    
     SKView *skView = (SKView *)self.view;
 //    skView.showsFPS = YES;
 //    skView.showsNodeCount = YES;
@@ -79,6 +81,7 @@
     [self initCamera];
 
     self.hTracker = [FaceSDKTool st_initTrackerWith320W:NO];
+    self.hLiveness = [FaceSDKTool st_initLiveness];
     if (!self.hTracker)
     {
         NSLog(@"Failed to init FaceSDK.");
@@ -168,8 +171,7 @@
     int iWidth  = (int)CVPixelBufferGetWidth(pixelBuffer);
     int iHeight = (int)CVPixelBufferGetHeight(pixelBuffer);
 
-    cv_result_t iRet = CV_OK;
-    iRet = cv_face_track(self.hTracker, baseAddress, CV_PIX_FMT_BGRA8888, iWidth, iHeight, iWidth * 4, CV_FACE_LEFT, &pFaceArray, &iCount);
+    cv_result_t iRet = cv_face_track(self.hTracker, baseAddress, CV_PIX_FMT_BGRA8888, iWidth, iHeight, iWidth * 4, CV_FACE_LEFT, &pFaceArray, &iCount);
 
     if (iRet == CV_OK && iCount)
     {
@@ -200,7 +202,14 @@
             }
         }
 
-        NSLog(@"yawValue    : %f   %f",mainFace.points_array[13].x-mainFace.points_array[15].x,mainFace.points_array[13].y-mainFace.points_array[15].y);
+        float fScore;
+        int iState;
+        cv_result_t iRetLiveness = cv_face_liveness_detect(_hLiveness, baseAddress, CV_PIX_FMT_BGRA8888 , iWidth, iHeight, iWidth * 4, &mainFace, &fScore, &iState);
+        if (iRetLiveness == CV_OK && iState > 0)
+        {
+            NSLog(@"face liveness state: %d  score:%f \n",  iState, fScore );
+        }
+//        NSLog(@"yawValue    : %f   %f",mainFace.points_array[13].x-mainFace.points_array[15].x,mainFace.points_array[13].y-mainFace.points_array[15].y);
 
         self.yawValue = mainFace.yaw;
         self.pitchValue = mainFace.pitch;
@@ -339,6 +348,10 @@
     if (self.hTracker)
     {
         cv_face_destroy_tracker(self.hTracker);
+    }
+    if (self.hLiveness)
+    {
+        cv_face_destroy_liveness_detector(self.hLiveness);
     }
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
