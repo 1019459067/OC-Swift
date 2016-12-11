@@ -12,13 +12,8 @@
 #import "ButtonNode.h"
 #import "GameViewController.h"
 #import "HomeScene.h"
+#import "PlayerPlane.h"
 
-typedef NS_ENUM(uint32_t, PGRoleCategory)
-{
-    PGRoleCategoryBullet            = 1,
-    PGRoleCategoryFoePlane          = 4,
-    PGRoleCategoryPlayerPlane       = 8
-};
 static int iSmallPlaneH = 14;
 static int iMediumPlaneH = 33;
 static int iBigPlaneH = 86;
@@ -28,7 +23,7 @@ static int iBigPlaneH = 86;
 @property (assign, nonatomic) int iMoveBgPosition;
 @property (strong, nonatomic) SKSpriteNode *background1;
 @property (strong, nonatomic) SKSpriteNode *background2;
-@property (strong, nonatomic) SKSpriteNode *playerPlane;
+@property (strong, nonatomic) PlayerPlane *playerPlane;
 
 @property (assign, nonatomic) NSInteger timeSmallPlane;  //25
 @property (assign, nonatomic) NSInteger timeMediumPlane; //400
@@ -278,13 +273,8 @@ static int iBigPlaneH = 86;
 }
 - (void)initPlayerPlane
 {
-    self.playerPlane = [SKSpriteNode spriteNodeWithTexture:[SharedAtlas textureWithType:PGTextureTypePlayerPlane1]];
+    self.playerPlane = [PlayerPlane createPlayerPlane];
     self.playerPlane.position = CGPointMake(self.size.width/2., self.playerPlane.size.height/2.);
-    self.playerPlane.zPosition = 1;
-    self.playerPlane.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.playerPlane.size];
-    self.playerPlane.physicsBody.categoryBitMask = PGRoleCategoryPlayerPlane;
-    self.playerPlane.physicsBody.contactTestBitMask = PGRoleCategoryFoePlane;
-    self.playerPlane.physicsBody.collisionBitMask = 0;
     [self addChild:self.playerPlane];
 
     [self.playerPlane runAction:[SharedAtlas playerPlaneAction]];
@@ -400,8 +390,13 @@ static int iBigPlaneH = 86;
         self.labelScore.text = [NSString stringWithFormat:@"%05d",self.labelScore.text.intValue+iScore];
     }]];
 }
-- (void)playerPlaneCollisionnAnimationWith:(SKSpriteNode *)playerPlane
+- (void)playerPlaneCollisionnAnimationWith:(PlayerPlane *)playerPlane
 {
+    playerPlane.ph--;
+    if (playerPlane.ph)
+    {
+        return;
+    }
     [self removeAllActions];
     [self.buttonPause removeFromParent];
     [self.labelScore removeFromParent];
@@ -457,7 +452,7 @@ static int iBigPlaneH = 86;
     if (contact.bodyA.categoryBitMask & PGRoleCategoryPlayerPlane
         ||contact.bodyB.categoryBitMask & PGRoleCategoryPlayerPlane)
     {
-        SKSpriteNode *playerPlane = (contact.bodyA.categoryBitMask & PGRoleCategoryPlayerPlane) ? (SKSpriteNode*)contact.bodyA.node:(SKSpriteNode*)contact.bodyB.node;
+        PlayerPlane *playerPlane = (contact.bodyA.categoryBitMask & PGRoleCategoryPlayerPlane) ? (PlayerPlane*)contact.bodyA.node:(PlayerPlane*)contact.bodyB.node;
         [self playerPlaneCollisionnAnimationWith:playerPlane];
     }
 

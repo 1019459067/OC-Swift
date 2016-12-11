@@ -17,6 +17,12 @@
 #define k_Music_FoePlane_Down   @"k_Music_FoePlane_Down"
 #define k_Music_GameOver        @"k_Music_GameOver"
 
+typedef NS_ENUM(uint32_t, PGRoleCategory)
+{
+    PGRoleCategoryBullet            = 1,
+    PGRoleCategoryFoePlane          = 4,
+    PGRoleCategoryPlayerPlane       = 8
+};
 @interface GameScene : SKScene
 
 @end
