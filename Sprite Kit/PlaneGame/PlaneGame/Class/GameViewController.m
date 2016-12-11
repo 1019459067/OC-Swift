@@ -63,18 +63,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
-    
+
     SKView *skView = (SKView *)self.view;
-//    skView.showsFPS = YES;
-//    skView.showsNodeCount = YES;
+    skView.showsFPS = YES;
+    skView.showsNodeCount = YES;
 
     HomeScene *scene = [[HomeScene alloc]initWithSize:self.view.bounds.size];
 //    LoadingScene *scene = [[LoadingScene alloc]initWithSize:self.view.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
-    [skView presentScene:scene];
-
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(gameOver) name:k_Noti_GameOver object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(gamePause) name:k_Noti_Pause object:nil];
+    [skView pushScene:scene];
 
     self.sessionQueue = dispatch_queue_create("session queue", DISPATCH_QUEUE_SERIAL);
     [self setupUI];
@@ -279,66 +276,6 @@
     return _iNumber;
 }
 
-- (void)gamePause
-{
-    ((SKView *)self.view).paused = YES;
-
-    UIView *viewPause = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 300, 200)];
-    viewPause.center = self.view.center;
-    [self.view addSubview:viewPause];
-
-    PGButton *buttonContinue = [[PGButton alloc]initWithCenter:CGPointMake(viewPause.frame.size.width/2., viewPause.frame.size.height/2.-70) bound:CGRectMake(0,0,200,40) title:@"continue" selectedTitle:nil];
-    [buttonContinue didClicked:^{
-        [self continueGame:buttonContinue];
-    }];
-    [viewPause addSubview:buttonContinue];
-
-    PGButton *buttonRestart = [[PGButton alloc]initWithCenter:CGPointMake(viewPause.frame.size.width/2., viewPause.frame.size.height/2.) bound:CGRectMake(0,0,200,40) title:@"restart" selectedTitle:nil];
-    [buttonRestart didClicked:^{
-        [self restart:buttonRestart];
-    }];
-    [viewPause addSubview:buttonRestart];
-
-    PGButton *buttonBack = [[PGButton alloc]initWithCenter:CGPointMake(viewPause.frame.size.width/2., viewPause.frame.size.height/2.+70) bound:CGRectMake(0,0,200,40) title:@"home" selectedTitle:nil];
-    [buttonBack didClicked:^{
-#warning <#message#>
-//        [self onActionBack:buttonBack];
-    }];
-    [viewPause addSubview:buttonBack];
-}
-- (void)onActionBack:(PGButton *)sender
-{
-
-    HomeScene *scene = [[HomeScene alloc]initWithSize:self.view.bounds.size];
-    SKTransition *tran = [SKTransition doorsCloseVerticalWithDuration:1.];
-    SKView *skView = (SKView *)self.view;
-
-    [skView presentScene:scene transition:tran];
-
-}
-- (void)continueGame:(PGButton *)sender
-{
-    [sender.superview removeFromSuperview];
-    ((SKView *)self.view).paused = NO;
-}
-- (void)gameOver
-{
-    UIView *viewBg = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 300, 200)];
-    viewBg.center = self.view.center;
-    [self.view addSubview:viewBg];
-
-    PGButton *button = [[PGButton alloc]initWithCenter:CGPointMake(viewBg.frame.size.width/2., viewBg.frame.size.height/2.) bound:CGRectMake(0,0,200,30) title:@"restart" selectedTitle:nil];
-    [button didClicked:^{
-        [self restart:button];
-    }];
-    [viewBg addSubview:button];
-}
-- (void)restart:(PGButton *)sender
-{
-    [sender.superview removeFromSuperview];
-    ((SKView *)self.view).paused = NO;
-    [[NSNotificationCenter defaultCenter]postNotificationName:k_Noti_Restart object:nil];
-}
 - (BOOL)shouldAutorotate
 {
     return YES;
@@ -353,7 +290,6 @@
     {
         cv_face_destroy_liveness_detector(self.hLiveness);
     }
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {

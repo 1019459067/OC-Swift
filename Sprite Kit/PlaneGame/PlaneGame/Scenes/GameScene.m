@@ -11,6 +11,7 @@
 #import "FoePlane.h"
 #import "ButtonNode.h"
 #import "GameViewController.h"
+#import "HomeScene.h"
 
 typedef NS_ENUM(uint32_t, PGRoleCategory)
 {
@@ -42,7 +43,12 @@ static int iBigPlaneH = 86;
 @property (strong, nonatomic) SKAction *actionBlownUpSmallPlane;
 
 @property (strong, nonatomic) ButtonNode *buttonPause;
+@property (strong, nonatomic) ButtonNode *nodeContinue;
+@property (strong, nonatomic) ButtonNode *nodeRestart;
+@property (strong, nonatomic) ButtonNode *nodeGoBack;
+
 @property (strong, nonatomic) SKLabelNode *labelScore;
+
 @end
 @implementation GameScene
 
@@ -62,9 +68,45 @@ static int iBigPlaneH = 86;
     [self initPhysicsWorld];
     [self createElements];
 
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(restart) name:k_Noti_Restart object:nil];
     UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanFrom:)];
     [[self view] addGestureRecognizer:gestureRecognizer];
+}
+- (void)initButtons
+{
+    __weak typeof(GameScene *) weakSelf = self;
+
+    {
+        self.nodeContinue = [[ButtonNode alloc]initWithDefaultTexture:[SKTexture textureWithImageNamed:@"button_continue_normal"] andTouchedTexture:[SKTexture textureWithImageNamed:@"button_continue_highlight"]];
+        self.nodeContinue.position = CGPointMake(self.size.width/2., self.size.height/2.+70);
+        self.nodeContinue.zPosition = 4;
+        [self.nodeContinue setMethod:^{
+            [weakSelf onActionButtonContinue];
+        }];
+        [self addChild:self.nodeContinue];
+        self.nodeContinue.hidden = YES;
+    }
+
+    {
+        self.nodeRestart = [[ButtonNode alloc]initWithDefaultTexture:[SKTexture textureWithImageNamed:@"button_restart_normal"] andTouchedTexture:[SKTexture textureWithImageNamed:@"button_restart_highlight"]];
+        self.nodeRestart.position = CGPointMake(self.size.width/2., self.size.height/2.);
+        self.nodeRestart.zPosition = 4;
+        [self.nodeRestart setMethod:^{
+            [weakSelf restart];
+        }];
+        [self addChild:self.nodeRestart];
+        self.nodeRestart.hidden = YES;
+    }
+
+    {
+        self.nodeGoBack = [[ButtonNode alloc]initWithDefaultTexture:[SKTexture textureWithImageNamed:@"button_back_normal"] andTouchedTexture:[SKTexture textureWithImageNamed:@"button_back_highlight"]];
+        self.nodeGoBack.position = CGPointMake(self.size.width/2., self.size.height/2.-70);
+        self.nodeGoBack.zPosition = 4;
+        [self.nodeGoBack setMethod:^{
+            [weakSelf onActionBack];
+        }];
+        [self addChild:self.nodeGoBack];
+        self.nodeGoBack.hidden = YES;
+    }
 }
 - (void)createElements
 {
@@ -74,6 +116,7 @@ static int iBigPlaneH = 86;
     [self initAction];
     [self initPauseButton];
     [self initScore];
+    [self initButtons];
 }
 - (void)initScore
 {
@@ -91,24 +134,42 @@ static int iBigPlaneH = 86;
     self.buttonPause.position = CGPointMake(self.buttonPause.frame.size.width/2.+20, self.size.height-(self.buttonPause.frame.size.height/2.+20));
     __weak typeof(GameScene *) weakSelf = self;
     [self.buttonPause setMethod:^{
-        [weakSelf didPause:weakSelf.buttonPause];
+        [weakSelf didPause];
     }];
     [self addChild:self.buttonPause];
 }
-- (void)didPause:(ButtonNode *)node
+- (void)didPause
 {
-    if (!self.isPaused)
-    {
-        [[NSNotificationCenter defaultCenter]postNotificationName:k_Noti_Pause object:nil];
-    }
+    self.paused = YES;
+    self.nodeContinue.hidden = NO;
+    self.nodeRestart.hidden = NO;
+    self.nodeGoBack.hidden = NO;
 }
-
+- (void)onActionButtonContinue
+{
+    self.paused = NO;
+    self.nodeContinue.hidden = YES;
+    self.nodeRestart.hidden = YES;
+    self.nodeGoBack.hidden = YES;
+}
 - (void)restart
 {
+    self.paused = NO;
     [self removeAllChildren];
     [self removeAllActions];
 
     [self createElements];
+}
+- (void)onActionBack
+{
+    [self removeActionForKey:k_Music_FoePlane];
+    [self removeActionForKey:k_Music_Bullet];
+    [self removeActionForKey:k_Music_Background];
+    [self removeActionForKey:k_Music_FoePlane_Down];
+    [self removeActionForKey:k_Music_GameOver];
+
+    SKTransition *tran = [SKTransition crossFadeWithDuration:1.];
+    [self.view popSceneTransition:tran];
 }
 - (void)initAction
 {
@@ -154,7 +215,7 @@ static int iBigPlaneH = 86;
         [foePlane runAction:[SKAction sequence:@[[SKAction moveToY:-iBigPlaneH duration:speed],[SKAction removeFromParent]]]];
         if ([[DefaultValue shared].strSound intValue])
         {
-            [self runAction:[SKAction playSoundFileNamed:@"enemy2_out.mp3" waitForCompletion:YES] withKey:k_Music_FoePlane];
+            [foePlane runAction:[SKAction playSoundFileNamed:@"enemy2_out.mp3" waitForCompletion:NO] withKey:k_Music_FoePlane];
         }
         self.timeBigPlane = 0;
     }
@@ -212,7 +273,7 @@ static int iBigPlaneH = 86;
         // add bullet music
     if ([[DefaultValue shared].strSound intValue])
     {
-        [self runAction:[SKAction playSoundFileNamed:@"bullet.mp3" waitForCompletion:YES] withKey:k_Music_Bullet];
+        [bullet runAction:[SKAction playSoundFileNamed:@"bullet.mp3" waitForCompletion:YES] withKey:k_Music_Bullet];
     }
 }
 - (void)initPlayerPlane
@@ -367,17 +428,17 @@ static int iBigPlaneH = 86;
     if ([[DefaultValue shared].strSound intValue])
     {
         [playerPlane runAction:[SharedAtlas actionBlowupWithPlayerPlane] completion:^{
-            [self runAction:[SKAction sequence:@[actionMusic,actionOver]] completion:^{
-                [[NSNotificationCenter defaultCenter]postNotificationName:k_Noti_GameOver object:nil];
-            }];
+            [self runAction:[SKAction sequence:@[actionMusic,actionOver]] withKey:k_Music_GameOver];
+            self.nodeRestart.hidden = NO;
         }];
     }else
     {
         [playerPlane runAction:[SharedAtlas actionBlowupWithPlayerPlane] completion:^{
             [self runAction:[SKAction sequence:@[actionOver]] completion:^{
-                [[NSNotificationCenter defaultCenter]postNotificationName:k_Noti_GameOver object:nil];
+                self.nodeRestart.hidden = NO;
             }];
-        }];    }
+        }];
+    }
 
 }
 #pragma mark - SKPhysicsContactDelegate

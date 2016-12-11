@@ -8,7 +8,7 @@
 
 #import "HomeScene.h"
 #import "SharedAtlas.h"
-#import "PGButton.h"
+#import "ButtonNode.h"
 #import "GameScene.h"
 #import "GameViewController.h"
 
@@ -39,35 +39,29 @@
 }
 - (void)initButton
 {
-    UIView *viewPause = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 300, 200)];
-    viewPause.center = self.view.center;
-    [self.view addSubview:viewPause];
-
-    PGButton *buttonStart = [[PGButton alloc]initWithCenter:CGPointMake(viewPause.frame.size.width/2., viewPause.frame.size.height/2.) bound:CGRectMake(0,0,200,40) title:@"start" selectedTitle:nil];
-    [buttonStart didClicked:^{
-        [self startGame:buttonStart];
+    ButtonNode *nodeStart = [[ButtonNode alloc]initWithDefaultTexture:[SKTexture textureWithImageNamed:@"button_start_normal"] andTouchedTexture:[SKTexture textureWithImageNamed:@"button_start_highlight"]];
+    nodeStart.position = CGPointMake(self.size.width/2., self.size.height/2.);
+    [nodeStart setMethod:^{
+        [self startGame];
     }];
-    [viewPause addSubview:buttonStart];
+    [self addChild:nodeStart];
 
-    PGButton *buttonSound = [[PGButton alloc]initWithCenter:CGPointMake(viewPause.frame.size.width/2., viewPause.frame.size.height/2.+70) bound:CGRectMake(0,0,200,40) title:@"sound on" selectedTitle:@"sound off"];
-    buttonSound.selected = ![[DefaultValue shared].strSound intValue];
-    [buttonSound didClicked:^{
-        [self soundOff:buttonSound];
+    ButtonNode *nodeSound = [[ButtonNode alloc]initWithDefaultTexture:[SKTexture textureWithImageNamed:@"button_soundon_normal"] andTouchedTexture:[SKTexture textureWithImageNamed:@"button_soundoff_highlight"]];
+    nodeSound.position = CGPointMake(self.size.width/2., self.size.height/2.-70);
+    [nodeSound setMethod:^{
+        [self soundOff];
     }];
-    [viewPause addSubview:buttonSound];
+    [self addChild:nodeSound];
 }
-- (void)soundOff:(PGButton *)sender
+- (void)soundOff
 {
-    sender.selected = !sender.selected;
-    [DefaultValue shared].strSound = [NSString stringWithFormat:@"%d",!sender.selected];
+    [DefaultValue shared].strSound = [NSString stringWithFormat:@"%d",![[DefaultValue shared].strSound intValue]];
 }
-- (void)startGame:(PGButton *)sender
+- (void)startGame
 {
-    [sender.superview removeFromSuperview];
-
     GameScene *scene = [[GameScene alloc]initWithSize:self.size];
     SKTransition *tran = [SKTransition doorsOpenVerticalWithDuration:1.];
-    [self.view presentScene:scene transition:tran];
+    [self.view pushScene:scene transition:tran];
 
     GameViewController *vc = (GameViewController *) self.view.window.rootViewController;
     [vc startCamera];
@@ -80,5 +74,12 @@
     background.zPosition = 0;
     [self addChild:background];
 }
-
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [ButtonNode doButtonsActionBegan:self touches:touches withEvent:event];
+}
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [ButtonNode doButtonsActionEnded:self touches:touches withEvent:event];
+}
 @end

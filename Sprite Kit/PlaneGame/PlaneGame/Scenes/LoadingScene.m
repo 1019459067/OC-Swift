@@ -43,7 +43,7 @@
     [nodeLoading runAction:actionSequence completion:^{
         HomeScene *scene = [[HomeScene alloc]initWithSize:self.size];
         SKTransition *tran = [SKTransition doorsOpenVerticalWithDuration:1.];
-        [self.view presentScene:scene transition:tran];
+        [self.view pushScene:scene transition:tran];
     }];
 }
 - (void)createLabelVerion

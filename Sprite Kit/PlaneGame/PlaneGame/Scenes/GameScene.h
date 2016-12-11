@@ -15,6 +15,7 @@
 #define k_Music_Bullet          @"k_Music_Bullet"
 #define k_Music_Background      @"k_Music_Background"
 #define k_Music_FoePlane_Down   @"k_Music_FoePlane_Down"
+#define k_Music_GameOver        @"k_Music_GameOver"
 
 @interface GameScene : SKScene
 
