@@ -204,7 +204,7 @@
         cv_result_t iRetLiveness = cv_face_liveness_detect(_hLiveness, baseAddress, CV_PIX_FMT_BGRA8888 , iWidth, iHeight, iWidth * 4, &mainFace, &fScore, &iState);
         if (iRetLiveness == CV_OK && iState > 0)
         {
-            NSLog(@"face liveness state: %d  score:%f \n",  iState, fScore );
+            [self getLiveDetectionResultWithState:iState];
         }
 //        NSLog(@"yawValue    : %f   %f",mainFace.points_array[13].x-mainFace.points_array[15].x,mainFace.points_array[13].y-mainFace.points_array[15].y);
 
@@ -217,6 +217,35 @@
     }
     cv_face_release_tracker_result(pFaceArray, iCount);
     CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+}
+-(void) getLiveDetectionResultWithState:(int)iState
+{
+    switch (iState) {
+        case LIVE_BLINK:
+        {
+            break;
+        }
+        case LIVE_SMILE:
+        {
+            if ([AppDelegate share].bGameOver)
+            {
+                [[NSNotificationCenter defaultCenter]postNotificationName:k_Noti_Restart object:nil];
+            }
+            break;
+        }
+        case LIVE_YAW:
+        {
+
+            break;
+        }
+        case LIVE_PITCH:
+        {
+
+            break;
+        }
+    }
+    NSLog(@"face liveness state: %d \n",  iState );
+
 }
 - (NSTimer *)timer
 {

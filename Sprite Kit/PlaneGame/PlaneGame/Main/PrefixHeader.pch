@@ -15,11 +15,12 @@
 
 #import "DefaultValue.h"
 #import "SKView+Push_Pop.h"
+#import "AppDelegate.h"
 
 #define MarkerFelt_Thin     @"MarkerFelt-Thin"
 #define Chalkduster         @"Chalkduster"
 
-//#define k_Noti_Restart      @"restartNotification"
+#define k_Noti_Restart      @"restartNotification"
 //#define k_Noti_GameOver     @"gameOverNotification"
 //#define k_Noti_Pause        @"pauseNotification"
 

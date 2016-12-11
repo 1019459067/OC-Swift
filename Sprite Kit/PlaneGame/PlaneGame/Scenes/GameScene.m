@@ -63,6 +63,7 @@ static int iBigPlaneH = 86;
     [self initPhysicsWorld];
     [self createElements];
 
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(restart) name:k_Noti_Restart object:nil];
     UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanFrom:)];
     [[self view] addGestureRecognizer:gestureRecognizer];
 }
@@ -149,6 +150,7 @@ static int iBigPlaneH = 86;
 }
 - (void)restart
 {
+    [AppDelegate share].bGameOver = NO;
     self.paused = NO;
     [self removeAllChildren];
     [self removeAllActions];
@@ -419,7 +421,7 @@ static int iBigPlaneH = 86;
         nodeLabelScore.position = CGPointMake(self.size.width/2 , self.size.height/2 - 45);
         [self addChild:nodeLabelScore];
     }];
-
+    [AppDelegate share].bGameOver = YES;
     if ([[DefaultValue shared].strSound intValue])
     {
         [playerPlane runAction:[SharedAtlas actionBlowupWithPlayerPlane] completion:^{
