@@ -32,6 +32,7 @@
 		303722491DF93E8600170B9E /* enemy3_down.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 303722421DF93E8600170B9E /* enemy3_down.mp3 */; };
 		3037224A1DF93E8600170B9E /* game_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 303722431DF93E8600170B9E /* game_music.mp3 */; };
 		3037224B1DF93E8600170B9E /* game_over.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 303722441DF93E8600170B9E /* game_over.mp3 */; };
+		308007061DFD093D00B3B541 /* DefaultValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 308007051DFD093D00B3B541 /* DefaultValue.m */; };
 		C9F392031DFB05C1008EDE4C /* LoadingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F392021DFB05C1008EDE4C /* LoadingScene.m */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,8 @@
 		303722421DF93E8600170B9E /* enemy3_down.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = enemy3_down.mp3; sourceTree = "<group>"; };
 		303722431DF93E8600170B9E /* game_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = game_music.mp3; sourceTree = "<group>"; };
 		303722441DF93E8600170B9E /* game_over.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = game_over.mp3; sourceTree = "<group>"; };
+		308007041DFD093D00B3B541 /* DefaultValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultValue.h; sourceTree = "<group>"; };
+		308007051DFD093D00B3B541 /* DefaultValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultValue.m; sourceTree = "<group>"; };
 		C9F392011DFB05C1008EDE4C /* LoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingScene.h; sourceTree = "<group>"; };
 		C9F392021DFB05C1008EDE4C /* LoadingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,6 +242,8 @@
 				303722201DF91CBE00170B9E /* AppDelegate.h */,
 				303722211DF91CBE00170B9E /* AppDelegate.m */,
 				302446121DFBDF7B008242AD /* PrefixHeader.pch */,
+				308007041DFD093D00B3B541 /* DefaultValue.h */,
+				308007051DFD093D00B3B541 /* DefaultValue.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -378,6 +383,7 @@
 				303722281DF91D0800170B9E /* GameScene.m in Sources */,
 				3024472B1DFC09AF008242AD /* PreviewView.m in Sources */,
 				30303CA61DF98786008BCDFC /* FoePlane.m in Sources */,
+				308007061DFD093D00B3B541 /* DefaultValue.m in Sources */,
 				302446151DFBECC1008242AD /* PGButton.m in Sources */,
 				C9F392031DFB05C1008EDE4C /* LoadingScene.m in Sources */,
 				30371FB01DF8004400170B9E /* main.m in Sources */,

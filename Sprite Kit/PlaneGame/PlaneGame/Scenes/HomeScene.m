@@ -50,6 +50,7 @@
     [viewPause addSubview:buttonStart];
 
     PGButton *buttonSound = [[PGButton alloc]initWithCenter:CGPointMake(viewPause.frame.size.width/2., viewPause.frame.size.height/2.+70) bound:CGRectMake(0,0,200,40) title:@"sound on" selectedTitle:@"sound off"];
+    buttonSound.selected = ![[DefaultValue shared].strSound intValue];
     [buttonSound didClicked:^{
         [self soundOff:buttonSound];
     }];
@@ -58,10 +59,7 @@
 - (void)soundOff:(PGButton *)sender
 {
     sender.selected = !sender.selected;
-    if (sender.selected)
-    {
-
-    }
+    [DefaultValue shared].strSound = [NSString stringWithFormat:@"%d",!sender.selected];
 }
 - (void)startGame:(PGButton *)sender
 {

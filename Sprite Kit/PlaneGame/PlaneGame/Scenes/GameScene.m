@@ -152,7 +152,10 @@ static int iBigPlaneH = 86;
 
         float speed = randf(3.5, 8);
         [foePlane runAction:[SKAction sequence:@[[SKAction moveToY:-iBigPlaneH duration:speed],[SKAction removeFromParent]]]];
-        [self runAction:[SKAction playSoundFileNamed:@"enemy2_out.mp3" waitForCompletion:YES] withKey:k_Music_FoePlane];
+        if ([[DefaultValue shared].strSound intValue])
+        {
+            [self runAction:[SKAction playSoundFileNamed:@"enemy2_out.mp3" waitForCompletion:YES] withKey:k_Music_FoePlane];
+        }
         self.timeBigPlane = 0;
     }
 }
@@ -207,7 +210,10 @@ static int iBigPlaneH = 86;
     [bullet runAction:[SKAction sequence:@[[SKAction moveTo:CGPointMake(self.playerPlane.position.x, self.size.height+bullet.size.height) duration:k_TimeInterval_bullet_Move],
                                            [SKAction removeFromParent]]]];
         // add bullet music
-    [self runAction:[SKAction playSoundFileNamed:@"bullet.mp3" waitForCompletion:YES] withKey:k_Music_Bullet];
+    if ([[DefaultValue shared].strSound intValue])
+    {
+        [self runAction:[SKAction playSoundFileNamed:@"bullet.mp3" waitForCompletion:YES] withKey:k_Music_Bullet];
+    }
 }
 - (void)initPlayerPlane
 {
@@ -237,7 +243,10 @@ static int iBigPlaneH = 86;
     [self addChild:self.background2];
 
         /// add back ground music
-    [self runAction:[SKAction repeatActionForever:[SKAction playSoundFileNamed:@"game_music.mp3" waitForCompletion:YES]] withKey:k_Music_Background];
+    if ([[DefaultValue shared].strSound intValue])
+    {
+        [self runAction:[SKAction repeatActionForever:[SKAction playSoundFileNamed:@"game_music.mp3" waitForCompletion:YES]] withKey:k_Music_Background];
+    }
 
     self.iMoveBgPosition = self.size.height;
 }
@@ -298,7 +307,10 @@ static int iBigPlaneH = 86;
         {
             [foePlane removeAllActions];
             [foePlane runAction:actionBlownUp withKey:@"dieAction"];
-            [foePlane runAction:[SKAction playSoundFileNamed:strSoundPath waitForCompletion:YES] withKey:k_Music_FoePlane_Down];
+            if ([[DefaultValue shared].strSound intValue])
+            {
+                [foePlane runAction:[SKAction playSoundFileNamed:strSoundPath waitForCompletion:YES] withKey:k_Music_FoePlane_Down];
+            }
             [self updateScore:foePlane.type];
         }else
         {
@@ -333,27 +345,40 @@ static int iBigPlaneH = 86;
     [self.buttonPause removeFromParent];
     [self.labelScore removeFromParent];
 
-    [playerPlane runAction:[SharedAtlas actionBlowupWithPlayerPlane] completion:^{
-        [self runAction:[SKAction sequence:@[[SKAction playSoundFileNamed:@"game_over.mp3" waitForCompletion:YES],[SKAction runBlock:^{
-            SKLabelNode *nodeLabel = [SKLabelNode labelNodeWithFontNamed:MarkerFelt_Thin];
-            nodeLabel.text = @"GameOver";
-            nodeLabel.zPosition = 2;
-            nodeLabel.fontColor = [SKColor blackColor];
-            nodeLabel.fontSize = 42;
-            nodeLabel.position = CGPointMake(self.size.width/2 , self.size.height/2 + 50);
-            [self addChild:nodeLabel];
+    SKAction *actionMusic = [SKAction playSoundFileNamed:@"game_over.mp3" waitForCompletion:YES];
+    SKAction *actionOver = [SKAction runBlock:^{
+        SKLabelNode *nodeLabel = [SKLabelNode labelNodeWithFontNamed:MarkerFelt_Thin];
+        nodeLabel.text = @"GameOver";
+        nodeLabel.zPosition = 2;
+        nodeLabel.fontColor = [SKColor blackColor];
+        nodeLabel.fontSize = 42;
+        nodeLabel.position = CGPointMake(self.size.width/2 , self.size.height/2 + 50);
+        [self addChild:nodeLabel];
 
-            SKLabelNode *nodeLabelScore = [[SKLabelNode alloc]init];
-            nodeLabelScore.text = [NSString stringWithFormat:@"Your score: %d",self.labelScore.text.intValue];
-            nodeLabelScore.zPosition = 2;
-            nodeLabelScore.fontColor = [SKColor blackColor];
-            nodeLabelScore.fontSize = 25;
-            nodeLabelScore.position = CGPointMake(self.size.width/2 , self.size.height/2 - 45);
-            [self addChild:nodeLabelScore];
-        }]]] completion:^{
-            [[NSNotificationCenter defaultCenter]postNotificationName:k_Noti_GameOver object:nil];
-        }];
+        SKLabelNode *nodeLabelScore = [[SKLabelNode alloc]init];
+        nodeLabelScore.text = [NSString stringWithFormat:@"Your score: %d",self.labelScore.text.intValue];
+        nodeLabelScore.zPosition = 2;
+        nodeLabelScore.fontColor = [SKColor blackColor];
+        nodeLabelScore.fontSize = 25;
+        nodeLabelScore.position = CGPointMake(self.size.width/2 , self.size.height/2 - 45);
+        [self addChild:nodeLabelScore];
     }];
+
+    if ([[DefaultValue shared].strSound intValue])
+    {
+        [playerPlane runAction:[SharedAtlas actionBlowupWithPlayerPlane] completion:^{
+            [self runAction:[SKAction sequence:@[actionMusic,actionOver]] completion:^{
+                [[NSNotificationCenter defaultCenter]postNotificationName:k_Noti_GameOver object:nil];
+            }];
+        }];
+    }else
+    {
+        [playerPlane runAction:[SharedAtlas actionBlowupWithPlayerPlane] completion:^{
+            [self runAction:[SKAction sequence:@[actionOver]] completion:^{
+                [[NSNotificationCenter defaultCenter]postNotificationName:k_Noti_GameOver object:nil];
+            }];
+        }];    }
+
 }
 #pragma mark - SKPhysicsContactDelegate
 /*
