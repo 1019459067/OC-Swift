@@ -12,7 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (assign, nonatomic) BOOL bGameOver;
-
+@property (assign, nonatomic) BOOL bStarted;
 + (AppDelegate *)share;
 @end
 

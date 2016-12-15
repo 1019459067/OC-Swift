@@ -21,6 +21,7 @@
 #define Chalkduster         @"Chalkduster"
 
 #define k_Noti_Restart      @"restartNotification"
+#define k_Noti_Start        @"startNotification"
 //#define k_Noti_GameOver     @"gameOverNotification"
 //#define k_Noti_Pause        @"pauseNotification"
 

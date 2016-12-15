@@ -247,11 +247,15 @@
     cv_face_release_tracker_result(pFaceArray, iCount);
     CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
 }
--(void) getLiveDetectionResultWithState:(int)iState
+- (void)getLiveDetectionResultWithState:(int)iState
 {
     switch (iState) {
         case LIVE_BLINK:
         {
+            if (![AppDelegate share].bStarted)
+            {
+                [[NSNotificationCenter defaultCenter]postNotificationName:k_Noti_Start object:nil];
+            }
             break;
         }
         case LIVE_SMILE:

@@ -26,6 +26,8 @@
         [self initBackground];
         [self initTitle];
         [self initButton];
+        
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(startGame) name:k_Noti_Start object:nil];
     }
 }
 - (void)initTitle
@@ -57,8 +59,10 @@
 {
     [DefaultValue shared].strSound = [NSString stringWithFormat:@"%d",![[DefaultValue shared].strSound intValue]];
 }
+
 - (void)startGame
 {
+    [AppDelegate share].bStarted = YES;
     GameScene *scene = [[GameScene alloc]initWithSize:self.size];
     SKTransition *tran = [SKTransition doorsOpenVerticalWithDuration:1.];
     [self.view pushScene:scene transition:tran];

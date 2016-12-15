@@ -51,5 +51,6 @@
     {
         self.strSound = @"1";
     }
+    self.strSound = @"0";
 }
 @end
