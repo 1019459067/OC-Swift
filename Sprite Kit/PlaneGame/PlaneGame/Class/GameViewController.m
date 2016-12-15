@@ -14,6 +14,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "PreviewView.h"
 #import "FaceSDKTool.h"
+#import "CanvasView.h"
 
 #define KSCREENW [UIScreen mainScreen].bounds.size.width
 #define KSCREENH [UIScreen mainScreen].bounds.size.height
@@ -29,6 +30,7 @@
 
 @property (nonatomic) dispatch_queue_t sessionQueue;
 @property (strong, nonatomic) PreviewView *previewView;
+@property (strong, nonatomic) CanvasView *viewCanvas;
 
 @property (nonatomic) cv_handle_t hTracker;
 @property (nonatomic) cv_handle_t hLiveness;
@@ -60,7 +62,8 @@
     return nil;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 
@@ -86,13 +89,13 @@
         [alert show];
         return;
     }
-//    [self startCamera];
+    [self startCamera];
 }
 - (void)setupUI
 {
     self.previewView = [[PreviewView alloc]init];
-    self.previewView.layer.shadowColor = [UIColor lightGrayColor].CGColor;
-    self.previewView.layer.shadowOffset = CGSizeMake(-2, 2);
+    self.previewView.layer.cornerRadius = 5;
+    self.previewView.layer.masksToBounds = YES;
     [self.view addSubview:self.previewView];
     self.previewView.alpha = 0;
 
@@ -106,6 +109,11 @@
                                         20,
                                         fPreviewW*displayScale,
                                         fPreviewH*displayScale);
+
+    self.viewCanvas = [[CanvasView alloc]init];
+    self.viewCanvas.backgroundColor = [UIColor clearColor];
+    [self.previewView addSubview:self.viewCanvas];
+    self.viewCanvas.frame = self.previewView.bounds;
 
 //    self.previewView.userInteractionEnabled = YES;
 //    UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanFrom:)];
@@ -206,14 +214,35 @@
         {
             [self getLiveDetectionResultWithState:iState];
         }
+        int iLeft   = mainFace.rect.top ;
+        int iRight  = iLeft + iFaceWidthMax ;
+        int iTop    = mainFace.rect.left ;
+        int iBottom = iTop + iFaceWidthMax ;
+        
+        NSLog(@"centerX：%f , centerY:%f",iLeft+iFaceWidthMax/2.,mainFace.rect.left+iFaceWidthMax/2.);
+
 //        NSLog(@"yawValue    : %f   %f",mainFace.points_array[13].x-mainFace.points_array[15].x,mainFace.points_array[13].y-mainFace.points_array[15].y);
 
         self.yawValue = mainFace.yaw;
         self.pitchValue = mainFace.pitch;
+        
+        CGRect rectPreviewFace = [FaceSDKTool getFacePreviewRect:mainFace.rect withRotation:Angle_90Mirror withRectWidth:iWidth withRectHeigt:iHeight withScale:_fScale*6.];
+
+        NSMutableArray *arrPersons = [NSMutableArray array];
+        NSMutableDictionary *dicPerson = [NSMutableDictionary dictionary];
+        [dicPerson setObject:NSStringFromCGRect(rectPreviewFace) forKey:RECT_KEY];
+        [arrPersons addObject:dicPerson];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self showFaceLandmarksAndFaceRectWithPersonsArray:arrPersons];
+        });
     }else
     {
         self.yawValue = 0;
         self.pitchValue = 0;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self hideFace];
+        });
     }
     cv_face_release_tracker_result(pFaceArray, iCount);
     CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
@@ -325,6 +354,25 @@
         return UIInterfaceOrientationMaskAllButUpsideDown;
     } else {
         return UIInterfaceOrientationMaskAll;
+    }
+}
+#pragma mark - viewCanvas method
+
+- (void)showFaceLandmarksAndFaceRectWithPersonsArray:(NSMutableArray *)arrPersons
+{
+    if (self.viewCanvas.hidden)
+    {
+        self.viewCanvas.hidden = NO;
+    }
+    self.viewCanvas.arrPersons = arrPersons;
+    [self.viewCanvas setNeedsDisplay] ;
+}
+
+- (void)hideFace
+{
+    if (!self.viewCanvas.hidden)
+    {
+        self.viewCanvas.hidden = YES;
     }
 }
 

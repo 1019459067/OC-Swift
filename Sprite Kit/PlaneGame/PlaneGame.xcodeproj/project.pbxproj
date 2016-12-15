@@ -55,6 +55,7 @@
 		3080083F1DFD455800B3B541 /* button_back_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3080083B1DFD455800B3B541 /* button_back_normal@2x.png */; };
 		308008421DFD4A6B00B3B541 /* SKView+Push_Pop.m in Sources */ = {isa = PBXBuildFile; fileRef = 308008411DFD4A6B00B3B541 /* SKView+Push_Pop.m */; };
 		308008451DFD56F000B3B541 /* PlayerPlane.m in Sources */ = {isa = PBXBuildFile; fileRef = 308008441DFD56F000B3B541 /* PlayerPlane.m */; };
+		C9E85F691E02DA7F00C7CCC8 /* CanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E85F681E02DA7F00C7CCC8 /* CanvasView.m */; };
 		C9F392031DFB05C1008EDE4C /* LoadingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F392021DFB05C1008EDE4C /* LoadingScene.m */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +127,8 @@
 		308008411DFD4A6B00B3B541 /* SKView+Push_Pop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKView+Push_Pop.m"; sourceTree = "<group>"; };
 		308008431DFD56F000B3B541 /* PlayerPlane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerPlane.h; sourceTree = "<group>"; };
 		308008441DFD56F000B3B541 /* PlayerPlane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerPlane.m; sourceTree = "<group>"; };
+		C9E85F671E02DA7F00C7CCC8 /* CanvasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasView.h; sourceTree = "<group>"; };
+		C9E85F681E02DA7F00C7CCC8 /* CanvasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasView.m; sourceTree = "<group>"; };
 		C9F392011DFB05C1008EDE4C /* LoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingScene.h; sourceTree = "<group>"; };
 		C9F392021DFB05C1008EDE4C /* LoadingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -274,6 +277,8 @@
 		303722191DF91CBE00170B9E /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				C9E85F671E02DA7F00C7CCC8 /* CanvasView.h */,
+				C9E85F681E02DA7F00C7CCC8 /* CanvasView.m */,
 				3037221A1DF91CBE00170B9E /* GameViewController.h */,
 				3037221B1DF91CBE00170B9E /* GameViewController.m */,
 				302447291DFC09AF008242AD /* PreviewView.h */,
@@ -479,6 +484,7 @@
 				308008421DFD4A6B00B3B541 /* SKView+Push_Pop.m in Sources */,
 				C9F392031DFB05C1008EDE4C /* LoadingScene.m in Sources */,
 				30371FB01DF8004400170B9E /* main.m in Sources */,
+				C9E85F691E02DA7F00C7CCC8 /* CanvasView.m in Sources */,
 				303722221DF91CBE00170B9E /* GameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
