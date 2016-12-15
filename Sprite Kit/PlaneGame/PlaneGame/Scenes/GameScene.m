@@ -64,8 +64,8 @@ static int iBigPlaneH = 86;
     [self createElements];
 
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(restart) name:k_Noti_Restart object:nil];
-    UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanFrom:)];
-    [[self view] addGestureRecognizer:gestureRecognizer];
+
+//    [[self view] addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanFrom:)]];
 }
 - (void)initButtons
 {
