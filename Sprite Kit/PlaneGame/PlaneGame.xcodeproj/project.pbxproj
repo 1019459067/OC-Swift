@@ -308,10 +308,10 @@
 			children = (
 				C9F392011DFB05C1008EDE4C /* LoadingScene.h */,
 				C9F392021DFB05C1008EDE4C /* LoadingScene.m */,
-				303722261DF91D0800170B9E /* GameScene.h */,
-				303722271DF91D0800170B9E /* GameScene.m */,
 				3024472C1DFC22F7008242AD /* HomeScene.h */,
 				3024472D1DFC22F7008242AD /* HomeScene.m */,
+				303722261DF91D0800170B9E /* GameScene.h */,
+				303722271DF91D0800170B9E /* GameScene.m */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
