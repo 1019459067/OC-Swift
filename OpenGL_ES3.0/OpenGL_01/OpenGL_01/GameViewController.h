@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  GameViewController.h
 //  OpenGL_01
 //
 //  Created by STMBP on 2016/12/17.
@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GLKit/GLKit.h>
 
-@interface ViewController : UIViewController
-
+@interface GameViewController : GLKViewController
 
 @end
-

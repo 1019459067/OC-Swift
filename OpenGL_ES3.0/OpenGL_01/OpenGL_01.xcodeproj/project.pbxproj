@@ -7,29 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3026E71F1E04FAEB00B59460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3026E71E1E04FAEB00B59460 /* main.m */; };
-		3026E7221E04FAEB00B59460 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3026E7211E04FAEB00B59460 /* AppDelegate.m */; };
-		3026E7251E04FAEB00B59460 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3026E7241E04FAEB00B59460 /* ViewController.m */; };
-		3026E7281E04FAEB00B59460 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3026E7261E04FAEB00B59460 /* Main.storyboard */; };
-		3026E72A1E04FAEB00B59460 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3026E7291E04FAEB00B59460 /* Assets.xcassets */; };
-		3026E72D1E04FAEB00B59460 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3026E72B1E04FAEB00B59460 /* LaunchScreen.storyboard */; };
+		3026E7421E0500AB00B59460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3026E7411E0500AB00B59460 /* main.m */; };
+		3026E7451E0500AB00B59460 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3026E7441E0500AB00B59460 /* AppDelegate.m */; };
+		3026E74C1E0500AB00B59460 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3026E74B1E0500AB00B59460 /* GameViewController.m */; };
+		3026E74F1E0500AB00B59460 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3026E74D1E0500AB00B59460 /* Main.storyboard */; };
+		3026E7511E0500AB00B59460 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3026E7501E0500AB00B59460 /* Assets.xcassets */; };
+		3026E7541E0500AB00B59460 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3026E7521E0500AB00B59460 /* LaunchScreen.storyboard */; };
+		3026E75C1E0505F900B59460 /* 20150716093225221.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3026E75B1E0505F900B59460 /* 20150716093225221.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3026E71A1E04FAEB00B59460 /* OpenGL_01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenGL_01.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3026E71E1E04FAEB00B59460 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3026E7201E04FAEB00B59460 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		3026E7211E04FAEB00B59460 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3026E7231E04FAEB00B59460 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3026E7241E04FAEB00B59460 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3026E7271E04FAEB00B59460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3026E7291E04FAEB00B59460 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3026E72C1E04FAEB00B59460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3026E72E1E04FAEB00B59460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3026E73D1E0500AB00B59460 /* OpenGL_01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenGL_01.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3026E7411E0500AB00B59460 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3026E7431E0500AB00B59460 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3026E7441E0500AB00B59460 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3026E74A1E0500AB00B59460 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		3026E74B1E0500AB00B59460 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		3026E74E1E0500AB00B59460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3026E7501E0500AB00B59460 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3026E7531E0500AB00B59460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3026E7551E0500AB00B59460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3026E75B1E0505F900B59460 /* 20150716093225221.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 20150716093225221.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3026E7171E04FAEB00B59460 /* Frameworks */ = {
+		3026E73A1E0500AB00B59460 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,42 +41,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3026E7111E04FAEB00B59460 = {
+		3026E7341E0500AB00B59460 = {
 			isa = PBXGroup;
 			children = (
-				3026E71C1E04FAEB00B59460 /* OpenGL_01 */,
-				3026E71B1E04FAEB00B59460 /* Products */,
+				3026E73F1E0500AB00B59460 /* OpenGL_01 */,
+				3026E73E1E0500AB00B59460 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		3026E71B1E04FAEB00B59460 /* Products */ = {
+		3026E73E1E0500AB00B59460 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3026E71A1E04FAEB00B59460 /* OpenGL_01.app */,
+				3026E73D1E0500AB00B59460 /* OpenGL_01.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3026E71C1E04FAEB00B59460 /* OpenGL_01 */ = {
+		3026E73F1E0500AB00B59460 /* OpenGL_01 */ = {
 			isa = PBXGroup;
 			children = (
-				3026E7201E04FAEB00B59460 /* AppDelegate.h */,
-				3026E7211E04FAEB00B59460 /* AppDelegate.m */,
-				3026E7231E04FAEB00B59460 /* ViewController.h */,
-				3026E7241E04FAEB00B59460 /* ViewController.m */,
-				3026E7261E04FAEB00B59460 /* Main.storyboard */,
-				3026E7291E04FAEB00B59460 /* Assets.xcassets */,
-				3026E72B1E04FAEB00B59460 /* LaunchScreen.storyboard */,
-				3026E72E1E04FAEB00B59460 /* Info.plist */,
-				3026E71D1E04FAEB00B59460 /* Supporting Files */,
+				3026E7431E0500AB00B59460 /* AppDelegate.h */,
+				3026E7441E0500AB00B59460 /* AppDelegate.m */,
+				3026E74A1E0500AB00B59460 /* GameViewController.h */,
+				3026E74B1E0500AB00B59460 /* GameViewController.m */,
+				3026E74D1E0500AB00B59460 /* Main.storyboard */,
+				3026E7501E0500AB00B59460 /* Assets.xcassets */,
+				3026E7521E0500AB00B59460 /* LaunchScreen.storyboard */,
+				3026E7551E0500AB00B59460 /* Info.plist */,
+				3026E7401E0500AB00B59460 /* Supporting Files */,
 			);
 			path = OpenGL_01;
 			sourceTree = "<group>";
 		};
-		3026E71D1E04FAEB00B59460 /* Supporting Files */ = {
+		3026E7401E0500AB00B59460 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3026E71E1E04FAEB00B59460 /* main.m */,
+				3026E75B1E0505F900B59460 /* 20150716093225221.jpg */,
+				3026E7411E0500AB00B59460 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -82,13 +85,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3026E7191E04FAEB00B59460 /* OpenGL_01 */ = {
+		3026E73C1E0500AB00B59460 /* OpenGL_01 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3026E7311E04FAEB00B59460 /* Build configuration list for PBXNativeTarget "OpenGL_01" */;
+			buildConfigurationList = 3026E7581E0500AB00B59460 /* Build configuration list for PBXNativeTarget "OpenGL_01" */;
 			buildPhases = (
-				3026E7161E04FAEB00B59460 /* Sources */,
-				3026E7171E04FAEB00B59460 /* Frameworks */,
-				3026E7181E04FAEB00B59460 /* Resources */,
+				3026E7391E0500AB00B59460 /* Sources */,
+				3026E73A1E0500AB00B59460 /* Frameworks */,
+				3026E73B1E0500AB00B59460 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -96,26 +99,26 @@
 			);
 			name = OpenGL_01;
 			productName = OpenGL_01;
-			productReference = 3026E71A1E04FAEB00B59460 /* OpenGL_01.app */;
+			productReference = 3026E73D1E0500AB00B59460 /* OpenGL_01.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		3026E7121E04FAEB00B59460 /* Project object */ = {
+		3026E7351E0500AB00B59460 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = 1019459067;
 				TargetAttributes = {
-					3026E7191E04FAEB00B59460 = {
+					3026E73C1E0500AB00B59460 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = G426QE9Z25;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 3026E7151E04FAEB00B59460 /* Build configuration list for PBXProject "OpenGL_01" */;
+			buildConfigurationList = 3026E7381E0500AB00B59460 /* Build configuration list for PBXProject "OpenGL_01" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -123,55 +126,56 @@
 				en,
 				Base,
 			);
-			mainGroup = 3026E7111E04FAEB00B59460;
-			productRefGroup = 3026E71B1E04FAEB00B59460 /* Products */;
+			mainGroup = 3026E7341E0500AB00B59460;
+			productRefGroup = 3026E73E1E0500AB00B59460 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3026E7191E04FAEB00B59460 /* OpenGL_01 */,
+				3026E73C1E0500AB00B59460 /* OpenGL_01 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3026E7181E04FAEB00B59460 /* Resources */ = {
+		3026E73B1E0500AB00B59460 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3026E72D1E04FAEB00B59460 /* LaunchScreen.storyboard in Resources */,
-				3026E72A1E04FAEB00B59460 /* Assets.xcassets in Resources */,
-				3026E7281E04FAEB00B59460 /* Main.storyboard in Resources */,
+				3026E75C1E0505F900B59460 /* 20150716093225221.jpg in Resources */,
+				3026E74F1E0500AB00B59460 /* Main.storyboard in Resources */,
+				3026E7511E0500AB00B59460 /* Assets.xcassets in Resources */,
+				3026E7541E0500AB00B59460 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3026E7161E04FAEB00B59460 /* Sources */ = {
+		3026E7391E0500AB00B59460 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3026E7251E04FAEB00B59460 /* ViewController.m in Sources */,
-				3026E7221E04FAEB00B59460 /* AppDelegate.m in Sources */,
-				3026E71F1E04FAEB00B59460 /* main.m in Sources */,
+				3026E7451E0500AB00B59460 /* AppDelegate.m in Sources */,
+				3026E74C1E0500AB00B59460 /* GameViewController.m in Sources */,
+				3026E7421E0500AB00B59460 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3026E7261E04FAEB00B59460 /* Main.storyboard */ = {
+		3026E74D1E0500AB00B59460 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3026E7271E04FAEB00B59460 /* Base */,
+				3026E74E1E0500AB00B59460 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		3026E72B1E04FAEB00B59460 /* LaunchScreen.storyboard */ = {
+		3026E7521E0500AB00B59460 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3026E72C1E04FAEB00B59460 /* Base */,
+				3026E7531E0500AB00B59460 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -179,7 +183,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		3026E72F1E04FAEB00B59460 /* Debug */ = {
+		3026E7561E0500AB00B59460 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -227,7 +231,7 @@
 			};
 			name = Debug;
 		};
-		3026E7301E04FAEB00B59460 /* Release */ = {
+		3026E7571E0500AB00B59460 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -269,7 +273,7 @@
 			};
 			name = Release;
 		};
-		3026E7321E04FAEB00B59460 /* Debug */ = {
+		3026E7591E0500AB00B59460 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -281,7 +285,7 @@
 			};
 			name = Debug;
 		};
-		3026E7331E04FAEB00B59460 /* Release */ = {
+		3026E75A1E0500AB00B59460 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -296,24 +300,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3026E7151E04FAEB00B59460 /* Build configuration list for PBXProject "OpenGL_01" */ = {
+		3026E7381E0500AB00B59460 /* Build configuration list for PBXProject "OpenGL_01" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3026E72F1E04FAEB00B59460 /* Debug */,
-				3026E7301E04FAEB00B59460 /* Release */,
+				3026E7561E0500AB00B59460 /* Debug */,
+				3026E7571E0500AB00B59460 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3026E7311E04FAEB00B59460 /* Build configuration list for PBXNativeTarget "OpenGL_01" */ = {
+		3026E7581E0500AB00B59460 /* Build configuration list for PBXNativeTarget "OpenGL_01" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3026E7321E04FAEB00B59460 /* Debug */,
-				3026E7331E04FAEB00B59460 /* Release */,
+				3026E7591E0500AB00B59460 /* Debug */,
+				3026E75A1E0500AB00B59460 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 3026E7121E04FAEB00B59460 /* Project object */;
+	rootObject = 3026E7351E0500AB00B59460 /* Project object */;
 }
