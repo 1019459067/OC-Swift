@@ -219,7 +219,17 @@
         int iTop    = mainFace.rect.left ;
         int iBottom = iTop + iFaceWidthMax ;
         
-        NSLog(@"centerX：%f , centerY:%f",iLeft+iFaceWidthMax/2.,mainFace.rect.left+iFaceWidthMax/2.);
+        int centerX = iLeft+iFaceWidthMax/2.;
+        int centerY = mainFace.rect.left+iFaceWidthMax/2.;
+        if (centerX>KSCREENW/2.)
+        {
+            centerX = centerX-KSCREENW;
+        }
+//        if (centerY>KSCREENH/2.)
+        {
+            centerY = centerY-KSCREENH;
+        }
+        NSLog(@"centerX：%d , centerY:%d",-centerX,centerY);
 
 //        NSLog(@"yawValue    : %f   %f",mainFace.points_array[13].x-mainFace.points_array[15].x,mainFace.points_array[13].y-mainFace.points_array[15].y);
 

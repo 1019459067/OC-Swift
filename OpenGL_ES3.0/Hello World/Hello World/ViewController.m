@@ -34,7 +34,7 @@
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     [EAGLContext setCurrentContext:_context];
     glEnable(GL_DEPTH_TEST);//开启深度测试，就是让离你近的物体可以遮挡离你远的物体。
-    glClearColor(0, 0.2, 0.3, 1);
+    glClearColor(0.2, 0.2, 0.2, 1);
     
 }
 
@@ -46,7 +46,7 @@
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
     NSLog(@"%s",__func__);
-//    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);//清除surface内容，恢复至初始状态。  
+    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);//清除surface内容，恢复至初始状态。  
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
