@@ -1,9 +1,9 @@
 //
 //  main.m
-//  A Simple Triangle
+//  OpenGL_ES_01
 //
-//  Created by STMBP on 16/9/30.
-//  Copyright © 2016年 sensetime. All rights reserved.
+//  Created by STMBP on 2017/2/4.
+//  Copyright © 2017年 sensetime. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

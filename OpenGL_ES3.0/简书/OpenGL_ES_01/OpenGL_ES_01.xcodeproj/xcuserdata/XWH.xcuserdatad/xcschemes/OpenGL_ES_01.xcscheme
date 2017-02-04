@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0820"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "30CFE74F1D9E05DA007008A8"
-               BuildableName = "A Simple Triangle.app"
-               BlueprintName = "A Simple Triangle"
-               ReferencedContainer = "container:A Simple Triangle.xcodeproj">
+               BlueprintIdentifier = "C99DDF6F1E44D93600CBF02A"
+               BuildableName = "OpenGL_ES_01.app"
+               BlueprintName = "OpenGL_ES_01"
+               ReferencedContainer = "container:OpenGL_ES_01.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "30CFE74F1D9E05DA007008A8"
-            BuildableName = "A Simple Triangle.app"
-            BlueprintName = "A Simple Triangle"
-            ReferencedContainer = "container:A Simple Triangle.xcodeproj">
+            BlueprintIdentifier = "C99DDF6F1E44D93600CBF02A"
+            BuildableName = "OpenGL_ES_01.app"
+            BlueprintName = "OpenGL_ES_01"
+            ReferencedContainer = "container:OpenGL_ES_01.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "30CFE74F1D9E05DA007008A8"
-            BuildableName = "A Simple Triangle.app"
-            BlueprintName = "A Simple Triangle"
-            ReferencedContainer = "container:A Simple Triangle.xcodeproj">
+            BlueprintIdentifier = "C99DDF6F1E44D93600CBF02A"
+            BuildableName = "OpenGL_ES_01.app"
+            BlueprintName = "OpenGL_ES_01"
+            ReferencedContainer = "container:OpenGL_ES_01.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "30CFE74F1D9E05DA007008A8"
-            BuildableName = "A Simple Triangle.app"
-            BlueprintName = "A Simple Triangle"
-            ReferencedContainer = "container:A Simple Triangle.xcodeproj">
+            BlueprintIdentifier = "C99DDF6F1E44D93600CBF02A"
+            BuildableName = "OpenGL_ES_01.app"
+            BlueprintName = "OpenGL_ES_01"
+            ReferencedContainer = "container:OpenGL_ES_01.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

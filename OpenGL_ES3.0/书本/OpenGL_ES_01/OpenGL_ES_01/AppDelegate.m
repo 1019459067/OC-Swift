@@ -1,13 +1,13 @@
 //
 //  AppDelegate.m
-//  A Simple Triangle
+//  OpenGL_ES_01
 //
-//  Created by STMBP on 16/9/30.
-//  Copyright © 2016年 sensetime. All rights reserved.
+//  Created by STMBP on 2017/2/4.
+//  Copyright © 2017年 sensetime. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "OPenGLViewController.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,13 +17,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    ViewController *rootVC = [[ViewController alloc]init];
+    self.window.rootViewController = rootVC;
 
-    OPenGLViewController *vc = [[OPenGLViewController alloc]init];
-    self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
-    
     return YES;
 }
 
