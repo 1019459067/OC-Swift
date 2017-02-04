@@ -56,7 +56,7 @@ static const SceneVertex vertices[] =
     [self.baseEffect prepareToDraw];
     
     // Clear Frame Buffer (erase previous drawing)
-    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT);
     
     // Enable use of positions from bound vertex buffer
     glEnableVertexAttribArray(GLKVertexAttribPosition);
