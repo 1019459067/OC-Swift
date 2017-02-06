@@ -7,16 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		309BA9401E48061500CAB848 /* AGLKContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 309BA93D1E48061500CAB848 /* AGLKContext.m */; };
+		309BA9411E48061500CAB848 /* AGLKVertexAttribArrayBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 309BA93F1E48061500CAB848 /* AGLKVertexAttribArrayBuffer.m */; };
 		C9AB0B841E476616003AA541 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AB0B831E476616003AA541 /* main.m */; };
 		C9AB0B871E476616003AA541 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AB0B861E476616003AA541 /* AppDelegate.m */; };
 		C9AB0B931E476616003AA541 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9AB0B921E476616003AA541 /* Assets.xcassets */; };
 		C9AB0B961E476616003AA541 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9AB0B941E476616003AA541 /* LaunchScreen.storyboard */; };
 		C9AB0B9F1E476640003AA541 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AB0B9E1E476640003AA541 /* ViewController.m */; };
-		C9AB0BA21E4766A9003AA541 /* AGLKContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AB0BA11E4766A9003AA541 /* AGLKContext.m */; };
-		C9AB0BA81E476929003AA541 /* AGLKVertexAttribArrayBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AB0BA71E476929003AA541 /* AGLKVertexAttribArrayBuffer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		309BA93C1E48061500CAB848 /* AGLKContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AGLKContext.h; path = ../AGLKit/AGLKContext.h; sourceTree = "<group>"; };
+		309BA93D1E48061500CAB848 /* AGLKContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AGLKContext.m; path = ../AGLKit/AGLKContext.m; sourceTree = "<group>"; };
+		309BA93E1E48061500CAB848 /* AGLKVertexAttribArrayBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AGLKVertexAttribArrayBuffer.h; path = ../AGLKit/AGLKVertexAttribArrayBuffer.h; sourceTree = "<group>"; };
+		309BA93F1E48061500CAB848 /* AGLKVertexAttribArrayBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AGLKVertexAttribArrayBuffer.m; path = ../AGLKit/AGLKVertexAttribArrayBuffer.m; sourceTree = "<group>"; };
 		C9AB0B7F1E476616003AA541 /* OpenGL_ES_03.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenGL_ES_03.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9AB0B831E476616003AA541 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C9AB0B851E476616003AA541 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,10 +30,6 @@
 		C9AB0B971E476616003AA541 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9AB0B9D1E476640003AA541 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		C9AB0B9E1E476640003AA541 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		C9AB0BA01E4766A9003AA541 /* AGLKContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLKContext.h; sourceTree = "<group>"; };
-		C9AB0BA11E4766A9003AA541 /* AGLKContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLKContext.m; sourceTree = "<group>"; };
-		C9AB0BA61E476929003AA541 /* AGLKVertexAttribArrayBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLKVertexAttribArrayBuffer.h; sourceTree = "<group>"; };
-		C9AB0BA71E476929003AA541 /* AGLKVertexAttribArrayBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLKVertexAttribArrayBuffer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +46,10 @@
 		C9AB0B761E476616003AA541 = {
 			isa = PBXGroup;
 			children = (
+				309BA93C1E48061500CAB848 /* AGLKContext.h */,
+				309BA93D1E48061500CAB848 /* AGLKContext.m */,
+				309BA93E1E48061500CAB848 /* AGLKVertexAttribArrayBuffer.h */,
+				309BA93F1E48061500CAB848 /* AGLKVertexAttribArrayBuffer.m */,
 				C9AB0B811E476616003AA541 /* OpenGL_ES_03 */,
 				C9AB0B801E476616003AA541 /* Products */,
 			);
@@ -66,10 +70,6 @@
 				C9AB0B861E476616003AA541 /* AppDelegate.m */,
 				C9AB0B9D1E476640003AA541 /* ViewController.h */,
 				C9AB0B9E1E476640003AA541 /* ViewController.m */,
-				C9AB0BA01E4766A9003AA541 /* AGLKContext.h */,
-				C9AB0BA11E4766A9003AA541 /* AGLKContext.m */,
-				C9AB0BA61E476929003AA541 /* AGLKVertexAttribArrayBuffer.h */,
-				C9AB0BA71E476929003AA541 /* AGLKVertexAttribArrayBuffer.m */,
 				C9AB0B921E476616003AA541 /* Assets.xcassets */,
 				C9AB0B941E476616003AA541 /* LaunchScreen.storyboard */,
 				C9AB0B971E476616003AA541 /* Info.plist */,
@@ -157,9 +157,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9AB0BA21E4766A9003AA541 /* AGLKContext.m in Sources */,
+				309BA9401E48061500CAB848 /* AGLKContext.m in Sources */,
 				C9AB0B871E476616003AA541 /* AppDelegate.m in Sources */,
-				C9AB0BA81E476929003AA541 /* AGLKVertexAttribArrayBuffer.m in Sources */,
+				309BA9411E48061500CAB848 /* AGLKVertexAttribArrayBuffer.m in Sources */,
 				C9AB0B9F1E476640003AA541 /* ViewController.m in Sources */,
 				C9AB0B841E476616003AA541 /* main.m in Sources */,
 			);
@@ -312,6 +312,7 @@
 				C9AB0B9C1E476616003AA541 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

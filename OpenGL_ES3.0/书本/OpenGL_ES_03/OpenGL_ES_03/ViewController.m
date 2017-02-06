@@ -41,7 +41,7 @@ static const SceneVertex vertices[] =
     self.baskEffect.useConstantColor = GL_TRUE;
     self.baskEffect.constantColor = GLKVector4Make(1, 1, 1, 1);
     ((AGLKContext *)glkView.context).clearColor = GLKVector4Make(0, 0, 0, 1);
-    
+
     self.vertexBuffer = [[AGLKVertexAttribArrayBuffer alloc]initWithAttribStride:sizeof(SceneVertex) numberOfVertices:sizeof(vertices)/sizeof(SceneVertex) data:vertices usage:GL_STATIC_DRAW];
 }
 
@@ -50,10 +50,10 @@ static const SceneVertex vertices[] =
     [self.baskEffect prepareToDraw];
     
     [(AGLKContext *)view.context clear:GL_COLOR_BUFFER_BIT];
+
+    [self.vertexBuffer prepareToDrawWithAttrib:GLKVertexAttribPosition numberOfCoordinates:sizeof(vertices)/sizeof(SceneVertex) attribOffset:offsetof(SceneVertex, positionCoords) shouldEnable:YES];
     
-    [self.vertexBuffer prepareToDrawWithAttrib:GLKVertexAttribPosition numberOfCoordinates:3 attribOffset:offsetof(SceneVertex, positionCoords) shouldEnable:YES];
-    
-    [self.vertexBuffer drawArrayWithMode:GL_TRIANGLES startVertexIndex:0 numberOfVertices:3];
+    [self.vertexBuffer drawArrayWithMode:GL_TRIANGLES startVertexIndex:0 numberOfVertices:sizeof(vertices)/sizeof(SceneVertex)];
 }
 - (void)dealloc
 {

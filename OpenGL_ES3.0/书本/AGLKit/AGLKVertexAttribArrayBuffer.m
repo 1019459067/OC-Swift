@@ -8,11 +8,8 @@
 
 #import "AGLKVertexAttribArrayBuffer.h"
 
-@interface AGLKVertexAttribArrayBuffer ()
-//@property (assign, nonatomic) GLsizeiptr bufferSizeBytes;
-//@property (assign, nonatomic) GLsizeiptr stride;
-@end
 @implementation AGLKVertexAttribArrayBuffer
+
 - (instancetype)initWithAttribStride:(GLsizeiptr)stride numberOfVertices:(GLsizeiptr)count data:(const GLvoid *)dataPtr usage:(GLenum)usage
 {
     NSParameterAssert(0 < stride);
@@ -32,6 +29,7 @@
     }
     return self;
 }
+
 - (void)prepareToDrawWithAttrib:(GLuint)index numberOfCoordinates:(GLuint)count attribOffset:(GLsizeiptr)offset shouldEnable:(BOOL)shouldEnable
 {
     NSParameterAssert((0 < count)&& (count < 4));

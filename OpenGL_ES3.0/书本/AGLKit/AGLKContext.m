@@ -13,10 +13,6 @@
 {
     glClearColor(clearColor.r, clearColor.g, clearColor.b, clearColor.a);
 }
-- (GLKVector4)clearColor
-{
-    return self.clearColor;
-}
 - (void)clear:(GLbitfield)mask
 {
     glClear(mask);
