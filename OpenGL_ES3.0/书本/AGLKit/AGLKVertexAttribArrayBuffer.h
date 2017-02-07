@@ -13,7 +13,7 @@
 @interface AGLKVertexAttribArrayBuffer : NSObject
 
 /** 生成的标识符的内存保存位置 */
-@property(nonatomic,assign)GLuint glName;
+@property(nonatomic,assign)GLuint name;
 
 /** 需要复制的缓存的字节数量 */
 @property(nonatomic,assign)GLsizeiptr bufferSizeBytes;
@@ -22,7 +22,7 @@
 @property(nonatomic,assign)GLsizeiptr stride;
 
 /**
- 创建顶点属性数组缓存
+ 初始化顶点属性数组缓存
 
  @param stride 步幅
  @param count 顶点个数
@@ -31,6 +31,15 @@
  @return AGLKVertexAttribArrayBuffer
  */
 - (instancetype)initWithAttribStride:(GLsizeiptr)stride numberOfVertices:(GLsizeiptr)count data:(const GLvoid *)dataPtr usage:(GLenum)usage;
+
+/**
+ 重新初始化顶点属性数组缓存
+
+ @param stride 步幅
+ @param count 顶点个数
+ @param dataPtr 顶点数据
+ */
+- (void)reinitWithAttribStride:(GLsizeiptr)stride numberOfVertices:(GLsizeiptr)count data:(const GLvoid *)dataPtr;
 
 /**
  准备渲染工作
