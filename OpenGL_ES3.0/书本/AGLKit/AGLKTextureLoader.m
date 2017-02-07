@@ -40,7 +40,22 @@ typedef enum
 }
 AGLKPowerOf2;
 
+/**
+ 获取用于初始化纹理缓存的内容的字节
+
+ @param cgImage 纹理缓存的内容
+ @param widthPtr 纹理缓存的内容的宽
+ @param heightPtr 纹理缓存的内容的高
+ @return NSData
+ */
 static NSData *AGLKDataWithResizedCGImageBytes(CGImageRef cgImage,size_t *widthPtr,size_t *heightPtr);
+
+/**
+ 重新计算纹理缓存的尺寸
+
+ @param dimension 纹理缓存的尺寸
+ @return AGLKPowerOf2类型
+ */
 static AGLKPowerOf2 AGLKCalculatePowerOf2ForDimension(GLuint dimension);
 
 @implementation AGLKTextureLoader
@@ -55,6 +70,7 @@ static AGLKPowerOf2 AGLKCalculatePowerOf2ForDimension(GLuint dimension);
 
     glGenTextures(1, &textureBufferID);
     glBindTexture(GL_TEXTURE_2D, textureBufferID);
+        ///复制图片像素的颜色数据到绑定的纹理缓存中
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLint)width, (GLint)height, 0, GL_RGBA, GL_UNSIGNED_BYTE, [imageData bytes]);
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);

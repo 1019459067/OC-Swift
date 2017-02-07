@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 
+/** 纹理缓存的相关信息 */
 @interface AGLKTextureInfo : NSObject
 
 @property(assign,nonatomic,readonly)GLuint name;
