@@ -159,6 +159,9 @@ static GLKVector3 movementVectors[3] =
 
 - (void)updateTextureParameters
 {
+//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, (_bShouldRepeatTexture?GL_REPEAT:GL_CLAMP_TO_EDGE));
+//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, (_bShouldUseLinearFilter?GL_LINEAR:GL_NEAREST));
+
     [self.baseEffect.texture2d0 aglkSetParamter:GL_TEXTURE_WRAP_S value:(_bShouldRepeatTexture?GL_REPEAT:GL_CLAMP_TO_EDGE)];
     [self.baseEffect.texture2d0 aglkSetParamter:GL_TEXTURE_MAG_FILTER value:(_bShouldUseLinearFilter?GL_LINEAR:GL_NEAREST)];
 }
