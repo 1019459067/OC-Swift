@@ -29,7 +29,6 @@ static const SceneVertex vertices[] =
 @interface ViewController ()
 @property (strong, nonatomic) GLKBaseEffect *baseEffect;
 @property (strong, nonatomic) AGLKVertexAttribArrayBuffer *vertexBuffer;
-@property (strong, nonatomic) GLKTextureInfo *textureInfo0;
 @end
 
 @implementation ViewController
@@ -45,7 +44,7 @@ static const SceneVertex vertices[] =
     self.baseEffect.constantColor = GLKVector4Make(1, 1, 1, 1);
     ((AGLKContext *)glkView.context).clearColor = GLKVector4Make(0, 0, 0, 1);
 
-    self.vertexBuffer = [[AGLKVertexAttribArrayBuffer alloc]initWithAttribStride:sizeof(SceneVertex) numberOfVertices:sizeof(vertices)/sizeof(SceneVertex) data:vertices usage:GL_TRIANGLES];
+    self.vertexBuffer = [[AGLKVertexAttribArrayBuffer alloc]initWithAttribStride:sizeof(SceneVertex) numberOfVertices:sizeof(vertices)/sizeof(SceneVertex) data:vertices usage:GL_STATIC_DRAW];
 
     CGImageRef imageRef0 = [UIImage imageNamed:@"leaves.gif"].CGImage;
     CGImageRef imageRef1 = [UIImage imageNamed:@"beetle"].CGImage;
@@ -71,6 +70,11 @@ static const SceneVertex vertices[] =
     [self.baseEffect prepareToDraw];
 
     [self.vertexBuffer drawArrayWithMode:GL_TRIANGLES startVertexIndex:0 numberOfVertices:sizeof(vertices)/sizeof(SceneVertex)];
+}
+- (void)dealloc
+{
+    self.vertexBuffer = nil;
+    [AGLKContext setCurrentContext:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
