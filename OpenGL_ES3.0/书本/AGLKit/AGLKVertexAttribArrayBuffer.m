@@ -13,8 +13,7 @@
 - (instancetype)initWithAttribStride:(GLsizeiptr)stride numberOfVertices:(GLsizeiptr)count data:(const GLvoid *)dataPtr usage:(GLenum)usage
 {
     NSParameterAssert(0 < stride);
-    NSParameterAssert(0 < count);
-    NSParameterAssert(NULL != dataPtr);
+    NSAssert((0 < count && NULL != dataPtr)||(0 == count && NULL == dataPtr),@"data must not be NULL or count >0");
     
     if (self = [super init])
     {
