@@ -52,7 +52,7 @@ static SceneTriangle SceneTriangleMake(const SceneVertex vertexA,const SceneVert
 @end
 
 @implementation ViewController
-@synthesize centerVertexHeight,shouldUseFaceNormals;
+@synthesize shouldUseFaceNormals;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -72,12 +72,14 @@ static SceneTriangle SceneTriangleMake(const SceneVertex vertexA,const SceneVert
     self.extraEffect.constantColor = GLKVector4Make(0, 1, 0, 1);
 
         /// 整个场景被旋转并定位 以看到三角锥的高度变化
-    GLKMatrix4 modelViewMatrix = GLKMatrix4MakeRotation(GLKMathDegreesToRadians(-60), 1, 0, 0);
-    modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, GLKMathDegreesToRadians(-30), 0, 0, 1);
-    modelViewMatrix = GLKMatrix4Translate(modelViewMatrix, 0, 0, 0.25);
+    {
+        GLKMatrix4 modelViewMatrix = GLKMatrix4MakeRotation(GLKMathDegreesToRadians(-60), 1, 0, 0);
+        modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, GLKMathDegreesToRadians(-30), 0, 0, 1);
+        modelViewMatrix = GLKMatrix4Translate(modelViewMatrix, 0, 0, 0.25);
 
-    self.baseEffect.transform.modelviewMatrix = modelViewMatrix;
-    self.extraEffect.transform.modelviewMatrix = modelViewMatrix;
+        self.baseEffect.transform.modelviewMatrix = modelViewMatrix;
+        self.extraEffect.transform.modelviewMatrix = modelViewMatrix;
+    }
 
     ((AGLKContext *)glkView.context).clearColor = GLKVector4Make(0, 0, 0, 1);
 
@@ -89,8 +91,8 @@ static SceneTriangle SceneTriangleMake(const SceneVertex vertexA,const SceneVert
     triangles[5] = SceneTriangleMake(vertexE, vertexF, vertexH);
     triangles[6] = SceneTriangleMake(vertexG, vertexD, vertexH);
     triangles[7] = SceneTriangleMake(vertexH, vertexF, vertexI);
-
     self.vertexBuffer = [[AGLKVertexAttribArrayBuffer alloc]initWithAttribStride:sizeof(SceneVertex) numberOfVertices:sizeof(triangles)/sizeof(SceneVertex) data:triangles usage:GL_DYNAMIC_DRAW];
+
     self.extraBuffer = [[AGLKVertexAttribArrayBuffer alloc]initWithAttribStride:sizeof(SceneVertex) numberOfVertices:0 data:NULL usage:GL_DYNAMIC_DRAW];
 
     self.centerVertexHeight = 0;
@@ -199,12 +201,10 @@ static SceneTriangle SceneTriangleMake(const SceneVertex vertexA,const SceneVert
     return shouldUseFaceNormals;
 }
 
-- (void)setCenterVertexHeight:(GLfloat)aValue
+- (void)setCenterVertexHeight:(GLfloat)centerVertexHeight
 {
-    centerVertexHeight = aValue;
-
     SceneVertex newVertexE = vertexE;
-    newVertexE.position.z = self.centerVertexHeight;
+    newVertexE.position.z = centerVertexHeight;
 
     triangles[2] = SceneTriangleMake(vertexD, vertexB, newVertexE);
     triangles[3] = SceneTriangleMake(newVertexE, vertexB, vertexF);
@@ -212,10 +212,6 @@ static SceneTriangle SceneTriangleMake(const SceneVertex vertexA,const SceneVert
     triangles[5] = SceneTriangleMake(newVertexE, vertexF, vertexH);
 
     [self updateNormals];
-}
-- (GLfloat)centerVertexHeight
-{
-    return centerVertexHeight;
 }
 static  void SceneTrianglesNormalLinesUpdate(const SceneTriangle someTriangles[NUM_FACES],GLKVector3 lightPosition,GLKVector3 someNormalLineVertices[NUM_LINE_VERTS])
 {
