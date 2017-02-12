@@ -14,6 +14,8 @@
 		302D86B71E502999005382AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D86B61E502999005382AE /* ViewController.m */; };
 		302D86BC1E502A27005382AE /* AGLKContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D86B91E502A27005382AE /* AGLKContext.m */; };
 		302D86BD1E502A27005382AE /* AGLKVertexAttribArrayBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D86BB1E502A27005382AE /* AGLKVertexAttribArrayBuffer.m */; };
+		302D86C01E50385D005382AE /* Lighting256x256.png in Resources */ = {isa = PBXBuildFile; fileRef = 302D86BE1E50385D005382AE /* Lighting256x256.png */; };
+		302D86C11E50385D005382AE /* LightingDetail256x256.png in Resources */ = {isa = PBXBuildFile; fileRef = 302D86BF1E50385D005382AE /* LightingDetail256x256.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		302D86B91E502A27005382AE /* AGLKContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AGLKContext.m; path = ../AGLKit/AGLKContext.m; sourceTree = "<group>"; };
 		302D86BA1E502A27005382AE /* AGLKVertexAttribArrayBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AGLKVertexAttribArrayBuffer.h; path = ../AGLKit/AGLKVertexAttribArrayBuffer.h; sourceTree = "<group>"; };
 		302D86BB1E502A27005382AE /* AGLKVertexAttribArrayBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AGLKVertexAttribArrayBuffer.m; path = ../AGLKit/AGLKVertexAttribArrayBuffer.m; sourceTree = "<group>"; };
+		302D86BE1E50385D005382AE /* Lighting256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Lighting256x256.png; path = ../../images/Lighting256x256.png; sourceTree = "<group>"; };
+		302D86BF1E50385D005382AE /* LightingDetail256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LightingDetail256x256.png; path = ../../images/LightingDetail256x256.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 		302D86941E5028B6005382AE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				302D86BE1E50385D005382AE /* Lighting256x256.png */,
+				302D86BF1E50385D005382AE /* LightingDetail256x256.png */,
 				302D86951E5028B6005382AE /* main.m */,
 			);
 			name = "Supporting Files";
@@ -147,6 +153,8 @@
 			files = (
 				302D86A51E5028B6005382AE /* Assets.xcassets in Resources */,
 				302D86A81E5028B6005382AE /* LaunchScreen.storyboard in Resources */,
+				302D86C01E50385D005382AE /* Lighting256x256.png in Resources */,
+				302D86C11E50385D005382AE /* LightingDetail256x256.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
