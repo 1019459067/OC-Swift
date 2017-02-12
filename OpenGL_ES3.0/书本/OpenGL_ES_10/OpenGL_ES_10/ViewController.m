@@ -52,11 +52,12 @@ static SceneTriangle SceneTriangleMake(const SceneVertex vertexA,const SceneVert
 @end
 
 @implementation ViewController
-@synthesize centerVertexHeight;
+@synthesize centerVertexHeight,shouldUseFaceNormals;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self setupUI];
     GLKView *glkView = (GLKView *)self.view;
     glkView.context = [[AGLKContext alloc]initWithAPI:kEAGLRenderingAPIOpenGLES2];
     [AGLKContext setCurrentContext:glkView.context];
@@ -95,6 +96,44 @@ static SceneTriangle SceneTriangleMake(const SceneVertex vertexA,const SceneVert
     self.centerVertexHeight = 0;
     self.shouldUseFaceNormals = YES;
 }
+- (void)setupUI
+{
+    UILabel *labelFaceNormals = [[UILabel alloc]initWithFrame:CGRectMake(30, 30, self.view.frame.size.width, 44)];
+    labelFaceNormals.text = @"Use Face Normals";
+    labelFaceNormals.textColor = [UIColor whiteColor];
+    [self.view addSubview:labelFaceNormals];
+    UISwitch *switchFaceNormals = [[UISwitch alloc]initWithFrame:CGRectMake(CGRectGetMinX(labelFaceNormals.frame), CGRectGetMaxY(labelFaceNormals.frame), 80, 44)];
+    [switchFaceNormals addTarget:self action:@selector(actionFaceNormals:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:switchFaceNormals];
+
+    UILabel *labelDrawNormals = [[UILabel alloc]initWithFrame:CGRectMake(30, CGRectGetMaxY(switchFaceNormals.frame)+10, CGRectGetWidth(labelFaceNormals.frame), 44)];
+    labelDrawNormals.text = @"Draw Normals";
+    labelDrawNormals.textColor = [UIColor whiteColor];
+    [self.view addSubview:labelDrawNormals];
+    UISwitch *switchDrawNormals = [[UISwitch alloc]initWithFrame:CGRectMake(CGRectGetMinX(labelDrawNormals.frame), CGRectGetMaxY(labelDrawNormals.frame), 80, 44)];
+    [switchDrawNormals addTarget:self action:@selector(actionDrawNormals:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:switchDrawNormals];
+
+    UISlider *slider = [[UISlider alloc]initWithFrame:CGRectMake(CGRectGetMinX(switchDrawNormals.frame), CGRectGetMaxY(switchDrawNormals.frame), self.view.frame.size.width-2*CGRectGetMinX(switchDrawNormals.frame), 44)];
+    [slider addTarget:self action:@selector(actionSlider:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:slider];
+
+    [switchFaceNormals setOn:YES];
+    slider.minimumValue = -1;
+}
+- (void)actionFaceNormals:(UISwitch *)sender
+{
+    self.shouldUseFaceNormals = sender.isOn;
+}
+- (void)actionDrawNormals:(UISwitch *)sender
+{
+    self.shouldDrawNormals = sender.isOn;
+}
+- (void)actionSlider:(UISlider *)sender
+{
+    self.centerVertexHeight = sender.value;
+}
+
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
     [self.baseEffect prepareToDraw];
@@ -106,7 +145,7 @@ static SceneTriangle SceneTriangleMake(const SceneVertex vertexA,const SceneVert
 
     [self.vertexBuffer drawArrayWithMode:GL_TRIANGLES startVertexIndex:0 numberOfVertices:sizeof(triangles)/sizeof(SceneVertex)];
 
-    if (self.shouldUseFaceNormals)
+    if (self.shouldDrawNormals)
     {
         [self drawNormals];
     }
@@ -147,9 +186,22 @@ static SceneTriangle SceneTriangleMake(const SceneVertex vertexA,const SceneVert
 
 
 
-- (void)setCenterVertexHeight:(GLfloat)aCenterVertexHeight
+- (void)setShouldUseFaceNormals:(BOOL)aValue
 {
-    centerVertexHeight = aCenterVertexHeight;
+    if (aValue != shouldUseFaceNormals)
+    {
+        shouldUseFaceNormals = aValue;
+        [self updateNormals];
+    }
+}
+- (BOOL)shouldUseFaceNormals
+{
+    return shouldUseFaceNormals;
+}
+
+- (void)setCenterVertexHeight:(GLfloat)aValue
+{
+    centerVertexHeight = aValue;
 
     SceneVertex newVertexE = vertexE;
     newVertexE.position.z = self.centerVertexHeight;
