@@ -1,13 +1,14 @@
 //
 //  AppDelegate.m
-//  OpenGL_ES_10
+//  OpenGL_ES_11
 //
-//  Created by STMBP on 2017/2/10.
+//  Created by STMBP on 2017/2/12.
 //  Copyright © 2017年 sensetime. All rights reserved.
 //
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+
 @interface AppDelegate ()
 
 @end

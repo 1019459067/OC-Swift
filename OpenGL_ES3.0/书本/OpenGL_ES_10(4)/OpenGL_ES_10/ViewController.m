@@ -300,7 +300,11 @@ GLKVector3 SceneVector3UnitNormal(const GLKVector3 vectorA,const GLKVector3 vect
 {
     return GLKVector3Normalize(GLKVector3CrossProduct(vectorA, vectorB));
 }
-
+- (void)dealloc
+{
+    self.vertexBuffer = nil;
+    [AGLKContext setCurrentContext:nil];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
