@@ -53,6 +53,11 @@
             glDeleteRenderbuffers(1, &colorRenderBuffer);
             colorRenderBuffer = 0;
         }
+        if (0 != depthRenderBuffer)
+        {
+            glDeleteRenderbuffers(1, &depthRenderBuffer);
+            depthRenderBuffer = 0;
+        }
 
         self.context = context;
 
@@ -95,8 +100,25 @@
     [super layoutSubviews];
     CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.layer;
 
+    [EAGLContext setCurrentContext:self.context];
+
     [self.context renderbufferStorage:GL_RENDERBUFFER fromDrawable:eaglLayer];
 
+    if (0 != depthRenderBuffer)
+    {
+        glDeleteBuffers(1, &depthRenderBuffer);
+        depthRenderBuffer = 0;
+    }
+
+    GLuint currentDrawableWidth = self.drawableWidth;
+    GLuint currentDrawableHeight = self.drawableHeight;
+    if (self.drawableDepthFormat != AGLKViewDrawableDepthFormatNone && 0 < currentDrawableWidth && 0 < currentDrawableHeight)
+    {
+        glGenRenderbuffers(1, &depthRenderBuffer);
+        glBindBuffer(GL_RENDERBUFFER, depthRenderBuffer);
+        glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, currentDrawableWidth, currentDrawableHeight);
+        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthRenderBuffer);
+    }
     glBindRenderbuffer(GL_RENDERBUFFER, colorRenderBuffer);
 
     GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
@@ -106,13 +128,13 @@
     }
 }
 
-- (NSInteger)drawableWidth
+- (GLint)drawableWidth
 {
     GLint backingWidth;
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &backingWidth);
     return backingWidth;
 }
-- (NSInteger)drawableHeight
+- (GLint)drawableHeight
 {
     GLint backingHeight;
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &backingHeight);

@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30452E711E506995003550A8 /* AGLKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30452E701E506995003550A8 /* AGLKView.m */; };
 		309BA8F31E45D46100CAB848 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 309BA8F21E45D46100CAB848 /* main.m */; };
 		309BA8F61E45D46100CAB848 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 309BA8F51E45D46100CAB848 /* AppDelegate.m */; };
 		309BA9021E45D46100CAB848 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 309BA9011E45D46100CAB848 /* Assets.xcassets */; };
 		309BA9051E45D46100CAB848 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 309BA9031E45D46100CAB848 /* LaunchScreen.storyboard */; };
 		309BA90E1E45D49300CAB848 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 309BA90D1E45D49300CAB848 /* ViewController.m */; };
-		309BA9111E45D5D700CAB848 /* AGLKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 309BA9101E45D5D700CAB848 /* AGLKView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30452E6F1E506995003550A8 /* AGLKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AGLKView.h; path = ../AGLKit/AGLKView.h; sourceTree = "<group>"; };
+		30452E701E506995003550A8 /* AGLKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AGLKView.m; path = ../AGLKit/AGLKView.m; sourceTree = "<group>"; };
 		309BA8EE1E45D46100CAB848 /* OpenGL_ES_02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenGL_ES_02.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		309BA8F21E45D46100CAB848 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		309BA8F41E45D46100CAB848 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -25,8 +27,6 @@
 		309BA9061E45D46100CAB848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		309BA90C1E45D49300CAB848 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		309BA90D1E45D49300CAB848 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		309BA90F1E45D5D700CAB848 /* AGLKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLKView.h; sourceTree = "<group>"; };
-		309BA9101E45D5D700CAB848 /* AGLKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLKView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +43,8 @@
 		309BA8E51E45D46100CAB848 = {
 			isa = PBXGroup;
 			children = (
+				30452E6F1E506995003550A8 /* AGLKView.h */,
+				30452E701E506995003550A8 /* AGLKView.m */,
 				309BA8F01E45D46100CAB848 /* OpenGL_ES_02 */,
 				309BA8EF1E45D46100CAB848 /* Products */,
 			);
@@ -63,8 +65,6 @@
 				309BA8F51E45D46100CAB848 /* AppDelegate.m */,
 				309BA90C1E45D49300CAB848 /* ViewController.h */,
 				309BA90D1E45D49300CAB848 /* ViewController.m */,
-				309BA90F1E45D5D700CAB848 /* AGLKView.h */,
-				309BA9101E45D5D700CAB848 /* AGLKView.m */,
 				309BA9011E45D46100CAB848 /* Assets.xcassets */,
 				309BA9031E45D46100CAB848 /* LaunchScreen.storyboard */,
 				309BA9061E45D46100CAB848 /* Info.plist */,
@@ -155,7 +155,7 @@
 				309BA8F61E45D46100CAB848 /* AppDelegate.m in Sources */,
 				309BA90E1E45D49300CAB848 /* ViewController.m in Sources */,
 				309BA8F31E45D46100CAB848 /* main.m in Sources */,
-				309BA9111E45D5D700CAB848 /* AGLKView.m in Sources */,
+				30452E711E506995003550A8 /* AGLKView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +306,7 @@
 				309BA90B1E45D46100CAB848 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
