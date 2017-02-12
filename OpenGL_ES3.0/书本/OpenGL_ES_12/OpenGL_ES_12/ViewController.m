@@ -26,6 +26,8 @@
     glkView.context = [[AGLKContext alloc]initWithAPI:kEAGLRenderingAPIOpenGLES2];
     [AGLKContext setCurrentContext:glkView.context];
 
+    glkView.drawableDepthFormat = GLKViewDrawableDepthFormat16;
+
     self.baseEffect = [[GLKBaseEffect alloc]init];
     self.baseEffect.light0.enabled = GL_TRUE;
     self.baseEffect.light0.diffuseColor = GLKVector4Make(0.7, 0.7, 0.7, 1);
@@ -39,9 +41,9 @@
 
     ((AGLKContext *)glkView.context).clearColor = GLKVector4Make(0, 0, 0, 1);
 
-    self.vertexPositionBuffer = [[AGLKVertexAttribArrayBuffer alloc]initWithAttribStride:3*sizeof(GLfloat) numberOfVertices:sizeof(sphereVerts)/(3*sizeof(GLfloat)) data:sphereVerts usage:GL_STATIC_DRAW];
-    self.vertexNormalBuffer = [[AGLKVertexAttribArrayBuffer alloc]initWithAttribStride:3*sizeof(GLfloat) numberOfVertices:sizeof(sphereNormals)/(3*sizeof(GLfloat)) data:sphereNormals usage:GL_STATIC_DRAW];
-    self.vertexTextureCoordBuffer = [[AGLKVertexAttribArrayBuffer alloc]initWithAttribStride:2*sizeof(GLfloat) numberOfVertices:sizeof(sphereTexCoords)/(2*sizeof(GLfloat)) data:sphereTexCoords usage:GL_STATIC_DRAW];
+    self.vertexPositionBuffer = [[AGLKVertexAttribArrayBuffer alloc]initWithAttribStride:3*sizeof(GLfloat) numberOfVertices:sizeof(sphereVerts)/3*sizeof(GLfloat) data:sphereVerts usage:GL_STATIC_DRAW];
+    self.vertexNormalBuffer = [[AGLKVertexAttribArrayBuffer alloc]initWithAttribStride:3*sizeof(GLfloat) numberOfVertices:sizeof(sphereNormals)/3*sizeof(GLfloat) data:sphereNormals usage:GL_STATIC_DRAW];
+    self.vertexTextureCoordBuffer = [[AGLKVertexAttribArrayBuffer alloc]initWithAttribStride:2*sizeof(GLfloat) numberOfVertices:sizeof(sphereTexCoords)/2*sizeof(GLfloat) data:sphereTexCoords usage:GL_STATIC_DRAW];
 
     [(AGLKContext *)glkView.context enable:GL_DEPTH_TEST];
 }
