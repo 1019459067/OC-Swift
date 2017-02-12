@@ -1,6 +1,6 @@
 //
 //  ViewController.m
-//  OpenGL_ES_12
+//  OpenGL_ES_13
 //
 //  Created by STMBP on 2017/2/12.
 //  Copyright © 2017年 sensetime. All rights reserved.
@@ -56,6 +56,9 @@
     [self.vertexPositionBuffer prepareToDrawWithAttrib:GLKVertexAttribPosition numberOfCoordinates:3 attribOffset:0 shouldEnable:YES];
     [self.vertexNormalBuffer prepareToDrawWithAttrib:GLKVertexAttribNormal numberOfCoordinates:3 attribOffset:0 shouldEnable:YES];
     [self.vertexTextureCoordBuffer prepareToDrawWithAttrib:GLKVertexAttribTexCoord0 numberOfCoordinates:2 attribOffset:0 shouldEnable:YES];
+
+    const GLfloat aspectRatio = view.drawableWidth/(GLfloat)view.drawableHeight;
+    self.baseEffect.transform.projectionMatrix = GLKMatrix4MakeScale(1, aspectRatio, 1);
 
     [AGLKVertexAttribArrayBuffer drawPreparedArraysWithMode:GL_TRIANGLES startVertexIndex:0 numberOfVertices:sphereNumVerts];
 }
