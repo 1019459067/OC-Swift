@@ -56,13 +56,25 @@
     }
     
     glVertexAttribPointer(index, count, GL_FLOAT, GL_FALSE, (GLsizei)self.stride, NULL+offset);
+#ifdef DEBUG
+    GLenum error = glGetError();
+    if(GL_NO_ERROR != error)
+    {
+        NSLog(@"GL Error: 0x%x", error);
+    }
+#endif
 }
 
-- (void)drawArrayWithMode:(GLenum)model startVertexIndex:(GLint)first numberOfVertices:(GLsizei)count
+- (void)drawArrayWithMode:(GLenum)mode startVertexIndex:(GLint)first numberOfVertices:(GLsizei)count
 {
     NSAssert(self.bufferSizeBytes >= (first + count) * self.stride, @"Attemp to draw more vertex data than available.");
     
-    glDrawArrays(model, first, count);
+    glDrawArrays(mode, first, count);
+}
+
++ (void)drawPreparedArraysWithMode:(GLenum)mode startVertexIndex:(GLint)first numberOfVertices:(GLsizei)count;
+{
+    glDrawArrays(mode, first, count);
 }
 - (void)dealloc
 {

@@ -54,9 +54,11 @@
 /**
  绘图工作
 
- @param model 渲染缓存处理类型
+ @param mode 渲染缓存处理类型
  @param first 需要渲染的第一个顶点位置
  @param count 需要渲染的顶点数量
  */
-- (void)drawArrayWithMode:(GLenum)model startVertexIndex:(GLint)first numberOfVertices:(GLsizei)count;
+- (void)drawArrayWithMode:(GLenum)mode startVertexIndex:(GLint)first numberOfVertices:(GLsizei)count;
++ (void)drawPreparedArraysWithMode:(GLenum)mode startVertexIndex:(GLint)first numberOfVertices:(GLsizei)count;
+
 @end

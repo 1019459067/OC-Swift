@@ -17,4 +17,15 @@
 {
     glClear(mask);
 }
+
+- (void)enable:(GLenum)capability
+{
+    NSAssert(self == [[self class] currentContext], @"Receiving context required to be current context");
+    glEnable(capability);
+}
+- (void)disable:(GLenum)capability
+{
+    NSAssert(self == [[self class] currentContext], @"Receiving context required to be current context");
+    glDisable(capability);
+}
 @end
