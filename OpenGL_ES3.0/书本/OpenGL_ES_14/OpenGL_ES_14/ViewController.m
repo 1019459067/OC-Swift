@@ -85,6 +85,7 @@ typedef enum
 }
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
+        /// 正射投影
     const GLfloat aspectRatio = view.drawableWidth/(GLfloat)view.drawableHeight;
     self.baseEffect.transform.projectionMatrix = GLKMatrix4MakeOrtho(-0.5*aspectRatio, 0.5*aspectRatio, -0.5, 0.5, -5, 5);
 
@@ -114,7 +115,7 @@ typedef enum
     UIButton *buttonResetIdentify = [UIButton buttonWithType:UIButtonTypeCustom];
     buttonResetIdentify.frame = CGRectMake(0, self.view.frame.size.height-300, 150, 44);
     [buttonResetIdentify setTitle:@"Reset Identify" forState:UIControlStateNormal];
-    [buttonResetIdentify setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [buttonResetIdentify setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [buttonResetIdentify setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [buttonResetIdentify addTarget:self action:@selector(onActionResetIdentify:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:buttonResetIdentify];
