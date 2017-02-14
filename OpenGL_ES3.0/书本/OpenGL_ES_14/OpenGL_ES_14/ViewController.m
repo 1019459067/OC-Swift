@@ -95,8 +95,8 @@ typedef enum
 
     GLKMatrix4 savedModelViewMatrix = self.baseEffect.transform.modelviewMatrix;
     GLKMatrix4 newModelViewMatrix = GLKMatrix4Multiply(savedModelViewMatrix, SceneMatrixForTransform(transform1Type, transform1Axis, transform1Value));
-    newModelViewMatrix = GLKMatrix4Multiply(savedModelViewMatrix, SceneMatrixForTransform(transform2Type, transform2Axis, transform2Value));
-    newModelViewMatrix = GLKMatrix4Multiply(savedModelViewMatrix, SceneMatrixForTransform(transform3Type, transform3Axis, transform3Value));
+    newModelViewMatrix = GLKMatrix4Multiply(newModelViewMatrix, SceneMatrixForTransform(transform2Type, transform2Axis, transform2Value));
+    newModelViewMatrix = GLKMatrix4Multiply(newModelViewMatrix, SceneMatrixForTransform(transform3Type, transform3Axis, transform3Value));
 
     self.baseEffect.transform.modelviewMatrix = newModelViewMatrix;
     self.baseEffect.light0.diffuseColor = GLKVector4Make(1, 1, 1, 1);
