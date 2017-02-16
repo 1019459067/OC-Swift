@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30076C861E559FDB000A2337 /* grid.png in Resources */ = {isa = PBXBuildFile; fileRef = 30076C851E559FDB000A2337 /* grid.png */; };
 		305232BC1E4968BB008E895E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 305232BB1E4968BB008E895E /* main.m */; };
 		305232BF1E4968BB008E895E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 305232BE1E4968BB008E895E /* AppDelegate.m */; };
 		305232CB1E4968BB008E895E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 305232CA1E4968BB008E895E /* Assets.xcassets */; };
@@ -14,10 +15,10 @@
 		305232D71E4968D6008E895E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305232D61E4968D6008E895E /* ViewController.m */; };
 		305232DE1E496992008E895E /* AGLKContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 305232D91E496992008E895E /* AGLKContext.m */; };
 		305232E01E496992008E895E /* AGLKVertexAttribArrayBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 305232DD1E496992008E895E /* AGLKVertexAttribArrayBuffer.m */; };
-		305232E21E496DF1008E895E /* grid.png in Resources */ = {isa = PBXBuildFile; fileRef = 305232E11E496DF1008E895E /* grid.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30076C851E559FDB000A2337 /* grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grid.png; path = ../../images/grid.png; sourceTree = "<group>"; };
 		305232B71E4968BB008E895E /* OpenGL_ES_06.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenGL_ES_06.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		305232BB1E4968BB008E895E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		305232BD1E4968BB008E895E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -31,7 +32,6 @@
 		305232D91E496992008E895E /* AGLKContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AGLKContext.m; path = ../AGLKit/AGLKContext.m; sourceTree = "<group>"; };
 		305232DC1E496992008E895E /* AGLKVertexAttribArrayBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AGLKVertexAttribArrayBuffer.h; path = ../AGLKit/AGLKVertexAttribArrayBuffer.h; sourceTree = "<group>"; };
 		305232DD1E496992008E895E /* AGLKVertexAttribArrayBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AGLKVertexAttribArrayBuffer.m; path = ../AGLKit/AGLKVertexAttribArrayBuffer.m; sourceTree = "<group>"; };
-		305232E11E496DF1008E895E /* grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grid.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +83,7 @@
 		305232BA1E4968BB008E895E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				305232E11E496DF1008E895E /* grid.png */,
+				30076C851E559FDB000A2337 /* grid.png */,
 				305232BB1E4968BB008E895E /* main.m */,
 			);
 			name = "Supporting Files";
@@ -149,8 +149,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				305232CB1E4968BB008E895E /* Assets.xcassets in Resources */,
+				30076C861E559FDB000A2337 /* grid.png in Resources */,
 				305232CE1E4968BB008E895E /* LaunchScreen.storyboard in Resources */,
-				305232E21E496DF1008E895E /* grid.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +279,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G426QE9Z25;
 				INFOPLIST_FILE = OpenGL_ES_06/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sensetime.OpenGL-ES-06";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -291,6 +292,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G426QE9Z25;
 				INFOPLIST_FILE = OpenGL_ES_06/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sensetime.OpenGL-ES-06";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -316,6 +318,7 @@
 				305232D41E4968BB008E895E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

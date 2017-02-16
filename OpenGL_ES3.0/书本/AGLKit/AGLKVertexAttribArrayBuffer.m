@@ -49,7 +49,7 @@
     NSParameterAssert((0 < count)&& (count < 4));
     NSParameterAssert(offset < self.stride);
     NSAssert(0 != self.name, @"Invalid name");
-//    glBindBuffer(GL_ARRAY_BUFFER, self.name);
+    glBindBuffer(GL_ARRAY_BUFFER, self.name);
     if (shouldEnable)
     {
         glEnableVertexAttribArray(index);//启用

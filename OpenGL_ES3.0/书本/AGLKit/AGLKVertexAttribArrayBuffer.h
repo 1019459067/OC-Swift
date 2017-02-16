@@ -37,7 +37,7 @@
 - (instancetype)initWithAttribStride:(GLsizeiptr)stride numberOfVertices:(GLsizeiptr)count data:(const GLvoid *)dataPtr usage:(GLenum)usage;
 
 /**
- 重新初始化顶点属性数组缓存
+ 重新初始化顶点属性数组缓存,作用在于定期地用变化了顶点位置重新初始化顶点数组缓存的内容来产生一个意在突出纹理失真的简单动画
 
  @param stride 步幅
  @param count 顶点个数
