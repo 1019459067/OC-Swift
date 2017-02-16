@@ -20,9 +20,9 @@
         self.stride = stride;
         self.bufferSizeBytes = stride * count;
         
-        glGenBuffers(1, &_name);
-        glBindBuffer(GL_ARRAY_BUFFER, self.name);
-        glBufferData(GL_ARRAY_BUFFER, self.bufferSizeBytes, dataPtr, usage);
+        glGenBuffers(1, &_name);// 生成
+        glBindBuffer(GL_ARRAY_BUFFER, self.name);//绑定
+        glBufferData(GL_ARRAY_BUFFER, self.bufferSizeBytes, dataPtr, usage);//缓存数据
         
         NSAssert(0 != self.name, @"Failed to generate name");
     }
@@ -42,20 +42,24 @@
     glBindBuffer(GL_ARRAY_BUFFER, self.name);
     glBufferData(GL_ARRAY_BUFFER, self.bufferSizeBytes, dataPtr, GL_STATIC_DRAW);
 }
+
+
 - (void)prepareToDrawWithAttrib:(GLuint)index numberOfCoordinates:(GLuint)count attribOffset:(GLsizeiptr)offset shouldEnable:(BOOL)shouldEnable
 {
     NSParameterAssert((0 < count)&& (count < 4));
     NSParameterAssert(offset < self.stride);
     NSAssert(0 != self.name, @"Invalid name");
-    
-    glBindBuffer(GL_ARRAY_BUFFER, self.name);
-    
+//    glBindBuffer(GL_ARRAY_BUFFER, self.name);
     if (shouldEnable)
     {
-        glEnableVertexAttribArray(index);
+        glEnableVertexAttribArray(index);//启用
     }
-    
-    glVertexAttribPointer(index, count, GL_FLOAT, GL_FALSE, (GLsizei)self.stride, NULL+offset);
+
+    /**
+     @param index 每个顶点的位置信息
+     @param count 每个位置有几个部分
+     */
+    glVertexAttribPointer(index, count, GL_FLOAT, GL_FALSE, (GLsizei)self.stride, NULL+offset);//设置指针
 #ifdef DEBUG
     GLenum error = glGetError();
     if(GL_NO_ERROR != error)
@@ -68,8 +72,7 @@
 - (void)drawArrayWithMode:(GLenum)mode startVertexIndex:(GLint)first numberOfVertices:(GLsizei)count
 {
     NSAssert(self.bufferSizeBytes >= (first + count) * self.stride, @"Attemp to draw more vertex data than available.");
-    
-    glDrawArrays(mode, first, count);
+    glDrawArrays(mode, first, count);//绘图
 }
 
 + (void)drawPreparedArraysWithMode:(GLenum)mode startVertexIndex:(GLint)first numberOfVertices:(GLsizei)count;
@@ -80,7 +83,7 @@
 {
     if (self.name != 0)
     {
-        glDeleteBuffers(1, &_name);
+        glDeleteBuffers(1, &_name);//删除
         self.name = 0;
     }
 }

@@ -9,14 +9,17 @@
 #import "AGLKContext.h"
 
 @implementation AGLKContext
+
 - (void)setClearColor:(GLKVector4)clearColor
 {
     glClearColor(clearColor.r, clearColor.g, clearColor.b, clearColor.a);
 }
+
 - (void)clear:(GLbitfield)mask
 {
     glClear(mask);
 }
+
 
 - (void)enable:(GLenum)capability
 {

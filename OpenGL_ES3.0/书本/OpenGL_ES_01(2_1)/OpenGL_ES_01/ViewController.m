@@ -52,6 +52,8 @@ static const SceneVertex vertices[] =
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
     [self.baseEffect prepareToDraw];
+//    const GLfloat aspectRatio = view.drawableWidth/(GLfloat)view.drawableHeight;
+//    self.baseEffect.transform.projectionMatrix = GLKMatrix4MakeScale(1, aspectRatio, 1);
 
         // Clear Frame Buffer (erase previous drawing)
     glClear(GL_COLOR_BUFFER_BIT);

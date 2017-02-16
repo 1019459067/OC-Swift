@@ -10,9 +10,13 @@
 #import <GLKit/GLKit.h>
 
 @class AGLKVertexAttribArrayBuffer;
+
+/**
+ 顶点属性数组缓存
+ */
 @interface AGLKVertexAttribArrayBuffer : NSObject
 
-/** 生成的标识符的内存保存位置 */
+/** 缓存标示符 */
 @property(nonatomic,assign)GLuint name;
 
 /** 需要复制的缓存的字节数量 */
@@ -26,7 +30,7 @@
 
  @param stride 步幅
  @param count 顶点个数
- @param dataPtr 顶点数据
+ @param dataPtr 字节地址
  @param usage 缓存数据用法
  @return AGLKVertexAttribArrayBuffer
  */
