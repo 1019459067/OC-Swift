@@ -18,12 +18,12 @@ SceneVertex;
 
 static const SceneVertex vertices[] =
 {
-    {{-1.0f, -0.67f, 0.0f}, {0.0f, 0.0f}},  // first triangle
-    {{ 1.0f, -0.67f, 0.0f}, {1.0f, 0.0f}},
-    {{-1.0f,  0.67f, 0.0f}, {0.0f, 1.0f}},
-    {{ 1.0f, -0.67f, 0.0f}, {1.0f, 0.0f}},  // second triangle
-    {{-1.0f,  0.67f, 0.0f}, {0.0f, 1.0f}},
-    {{ 1.0f,  0.67f, 0.0f}, {1.0f, 1.0f}},
+    {{-1.0f, -1.f, 0.0f}, {0.0f, 0.0f}},  // first triangle
+    {{ 1.0f, -1.f, 0.0f}, {1.0f, 0.0f}},
+    {{-1.0f,  1.f, 0.0f}, {0.0f, 1.0f}},
+    {{ 1.0f, -1.f, 0.0f}, {1.0f, 0.0f}},  // second triangle
+    {{-1.0f,  1.f, 0.0f}, {0.0f, 1.0f}},
+    {{ 1.0f,  1.f, 0.0f}, {1.0f, 1.0f}},
 };
 
 @interface ViewController ()
@@ -44,9 +44,9 @@ static const SceneVertex vertices[] =
     [AGLKContext setCurrentContext:glkView.context];
 
     self.baseEffect = [[GLKBaseEffect alloc]init];
-    self.baseEffect.useConstantColor = GL_TRUE;
-    self.baseEffect.constantColor = GLKVector4Make(1, 1, 1, 1);
-    ((AGLKContext *)glkView.context).clearColor = GLKVector4Make(0, 0, 0, 1);
+//    self.baseEffect.useConstantColor = GL_TRUE;
+//    self.baseEffect.constantColor = GLKVector4Make(1, 1, 1, 1);
+//    ((AGLKContext *)glkView.context).clearColor = GLKVector4Make(0, 0, 0, 1);
 
     self.verterBuffer = [[AGLKVertexAttribArrayBuffer alloc]initWithAttribStride:sizeof(SceneVertex) numberOfVertices:sizeof(vertices)/sizeof(SceneVertex) data:vertices usage:GL_STATIC_DRAW];
 
@@ -56,9 +56,11 @@ static const SceneVertex vertices[] =
     CGImageRef imageRef1 = [UIImage imageNamed:@"beetle"].CGImage;
     self.textureInfo1 = [GLKTextureLoader textureWithCGImage:imageRef1 options:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES],GLKTextureLoaderOriginBottomLeft, nil] error:NULL];
 
-
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+    GLfloat aspectRatio = self.view.frame.size.width/(GLfloat)self.view.frame.size.height;
+    self.baseEffect.transform.modelviewMatrix = GLKMatrix4MakeScale(1, aspectRatio, 1);
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
