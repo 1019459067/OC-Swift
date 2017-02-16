@@ -38,17 +38,20 @@ static const SceneVertex vertices[] =
 
     self.baseEffect = [[GLKBaseEffect alloc]init];
     self.baseEffect.useConstantColor = GL_TRUE;
-    self.baseEffect.constantColor = GLKVector4Make(1, 1, 1, 0);
+//    self.baseEffect.constantColor = GLKVector4Make(1, 1, 1, 1);
 
-    ((AGLKContext *)glkView.context).clearColor = GLKVector4Make(0, 0, 0, 1);
+//    ((AGLKContext *)glkView.context).clearColor = GLKVector4Make(0, 0, 0, 1);
 
     self.vertexBuffer = [[AGLKVertexAttribArrayBuffer alloc]initWithAttribStride:sizeof(SceneVertex) numberOfVertices:sizeof(vertices)/sizeof(SceneVertex) data:vertices usage:GL_STATIC_DRAW];
 
     CGImageRef imageRef = [UIImage imageNamed:@"leaves.gif"].CGImage;
-    GLKTextureInfo *textuerInfo = [GLKTextureLoader textureWithCGImage:imageRef options:nil error:nil];
+    GLKTextureInfo *textuerInfo = [GLKTextureLoader textureWithCGImage:imageRef options:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES],GLKTextureLoaderOriginBottomLeft, nil] error:nil];
 
     self.baseEffect.texture2d0.name = textuerInfo.name;
     self.baseEffect.texture2d0.target = textuerInfo.target;
+
+    GLfloat aspectRatio = self.view.frame.size.width/(GLfloat)self.view.frame.size.height;
+    self.baseEffect.transform.modelviewMatrix = GLKMatrix4MakeScale(1, aspectRatio, 1);
 }
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
@@ -57,13 +60,13 @@ static const SceneVertex vertices[] =
     [(AGLKContext *)view.context clear:GL_COLOR_BUFFER_BIT];
 
     [self.vertexBuffer prepareToDrawWithAttrib:GLKVertexAttribPosition numberOfCoordinates:sizeof(vertices)/sizeof(SceneVertex) attribOffset:offsetof(SceneVertex, positionCoords) shouldEnable:YES];
-
     [self.vertexBuffer prepareToDrawWithAttrib:GLKVertexAttribTexCoord0 numberOfCoordinates:2 attribOffset:offsetof(SceneVertex, textureCoords) shouldEnable:YES];
 
     [self.vertexBuffer drawArrayWithMode:GL_TRIANGLES startVertexIndex:0 numberOfVertices:sizeof(vertices)/sizeof(SceneVertex)];
 }
 - (void)dealloc
 {
+    self.vertexBuffer = nil;
     [EAGLContext setCurrentContext:nil];
 }
 - (void)didReceiveMemoryWarning {
