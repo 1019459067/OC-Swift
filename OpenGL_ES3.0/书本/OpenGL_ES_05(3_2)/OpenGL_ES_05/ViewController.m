@@ -40,9 +40,9 @@ static const SceneVertex vertices[] =
 
     self.baseEffect = [[GLKBaseEffect alloc]init];
     self.baseEffect.useConstantColor = GL_TRUE;
-    self.baseEffect.constantColor = GLKVector4Make(1, 1, 1, 1);
-
-    ((AGLKContext *)glkView.context).clearColor = GLKVector4Make(0, 0, 0, 1);
+//    self.baseEffect.constantColor = GLKVector4Make(1, 1, 1, 1);
+//
+//    ((AGLKContext *)glkView.context).clearColor = GLKVector4Make(0, 0, 0, 1);
 
     self.vertexBuffer = [[AGLKVertexAttribArrayBuffer alloc]initWithAttribStride:sizeof(SceneVertex) numberOfVertices:sizeof(vertices)/sizeof(SceneVertex) data:vertices usage:GL_STATIC_DRAW];
 
@@ -51,6 +51,9 @@ static const SceneVertex vertices[] =
 
     self.baseEffect.texture2d0.name = textureInfo.name;
     self.baseEffect.texture2d0.target = textureInfo.target;
+
+    GLfloat aspectRatio = self.view.frame.size.width/(GLfloat)self.view.frame.size.height;
+    self.baseEffect.transform.modelviewMatrix = GLKMatrix4MakeScale(1, aspectRatio, 1);
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
