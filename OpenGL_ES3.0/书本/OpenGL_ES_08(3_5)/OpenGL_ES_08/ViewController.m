@@ -18,12 +18,12 @@ SceneVertex;
 
 static const SceneVertex vertices[] =
 {
-    {{-1.0f, -0.67f, 0.0f}, {0.0f, 0.0f}},  // first triangle
-    {{ 1.0f, -0.67f, 0.0f}, {1.0f, 0.0f}},
-    {{-1.0f,  0.67f, 0.0f}, {0.0f, 1.0f}},
-    {{ 1.0f, -0.67f, 0.0f}, {1.0f, 0.0f}},  // second triangle
-    {{-1.0f,  0.67f, 0.0f}, {0.0f, 1.0f}},
-    {{ 1.0f,  0.67f, 0.0f}, {1.0f, 1.0f}},
+    {{-1.0f, -1.f, 0.0f}, {0.0f, 0.0f}},  // first triangle
+    {{ 1.0f, -1.f, 0.0f}, {1.0f, 0.0f}},
+    {{-1.0f,  1.f, 0.0f}, {0.0f, 1.0f}},
+    {{ 1.0f, -1.f, 0.0f}, {1.0f, 0.0f}},  // second triangle
+    {{-1.0f,  1.f, 0.0f}, {0.0f, 1.0f}},
+    {{ 1.0f,  1.f, 0.0f}, {1.0f, 1.0f}},
 };
 
 @interface ViewController ()
@@ -57,6 +57,9 @@ static const SceneVertex vertices[] =
     self.baseEffect.texture2d1.name = textureInfo1.name;
     self.baseEffect.texture2d1.target = textureInfo1.target;
     self.baseEffect.texture2d1.envMode = GLKTextureEnvModeDecal;
+
+    GLfloat aspectRatio = self.view.frame.size.width/(GLfloat)self.view.frame.size.height;
+    self.baseEffect.transform.modelviewMatrix = GLKMatrix4MakeScale(1, aspectRatio, 1);
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
