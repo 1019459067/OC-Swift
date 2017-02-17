@@ -64,7 +64,7 @@ static SceneTriangle SceneTriangleMake(const SceneVertex vertexA,const SceneVert
 
     self.baseEffect = [[GLKBaseEffect alloc]init];
     self.baseEffect.light0.enabled = GL_TRUE;
-    self.baseEffect.light0.diffuseColor = GLKVector4Make(0.7, 0.7, 0.7, 1);
+    self.baseEffect.light0.diffuseColor = GLKVector4Make(0, 1, 0, 1);
     self.baseEffect.light0.position = GLKVector4Make(1, 1, 0.5, 0);
 
     self.extraEffect = [[GLKBaseEffect alloc]init];
@@ -91,51 +91,13 @@ static SceneTriangle SceneTriangleMake(const SceneVertex vertexA,const SceneVert
     triangles[5] = SceneTriangleMake(vertexE, vertexF, vertexH);
     triangles[6] = SceneTriangleMake(vertexG, vertexD, vertexH);
     triangles[7] = SceneTriangleMake(vertexH, vertexF, vertexI);
-    self.vertexBuffer = [[AGLKVertexAttribArrayBuffer alloc]initWithAttribStride:sizeof(SceneVertex) numberOfVertices:sizeof(triangles)/sizeof(SceneVertex) data:triangles usage:GL_DYNAMIC_DRAW];
 
+    self.vertexBuffer = [[AGLKVertexAttribArrayBuffer alloc]initWithAttribStride:sizeof(SceneVertex) numberOfVertices:sizeof(triangles)/sizeof(SceneVertex) data:triangles usage:GL_DYNAMIC_DRAW];
     self.extraBuffer = [[AGLKVertexAttribArrayBuffer alloc]initWithAttribStride:sizeof(SceneVertex) numberOfVertices:0 data:NULL usage:GL_DYNAMIC_DRAW];
 
     self.centerVertexHeight = 0;
     self.shouldUseFaceNormals = YES;
 }
-- (void)setupUI
-{
-    UILabel *labelFaceNormals = [[UILabel alloc]initWithFrame:CGRectMake(30, 30, self.view.frame.size.width, 44)];
-    labelFaceNormals.text = @"Use Face Normals";
-    labelFaceNormals.textColor = [UIColor whiteColor];
-    [self.view addSubview:labelFaceNormals];
-    UISwitch *switchFaceNormals = [[UISwitch alloc]initWithFrame:CGRectMake(CGRectGetMinX(labelFaceNormals.frame), CGRectGetMaxY(labelFaceNormals.frame), 80, 44)];
-    [switchFaceNormals addTarget:self action:@selector(actionFaceNormals:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:switchFaceNormals];
-
-    UILabel *labelDrawNormals = [[UILabel alloc]initWithFrame:CGRectMake(30, CGRectGetMaxY(switchFaceNormals.frame)+10, CGRectGetWidth(labelFaceNormals.frame), 44)];
-    labelDrawNormals.text = @"Draw Normals";
-    labelDrawNormals.textColor = [UIColor whiteColor];
-    [self.view addSubview:labelDrawNormals];
-    UISwitch *switchDrawNormals = [[UISwitch alloc]initWithFrame:CGRectMake(CGRectGetMinX(labelDrawNormals.frame), CGRectGetMaxY(labelDrawNormals.frame), 80, 44)];
-    [switchDrawNormals addTarget:self action:@selector(actionDrawNormals:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:switchDrawNormals];
-
-    UISlider *slider = [[UISlider alloc]initWithFrame:CGRectMake(CGRectGetMinX(switchDrawNormals.frame), CGRectGetMaxY(switchDrawNormals.frame), self.view.frame.size.width-2*CGRectGetMinX(switchDrawNormals.frame), 44)];
-    [slider addTarget:self action:@selector(actionSlider:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:slider];
-
-    [switchFaceNormals setOn:YES];
-    slider.minimumValue = -1;
-}
-- (void)actionFaceNormals:(UISwitch *)sender
-{
-    self.shouldUseFaceNormals = sender.isOn;
-}
-- (void)actionDrawNormals:(UISwitch *)sender
-{
-    self.shouldDrawNormals = sender.isOn;
-}
-- (void)actionSlider:(UISlider *)sender
-{
-    self.centerVertexHeight = sender.value;
-}
-
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
     [self.baseEffect prepareToDraw];
@@ -187,6 +149,43 @@ static SceneTriangle SceneTriangleMake(const SceneVertex vertexA,const SceneVert
 }
 
 
+- (void)setupUI
+{
+    UILabel *labelFaceNormals = [[UILabel alloc]initWithFrame:CGRectMake(30, 30, self.view.frame.size.width, 44)];
+    labelFaceNormals.text = @"Use Face Normals";
+    labelFaceNormals.textColor = [UIColor whiteColor];
+    [self.view addSubview:labelFaceNormals];
+    UISwitch *switchFaceNormals = [[UISwitch alloc]initWithFrame:CGRectMake(CGRectGetMinX(labelFaceNormals.frame), CGRectGetMaxY(labelFaceNormals.frame), 80, 44)];
+    [switchFaceNormals addTarget:self action:@selector(actionFaceNormals:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:switchFaceNormals];
+
+    UILabel *labelDrawNormals = [[UILabel alloc]initWithFrame:CGRectMake(30, CGRectGetMaxY(switchFaceNormals.frame)+10, CGRectGetWidth(labelFaceNormals.frame), 44)];
+    labelDrawNormals.text = @"Draw Normals";
+    labelDrawNormals.textColor = [UIColor whiteColor];
+    [self.view addSubview:labelDrawNormals];
+    UISwitch *switchDrawNormals = [[UISwitch alloc]initWithFrame:CGRectMake(CGRectGetMinX(labelDrawNormals.frame), CGRectGetMaxY(labelDrawNormals.frame), 80, 44)];
+    [switchDrawNormals addTarget:self action:@selector(actionDrawNormals:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:switchDrawNormals];
+
+    UISlider *slider = [[UISlider alloc]initWithFrame:CGRectMake(CGRectGetMinX(switchDrawNormals.frame), CGRectGetMaxY(switchDrawNormals.frame), self.view.frame.size.width-2*CGRectGetMinX(switchDrawNormals.frame), 44)];
+    [slider addTarget:self action:@selector(actionSlider:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:slider];
+
+    [switchFaceNormals setOn:YES];
+    slider.minimumValue = -1;
+}
+- (void)actionFaceNormals:(UISwitch *)sender
+{
+    self.shouldUseFaceNormals = sender.isOn;
+}
+- (void)actionDrawNormals:(UISwitch *)sender
+{
+    self.shouldDrawNormals = sender.isOn;
+}
+- (void)actionSlider:(UISlider *)sender
+{
+    self.centerVertexHeight = sender.value;
+}
 
 - (void)setShouldUseFaceNormals:(BOOL)aValue
 {
@@ -196,10 +195,10 @@ static SceneTriangle SceneTriangleMake(const SceneVertex vertexA,const SceneVert
         [self updateNormals];
     }
 }
-- (BOOL)shouldUseFaceNormals
-{
-    return shouldUseFaceNormals;
-}
+//- (BOOL)shouldUseFaceNormals
+//{
+//    return shouldUseFaceNormals;
+//}
 
 - (void)setCenterVertexHeight:(GLfloat)centerVertexHeight
 {
@@ -295,7 +294,7 @@ static SceneTriangle SceneTriangleMake(const SceneVertex vertexA,const SceneVert
     result.vertices[2] = vertexC;
     return result;
 }
-    ///单位化向量
+    ///单位化向量  http://www.zybang.com/question/cffe90ce10358de925f18e3d0efab1e7.html[怎么求一个向量的单位向量?]
 GLKVector3 SceneVector3UnitNormal(const GLKVector3 vectorA,const GLKVector3 vectorB)
 {
     return GLKVector3Normalize(GLKVector3CrossProduct(vectorA, vectorB));
