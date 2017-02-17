@@ -22,6 +22,10 @@ static const SceneVertex vertices[] =
     {{-0.5f, -0.5f, 0.0f}, {0.0f, 0.0f}},
     {{ 0.5f, -0.5f, 0.0f}, {1.0f, 0.0f}},
     {{-0.5f,  0.5f, 0.0f}, {0.0f, 1.0f}},
+
+    {{ 0.5f,  0.5f, 0.0f}, {1.0f, 1.0f}},
+    {{ 0.5f, -0.5f, 0.0f}, {1.0f, 0.0f}},
+    {{-0.5f,  0.5f, 0.0f}, {0.0f, 1.0f}},
 };
 
 @interface ViewController ()
@@ -60,7 +64,7 @@ static const SceneVertex vertices[] =
 {
     [self.baseEffect prepareToDraw];
 
-    [self.vertexBuffer prepareToDrawWithAttrib:GLKVertexAttribPosition numberOfCoordinates:sizeof(vertices)/sizeof(SceneVertex) attribOffset:offsetof(SceneVertex, positionCoords) shouldEnable:GL_TRUE];
+    [self.vertexBuffer prepareToDrawWithAttrib:GLKVertexAttribPosition numberOfCoordinates:3 attribOffset:offsetof(SceneVertex, positionCoords) shouldEnable:GL_TRUE];
     [self.vertexBuffer prepareToDrawWithAttrib:GLKVertexAttribTexCoord0 numberOfCoordinates:2 attribOffset:offsetof(SceneVertex, textureCoords) shouldEnable:GL_TRUE];
 
     [self.vertexBuffer drawArrayWithMode:GL_TRIANGLES startVertexIndex:0 numberOfVertices:sizeof(vertices)/sizeof(SceneVertex)];
