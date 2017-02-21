@@ -30,7 +30,7 @@
 
     self.baseEffect = [[GLKBaseEffect alloc]init];
     self.baseEffect.light0.enabled = GL_TRUE;
-    self.baseEffect.light0.diffuseColor = GLKVector4Make(0.7, 0.7, 0.7, 1);
+//    self.baseEffect.light0.diffuseColor = GLKVector4Make(1, 1, 1, 1);
     self.baseEffect.light0.ambientColor = GLKVector4Make(0.2, 0.2, 0.2, 1);
     self.baseEffect.light0.position = GLKVector4Make(1, 0, -0.8, 0);
 
@@ -46,6 +46,9 @@
     self.vertexTextureCoordBuffer = [[AGLKVertexAttribArrayBuffer alloc]initWithAttribStride:2*sizeof(GLfloat) numberOfVertices:sizeof(sphereTexCoords)/2*sizeof(GLfloat) data:sphereTexCoords usage:GL_STATIC_DRAW];
 
     [(AGLKContext *)glkView.context enable:GL_DEPTH_TEST];
+
+    GLfloat aspectRatio = self.view.frame.size.width/(GLfloat)self.view.frame.size.height;
+    self.baseEffect.transform.modelviewMatrix = GLKMatrix4MakeScale(1, aspectRatio, 1);
 }
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {

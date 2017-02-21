@@ -15,7 +15,6 @@
 		30452E331E504A34003550A8 /* AGLKContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 30452E301E504A34003550A8 /* AGLKContext.m */; };
 		30452E341E504A34003550A8 /* AGLKVertexAttribArrayBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 30452E321E504A34003550A8 /* AGLKVertexAttribArrayBuffer.m */; };
 		30452E371E504E94003550A8 /* Earth512x256.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30452E351E504E94003550A8 /* Earth512x256.jpg */; };
-		30452E381E504E94003550A8 /* Moon256x128.png in Resources */ = {isa = PBXBuildFile; fileRef = 30452E361E504E94003550A8 /* Moon256x128.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +32,6 @@
 		30452E311E504A34003550A8 /* AGLKVertexAttribArrayBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AGLKVertexAttribArrayBuffer.h; path = ../AGLKit/AGLKVertexAttribArrayBuffer.h; sourceTree = "<group>"; };
 		30452E321E504A34003550A8 /* AGLKVertexAttribArrayBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AGLKVertexAttribArrayBuffer.m; path = ../AGLKit/AGLKVertexAttribArrayBuffer.m; sourceTree = "<group>"; };
 		30452E351E504E94003550A8 /* Earth512x256.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Earth512x256.jpg; path = ../../images/Earth512x256.jpg; sourceTree = "<group>"; };
-		30452E361E504E94003550A8 /* Moon256x128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Moon256x128.png; path = ../../images/Moon256x128.png; sourceTree = "<group>"; };
 		30452E391E505213003550A8 /* sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sphere.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,7 +86,6 @@
 			isa = PBXGroup;
 			children = (
 				30452E351E504E94003550A8 /* Earth512x256.jpg */,
-				30452E361E504E94003550A8 /* Moon256x128.png */,
 				30452E121E5049CB003550A8 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -156,7 +153,6 @@
 				30452E221E5049CB003550A8 /* Assets.xcassets in Resources */,
 				30452E251E5049CB003550A8 /* LaunchScreen.storyboard in Resources */,
 				30452E371E504E94003550A8 /* Earth512x256.jpg in Resources */,
-				30452E381E504E94003550A8 /* Moon256x128.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +318,7 @@
 				30452E2B1E5049CB003550A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
