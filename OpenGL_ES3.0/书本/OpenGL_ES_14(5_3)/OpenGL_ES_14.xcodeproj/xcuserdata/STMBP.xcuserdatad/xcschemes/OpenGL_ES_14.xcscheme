@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "30452E0D1E5049CB003550A8"
-               BuildableName = "OpenGL_ES_12.app"
-               BlueprintName = "OpenGL_ES_12"
-               ReferencedContainer = "container:OpenGL_ES_12.xcodeproj">
+               BlueprintIdentifier = "306E48F81E518393006F6F6A"
+               BuildableName = "OpenGL_ES_14.app"
+               BlueprintName = "OpenGL_ES_14"
+               ReferencedContainer = "container:OpenGL_ES_14.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "30452E0D1E5049CB003550A8"
-            BuildableName = "OpenGL_ES_12.app"
-            BlueprintName = "OpenGL_ES_12"
-            ReferencedContainer = "container:OpenGL_ES_12.xcodeproj">
+            BlueprintIdentifier = "306E48F81E518393006F6F6A"
+            BuildableName = "OpenGL_ES_14.app"
+            BlueprintName = "OpenGL_ES_14"
+            ReferencedContainer = "container:OpenGL_ES_14.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "30452E0D1E5049CB003550A8"
-            BuildableName = "OpenGL_ES_12.app"
-            BlueprintName = "OpenGL_ES_12"
-            ReferencedContainer = "container:OpenGL_ES_12.xcodeproj">
+            BlueprintIdentifier = "306E48F81E518393006F6F6A"
+            BuildableName = "OpenGL_ES_14.app"
+            BlueprintName = "OpenGL_ES_14"
+            ReferencedContainer = "container:OpenGL_ES_14.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "30452E0D1E5049CB003550A8"
-            BuildableName = "OpenGL_ES_12.app"
-            BlueprintName = "OpenGL_ES_12"
-            ReferencedContainer = "container:OpenGL_ES_12.xcodeproj">
+            BlueprintIdentifier = "306E48F81E518393006F6F6A"
+            BuildableName = "OpenGL_ES_14.app"
+            BlueprintName = "OpenGL_ES_14"
+            ReferencedContainer = "container:OpenGL_ES_14.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
