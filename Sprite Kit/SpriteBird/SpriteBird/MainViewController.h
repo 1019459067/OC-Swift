@@ -1,5 +1,5 @@
 //
-//  GameViewController.h
+//  MainViewController.h
 //  SpriteBird
 //
 //  Created by STMBP on 2017/3/13.
@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <SpriteKit/SpriteKit.h>
-#import <GameplayKit/GameplayKit.h>
 
-@interface GameViewController : UIViewController
+@interface MainViewController : UIViewController
 
 @end
