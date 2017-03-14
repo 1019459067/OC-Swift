@@ -11,22 +11,24 @@
 #define ground_h 20
 
 #define wall_w          40
-#define nodeName_wall   @"wall"
-#define wall_move       @"move_wall"
-#define wall_add        @"add_wall"
 
+#define nodeName_wall   @"wall"
 #define nodeName_hole   @"hole"
+#define nodeName_hero   @"hero"
+#define nodeName_dust   @"dust"
+
+#define actionKey_wallmove       @"wall_move"
+#define actionKey_walladd        @"wall_add"
+#define actionKey_herofly        @"hero_fly"
+#define actionKey_heromove       @"hero_head"
+#define actionKey_dustadd        @"dust_add"
+
 
 #define timeinterval_movewall   4.0f
 #define timeinterval_addwall    2.0f
 
-#define hero_fly        @"fly"
-#define nodeName_hero   @"hero"
 
-#define movehead        @"move_head"
 
-#define nodeName_dust   @"dust"
-#define dust_add        @"add_dust"
 #define dust_w      20
 #define dust_h      1
 #define dust_w_min  2
@@ -79,7 +81,7 @@ static const uint32_t edgeCategory = 0x1 << 4;
         [self runAction:[SKAction repeatActionForever:[SKAction sequence:@[
                                                                            [SKAction performSelector:@selector(addDustNode) onTarget:self],
                                                                            [SKAction waitForDuration:0.3]]]]
-                withKey:dust_add];
+                withKey:actionKey_dustadd];
     }
     return self;
 }
@@ -120,7 +122,7 @@ static const uint32_t edgeCategory = 0x1 << 4;
     self.hero.physicsBody.usesPreciseCollisionDetection = YES;
     [self addChild:self.hero];
 
-    [self.hero runAction:[SKAction repeatActionForever:[self getFlyAction]] withKey:hero_fly];
+    [self.hero runAction:[SKAction repeatActionForever:[self getFlyAction]] withKey:actionKey_herofly];
 }
 - (SKAction *)getFlyAction
 {
@@ -154,7 +156,7 @@ static const uint32_t edgeCategory = 0x1 << 4;
         nodeWallUp.physicsBody.dynamic = NO;
         nodeWallUp.physicsBody.friction = 0;
 
-        [nodeWallUp runAction:self.actionMoveWall withKey:wall_move];
+        [nodeWallUp runAction:self.actionMoveWall withKey:actionKey_wallmove];
         [self addChild:nodeWallUp];
     }
         /// 下半部分
@@ -171,7 +173,7 @@ static const uint32_t edgeCategory = 0x1 << 4;
         nodeWallDown.physicsBody.dynamic = NO;
         nodeWallDown.physicsBody.friction = 0;
 
-        [nodeWallDown runAction:self.actionMoveWall withKey:wall_move];
+        [nodeWallDown runAction:self.actionMoveWall withKey:actionKey_wallmove];
         [self addChild:nodeWallDown];
     }
         /// 中空部分
@@ -180,7 +182,7 @@ static const uint32_t edgeCategory = 0x1 << 4;
     hole.position = CGPointMake(x, self.frame.size.height-upHeight-holeLength);
     hole.name = nodeName_hole;
 
-    [hole runAction:self.actionMoveWall withKey:wall_move];
+    [hole runAction:self.actionMoveWall withKey:actionKey_wallmove];
     [self addChild:hole];
 }
 
@@ -189,15 +191,15 @@ static const uint32_t edgeCategory = 0x1 << 4;
 {
     _bGameStart = YES;
 
-    [self removeActionForKey:dust_add];
+    [self removeActionForKey:actionKey_dustadd];
 
         /// hero
     self.hero.physicsBody.affectedByGravity = YES;
-    [self.hero removeActionForKey:hero_fly];
+    [self.hero removeActionForKey:actionKey_herofly];
 
         /// add wall
     SKAction *actionWallAdd = [SKAction sequence:@[[SKAction performSelector:@selector(addWallNode) onTarget:self],[SKAction waitForDuration:timeinterval_addwall]]];
-    [self runAction:[SKAction repeatActionForever:actionWallAdd] withKey:wall_add];
+    [self runAction:[SKAction repeatActionForever:actionWallAdd] withKey:actionKey_walladd];
 }
 - (void)update:(NSTimeInterval)currentTime
 {
@@ -240,7 +242,7 @@ static const uint32_t edgeCategory = 0x1 << 4;
         [self startGame];
     }
     self.hero.physicsBody.velocity = CGVectorMake(0, 400);
-    [self.hero runAction:self.actionMoveHead withKey:movehead];
+    [self.hero runAction:self.actionMoveHead withKey:actionKey_heromove];
 }
 
 #pragma mark - SKPhysicsContactDelegate
