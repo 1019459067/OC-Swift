@@ -21,6 +21,7 @@
 #define timeinterval_addwall    2.0f
 
 #define hero_fly        @"fly"
+#define nodeName_hero   @"hero"
 
 #define nodeName_dust   @"dust"
 #define dust_add        @"add_dust"
@@ -29,7 +30,13 @@
 #define dust_w_min  2
 #define dust_w_max  5
 
-@interface MainScene ()
+static const uint32_t heroCategory = 0x1 << 0;
+static const uint32_t wallCategory = 0x1 << 1;
+static const uint32_t holeCategory = 0x1 << 2;
+static const uint32_t groundCategory = 0x1 << 3;
+static const uint32_t edgeCategory = 0x1 << 4;
+
+@interface MainScene ()<SKPhysicsContactDelegate>
 {
     BOOL _bGameStart;
     BOOL _bGameOver;
@@ -46,24 +53,31 @@
     if (self = [super initWithSize:size])
     {
         self.backgroundColor = [UIColor whiteColor];
+        self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
+        self.physicsBody.categoryBitMask = edgeCategory;
+        self.physicsWorld.contactDelegate = self;
 
             /// wall move action
         self.actionMoveWall = [SKAction moveToX:-wall_w duration:timeinterval_movewall];
 
             /// head move action
-        SKAction *actionUpHead = [SKAction rotateByAngle:M_PI/6. duration:0.2];
+        SKAction *actionUpHead = [SKAction rotateToAngle:M_PI/6 duration:0.2];
         actionUpHead.timingMode = SKActionTimingEaseOut;
-        SKAction *actionDownHead = [SKAction rotateByAngle:-M_PI/2. duration:0.8];
+        SKAction *actionDownHead = [SKAction rotateToAngle:-M_PI/2 duration:0.8];
+        actionDownHead.timingMode = SKActionTimingEaseOut;
         self.actionMoveHead = [SKAction sequence:@[actionUpHead,actionDownHead]];
-
-            /// add hero
-        [self addHeroNode];
 
             /// add ground
         [self addGroundNode];
 
+            /// add hero
+        [self addHeroNode];
+
             /// add dust
-        [self runAction:[SKAction repeatActionForever:[SKAction sequence:@[[SKAction performSelector:@selector(addDustNode) onTarget:self],[SKAction waitForDuration:0.3]]]]];
+        [self runAction:[SKAction repeatActionForever:[SKAction sequence:@[
+                                                                           [SKAction performSelector:@selector(addDustNode) onTarget:self],
+                                                                           [SKAction waitForDuration:0.3]]]]
+                withKey:dust_add];
     }
     return self;
 }
@@ -72,6 +86,9 @@
     self.ground = [SKSpriteNode spriteNodeWithColor:[UIColor colorWithRed:34/255. green:166/255. blue:159/255. alpha:1] size:CGSizeMake(self.frame.size.width, ground_h)];
     self.ground.anchorPoint = CGPointMake(0, 0);
     self.ground.position = CGPointMake(0, 0);
+    self.ground.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.ground.size center:CGPointMake(self.ground.size.width/2., self.ground.size.height/2.)];
+    self.ground.physicsBody.categoryBitMask = groundCategory;
+    self.ground.physicsBody.dynamic = NO;
     [self addChild:self.ground];
 }
 - (void)addDustNode
@@ -89,14 +106,34 @@
     self.hero = [[SKSpriteNode alloc]initWithColor:[UIColor purpleColor] size:CGSizeMake(40, 30)];
     self.hero.anchorPoint = CGPointMake(0.5, 0.5);
     self.hero.position = CGPointMake(self.frame.size.width/3.0, CGRectGetMidY(self.frame));
+    self.hero.name = nodeName_hero;
+    self.hero.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.hero.size center:CGPointMake(0, 0)];
+    self.hero.physicsBody.categoryBitMask = heroCategory;
+    self.hero.physicsBody.collisionBitMask = wallCategory|groundCategory;
+    self.hero.physicsBody.contactTestBitMask = holeCategory|wallCategory|groundCategory;
+    self.hero.physicsBody.dynamic = YES;
+    self.hero.physicsBody.affectedByGravity = NO;
+    self.hero.physicsBody.allowsRotation = YES;
+    self.hero.physicsBody.restitution = 0.;
+    self.hero.physicsBody.usesPreciseCollisionDetection = YES;
     [self addChild:self.hero];
 
     [self.hero runAction:[SKAction repeatActionForever:[self getFlyAction]] withKey:hero_fly];
 }
+- (SKAction *)getFlyAction
+{
+    SKAction *actionflyUp = [SKAction moveToY:self.hero.position.y + 10 duration:0.3f];
+    actionflyUp.timingMode = SKActionTimingEaseOut;
+    SKAction *actionflyDown = [SKAction moveToY:self.hero.position.y - 10 duration:0.3f];
+    actionflyDown.timingMode = SKActionTimingEaseOut;
+    SKAction *actionfly = [SKAction sequence:@[actionflyUp, actionflyDown]];
+    return actionfly;
+}
+
 - (void)addWallNode
 {
     CGFloat spaceH = self.frame.size.height-ground_h;
-#warning <#message#>
+
     CGFloat holeLength = self.hero.size.width * 5;
     int holePosition = arc4random()%(int)((spaceH-holeLength)/self.hero.size.height);
 
@@ -134,15 +171,7 @@
     [hole runAction:self.actionMoveWall withKey:wall_move];
     [self addChild:hole];
 }
-- (SKAction *)getFlyAction
-{
-    SKAction *actionflyUp = [SKAction moveToY:self.hero.position.y + 10 duration:0.3f];
-    actionflyUp.timingMode = SKActionTimingEaseOut;
-    SKAction *actionflyDown = [SKAction moveToY:self.hero.position.y - 10 duration:0.3f];
-    actionflyDown.timingMode = SKActionTimingEaseOut;
-    SKAction *actionfly = [SKAction sequence:@[actionflyUp, actionflyDown]];
-    return actionfly;
-}
+
 
 - (void)startGame
 {
@@ -187,6 +216,7 @@
     }];
 }
 
+#pragma mark -
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     if (_bGameOver)
@@ -198,4 +228,33 @@
         [self startGame];
     }
 }
+
+#pragma mark - SKPhysicsContactDelegate
+- (void)didBeginContact:(SKPhysicsContact *)contact
+{
+    if (_bGameOver)
+    {
+        return;
+    }
+
+    SKPhysicsBody *firstBody, *secondBody;
+    if (contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask)
+    {
+        firstBody = contact.bodyA;
+        secondBody = contact.bodyB;
+    } else {
+        firstBody = contact.bodyB;
+        secondBody = contact.bodyA;
+    }
+
+//    if ((firstBody.categoryBitMask & heroCategory) && (secondBody.categoryBitMask & holeCategory)) {
+//        int currentPoint = [_labelNode.text intValue];
+//        _labelNode.text = [NSString stringWithFormat:@"%d", currentPoint + 1];
+//        [self playSoundWithName:@"sfx_point.caf"];
+//    } else {
+//        [self playSoundWithName:@"sfx_hit.caf"];
+//        [self gameOver];
+//    }
+}
+
 @end
