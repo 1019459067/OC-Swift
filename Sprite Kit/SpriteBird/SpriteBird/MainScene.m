@@ -50,6 +50,7 @@ static const uint32_t edgeCategory = 0x1 << 4;
 
 @property (strong, nonatomic) SKSpriteNode *hero;
 @property (strong, nonatomic) SKSpriteNode *ground;
+@property (strong, nonatomic) SKLabelNode *labelResult;
 @end
 @implementation MainScene
 - (instancetype)initWithSize:(CGSize)size
@@ -74,6 +75,9 @@ static const uint32_t edgeCategory = 0x1 << 4;
             /// add ground
         [self addGroundNode];
 
+            /// add result
+        [self addResultLabelNode];
+
             /// add hero
         [self addHeroNode];
 
@@ -84,6 +88,17 @@ static const uint32_t edgeCategory = 0x1 << 4;
                 withKey:actionKey_dustadd];
     }
     return self;
+}
+- (void)addResultLabelNode
+{
+    self.labelResult = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    self.labelResult.text = @"0";
+    self.labelResult.fontSize = 28;
+    self.labelResult.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+    self.labelResult.verticalAlignmentMode = SKLabelVerticalAlignmentModeTop;
+    self.labelResult.position = CGPointMake(10, self.frame.size.height-20);
+    self.labelResult.fontColor = [UIColor blackColor];
+    [self addChild:self.labelResult];
 }
 - (void)addGroundNode
 {
@@ -182,6 +197,10 @@ static const uint32_t edgeCategory = 0x1 << 4;
     hole.position = CGPointMake(x, self.frame.size.height-upHeight-holeLength);
     hole.name = nodeName_hole;
 
+    hole.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:hole.size center:CGPointMake(hole.size.width/2.0f, hole.size.height/2.0f)];
+    hole.physicsBody.categoryBitMask = holeCategory;
+    hole.physicsBody.dynamic = NO;
+
     [hole runAction:self.actionMoveWall withKey:actionKey_wallmove];
     [self addChild:hole];
 }
@@ -226,10 +245,24 @@ static const uint32_t edgeCategory = 0x1 << 4;
         if (node.position.x<= -wall_w)
         {
             [node removeFromParent];
+            *stop = YES;
         }
     }];
 }
+- (void)gameOver
+{
+    _bGameOver = YES;
 
+    [self.hero removeActionForKey:actionKey_heromove];
+    [self removeActionForKey:actionKey_walladd];
+    [self enumerateChildNodesWithName:nodeName_wall usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
+        [node removeActionForKey:actionKey_wallmove];
+    }];
+    [self enumerateChildNodesWithName:nodeName_hole usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
+        [node removeActionForKey:actionKey_wallmove];
+    }];
+    
+}
 #pragma mark -
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
@@ -244,7 +277,12 @@ static const uint32_t edgeCategory = 0x1 << 4;
     self.hero.physicsBody.velocity = CGVectorMake(0, 400);
     [self.hero runAction:self.actionMoveHead withKey:actionKey_heromove];
 }
-
+- (void)playSoundWithName:(NSString *)fileName
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self runAction:[SKAction playSoundFileNamed:fileName waitForCompletion:YES]];
+    });
+}
 #pragma mark - SKPhysicsContactDelegate
 - (void)didBeginContact:(SKPhysicsContact *)contact
 {
@@ -258,17 +296,19 @@ static const uint32_t edgeCategory = 0x1 << 4;
     {
         firstBody = contact.bodyA;
         secondBody = contact.bodyB;
-    } else {
+    } else
+    {
         firstBody = contact.bodyB;
         secondBody = contact.bodyA;
     }
 
-    if ((firstBody.categoryBitMask & heroCategory) && (secondBody.categoryBitMask & holeCategory)) {
-//        int currentPoint = [_labelNode.text intValue];
-//        _labelNode.text = [NSString stringWithFormat:@"%d", currentPoint + 1];
-//        [self playSoundWithName:@"sfx_point.caf"];
+    if ((firstBody.categoryBitMask & heroCategory) && (secondBody.categoryBitMask & holeCategory))
+    {
+        int iValueCurrent = [self.labelResult.text intValue];
+        self.labelResult.text = [NSString stringWithFormat:@"%d", iValueCurrent+1];
+        [self playSoundWithName:@"sfx_point.caf"];
     } else {
-//        [self playSoundWithName:@"sfx_hit.caf"];
+        [self playSoundWithName:@"sfx_hit.caf"];
 //        [self gameOver];
     }
 }
