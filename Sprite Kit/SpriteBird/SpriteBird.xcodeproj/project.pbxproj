@@ -13,6 +13,10 @@
 		3064A2EB1E76C72400066D53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3064A2E91E76C72400066D53 /* LaunchScreen.storyboard */; };
 		3064A2F41E76C7BE00066D53 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3064A2F31E76C7BE00066D53 /* MainViewController.m */; };
 		3064A2F71E76CAA500066D53 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3064A2F61E76CAA500066D53 /* MainScene.m */; };
+		3064A2FA1E77EDB500066D53 /* RestartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3064A2F91E77EDB500066D53 /* RestartView.m */; };
+		3064A3001E77F86C00066D53 /* sfx_hit.caf in Resources */ = {isa = PBXBuildFile; fileRef = 3064A2FC1E77F86C00066D53 /* sfx_hit.caf */; };
+		3064A3021E77F86C00066D53 /* sfx_point.caf in Resources */ = {isa = PBXBuildFile; fileRef = 3064A2FE1E77F86C00066D53 /* sfx_point.caf */; };
+		3064A3031E77F86C00066D53 /* sfx_wing.caf in Resources */ = {isa = PBXBuildFile; fileRef = 3064A2FF1E77F86C00066D53 /* sfx_wing.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,11 @@
 		3064A2F31E76C7BE00066D53 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		3064A2F51E76CAA500066D53 /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
 		3064A2F61E76CAA500066D53 /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScene.m; sourceTree = "<group>"; };
+		3064A2F81E77EDB500066D53 /* RestartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestartView.h; sourceTree = "<group>"; };
+		3064A2F91E77EDB500066D53 /* RestartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestartView.m; sourceTree = "<group>"; };
+		3064A2FC1E77F86C00066D53 /* sfx_hit.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sfx_hit.caf; sourceTree = "<group>"; };
+		3064A2FE1E77F86C00066D53 /* sfx_point.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sfx_point.caf; sourceTree = "<group>"; };
+		3064A2FF1E77F86C00066D53 /* sfx_wing.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sfx_wing.caf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +74,8 @@
 				3064A2F31E76C7BE00066D53 /* MainViewController.m */,
 				3064A2F51E76CAA500066D53 /* MainScene.h */,
 				3064A2F61E76CAA500066D53 /* MainScene.m */,
+				3064A2F81E77EDB500066D53 /* RestartView.h */,
+				3064A2F91E77EDB500066D53 /* RestartView.m */,
 				3064A2E71E76C72400066D53 /* Assets.xcassets */,
 				3064A2E91E76C72400066D53 /* LaunchScreen.storyboard */,
 				3064A2EC1E76C72400066D53 /* Info.plist */,
@@ -76,9 +87,20 @@
 		3064A2D41E76C72400066D53 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3064A2FB1E77F86C00066D53 /* Sound */,
 				3064A2D51E76C72400066D53 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3064A2FB1E77F86C00066D53 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				3064A2FC1E77F86C00066D53 /* sfx_hit.caf */,
+				3064A2FE1E77F86C00066D53 /* sfx_point.caf */,
+				3064A2FF1E77F86C00066D53 /* sfx_wing.caf */,
+			);
+			path = Sound;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,7 +163,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3064A2E81E76C72400066D53 /* Assets.xcassets in Resources */,
+				3064A3031E77F86C00066D53 /* sfx_wing.caf in Resources */,
+				3064A3021E77F86C00066D53 /* sfx_point.caf in Resources */,
 				3064A2EB1E76C72400066D53 /* LaunchScreen.storyboard in Resources */,
+				3064A3001E77F86C00066D53 /* sfx_hit.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +180,7 @@
 				3064A2D91E76C72400066D53 /* AppDelegate.m in Sources */,
 				3064A2F71E76CAA500066D53 /* MainScene.m in Sources */,
 				3064A2F41E76C7BE00066D53 /* MainViewController.m in Sources */,
+				3064A2FA1E77EDB500066D53 /* RestartView.m in Sources */,
 				3064A2D61E76C72400066D53 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,7 @@
 //
 
 #import "MainScene.h"
+#import "RestartView.h"
 
 #define ground_h 20
 
@@ -40,7 +41,7 @@ static const uint32_t holeCategory = 0x1 << 2;
 static const uint32_t groundCategory = 0x1 << 3;
 static const uint32_t edgeCategory = 0x1 << 4;
 
-@interface MainScene ()<SKPhysicsContactDelegate>
+@interface MainScene ()<SKPhysicsContactDelegate,RestartViewDelegate>
 {
     BOOL _bGameStart;
     BOOL _bGameOver;
@@ -82,12 +83,16 @@ static const uint32_t edgeCategory = 0x1 << 4;
         [self addHeroNode];
 
             /// add dust
-        [self runAction:[SKAction repeatActionForever:[SKAction sequence:@[
-                                                                           [SKAction performSelector:@selector(addDustNode) onTarget:self],
-                                                                           [SKAction waitForDuration:0.3]]]]
-                withKey:actionKey_dustadd];
+        [self runActionAddDust];
     }
     return self;
+}
+- (void)runActionAddDust
+{
+    [self runAction:[SKAction repeatActionForever:[SKAction sequence:@[
+                                                                       [SKAction performSelector:@selector(addDustNode) onTarget:self],
+                                                                       [SKAction waitForDuration:0.3]]]]
+            withKey:actionKey_dustadd];
 }
 - (void)addResultLabelNode
 {
@@ -205,7 +210,6 @@ static const uint32_t edgeCategory = 0x1 << 4;
     [self addChild:hole];
 }
 
-
 - (void)startGame
 {
     _bGameStart = YES;
@@ -220,6 +224,45 @@ static const uint32_t edgeCategory = 0x1 << 4;
     SKAction *actionWallAdd = [SKAction sequence:@[[SKAction performSelector:@selector(addWallNode) onTarget:self],[SKAction waitForDuration:timeinterval_addwall]]];
     [self runAction:[SKAction repeatActionForever:actionWallAdd] withKey:actionKey_walladd];
 }
+- (void)gameOver
+{
+    _bGameOver = YES;
+
+    [self.hero removeActionForKey:actionKey_heromove];
+    [self removeActionForKey:actionKey_walladd];
+
+    [self enumerateChildNodesWithName:nodeName_wall usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
+        [node removeActionForKey:actionKey_wallmove];
+    }];
+    [self enumerateChildNodesWithName:nodeName_hole usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
+        [node removeActionForKey:actionKey_wallmove];
+    }];
+
+    RestartView *view = [RestartView getInstanceWithSize:self.size];
+    view.delegate = self;
+    [view showInScene:self];
+}
+- (void)restartGame
+{
+    self.labelResult.text = @"0";
+
+    [self enumerateChildNodesWithName:nodeName_wall usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
+        [node removeFromParent];
+    }];
+    [self enumerateChildNodesWithName:nodeName_hole usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
+        [node removeFromParent];
+    }];
+
+    [self.hero removeFromParent];
+    self.hero = nil;
+    [self addHeroNode];
+
+    [self runActionAddDust];
+
+    _bGameStart = NO;
+    _bGameOver = NO;
+}
+
 - (void)update:(NSTimeInterval)currentTime
 {
     __block int iCountWall = 0;
@@ -248,20 +291,7 @@ static const uint32_t edgeCategory = 0x1 << 4;
             *stop = YES;
         }
     }];
-}
-- (void)gameOver
-{
-    _bGameOver = YES;
 
-    [self.hero removeActionForKey:actionKey_heromove];
-    [self removeActionForKey:actionKey_walladd];
-    [self enumerateChildNodesWithName:nodeName_wall usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
-        [node removeActionForKey:actionKey_wallmove];
-    }];
-    [self enumerateChildNodesWithName:nodeName_hole usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
-        [node removeActionForKey:actionKey_wallmove];
-    }];
-    
 }
 #pragma mark -
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -276,6 +306,7 @@ static const uint32_t edgeCategory = 0x1 << 4;
     }
     self.hero.physicsBody.velocity = CGVectorMake(0, 400);
     [self.hero runAction:self.actionMoveHead withKey:actionKey_heromove];
+    [self playSoundWithName:@"sfx_wing.caf"];
 }
 - (void)playSoundWithName:(NSString *)fileName
 {
@@ -309,8 +340,14 @@ static const uint32_t edgeCategory = 0x1 << 4;
         [self playSoundWithName:@"sfx_point.caf"];
     } else {
         [self playSoundWithName:@"sfx_hit.caf"];
-//        [self gameOver];
+        [self gameOver];
     }
 }
 
+#pragma mark - RestartViewDelegate
+- (void)restartView:(RestartView *)restartView didPressRestartButton:(SKSpriteNode *)node
+{
+    [restartView disMiss];
+    [self restartGame];
+}
 @end
