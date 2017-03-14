@@ -23,6 +23,8 @@
 #define hero_fly        @"fly"
 #define nodeName_hero   @"hero"
 
+#define movehead        @"move_head"
+
 #define nodeName_dust   @"dust"
 #define dust_add        @"add_dust"
 #define dust_w      20
@@ -147,6 +149,11 @@ static const uint32_t edgeCategory = 0x1 << 4;
         nodeWallUp.position = CGPointMake(x, self.frame.size.height-upHeight);
         nodeWallUp.name = nodeName_wall;
 
+        nodeWallUp.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:nodeWallUp.size center:CGPointMake(nodeWallUp.size.width/2., nodeWallUp.size.height/2.)];
+        nodeWallUp.physicsBody.categoryBitMask = wallCategory;
+        nodeWallUp.physicsBody.dynamic = NO;
+        nodeWallUp.physicsBody.friction = 0;
+
         [nodeWallUp runAction:self.actionMoveWall withKey:wall_move];
         [self addChild:nodeWallUp];
     }
@@ -158,6 +165,11 @@ static const uint32_t edgeCategory = 0x1 << 4;
         nodeWallDown.anchorPoint = CGPointMake(0, 0);
         nodeWallDown.position = CGPointMake(x, ground_h);
         nodeWallDown.name = nodeName_wall;
+
+        nodeWallDown.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:nodeWallDown.size center:CGPointMake(nodeWallDown.size.width/2., nodeWallDown.size.height/2.)];
+        nodeWallDown.physicsBody.categoryBitMask = wallCategory;
+        nodeWallDown.physicsBody.dynamic = NO;
+        nodeWallDown.physicsBody.friction = 0;
 
         [nodeWallDown runAction:self.actionMoveWall withKey:wall_move];
         [self addChild:nodeWallDown];
@@ -227,6 +239,8 @@ static const uint32_t edgeCategory = 0x1 << 4;
     {
         [self startGame];
     }
+    self.hero.physicsBody.velocity = CGVectorMake(0, 400);
+    [self.hero runAction:self.actionMoveHead withKey:movehead];
 }
 
 #pragma mark - SKPhysicsContactDelegate
@@ -247,14 +261,14 @@ static const uint32_t edgeCategory = 0x1 << 4;
         secondBody = contact.bodyA;
     }
 
-//    if ((firstBody.categoryBitMask & heroCategory) && (secondBody.categoryBitMask & holeCategory)) {
+    if ((firstBody.categoryBitMask & heroCategory) && (secondBody.categoryBitMask & holeCategory)) {
 //        int currentPoint = [_labelNode.text intValue];
 //        _labelNode.text = [NSString stringWithFormat:@"%d", currentPoint + 1];
 //        [self playSoundWithName:@"sfx_point.caf"];
-//    } else {
+    } else {
 //        [self playSoundWithName:@"sfx_hit.caf"];
 //        [self gameOver];
-//    }
+    }
 }
 
 @end
