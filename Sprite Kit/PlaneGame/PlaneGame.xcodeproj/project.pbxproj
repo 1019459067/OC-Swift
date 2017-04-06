@@ -605,6 +605,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = G426QE9Z25;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = PlaneGame/Main/PrefixHeader.pch;
@@ -613,7 +614,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../../../gitlab-sz-ios/CVFaceSDK/v6.2.1-full_m1-ios-85f7644/libs/ios_os-universal\"";
 				OTHER_LDFLAGS = "-lstdc++  ";
-				PRODUCT_BUNDLE_IDENTIFIER = com.1019459067.PlaneGame;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sensetime.sensemeet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -623,6 +624,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = G426QE9Z25;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = PlaneGame/Main/PrefixHeader.pch;
@@ -631,7 +633,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../../../gitlab-sz-ios/CVFaceSDK/v6.2.1-full_m1-ios-85f7644/libs/ios_os-universal\"";
 				OTHER_LDFLAGS = "-lstdc++  ";
-				PRODUCT_BUNDLE_IDENTIFIER = com.1019459067.PlaneGame;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sensetime.sensemeet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -44,6 +44,7 @@ static const uint32_t koalaCategory    =  0x1 << 1;
     {
         self.contentCreated = YES;
         [self createSceneContents];
+        [[self view] addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanFrom:)]];
     }
 }
 - (void)createSceneContents
