@@ -8,10 +8,13 @@
 
 #import "Scene.h"
 #import "SKScrollingNode.h"
+#import "BirdNode.h"
+#import "Constants.h"
 
-@interface Scene ()
+@interface Scene ()<SKPhysicsContactDelegate>
 {
     SKScrollingNode * back;
+    BirdNode * bird;
 
     int nbObstacles;
     NSMutableArray * topPipes;
@@ -19,8 +22,11 @@
 }
 @end
 @implementation Scene
+static bool wasted = NO;
+
 - (void)didMoveToView:(SKView *)view
 {
+    self.physicsWorld.contactDelegate = self;
     [self startGame];
 //    [self test];
 }
@@ -37,16 +43,27 @@
 }
 - (void)startGame
 {
+    wasted = NO;
     [self removeAllChildren];
 
     [self createBackground];
     [self createObstacles];
+    
+    [self createBird];
 }
+- (void)createBird
+{
+    bird = [BirdNode new];
+    [bird setPosition:CGPointMake(100, CGRectGetMidY(self.frame))];
+    [bird setName:@"bird"];
+    [self addChild:bird];
+}
+
 - (void)createObstacles
 {
         // Calculate how many obstacles we need, the less the better
     nbObstacles = ceil((self.frame.size.width)/(OBSTACLE_INTERVAL_SPACE));
-//    nbObstacles = 1;
+
     CGFloat lastBlockPos = 0;
     bottomPipes = @[].mutableCopy;
     topPipes = @[].mutableCopy;
@@ -75,6 +92,22 @@
     }
     
 }
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    if(wasted){
+        [self startGame];
+    }else{
+        if (!bird.physicsBody) {
+            [bird startPlaying];
+            if([self.delegate respondsToSelector:@selector(eventPlay)]){
+//                [self.delegate eventPlay];
+            }
+        }
+        [bird bounce];
+    }
+    
+    
+}
 #pragma mark - Creations
 
 - (void)createBackground
@@ -84,6 +117,10 @@
     [back setAnchorPoint:CGPointZero];
     [back setPhysicsBody:[SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame]];
     [self addChild:back];
+    
+    [back setPhysicsBody:[SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame]];
+    back.physicsBody.categoryBitMask = backBitMask;
+    back.physicsBody.contactTestBitMask = birdBitMask;
 }
 
 - (void)update:(NSTimeInterval)currentTime
@@ -92,11 +129,17 @@
     [back update:currentTime];
 
         // Other
+    [bird update:currentTime];
     [self updateObstacles:currentTime];
 }
 
 - (void)updateObstacles:(NSTimeInterval)currentTime
 {
+    if(!bird.physicsBody)
+    {
+        return;
+    }
+    
     for(int i=0;i<nbObstacles;i++)
     {
             // Get pipes bby pairs
@@ -130,8 +173,23 @@ static inline CGFloat randf(CGFloat low,CGFloat high);
         // Top pipe placement
     topPipe.position = CGPointMake(xPos,self.frame.size.height+OBSTACLE_MIN_HEIGHT-variance);
 
-}
+    
+    bottomPipe.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(0,0, WIDTH(bottomPipe) , HEIGHT(bottomPipe))];
+    bottomPipe.physicsBody.categoryBitMask = blockBitMask;
+    bottomPipe.physicsBody.contactTestBitMask = birdBitMask;
+    
+    topPipe.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(0,0, WIDTH(topPipe), HEIGHT(topPipe))];
+    topPipe.physicsBody.categoryBitMask = blockBitMask;
+    topPipe.physicsBody.contactTestBitMask = birdBitMask;
 
+}
+#pragma mark - Physic
+
+- (void)didBeginContact:(SKPhysicsContact *)contact
+{
+    static int i = 0;
+    NSLog(@"didBeginContact %d",i++);
+}
 //生成0-1 之前的两位小数
 static inline CGFloat randf(CGFloat low,CGFloat high)
 {
