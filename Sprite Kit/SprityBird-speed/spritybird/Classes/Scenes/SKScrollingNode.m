@@ -16,7 +16,7 @@
     UIImage * image = [UIImage imageNamed:name];
     
     SKScrollingNode * realNode = [SKScrollingNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(width, image.size.height)];
-    realNode.scrollingSpeed = 20;
+    realNode.scrollingSpeed = 1;
     
     float total = 0;
     while(total<(width + image.size.width)){
@@ -40,15 +40,7 @@
             float delta = child.position.x+child.size.width;
             child.position = CGPointMake(child.size.width*(self.children.count-1)+delta, child.position.y);
         }
-
-    }];
-//    [self.children enumerateObjectsUsingBlock:^(SKSpriteNode * child, NSUInteger idx, BOOL *stop) {
-//        child.position = CGPointMake(child.position.x-self.scrollingSpeed, child.position.y);
-//        if (child.position.x <= -child.size.width){
-//            float delta = child.position.x+child.size.width;
-//            child.position = CGPointMake(child.size.width*(self.children.count-1)+delta, child.position.y);
-//        }
-//    }];
-}
+        
+    }];}
 
 @end

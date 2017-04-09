@@ -68,7 +68,7 @@ static bool goingUp = false;
     
 }
 
-- (void) startPlaying
+- (void)startPlaying
 {
     deltaPosY = 0;
     [self setPhysicsBody:[SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(26, 18)]];

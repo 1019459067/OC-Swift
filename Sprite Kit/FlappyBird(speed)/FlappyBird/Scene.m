@@ -10,11 +10,13 @@
 #import "SKScrollingNode.h"
 #import "BirdNode.h"
 #import "Constants.h"
+#import "Score.h"
 
 @interface Scene ()<SKPhysicsContactDelegate>
 {
     SKScrollingNode * back;
     BirdNode * bird;
+    SKLabelNode * scoreLabel;
 
     int nbObstacles;
     NSMutableArray * topPipes;
@@ -27,6 +29,8 @@ static bool wasted = NO;
 - (void)didMoveToView:(SKView *)view
 {
     self.physicsWorld.contactDelegate = self;
+    self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
+    self.physicsBody.categoryBitMask = edgeCategory;
     [self startGame];
 //    [self test];
 }
@@ -49,8 +53,20 @@ static bool wasted = NO;
     [self createBackground];
     [self createObstacles];
     
+    [self createScore];
     [self createBird];
 }
+- (void) createScore
+{
+    self.score = 0;
+    scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica-Bold"];
+    scoreLabel.text = @"0";
+    scoreLabel.fontSize = 500;
+    scoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), 100);
+    scoreLabel.alpha = 0.2;
+    [self addChild:scoreLabel];
+}
+
 - (void)createBird
 {
     bird = [BirdNode new];
@@ -94,10 +110,13 @@ static bool wasted = NO;
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    if(wasted){
+    if(wasted)
+    {
         [self startGame];
-    }else{
-        if (!bird.physicsBody) {
+    }else
+    {
+        if (!bird.physicsBody)
+        {
             [bird startPlaying];
             if([self.delegate respondsToSelector:@selector(eventPlay)]){
 //                [self.delegate eventPlay];
@@ -125,12 +144,37 @@ static bool wasted = NO;
 
 - (void)update:(NSTimeInterval)currentTime
 {
+    if(wasted){
+        return;
+    }
         // ScrollingNodes
-    [back update:currentTime];
+//    if(bird.physicsBody)
+    {
+        [back update:currentTime];
+    }
 
         // Other
     [bird update:currentTime];
     [self updateObstacles:currentTime];
+    [self updateScore:currentTime];
+}
+- (void)updateScore:(NSTimeInterval) currentTime
+{
+    for(int i=0;i<nbObstacles;i++)
+    {
+        SKSpriteNode * topPipe = (SKSpriteNode *) topPipes[i];
+        
+        // Score, adapt font size
+        if(X(topPipe) + WIDTH(topPipe)/2 > bird.position.x &&
+           X(topPipe) + WIDTH(topPipe)/2 < bird.position.x + FLOOR_SCROLLING_SPEED){
+            self.score +=1;
+            scoreLabel.text = [NSString stringWithFormat:@"%lu",self.score];
+            if(self.score>=10){
+                scoreLabel.fontSize = 340;
+                scoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), 120);
+            }
+        }
+    }
 }
 
 - (void)updateObstacles:(NSTimeInterval)currentTime
@@ -187,8 +231,13 @@ static inline CGFloat randf(CGFloat low,CGFloat high);
 
 - (void)didBeginContact:(SKPhysicsContact *)contact
 {
+    if(wasted){ return; }
     static int i = 0;
     NSLog(@"didBeginContact %d",i++);
+
+    wasted = true;
+    [Score registerScore:self.score];
+
 }
 //生成0-1 之前的两位小数
 static inline CGFloat randf(CGFloat low,CGFloat high)

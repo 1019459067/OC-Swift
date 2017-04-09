@@ -8,7 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-#define BACK_SCROLLING_SPEED 14.5
+#define BACK_SCROLLING_SPEED 4.5
 #define FLOOR_SCROLLING_SPEED BACK_SCROLLING_SPEED
 
     // Obstacles
@@ -39,4 +39,5 @@
 
 @interface Scene : SKScene
 @property (assign) id<SceneDelegate> delegateScene;
+@property (nonatomic) NSInteger score;
 @end

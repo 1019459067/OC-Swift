@@ -11,8 +11,8 @@
 #import "BirdNode.h"
 #import "Score.h"
 
-#define BACK_SCROLLING_SPEED 3.5
-#define FLOOR_SCROLLING_SPEED BACK_SCROLLING_SPEED
+#define BACK_SCROLLING_SPEED .5
+#define FLOOR_SCROLLING_SPEED 3
 
 // Obstacles
 #define VERTICAL_GAP_SIZE 120
@@ -246,13 +246,13 @@ static bool wasted = NO;
 
 - (void)didBeginContact:(SKPhysicsContact *)contact
 {
-//    if(wasted){ return; }
-//
-//    wasted = true;
-//    [Score registerScore:self.score];
-//    
-//    if([self.delegate respondsToSelector:@selector(eventWasted)]){
-//        [self.delegate eventWasted];
-//    }
+    if(wasted){ return; }
+
+    wasted = true;
+    [Score registerScore:self.score];
+    
+    if([self.delegate respondsToSelector:@selector(eventWasted)]){
+        [self.delegate eventWasted];
+    }
 }
 @end
