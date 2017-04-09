@@ -10,16 +10,16 @@
 
 @implementation SKScrollingNode
 
-+ (instancetype)scrollingNodeWithImageNamed:(NSString *)name inContainerWidth:(float)width
++ (instancetype)scrollingNodeWithImageNamed:(NSString *)name inContainerSize:(CGSize)size
 {
     UIImage * image = [UIImage imageNamed:name];
 
-    SKScrollingNode * realNode = [SKScrollingNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(width, image.size.height)];
-    realNode.scrollingSpeed = 20;
-
+    SKScrollingNode * realNode = [SKScrollingNode spriteNodeWithColor:
+                                  [UIColor clearColor] size:size];
     float total = 0;
-    while(total<(width + image.size.width)){
-        SKSpriteNode * child = [SKSpriteNode spriteNodeWithImageNamed:name ];
+    while(total<(size.width + image.size.width))
+    {
+        SKSpriteNode * child = [SKSpriteNode spriteNodeWithImageNamed:name];
         [child setAnchorPoint:CGPointZero];
         [child setPosition:CGPointMake(total, 0)];
         [realNode addChild:child];
@@ -30,7 +30,8 @@
 
 - (void)update:(NSTimeInterval)currentTime
 {
-    [self.children enumerateObjectsUsingBlock:^(SKNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.children enumerateObjectsUsingBlock:^(SKNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop)
+    {
         SKSpriteNode * child = (SKSpriteNode*)obj;
         child.position = CGPointMake(child.position.x-self.scrollingSpeed, child.position.y);
         if (child.position.x <= -child.size.width)

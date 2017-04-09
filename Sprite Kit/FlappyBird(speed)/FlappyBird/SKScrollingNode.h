@@ -11,6 +11,6 @@
 @interface SKScrollingNode : SKSpriteNode
 @property (assign,nonatomic) CGFloat scrollingSpeed;
 
-+ (instancetype)scrollingNodeWithImageNamed:(NSString *)name inContainerWidth:(float)width;
++ (instancetype)scrollingNodeWithImageNamed:(NSString *)name inContainerSize:(CGSize)size;
 - (void)update:(NSTimeInterval)currentTime;
 @end

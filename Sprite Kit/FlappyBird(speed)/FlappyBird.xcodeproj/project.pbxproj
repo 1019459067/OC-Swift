@@ -12,7 +12,6 @@
 		302B0C391E98B976004706A3 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302B0C381E98B976004706A3 /* GameViewController.m */; };
 		302B0C3E1E98B976004706A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 302B0C3D1E98B976004706A3 /* Assets.xcassets */; };
 		302B0C411E98B976004706A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 302B0C3F1E98B976004706A3 /* LaunchScreen.storyboard */; };
-		304AE1741E9936D50087B334 /* Math.m in Sources */ = {isa = PBXBuildFile; fileRef = 304AE1731E9936D50087B334 /* Math.m */; };
 		30650AF21E98BA2C00E03456 /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = 30650AF11E98BA2C00E03456 /* Scene.m */; };
 		3083A4101E98DD7D009C9D75 /* SKScrollingNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3083A40F1E98DD7D009C9D75 /* SKScrollingNode.m */; };
 		3083A4261E98DEA1009C9D75 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3083A4121E98DEA1009C9D75 /* back@2x.png */; };
@@ -42,8 +41,6 @@
 		302B0C3D1E98B976004706A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		302B0C401E98B976004706A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		302B0C421E98B976004706A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		304AE1721E9936D50087B334 /* Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Math.h; sourceTree = "<group>"; };
-		304AE1731E9936D50087B334 /* Math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Math.m; sourceTree = "<group>"; };
 		30650AF01E98BA2C00E03456 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		30650AF11E98BA2C00E03456 /* Scene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scene.m; sourceTree = "<group>"; };
 		3083A40E1E98DD7D009C9D75 /* SKScrollingNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKScrollingNode.h; sourceTree = "<group>"; };
@@ -103,8 +100,6 @@
 				30650AF11E98BA2C00E03456 /* Scene.m */,
 				3083A40E1E98DD7D009C9D75 /* SKScrollingNode.h */,
 				3083A40F1E98DD7D009C9D75 /* SKScrollingNode.m */,
-				304AE1721E9936D50087B334 /* Math.h */,
-				304AE1731E9936D50087B334 /* Math.m */,
 				302B0C3D1E98B976004706A3 /* Assets.xcassets */,
 				302B0C3F1E98B976004706A3 /* LaunchScreen.storyboard */,
 				302B0C421E98B976004706A3 /* Info.plist */,
@@ -231,7 +226,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				30650AF21E98BA2C00E03456 /* Scene.m in Sources */,
-				304AE1741E9936D50087B334 /* Math.m in Sources */,
 				3083A4101E98DD7D009C9D75 /* SKScrollingNode.m in Sources */,
 				302B0C391E98B976004706A3 /* GameViewController.m in Sources */,
 				302B0C2F1E98B976004706A3 /* AppDelegate.m in Sources */,
@@ -355,6 +349,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sensetime.testApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -368,6 +363,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sensetime.testApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
