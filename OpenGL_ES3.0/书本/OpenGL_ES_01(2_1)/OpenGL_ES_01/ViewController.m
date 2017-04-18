@@ -5,6 +5,9 @@
 //  Created by STMBP on 2017/2/4.
 //  Copyright © 2017年 sensetime. All rights reserved.
 //
+/*
+ http://www.jianshu.com/p/d22cf555de47
+ */
 
 #import "ViewController.h"
 #import <OpenGLES/ES3/gl.h>

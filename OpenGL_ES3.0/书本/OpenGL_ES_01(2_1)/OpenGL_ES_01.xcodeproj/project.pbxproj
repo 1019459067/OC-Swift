@@ -264,7 +264,7 @@
 				DEVELOPMENT_TEAM = G426QE9Z25;
 				INFOPLIST_FILE = OpenGL_ES_01/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sensetime.OpenGL-ES-01";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sensetime.testApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -276,7 +276,7 @@
 				DEVELOPMENT_TEAM = G426QE9Z25;
 				INFOPLIST_FILE = OpenGL_ES_01/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sensetime.OpenGL-ES-01";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sensetime.testApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -300,6 +300,7 @@
 				309BA8E11E45CE2800CAB848 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
