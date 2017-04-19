@@ -400,6 +400,11 @@
 			attributes = {
 				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = yinghuochong;
+				TargetAttributes = {
+					186741A615FDBBDE00B79CF3 = {
+						DevelopmentTeam = G426QE9Z25;
+					};
+				};
 			};
 			buildConfigurationList = 186741A115FDBBDE00B79CF3 /* Build configuration list for PBXProject "MagicCube" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -565,10 +570,12 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = G426QE9Z25;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MagicCube/MagicCube-Prefix.pch";
 				INFOPLIST_FILE = "MagicCube/MagicCube-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sensetime.testApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -581,10 +588,12 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = G426QE9Z25;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MagicCube/MagicCube-Prefix.pch";
 				INFOPLIST_FILE = "MagicCube/MagicCube-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sensetime.testApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

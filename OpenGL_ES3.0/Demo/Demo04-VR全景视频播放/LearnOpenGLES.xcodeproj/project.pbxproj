@@ -164,6 +164,7 @@
 				TargetAttributes = {
 					FDAAD24D1CE1CD7A00C7B6AC = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = G426QE9Z25;
 					};
 					FDAAD2661CE1CD7A00C7B6AC = {
 						CreatedOnToolsVersion = 7.3;
@@ -351,12 +352,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = G426QE9Z25;
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = "../framework/**";
 				INFOPLIST_FILE = "$(SRCROOT)/LearnOpenGLES/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = loying.lin.LearnOpenGLES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sensetime.testApp;
 				PRODUCT_NAME = LearnOpenGLES;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -369,12 +371,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = G426QE9Z25;
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = "../framework/**";
 				INFOPLIST_FILE = "$(SRCROOT)/LearnOpenGLES/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = loying.lin.LearnOpenGLES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sensetime.testApp;
 				PRODUCT_NAME = LearnOpenGLES;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

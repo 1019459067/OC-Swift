@@ -163,6 +163,7 @@
 				TargetAttributes = {
 					FD205ABA1CD0903F000DD196 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = G426QE9Z25;
 					};
 					FD205AD31CD09040000DD196 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -343,9 +344,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G426QE9Z25;
 				INFOPLIST_FILE = SkyBoxImage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = loying.lin.SkyBoxImage;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sensetime.testApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -354,9 +356,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G426QE9Z25;
 				INFOPLIST_FILE = SkyBoxImage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = loying.lin.SkyBoxImage;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sensetime.testApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -404,6 +407,7 @@
 				FD205ADF1CD09040000DD196 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FD205AE01CD09040000DD196 /* Build configuration list for PBXNativeTarget "SkyBoxImageTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +416,7 @@
 				FD205AE21CD09040000DD196 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
